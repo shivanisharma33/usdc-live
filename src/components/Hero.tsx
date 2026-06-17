@@ -6,7 +6,7 @@ import WaveBackground from "@/components/WaveBackground";
 
 export default function Hero() {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-15 pb-20 md:pb-28 relative min-h-[calc(100vh-80px)] select-none overflow-hidden">
+    <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-28 md:pt-36 pb-20 md:pb-28 relative min-h-screen select-none overflow-hidden">
 
       {/* Particle wave hero animation */}
       <WaveBackground />

@@ -3,6 +3,14 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RedefiningData from "@/components/RedefiningData";
 import InfrastructureStack from "@/components/InfrastructureStack";
+import AIDemand from "@/components/AIDemand";
+import Arms200System from "@/components/Arms200System";
+import NvidiaRoadmap from "@/components/NvidiaRoadmap";
+import Arms200Platform from "@/components/Arms200Platform";
+import UsdcByNumbers from "@/components/UsdcByNumbers";
+import LatestNews from "@/components/LatestNews";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -30,10 +38,28 @@ export default function Home() {
       {/* Render the Infrastructure Stack section */}
       <InfrastructureStack />
 
+      {/* Render the AI Demand section */}
+      <AIDemand />
+
+      {/* Render the ARMS 200 System section */}
+      <Arms200System />
+
+      {/* Render the NVIDIA Roadmap section */}
+      <NvidiaRoadmap />
+      {/* Render the ARMS 200 Platform section */}
+      <Arms200Platform />
+
+      {/* Render the USDC By The Numbers section */}
+      <UsdcByNumbers />
+
+      {/* Render the Latest News section */}
+      <LatestNews />
+
+      {/* Render the Contact Section */}
+      <ContactSection />
+
       {/* Footer / Info section */}
-      <footer className="w-full py-10 border-t border-white/[0.04] relative z-10 flex items-center justify-center text-[10px] text-white/25 tracking-[0.2em] font-sans">
-        © 2026 USDC CLONE. ALL RIGHTS RESERVED.
-      </footer>
+      <Footer />
     </div>
   );
 }

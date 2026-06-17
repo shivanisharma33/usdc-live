@@ -152,7 +152,7 @@ export default function InfrastructureStack() {
               transform: inView ? "translateY(0px)" : "translateY(30px)",
             }}
           >
-            <div className="relative w-full max-w-2xl aspect-[4/3] sm:aspect-[1.3] overflow-hidden border border-white/[0.06] rounded-[24px] bg-[#02050c]/30 backdrop-blur-xl shadow-[0_16px_50px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.02)]">
+            <div className="relative w-full max-w-2xl aspect-[4/3] sm:aspect-[1.3] overflow-hidden rounded-[24px] bg-[#02050c]/30 backdrop-blur-xl">
               <ThreeDStack />
             </div>
           </div>
