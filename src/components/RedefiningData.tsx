@@ -60,8 +60,8 @@ export default function RedefiningData() {
       {/* Background Image Layer for the Entire Section (Always visible immediately) */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <Image
-          src="/modular_datacenter.jpg"
-          alt="Modular Data Center Facility Background"
+          src="/USDC model.avif"
+          alt="USDC Modular Data Center Model"
           fill
           className="object-cover object-center"
           sizes="100vw"

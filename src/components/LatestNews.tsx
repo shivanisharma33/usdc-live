@@ -47,7 +47,7 @@ export default function LatestNews() {
       title: "AI Power: Expanding data center capacity to meet growing demand",
       excerpt: "Comprehensive overview of data center modernization strategies, capacity planning, and..",
       category: "Industry News",
-      hasCornerCut: false,
+      hasCornerCut: true,
     },
   ];
 
@@ -102,15 +102,14 @@ export default function LatestNews() {
           {newsItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col p-6 sm:p-8 rounded-2xl bg-[#eaeef6] border border-white/[0.08] relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+              className="group flex flex-col p-6 sm:p-8 rounded-2xl bg-[#eaeef6] border border-white/[0.08] relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
               style={{
                 boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
                 ...fadeUp(150 + idx * 100),
               }}
             >
-              {/* Top-Right Triangular cut-out (only on first card, or as specified by hasCornerCut) */}
               {item.hasCornerCut && (
-                <div className="absolute top-0 right-0 w-16 h-16 z-20 pointer-events-none">
+                <div className="absolute top-0 right-0 w-16 h-16 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <polygon points="0,0 100,0 100,100" fill="#04070f" />
                     <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />

@@ -118,8 +118,8 @@ export default function Arms200Platform() {
             <div className="relative w-full max-w-[480px]">
               <div className="rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.1)]">
                 <Image
-                  src="/arms200_container.png"
-                  alt="ARMS 200 Modular Data Center Container with USDC branding"
+                  src="/USDC (3).avif"
+                  alt="ARMS 200 Modular Data Center Platform"
                   width={560}
                   height={560}
                   className="w-full h-auto object-cover"

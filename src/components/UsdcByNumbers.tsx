@@ -56,7 +56,7 @@ export default function UsdcByNumbers() {
       {/* ── Subtle ambient glow ── */}
       <div className="absolute top-[-30%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1080px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16">
         {/* ── Heading ── */}
         <h2
           className="text-center text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] font-extrabold tracking-[-0.01em] leading-[1.1] mb-12 md:mb-14"
@@ -79,7 +79,7 @@ export default function UsdcByNumbers() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center justify-center text-center px-8 py-10 md:py-12 ${
+                className={`flex flex-col items-center justify-center text-center px-6 py-6 md:py-8 ${
                   i < stats.length - 1
                     ? "border-b md:border-b-0 md:border-r border-white/[0.06]"
                     : ""
@@ -87,7 +87,7 @@ export default function UsdcByNumbers() {
               >
                 {/* Large Number */}
                 <span
-                  className="text-[52px] sm:text-[60px] md:text-[64px] lg:text-[72px] font-extrabold tracking-tight leading-none mb-4"
+                  className="text-[40px] sm:text-[46px] md:text-[50px] lg:text-[56px] font-extrabold tracking-tight leading-none mb-3"
                   style={{ color: stat.color }}
                 >
                   {stat.value}

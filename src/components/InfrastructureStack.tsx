@@ -109,7 +109,7 @@ export default function InfrastructureStack() {
         {/* Content Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Feature List with Indicators */}
-          <div className="lg:col-span-5 flex flex-col gap-10 md:gap-12 w-full text-left order-2 lg:order-1">
+          <div className="lg:col-span-5 flex flex-col gap-10 md:gap-12 w-full text-left order-2 lg:order-2">
             {features.map((feat, index) => (
               <div
                 key={feat.title}
@@ -118,7 +118,7 @@ export default function InfrastructureStack() {
                   opacity: inView ? 1 : 0,
                   transform: inView
                     ? "translateX(0px)"
-                    : "translateX(-30px)",
+                    : "translateX(30px)",
                   transitionDelay: `${150 + index * 100}ms`,
                 }}
               >
@@ -146,7 +146,7 @@ export default function InfrastructureStack() {
 
           {/* Right Column: 3D Stack Model */}
           <div
-            className="lg:col-span-7 flex justify-center w-full order-1 lg:order-2 transition-all duration-1000 ease-out"
+            className="lg:col-span-7 flex justify-center w-full order-1 lg:order-1 transition-all duration-1000 ease-out"
             style={{
               opacity: inView ? 1 : 0,
               transform: inView ? "translateY(0px)" : "translateY(30px)",
