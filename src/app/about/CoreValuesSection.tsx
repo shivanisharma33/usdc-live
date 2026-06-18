@@ -1,0 +1,104 @@
+"use client";
+
+import React from "react";
+import { Zap, Leaf, CheckCircle2 } from "lucide-react";
+
+export default function CoreValuesSection() {
+  const coreValues = [
+    {
+      id: 1,
+      title: "HIGH PERFORMANCE",
+      description: "Delivering cutting-edge GPU/HPC infrastructure for demanding HPC workloads.",
+      icon: Zap,
+    },
+    {
+      id: 2,
+      title: "SUSTAINABILITY",
+      description: "Integrating renewable energy and efficient cooling systems.",
+      icon: Leaf,
+    },
+    {
+      id: 3,
+      title: "RELIABILITY",
+      description: "Tier III redundancy standards with 99.99% uptime guarantee.",
+      icon: CheckCircle2,
+    },
+    {
+      id: 4,
+      title: "HIGH PERFORMANCE",
+      description: "Delivering cutting-edge GPU/HPC infrastructure for demanding HPC workloads.",
+      icon: Zap,
+    },
+    {
+      id: 5,
+      title: "SUSTAINABILITY",
+      description: "Integrating renewable energy and efficient cooling systems.",
+      icon: Leaf,
+    },
+    {
+      id: 6,
+      title: "RELIABILITY",
+      description: "Tier III redundancy standards with 99.99% uptime guarantee.",
+      icon: CheckCircle2,
+    },
+  ];
+
+  return (
+    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-24 border-t border-white/[0.03] select-none">
+      
+      {/* Ambient backgrounds */}
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-sky-500/[0.02] rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+        
+        {/* ── Header Section ── */}
+        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+          
+          {/* Main Heading */}
+          <h2 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white leading-tight mb-6 font-sans">
+            Our Core <span className="text-[#3daeff]">Values</span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-sm md:text-base text-white/50 max-w-[600px] leading-relaxed font-normal font-sans">
+            These principles guide every decision we make and shape our company culture
+          </p>
+        </div>
+
+        {/* ── Values Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {coreValues.map((value) => {
+            const IconComponent = value.icon;
+            return (
+              <div
+                key={value.id}
+                className="group relative p-8 rounded-[16px] bg-gradient-to-br from-[#0a0e1a]/50 to-[#051620]/30 border border-[#3daeff]/20 backdrop-blur-xl hover:border-[#3daeff]/50 transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.04),0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_48px_rgba(61,174,255,0.1)]"
+              >
+                {/* Icon Container */}
+                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br from-[#3daeff]/20 to-[#3daeff]/5 border border-[#3daeff]/30 group-hover:border-[#3daeff]/60 group-hover:bg-[#3daeff]/30 transition-all duration-300">
+                  <IconComponent className="w-8 h-8 text-[#3daeff] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-[13px] md:text-[12px] font-black uppercase tracking-[0.16em] text-white/95 leading-snug mb-3 font-sans">
+                  {value.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[12.5px] text-white/50 leading-relaxed font-normal font-sans">
+                  {value.description}
+                </p>
+
+                {/* Glow Effect on Hover */}
+                <div className="absolute inset-0 rounded-[16px] bg-gradient-to-br from-[#3daeff]/0 to-[#3daeff]/0 group-hover:from-[#3daeff]/5 group-hover:to-[#3daeff]/0 transition-all duration-300 pointer-events-none" />
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+
+    </section>
+  );
+}

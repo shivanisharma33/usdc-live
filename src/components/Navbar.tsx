@@ -23,15 +23,15 @@ export default function Navbar() {
     { label: "Press Release", href: "/press-release" },
     { label: "Management Team", href: "#" },
     { label: "Career", href: "#" },
-    { label: "About us", href: "#" },
+    { label: "About us", href: "/about" },
     { label: "Location", href: "#" },
   ];
 
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-300 ${isScrolled
-          ? "bg-[#04070f]/75 border-b border-white/[0.06] backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)] h-[70px]"
-          : "bg-transparent h-[85px]"
+        ? "bg-[#04070f]/75 border-b border-white/[0.06] backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)] h-[70px]"
+        : "bg-transparent h-[85px]"
         }`}
     >
       {/* Left Section - USDC Logo */}

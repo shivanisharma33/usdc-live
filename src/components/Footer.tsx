@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
-import UsdcLogo from "./UsdcLogo";
 
 /* ═══════════════════════ Footer Component ═══════════════════════ */
 
@@ -73,13 +73,20 @@ export default function Footer() {
       <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-500/[0.03] rounded-full blur-[110px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col gap-12">
-        
+
         {/* ── Top Grid (Columns) ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          
+
           {/* Logo & Description Column (Left) */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <UsdcLogo />
+            <Image
+              src="/USDC_3 1.png"
+              alt="USDC Logo"
+              width={140}
+              height={50}
+              className="h-[46px] w-auto"
+              priority
+            />
             <p className="text-[12px] text-white/45 max-w-[420px] leading-[1.8] mt-6 font-normal">
               Powering the future of data with state-of-the-art infrastructure and solutions designed for the demands of the digital economy.
             </p>
@@ -105,13 +112,18 @@ export default function Footer() {
               Company
             </h4>
             <ul className="flex flex-col gap-3.5">
-              {["Home", "About us", "Our Team", "Latest News"].map((link, idx) => (
+              {[
+                { label: "Home", href: "/" },
+                { label: "About us", href: "/about" },
+                { label: "Our Team", href: "#" },
+                { label: "Latest News", href: "#" }
+              ].map((link, idx) => (
                 <li key={idx}>
                   <a
-                    href="#"
+                    href={link.href}
                     className="text-[11px] text-white/45 hover:text-[#3daeff] transition-colors duration-200 font-bold"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
