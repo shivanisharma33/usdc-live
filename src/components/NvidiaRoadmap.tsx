@@ -26,7 +26,35 @@ function FeatureLabel({
         transition: `all 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
       }}
     >
-      <div className="flex items-center gap-2 px-3.5 py-[7px] rounded-full bg-[#080e1e]/90 border border-white/[0.08] backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+      {/* CSS Styles for floating and glowing */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes labelFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-4px); }
+        }
+        @keyframes labelGlow {
+          0%, 100% { 
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 4px rgba(61, 174, 255, 0.15); 
+            border-color: rgba(61, 174, 255, 0.15);
+          }
+          50% { 
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 12px rgba(61, 174, 255, 0.35); 
+            border-color: rgba(61, 174, 255, 0.45);
+          }
+        }
+        .animate-label-premium {
+          animation: labelFloat 4s ease-in-out infinite, labelGlow 3s ease-in-out infinite;
+        }
+      `}} />
+
+      <div 
+        className="flex items-center gap-2 px-3.5 py-[7px] rounded-full bg-[#080e1e]/90 border border-white/[0.08] backdrop-blur-md animate-label-premium"
+        style={{
+          // Apply staggered animation delay for a wavy floating effect
+          animationDelay: `${delay}ms, ${delay + 500}ms`
+        }}
+      >
         <span className="text-[#3daeff] text-[11px] flex-shrink-0">{icon}</span>
         <span className="text-[9px] font-semibold text-white/75 tracking-[0.16em] uppercase whitespace-nowrap">
           {text}
@@ -39,17 +67,42 @@ function FeatureLabel({
 /* ──────────────────── Timeline Dot ──────────────────── */
 function TimelineDot({ active }: { active?: boolean }) {
   return (
-    <div className="absolute -left-[29px] top-[2px] flex items-center justify-center">
+    <div className="absolute -left-[33px] top-[5px] w-[10px] h-[10px] flex items-center justify-center">
+      {/* Premium Ping Animation keyframes */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes timelinePulse {
+          0% { transform: scale(0.6); opacity: 0.8; }
+          100% { transform: scale(2.4); opacity: 0; }
+        }
+        .animate-timeline-ping {
+          animation: timelinePulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        }
+      `}} />
+
+      {/* Ripple/Ping Ring (only visible when active) */}
+      {active && (
+        <div className="absolute w-[18px] h-[18px] rounded-full border border-[#3daeff]/60 animate-timeline-ping pointer-events-none" />
+      )}
+
+      {/* Main Core Dot */}
       <div
-        className={`w-[10px] h-[10px] rounded-full ${
-          active ? "bg-[#3daeff]" : "bg-[#3daeff]/60"
+        className={`rounded-full transition-all duration-500 ease-out flex items-center justify-center ${
+          active 
+            ? "w-[10px] h-[10px] bg-[#3daeff]" 
+            : "w-[6px] h-[6px] bg-white/20 group-hover:bg-[#3daeff]/40"
         }`}
         style={{
           boxShadow: active
-            ? "0 0 10px rgba(61,174,255,0.5), 0 0 20px rgba(61,174,255,0.2)"
-            : "0 0 6px rgba(61,174,255,0.25)",
+            ? "0 0 12px rgba(61,174,255,0.6), 0 0 24px rgba(61,174,255,0.3)"
+            : "none",
         }}
-      />
+      >
+        {/* White Inner Center (only visible when active) */}
+        {active && (
+          <div className="w-[3px] h-[3px] bg-white rounded-full" />
+        )}
+      </div>
     </div>
   );
 }
@@ -57,6 +110,7 @@ function TimelineDot({ active }: { active?: boolean }) {
 /* ──────────────────────── Main Section ──────────────────────── */
 export default function NvidiaRoadmap() {
   const [inView, setInView] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -76,27 +130,164 @@ export default function NvidiaRoadmap() {
     return () => observer.disconnect();
   }, []);
 
+  // Auto-cycling timeline items every 3 seconds
+  useEffect(() => {
+    if (!inView) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [inView, activeIndex]);
+
   const fadeUp = (delay: number): React.CSSProperties => ({
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(20px)",
     transition: `all 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
   });
 
+  const getFeatureIcon = (type: string) => {
+    switch (type) {
+      case "power":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+        );
+      case "cooling":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="2" x2="12" y2="22" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+            <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" />
+          </svg>
+        );
+      case "gpu":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <line x1="9" y1="2" x2="9" y2="4" />
+            <line x1="15" y1="2" x2="15" y2="4" />
+            <line x1="9" y1="20" x2="9" y2="22" />
+            <line x1="15" y1="20" x2="15" y2="22" />
+            <line x1="2" y1="9" x2="4" y2="9" />
+            <line x1="2" y1="15" x2="4" y2="15" />
+            <line x1="20" y1="9" x2="22" y2="9" />
+            <line x1="20" y1="15" x2="22" y2="15" />
+          </svg>
+        );
+      case "network":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+        );
+      case "shield":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        );
+      case "cloud":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+          </svg>
+        );
+      case "oci":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" />
+            <rect x="2" y="14" width="20" height="8" rx="2" />
+            <line x1="6" y1="6" x2="6.01" y2="6" />
+            <line x1="6" y1="18" x2="6.01" y2="18" />
+          </svg>
+        );
+      case "check":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        );
+      case "cpu":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <line x1="9" y1="9" x2="15" y2="9" />
+            <line x1="9" y1="13" x2="15" y2="13" />
+            <line x1="9" y1="17" x2="15" y2="17" />
+          </svg>
+        );
+      case "density":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+        );
+      case "memory":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+            <polyline points="2 17 12 22 22 17" />
+            <polyline points="2 12 12 17 22 12" />
+          </svg>
+        );
+      case "zap":
+        return (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
   const timelineItems = [
     {
       num: "01",
       title: "BLACKWELL",
       desc: "Optimized for high-density AI training and large-scale inference workloads.",
+      img: "/gpu_board_1.png",
+      features: [
+        { text: "POWER READY", iconType: "power", x: "top-[-6px] left-[-4px]" },
+        { text: "DIRECT-TO-CHIP COOLING", iconType: "cooling", x: "top-[15%] right-[-2%] lg:right-[2%]" },
+        { text: "GPU OPTIMIZED", iconType: "gpu", x: "bottom-[20%] left-[-4%]" },
+        { text: "HIGH-SPEED NETWORKING", iconType: "network", x: "bottom-[2%] right-[8%] lg:right-[12%]" },
+      ]
     },
     {
       num: "02",
       title: "ORACLE BLACKWELL",
       desc: "Purpose-built infrastructure supporting enterprise-scale AI deployment.",
+      img: "/gpu_board_2.png",
+      features: [
+        { text: "ENTERPRISE SECURE", iconType: "shield", x: "top-[-6px] left-[-4px]" },
+        { text: "CLOUD INTEGRATED", iconType: "cloud", x: "top-[15%] right-[-2%] lg:right-[2%]" },
+        { text: "OCI COMPATIBLE", iconType: "oci", x: "bottom-[20%] left-[-4%]" },
+        { text: "99.99% RELIABLE", iconType: "check", x: "bottom-[2%] right-[8%] lg:right-[12%]" },
+      ]
     },
     {
       num: "03",
       title: "VERA RUBIN",
       desc: "Future-ready architecture designed for the next generation of AI compute.",
+      img: "/news_ai_chip.png",
+      features: [
+        { text: "NEXT-GEN ARCH", iconType: "cpu", x: "top-[-6px] left-[-4px]" },
+        { text: "ULTRA-DENSE CORES", iconType: "density", x: "top-[15%] right-[-2%] lg:right-[2%]" },
+        { text: "3D STACKED MEMORY", iconType: "memory", x: "bottom-[20%] left-[-4%]" },
+        { text: "FUTURE READY", iconType: "zap", x: "bottom-[2%] right-[8%] lg:right-[12%]" },
+      ]
     },
   ];
 
@@ -157,7 +348,7 @@ export default function NvidiaRoadmap() {
         </div>
 
         {/* ═══ Main Grid: Images + Timeline ═══ */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_auto_0.85fr] gap-8 lg:gap-0 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start mb-16">
           {/* ── Left Column: Hardware Images with Floating Labels ── */}
           <div
             className="relative"
@@ -166,143 +357,101 @@ export default function NvidiaRoadmap() {
               ...fadeUp(240),
             }}
           >
-            {/* Primary GPU Image */}
+            {/* Primary GPU Image Container with Cross-Fade */}
             <div
-              className="absolute top-[8%] left-[8%] w-[84%] rounded-lg overflow-hidden"
+              className="absolute top-[8%] left-[8%] w-[84%] aspect-[1.6] rounded-lg overflow-hidden"
               style={{
                 transform: "perspective(900px) rotateY(-3deg) rotateX(1.1deg)",
                 boxShadow:
                   "0 25px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)",
               }}
             >
-              <div className="relative">
-                <Image
-                  src="/gpu_board_1.png"
-                  alt="GPU server circuit board – direct-to-chip cooling"
-                  width={640}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                  style={{ display: "block" }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/30 via-transparent to-transparent" />
-              </div>
+              {timelineItems.map((item, i) => (
+                <div
+                  key={item.num}
+                  className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                  style={{ opacity: activeIndex === i ? 1 : 0 }}
+                >
+                  <Image
+                    src={item.img}
+                    alt={`${item.title} platform details`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={i === 0}
+                  />
+                </div>
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/30 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* ── Floating Feature Labels ── */}
-            {/* ⚡ Power Ready — top left */}
-            <FeatureLabel
-              icon={
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
-              }
-              text="POWER READY"
-              className="top-[-6px] left-[-4px]"
-              delay={500}
-              inView={inView}
-            />
-
-            {/* ❄ Direct-to-Chip Cooling — top center-right */}
-            <FeatureLabel
-              icon={
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="12" y1="2" x2="12" y2="22" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
-                  <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" />
-                </svg>
-              }
-              text="DIRECT-TO-CHIP COOLING"
-              className="top-[15%] right-[-2%] lg:right-[2%]"
-              delay={600}
-              inView={inView}
-            />
-
-            {/* ⬡ GPU Optimized — bottom left */}
-            <FeatureLabel
-              icon={
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="4" y="4" width="16" height="16" rx="2" />
-                  <rect x="9" y="9" width="6" height="6" />
-                  <line x1="9" y1="2" x2="9" y2="4" />
-                  <line x1="15" y1="2" x2="15" y2="4" />
-                  <line x1="9" y1="20" x2="9" y2="22" />
-                  <line x1="15" y1="20" x2="15" y2="22" />
-                  <line x1="2" y1="9" x2="4" y2="9" />
-                  <line x1="2" y1="15" x2="4" y2="15" />
-                  <line x1="20" y1="9" x2="22" y2="9" />
-                  <line x1="20" y1="15" x2="22" y2="15" />
-                </svg>
-              }
-              text="GPU OPTIMIZED"
-              className="bottom-[20%] left-[-4%]"
-              delay={700}
-              inView={inView}
-            />
-
-            {/* 🌐 High-Speed Networking — bottom right */}
-            <FeatureLabel
-              icon={
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              }
-              text="HIGH-SPEED NETWORKING"
-              className="bottom-[2%] right-[8%] lg:right-[12%]"
-              delay={800}
-              inView={inView}
-            />
-          </div>
-
-          {/* ── Center: Vertical Timeline Line ── */}
-          <div
-            className="hidden lg:flex flex-col items-center mx-8 xl:mx-12"
-            style={fadeUp(350)}
-          >
-            <div
-              className="w-px flex-1 min-h-[340px]"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(61,174,255,0.35) 0%, rgba(61,174,255,0.15) 60%, transparent 100%)",
-              }}
-            />
+            {/* ── Floating Feature Labels for each active stage ── */}
+            {timelineItems.map((item, stageIdx) => {
+              const isStageActive = activeIndex === stageIdx;
+              return (
+                <div
+                  key={`features-stage-${stageIdx}`}
+                  className="absolute inset-0 transition-opacity duration-1000 ease-in-out pointer-events-none"
+                  style={{ opacity: isStageActive ? 1 : 0 }}
+                >
+                  {item.features.map((feat, fIdx) => (
+                    <FeatureLabel
+                      key={`feat-${stageIdx}-${fIdx}`}
+                      icon={getFeatureIcon(feat.iconType)}
+                      text={feat.text}
+                      className={feat.x}
+                      delay={fIdx * 100}
+                      inView={inView && isStageActive}
+                    />
+                  ))}
+                </div>
+              );
+            })}
           </div>
 
           {/* ── Right Column: Timeline Items ── */}
           <div className="relative pl-7 lg:pl-7 pt-2" style={fadeUp(400)}>
-            {/* Mobile-only vertical line */}
+            {/* Vertical timeline line (runs behind the dots on all screens) */}
             <div
-              className="lg:hidden absolute left-0 top-0 bottom-0 w-px"
+              className="absolute left-0 top-2 bottom-6 w-px"
               style={{
                 background:
-                  "linear-gradient(to bottom, rgba(61,174,255,0.35) 0%, rgba(61,174,255,0.15) 60%, transparent 100%)",
+                  "linear-gradient(to bottom, rgba(61,174,255,0.35) 0%, rgba(61,174,255,0.15) 70%, transparent 100%)",
               }}
             />
 
-            {timelineItems.map((item, i) => (
-              <div
-                key={item.num}
-                className="relative mb-12 last:mb-0"
-                style={{
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? "translateY(0)" : "translateY(16px)",
-                  transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${500 + i * 120}ms`,
-                }}
-              >
-                <TimelineDot active={i === 0} />
-                <span className="text-[11px] font-semibold text-[#3daeff]/80 tracking-[0.18em] block mb-2">
-                  {item.num}
-                </span>
-                <h3 className="text-[15px] md:text-[16px] font-bold text-white tracking-[0.06em] mb-2.5 uppercase">
-                  {item.title}
-                </h3>
-                <p className="text-[11px] md:text-[12px] text-white/30 leading-[1.75] max-w-[260px] font-normal">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+            {timelineItems.map((item, i) => {
+              const isActive = activeIndex === i;
+              return (
+                <div
+                  key={item.num}
+                  className="relative mb-12 last:mb-0 cursor-pointer group"
+                  onClick={() => setActiveIndex(i)}
+                  style={{
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? "translateY(0)" : "translateY(16px)",
+                    transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${500 + i * 120}ms`,
+                  }}
+                >
+                  <TimelineDot active={isActive} />
+                  <span className={`text-[11px] font-semibold tracking-[0.18em] block mb-2 transition-all duration-300 ${
+                    isActive ? "text-[#3daeff]" : "text-white/20"
+                  }`}>
+                    {item.num}
+                  </span>
+                  <h3 className={`text-[15px] md:text-[16px] font-bold tracking-[0.06em] mb-2.5 uppercase transition-all duration-300 ${
+                    isActive ? "text-[#3daeff]" : "text-white/35 group-hover:text-white/60"
+                  }`}>
+                    {item.title}
+                  </h3>
+                  <p className={`text-[11px] md:text-[12px] leading-[1.75] max-w-[260px] font-normal transition-all duration-300 ${
+                    isActive ? "text-white/70" : "text-white/20"
+                  }`}>
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 

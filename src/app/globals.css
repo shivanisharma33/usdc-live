@@ -70,3 +70,79 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+/* ───────────── Contact page — futuristic motion utilities ───────────── */
+
+/* Slow vertical drift for floating glass panels */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.cx-floatY { animation: floatY 7s ease-in-out infinite; }
+
+/* Holographic conic border that rotates around glass panels */
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+.cx-spin-slow { animation: spinSlow 9s linear infinite; }
+
+/* Light sweep that crosses cards on hover */
+@keyframes sweep {
+  0% { transform: translateX(-150%) skewX(-18deg); }
+  100% { transform: translateX(250%) skewX(-18deg); }
+}
+
+/* Pulsing glow used by nodes, badges, CTA */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+.cx-pulse { animation: glowPulse 2.6s ease-in-out infinite; }
+
+/* Map ping ring */
+@keyframes ping2 {
+  0% { transform: scale(0.4); opacity: 0.9; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+.cx-ping { animation: ping2 2.8s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+/* Animated gradient flow for buttons / text */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.cx-gradient-flow {
+  background-size: 200% auto;
+  animation: gradientFlow 4s linear infinite;
+}
+
+/* Dash flow for animated connection lines (SVG) */
+@keyframes dashFlow {
+  to { stroke-dashoffset: -240; }
+}
+
+/* Shimmer travelling along animated panel borders */
+@keyframes borderShimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Entrance reveal driven by .cx-reveal toggling */
+.cx-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.cx-reveal.cx-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-floatY, .cx-spin-slow, .cx-pulse, .cx-ping, .cx-gradient-flow {
+    animation: none !important;
+  }
+  .cx-reveal { transition: none; opacity: 1; transform: none; }
+}
+

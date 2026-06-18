@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { MessageSquare, Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -17,12 +18,13 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    "Investor",
-    "News & insight",
-    "Management Team",
-    "Career",
-    "About us",
-    "Location",
+    { label: "Investor", href: "#" },
+    { label: "News & insight", href: "#" },
+    { label: "Press Release", href: "/press-release" },
+    { label: "Management Team", href: "#" },
+    { label: "Career", href: "#" },
+    { label: "About us", href: "#" },
+    { label: "Location", href: "#" },
   ];
 
   return (
@@ -50,13 +52,13 @@ export default function Navbar() {
       <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
         <div className="flex items-center gap-[38px]">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
+            <Link
+              key={link.label}
+              href={link.href}
               className="relative text-white/80 text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans"
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </div>
 
@@ -79,10 +81,13 @@ export default function Navbar() {
           </button>
 
           {/* Contact Us Button */}
-          <button className="flex items-center justify-center gap-2 h-[34px] px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer">
+          <Link
+            href="/contact"
+            className="flex items-center justify-center gap-2 h-[34px] px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer"
+          >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Contact Us</span>
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -107,14 +112,14 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] md:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
+            <Link
+              key={link.label}
+              href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-2 border-b border-white/[0.03] font-sans"
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
 
           <div className="flex items-center justify-between gap-4 mt-2">
@@ -129,10 +134,14 @@ export default function Navbar() {
               />
             </button>
 
-            <button className="flex items-center justify-center gap-2 flex-grow h-[42px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] rounded-[10px] text-[12px] font-bold text-white hover:from-[#58c4ff] hover:to-[#0091ff] transition-all duration-200">
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 flex-grow h-[42px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] rounded-[10px] text-[12px] font-bold text-white hover:from-[#58c4ff] hover:to-[#0091ff] transition-all duration-200"
+            >
               <MessageSquare className="w-4 h-4" />
               <span>Contact Us</span>
-            </button>
+            </Link>
           </div>
         </div>
       )}
