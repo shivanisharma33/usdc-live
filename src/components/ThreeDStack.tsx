@@ -3,10 +3,25 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-export default function ThreeDStack() {
+interface ThreeDStackProps {
+  activePlate?: number | null;
+  onPlateChange?: (idx: number | null) => void;
+}
+
+export default function ThreeDStack({ activePlate, onPlateChange }: ThreeDStackProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animFrameRef = useRef<number>(0);
+  const activePlateRef = useRef<number | null>(null);
+  const onPlateChangeRef = useRef<((idx: number | null) => void) | undefined>(undefined);
+
+  useEffect(() => {
+    activePlateRef.current = activePlate !== undefined ? activePlate : null;
+  }, [activePlate]);
+
+  useEffect(() => {
+    onPlateChangeRef.current = onPlateChange;
+  }, [onPlateChange]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -50,10 +65,10 @@ export default function ThreeDStack() {
     const onResize = () => setCam();
     window.addEventListener("resize", onResize);
 
+    // Camera rig Y movement
     const camView = new THREE.Vector3(9, 8.2, 9);
     let camTargetY = 0;
     let camRigY = 0;
-    let prevT = 0;
     function applyCam() {
       camera.position.set(camView.x, camView.y + camRigY, camView.z);
       camera.lookAt(0, camRigY, 0);
@@ -79,17 +94,17 @@ export default function ThreeDStack() {
           uSize: { value: _size },
         },
         vertexShader: `attribute float aDist; varying float vD; uniform float uSize;
-      void main(){ vD=aDist; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+          void main(){ vD=aDist; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
         fragmentShader: `precision highp float; varying float vD;
-      uniform vec3 uColor; uniform float uProg,uDen,uOp;
-      void main(){
-        if(vD>uProg) discard;
-        float d=fract(vD*uDen);
-        float dot=smoothstep(0.5,0.42,abs(d-0.5));
-        float edge=smoothstep(uProg,uProg-0.04,vD);
-        float a=dot*uOp*(0.85+0.6*edge);
-        gl_FragColor=vec4(uColor*(1.0+edge*0.8),a);
-      }`,
+          uniform vec3 uColor; uniform float uProg,uDen,uOp;
+          void main(){
+            if(vD>uProg) discard;
+            float d=fract(vD*uDen);
+            float dot=smoothstep(0.5,0.42,abs(d-0.5));
+            float edge=smoothstep(uProg,uProg-0.04,vD);
+            float a=dot*uOp*(0.85+0.6*edge);
+            gl_FragColor=vec4(uColor*(1.0+edge*0.8),a);
+          }`,
       });
     }
 
@@ -104,15 +119,15 @@ export default function ThreeDStack() {
           uOp: { value: opacity },
         },
         vertexShader: `attribute float aDist; varying float vD;
-      void main(){ vD=aDist; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
+          void main(){ vD=aDist; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`,
         fragmentShader: `varying float vD; uniform vec3 uColor; uniform float uProg,uOp;
-      void main(){ if(vD>uProg) discard;
-        float edge=smoothstep(uProg,uProg-0.06,vD);
-        gl_FragColor=vec4(uColor*(1.0+edge),uOp*(0.6+0.4*edge)); }`,
+          void main(){ if(vD>uProg) discard;
+            float edge=smoothstep(uProg,uProg-0.06,vD);
+            gl_FragColor=vec4(uColor*(1.0+edge),uOp*(0.6+0.4*edge)); }`,
       });
     }
 
-    // glow sprite for nodes
+    // glow texture
     const glowTex = (() => {
       const c = document.createElement("canvas");
       c.width = c.height = 64;
@@ -142,7 +157,6 @@ export default function ThreeDStack() {
       return m;
     }
 
-    // add per-vertex normalized distance attribute along a polyline
     function withDist(pts: THREE.Vector3[]) {
       const g = new THREE.BufferGeometry().setFromPoints(pts);
       const d = new Float32Array(pts.length);
@@ -168,12 +182,7 @@ export default function ThreeDStack() {
     function rgbEdges(geo: THREE.BoxGeometry, depthDim = 1) {
       const e = new THREE.EdgesGeometry(geo, 1);
       const g = new THREE.Group();
-      const mk = (
-        dx: number,
-        dz: number,
-        col: number,
-        op: number
-      ) => {
+      const mk = (dx: number, dz: number, col: number, op: number) => {
         const m = new THREE.LineBasicMaterial({
           color: col,
           transparent: true,
@@ -232,7 +241,7 @@ export default function ThreeDStack() {
       return p;
     });
 
-    // labels
+    // labels - skewed canvas mesh
     function textPlane(text: string) {
       const cv = document.createElement("canvas");
       cv.width = 1024;
@@ -267,33 +276,89 @@ export default function ThreeDStack() {
     });
 
     // ====================================================================
-    //  VERTICAL DOTTED GUIDE COLUMNS
+    //  VERTICAL DOTTED GUIDE COLUMNS + LAYER JOINT CONNECTORS
     // ====================================================================
     const dots = new THREE.Group();
     scene.add(dots);
-    function dottedColumn(x: number, z: number) {
-      const top = layerDefs[3].y + 1.2,
-        bot = layerDefs[0].y - 1.2;
-      const pts = [
-        new THREE.Vector3(x, bot, z),
-        new THREE.Vector3(x, top, z),
-      ];
+
+    function dottedColumn(x: number, z: number, top: number, bot: number) {
+      const pts = [new THREE.Vector3(x, bot, z), new THREE.Vector3(x, top, z)];
       const g = withDist(pts);
       const m = dottedLineMat(0xffffff, (top - bot) * 3.2, 0.5);
       const l = new THREE.Line(g, m);
       l.userData.mat = m;
+      l.userData.baseOp = 0.5;
       return l;
     }
-    (
-      [
-        [PW * 0.5 + 0.6, PD * 0.5 + 0.6],
-        [PW * 0.5 + 0.6, -PD * 0.5 + 0.4],
-        [-PW * 0.4, PD * 0.5 + 0.7],
-      ] as [number, number][]
-    ).forEach(([x, z]) => dots.add(dottedColumn(x, z)));
+
+    function jointTick(x: number, z: number, y: number) {
+      const p2 = [
+        new THREE.Vector3(x - 0.05, y, z + 0.3),
+        new THREE.Vector3(x - 0.05, y, z - 0.3),
+      ];
+      const g = withDist(p2);
+      const m = dottedLineMat(0xffffff, 12, 0.65);
+      const l = new THREE.Line(g, m);
+      l.userData.mat = m;
+      l.userData.baseOp = 0.65;
+      l.userData.y0 = y;
+      return l;
+    }
+
+    const PT_TOP = PT * 0.5;
+    const joints = [
+      [PW * 0.5, PD * 0.11, 0], // joint 1-4 (front-right, longest) -> AI Applications
+      [PW * 0.5, -PD * 0.21, 1], // joint 1-3 (mid-right) -> GPU Compute
+      [PW * 0.5, -PD * 0.4, 2], // joint 1-2 (back-right, shortest) -> Cooling & Network
+    ];
+
+    interface JointGroup extends THREE.Group {
+      userData: {
+        plate: number;
+        x: number;
+        z: number;
+        col: THREE.Line;
+        topTick: THREE.Line;
+        botTick: THREE.Line;
+      };
+    }
+
+    const jointGroups: JointGroup[] = [];
+    joints.forEach(([x, z, li]) => {
+      const g = new THREE.Group() as JointGroup;
+      g.userData = {
+        plate: li,
+        x,
+        z,
+        col: dottedColumn(x, z, 1, 0),
+        topTick: jointTick(x, z, 0),
+        botTick: jointTick(x, z, 0),
+      };
+      g.add(g.userData.col);
+      g.add(g.userData.topTick);
+      g.add(g.userData.botTick);
+      dots.add(g);
+      jointGroups.push(g);
+    });
+
+    function layoutJoint(g: JointGroup, topY: number, botY: number) {
+      const x = g.userData.x,
+        z = g.userData.z;
+      const pos = g.userData.col.geometry.attributes.position as THREE.BufferAttribute;
+      pos.setXYZ(0, x, botY, z);
+      pos.setXYZ(1, x, topY, z);
+      pos.needsUpdate = true;
+      g.userData.col.geometry.computeBoundingSphere();
+
+      const mat = g.userData.col.userData.mat as THREE.ShaderMaterial;
+      mat.uniforms.uDen.value = Math.max(0.001, topY - botY) * 3.2;
+
+      g.userData.topTick.position.y = topY - g.userData.topTick.userData.y0;
+      g.userData.botTick.position.y = botY - g.userData.botTick.userData.y0;
+    }
 
     // ====================================================================
-    //  TOP GRID NETWORK
+    //  STEP 6 — TOP GRID NETWORK
     // ====================================================================
     const TOP = layers[3];
     const topNet = new THREE.Group();
@@ -305,7 +370,7 @@ export default function ThreeDStack() {
         span = PW * 0.66,
         y = PT * 0.5 + 0.12;
       const litColors = [0x39ff8a, 0xffffff, 0x18c4ff];
-      for (let i = 0; i < N; i++)
+      for (let i = 0; i < N; i++) {
         for (let j = 0; j < N; j++) {
           const x = (i / (N - 1) - 0.5) * span,
             z = (j / (N - 1) - 0.5) * span;
@@ -317,6 +382,7 @@ export default function ThreeDStack() {
           g.userData = { d: Math.hypot(x, z), lit };
           netNodes.push(g);
         }
+      }
       for (let i = 0; i < N; i++) {
         const a = (i / (N - 1) - 0.5) * span;
         const rowH = [
@@ -338,7 +404,7 @@ export default function ThreeDStack() {
     })();
 
     // ====================================================================
-    //  CENTER SQUARE + CONCENTRIC DOTTED RINGS  (Cooling & Network)
+    //  STEP 8 — CENTER SQUARE + CONCENTRIC DOTTED RINGS  (Cooling & Network)
     // ====================================================================
     const SQL = layers[2];
     const squareGrp = new THREE.Group();
@@ -392,7 +458,7 @@ export default function ThreeDStack() {
     })();
 
     // ====================================================================
-    //  CIRCULAR SYSTEM  (GPU Compute)
+    //  STEP 9 — CIRCULAR SYSTEM  (GPU Compute)
     // ====================================================================
     const CRL = layers[1];
     const circGrp = new THREE.Group();
@@ -437,7 +503,7 @@ export default function ThreeDStack() {
     })();
 
     // ====================================================================
-    //  INTERSECTING CIRCLES / VENN  (AI Applications)
+    //  STEP 10 — INTERSECTING CIRCLES / VENN  (AI Applications)
     // ====================================================================
     const VNL = layers[0];
     const vennGrp = new THREE.Group();
@@ -501,7 +567,7 @@ export default function ThreeDStack() {
     })();
 
     // ====================================================================
-    //  TIMELINE
+    //  REVEAL EASE HELPERS
     // ====================================================================
     const ease = (t: number) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -512,25 +578,20 @@ export default function ThreeDStack() {
 
     function setLayerOpacity(p: THREE.Group, o: number) {
       p.userData.faceMat.opacity = p.userData.faceBase * o;
-      p.userData.edgeGroup.children.forEach(
-        (c: THREE.LineSegments) => {
-          (c.material as THREE.LineBasicMaterial).opacity =
-            (c.material as THREE.LineBasicMaterial & { userData: Record<string, number> }).userData.base * o;
-        }
-      );
-      if (p.userData.label)
+      p.userData.edgeGroup.children.forEach((c: THREE.LineSegments) => {
+        (c.material as THREE.LineBasicMaterial).opacity =
+          (c.material as THREE.LineBasicMaterial & { userData: Record<string, number> }).userData.base * o;
+      });
+      if (p.userData.label) {
         ((p.userData.label as THREE.Mesh).material as THREE.MeshBasicMaterial).opacity = o * 0.92;
+      }
     }
     layers.forEach((p) => {
       p.visible = false;
       setLayerOpacity(p, 0);
     });
 
-    function revealLayer(
-      p: THREE.Group,
-      prog: number,
-      riseFrom: number
-    ) {
+    function revealLayer(p: THREE.Group, prog: number, riseFrom: number) {
       if (prog <= 0) {
         p.visible = false;
         p.userData.buildOff = riseFrom;
@@ -543,143 +604,20 @@ export default function ThreeDStack() {
     }
 
     // ====================================================================
-    //  COMPACT SEQUENTIAL STACKED-REVEAL
+    //  CLICK-DRIVEN OPEN/CLOSE MODEL
     // ====================================================================
-    const NEST_GAP = 0.62;
-    const TOP_RISE = 1.4;
-    const L3_TOP = layers[3].userData.targetY + TOP_RISE;
-    const nestedY = [
-      L3_TOP - 3 * NEST_GAP,
-      L3_TOP - 2 * NEST_GAP,
-      L3_TOP - 1 * NEST_GAP,
-      L3_TOP,
-    ];
-
+    const OPEN_LIFT = 2.2;
     const BUILD = 0.9;
     const BUILD_GAP = 0.55;
-    const SETTLE = 0.7;
-    const RISE = 1.15;
-    const PLAY = 2.2;
-    const NEST = 1.0;
-    const DWELL = 0.45;
-    const ENDHOLD = 1.6;
 
     const buildStart = 0.4;
-    const bTimes = layers.map((_p, i) => buildStart + i * BUILD_GAP);
+    const bTimes = layers.map((_, i) => buildStart + i * BUILD_GAP);
     const buildEnd = bTimes[bTimes.length - 1] + BUILD;
 
-    const IDLE = 0.06;
-    const FADE_LEAD = 0.12;
-    let cur = buildEnd + SETTLE;
-
-    interface Step {
-      plate: number;
-      cover: number;
-      liftCover: boolean;
-      coverRiseA?: number;
-      coverRiseB?: number;
-      playA: number;
-      playB: number;
-      fadeA: number;
-      fadeB: number;
-      nestA: number;
-      nestB: number;
-    }
-
-    const steps: Step[] = [];
-    {
-      // STEP 0
-      const s: Step = {
-        plate: 2,
-        cover: 3,
-        liftCover: true,
-        playA: 0,
-        playB: 0,
-        fadeA: 0,
-        fadeB: 0,
-        nestA: 0,
-        nestB: 0,
-      };
-      s.coverRiseA = cur;
-      s.coverRiseB = cur + RISE;
-      cur = s.coverRiseB;
-      s.playA = cur;
-      s.playB = cur + PLAY;
-      cur = s.playB + DWELL;
-      s.fadeA = s.playB + FADE_LEAD;
-      s.nestA = cur;
-      s.nestB = cur + NEST;
-      cur = s.nestB + DWELL;
-      s.fadeB = s.nestB;
-      steps.push(s);
-    }
-    {
-      // STEP 1
-      const s: Step = {
-        plate: 1,
-        cover: 2,
-        liftCover: false,
-        playA: 0,
-        playB: 0,
-        fadeA: 0,
-        fadeB: 0,
-        nestA: 0,
-        nestB: 0,
-      };
-      s.playA = cur;
-      s.playB = cur + PLAY;
-      cur = s.playB + DWELL;
-      s.fadeA = s.playB + FADE_LEAD;
-      s.nestA = cur;
-      s.nestB = cur + NEST;
-      cur = s.nestB + DWELL;
-      s.fadeB = s.nestB;
-      steps.push(s);
-    }
-    {
-      // STEP 2
-      const s: Step = {
-        plate: 0,
-        cover: 1,
-        liftCover: false,
-        playA: 0,
-        playB: 0,
-        fadeA: 0,
-        fadeB: 0,
-        nestA: 0,
-        nestB: 0,
-      };
-      s.playA = cur;
-      s.playB = cur + PLAY;
-      cur = s.playB + DWELL;
-      s.fadeA = s.playB + FADE_LEAD;
-      s.nestA = cur;
-      s.nestB = cur + NEST;
-      cur = s.nestB + DWELL;
-      s.fadeB = s.nestB;
-      steps.push(s);
-    }
-    const LOOP = cur + ENDHOLD;
-
-    const stepOfPlate = (idx: number) =>
-      steps.find((s) => s.plate === idx)!;
+    const openProg = [0, 0, 0, 0]; // 0 closed .. 1 open (indexed by plate; top layer 3 unused)
+    let openPlate: number | null = null;
 
     const clock = new THREE.Clock();
-
-    function plateY(idx: number, t: number) {
-      const closed = layers[idx].userData.targetY;
-      if (idx === 3) {
-        const s0 = steps[0];
-        return (
-          closed +
-          ease(seg(t, s0.coverRiseA!, s0.coverRiseB!)) *
-            (L3_TOP - closed)
-        );
-      }
-      const s = stepOfPlate(idx);
-      const p = ease(seg(t, s.nestA, s.nestB));
-      return closed + p * (nestedY[idx] - closed);
-    }
 
     function hideNet() {
       netNodes.forEach((n) => (n.material.opacity = 0));
@@ -688,6 +626,7 @@ export default function ThreeDStack() {
           ((l.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value = 0)
       );
     }
+
     function setSquare(p: number, fade: number) {
       squareRings.forEach((l) => {
         const local = clamp01(p * 1.6 - (l.userData.k - 1) * 0.16);
@@ -702,18 +641,21 @@ export default function ThreeDStack() {
       (squareGrp.userData.coreNode as THREE.Sprite).material.opacity =
         easeOut(clamp01(p * 2)) * (0.5 + 0.5 * pulse) * fade;
     }
+
     function setCircles(p: number, fade: number) {
       circRings.forEach((l, i) => {
         const local = clamp01(p * 1.7 - i * 0.11);
-        if ((l.userData.mat as THREE.ShaderMaterial).uniforms.uProg)
+        if ((l.userData.mat as THREE.ShaderMaterial).uniforms.uProg) {
           (l.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value =
             easeOut(local);
+        }
         (l.userData.mat as THREE.ShaderMaterial).uniforms.uOp.value =
           (i === 0 ? 0.9 : 0.78) * fade;
       });
       (circGrp.userData.node as THREE.Sprite).material.opacity =
         easeOut(clamp01(p * 1.5)) * fade;
     }
+
     function setVenn(p: number, fade: number) {
       const vis = easeOut(p);
       vennGrp.children.forEach((ch) => {
@@ -721,11 +663,10 @@ export default function ThreeDStack() {
           ch.userData.mat &&
           (ch.userData.mat as THREE.ShaderMaterial).uniforms
         ) {
-          if (
-            (ch.userData.mat as THREE.ShaderMaterial).uniforms.uProg
-          )
+          if ((ch.userData.mat as THREE.ShaderMaterial).uniforms.uProg) {
             (ch.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value =
               vis;
+          }
           (ch.userData.mat as THREE.ShaderMaterial).uniforms.uOp.value =
             0.85 * fade;
         }
@@ -734,6 +675,7 @@ export default function ThreeDStack() {
         (vennGrp.userData.parts as THREE.Points).userData
           .pm as THREE.PointsMaterial
       ).opacity = vis * 0.8 * fade;
+
       const { travel, R: vR, off: vOff, y: vY } = vennGrp.userData;
       (travel as THREE.Sprite[]).forEach((m, i) => {
         m.material.opacity = vis * fade;
@@ -754,84 +696,92 @@ export default function ThreeDStack() {
 
     function animate() {
       animFrameRef.current = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime() % LOOP;
+      const t = clock.getElapsedTime();
+      const built = t > buildEnd;
 
-      // BUILD
+      // BUILD: fade and rise into stack (once at start)
       layers.forEach((p, i) => {
         const bp = seg(t, bTimes[i], bTimes[i] + BUILD);
         revealLayer(p, bp, 1.8);
       });
 
-      // POSITION
+      // Sync openPlate from parent ref if passed, otherwise use local openPlate
+      const currentOpenPlate = onPlateChangeRef.current !== undefined ? activePlateRef.current : openPlate;
+
+      // EASE open/close state
+      for (let i = 0; i < 4; i++) {
+        const target = built && i === currentOpenPlate ? 1 : 0;
+        openProg[i] += (target - openProg[i]) * 0.12;
+        if (Math.abs(target - openProg[i]) < 0.0005) openProg[i] = target;
+      }
+
+      // POSITION: lift layers above opened gap
+      const lift = [0, 0, 0, 0];
+      for (let k = 0; k < 3; k++) {
+        if (openProg[k] <= 0.0001) continue;
+        for (let above = k + 1; above <= 3; above++) {
+          lift[above] += OPEN_LIFT * openProg[k];
+        }
+      }
       layers.forEach((p, i) => {
         const buildOff = p.userData.buildOff || 0;
-        const disp = plateY(i, t) - p.userData.targetY;
-        p.position.y = p.userData.targetY + buildOff + disp;
+        p.position.y = p.userData.targetY + buildOff + lift[i];
       });
 
-      // dotted guide columns
-      const s0 = steps[0];
-      const dp = easeOut(seg(t, buildEnd, buildEnd + 0.7));
-      const dFade = 1 - ease(seg(t, s0.coverRiseA!, s0.coverRiseB!));
-      dots.visible = dp > 0 && dFade > 0.02;
-      dots.children.forEach((l) => {
-        (l.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value = dp;
-        (l.userData.mat as THREE.ShaderMaterial).uniforms.uOp.value =
-          0.5 * dFade;
+      // DOTTED JOINTS: visible only when stretching open
+      dots.visible = built;
+      jointGroups.forEach((g) => {
+        const k = g.userData.plate;
+        const topY = layers[3].position.y + PT_TOP;
+        const botY = layers[k].position.y + PT_TOP;
+        layoutJoint(g, topY, botY);
+
+        const vis = openProg[k];
+        g.visible = vis > 0.001;
+        g.children.forEach((l) => {
+          (l.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value =
+            easeOut(clamp01(vis * 1.3));
+          (l.userData.mat as THREE.ShaderMaterial).uniforms.uOp.value =
+            (l.userData.baseOp || 0.5) * vis;
+        });
       });
 
-      // ANIMATIONS
+      // INNER ANIMATIONS
       hideNet();
       setSquare(0, 0);
       setCircles(0, 0);
       setVenn(0, 0);
 
+      const anyOpen = Math.max(openProg[0], openProg[1], openProg[2]);
       const netShow = easeOut(seg(t, buildEnd, buildEnd + 0.9));
-      const netFade = 1 - ease(seg(t, s0.coverRiseA!, s0.coverRiseB!));
       netNodes.forEach((n) => {
-        n.material.opacity =
-          netShow * netFade * (n.userData.lit ? 1.0 : 0.55);
+        n.material.opacity = netShow * (n.userData.lit ? 1.0 : 0.55);
         n.scale.setScalar(n.userData.lit ? 0.32 : 0.18);
       });
       netLines.forEach((l) => {
         (l.userData.mat as THREE.ShaderMaterial).uniforms.uProg.value =
           netShow;
         (l.userData.mat as THREE.ShaderMaterial).uniforms.uOp.value =
-          0.5 * netFade;
+          0.5 * netShow;
       });
 
-      steps.forEach((s) => {
-        if (t < s.playA) return;
-        const prog = t > s.playB ? 1 : seg(t, s.playA, s.playB);
-        const fade = 1 - (1 - IDLE) * ease(seg(t, s.fadeA, s.fadeB));
-        playPlate(s.plate, prog, fade);
-      });
+      for (let k = 0; k < 3; k++) {
+        if (openProg[k] <= 0.001) continue;
+        playPlate(k, easeOut(clamp01(openProg[k] * 1.2)), openProg[k]);
+      }
 
-      const cs = stepOfPlate(1);
-      const circActive = t >= cs.playA && t < cs.fadeA;
-      if (circActive) circGrp.rotation.y += 0.004;
+      if (openProg[1] > 0.5) {
+        circGrp.rotation.y += 0.004;
+      }
 
-      // CAMERA
+      // CAMERA POSITIONING
       let focusY: number;
-      let act: Step | null = null;
-      for (const s of steps) {
-        if (t >= s.playA) act = s;
-      }
-      if (!act && t < s0.coverRiseA!) {
-        focusY =
-          (layers[0].position.y + layers[3].position.y) / 2;
-      } else if (act) {
-        focusY =
-          (layers[act.plate].position.y +
-            layers[act.cover].position.y) /
-          2;
+      if (currentOpenPlate != null && anyOpen > 0.001) {
+        focusY = (layers[currentOpenPlate].position.y + layers[3].position.y) / 2;
       } else {
-        focusY =
-          (layers[2].position.y + layers[3].position.y) / 2;
+        focusY = (layers[0].position.y + layers[3].position.y) / 2;
       }
-      camTargetY = focusY!;
-      if (t < prevT) camRigY = camTargetY;
-      prevT = t;
+      camTargetY = focusY;
       camRigY += (camTargetY - camRigY) * 0.06;
       applyCam();
 
@@ -839,16 +789,82 @@ export default function ThreeDStack() {
     }
     animate();
 
+    // Raycast pick layer labels
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    const labelMeshes = layers.map((p) => p.userData.label as THREE.Mesh);
+
+    function pickLayer(ev: MouseEvent) {
+      const r = canvas.getBoundingClientRect();
+      pointer.x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+      pointer.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, camera);
+      const hits = raycaster.intersectObjects(labelMeshes, false);
+      if (!hits.length) return null;
+      return labelMeshes.indexOf(hits[0].object as THREE.Mesh);
+    }
+
+    function toggleLayer(idx: number | null) {
+      if (idx == null) return;
+      if (idx === 3) {
+        // If clicking anchor (Power Infrastructure), trigger onPlateChange(null) to close all layers
+        if (onPlateChangeRef.current) {
+          onPlateChangeRef.current(null);
+        } else {
+          openPlate = null;
+        }
+        return;
+      }
+      const currentOpenPlate = onPlateChangeRef.current !== undefined ? activePlateRef.current : openPlate;
+      const nextPlate = currentOpenPlate === idx ? null : idx;
+      if (onPlateChangeRef.current) {
+        onPlateChangeRef.current(nextPlate);
+      } else {
+        openPlate = nextPlate;
+      }
+    }
+
+    const clickHandler = (ev: MouseEvent) => {
+      toggleLayer(pickLayer(ev));
+    };
+    const hoverHandler = (ev: MouseEvent) => {
+      const idx = pickLayer(ev);
+      canvas.style.cursor = idx != null && idx !== 3 ? "pointer" : "default";
+    };
+
+    canvas.addEventListener("click", clickHandler);
+    canvas.addEventListener("mousemove", hoverHandler);
+
+    // Global Hooks
+    (window as any).openLayerByName = function (name: string) {
+      const i = layers.findIndex(
+        (p) =>
+          p.userData.def.name.toLowerCase() ===
+          String(name).toLowerCase()
+      );
+      if (i >= 0) toggleLayer(i);
+    };
+    (window as any).openLayerByIndex = function (i: number) {
+      toggleLayer(i);
+    };
+
     // Cleanup
     return () => {
       cancelAnimationFrame(animFrameRef.current);
       window.removeEventListener("resize", onResize);
+      canvas.removeEventListener("click", clickHandler);
+      canvas.removeEventListener("mousemove", hoverHandler);
       renderer.dispose();
       scene.traverse((obj) => {
-        if (obj instanceof THREE.Mesh || obj instanceof THREE.Line || obj instanceof THREE.LineSegments || obj instanceof THREE.Points) {
+        if (
+          obj instanceof THREE.Mesh ||
+          obj instanceof THREE.Line ||
+          obj instanceof THREE.LineSegments ||
+          obj instanceof THREE.Points
+        ) {
           obj.geometry?.dispose();
           if (Array.isArray(obj.material)) {
-            obj.material.forEach((m: THREE.Material) => m.dispose());
+            obj.material.forEach((m) => m.dispose());
           } else if (obj.material) {
             (obj.material as THREE.Material).dispose();
           }
@@ -861,6 +877,8 @@ export default function ThreeDStack() {
       if (canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
       }
+      delete (window as any).openLayerByName;
+      delete (window as any).openLayerByIndex;
     };
   }, []);
 
@@ -871,7 +889,6 @@ export default function ThreeDStack() {
         width: "100%",
         height: "100%",
         position: "relative",
-        minHeight: "400px",
       }}
     />
   );

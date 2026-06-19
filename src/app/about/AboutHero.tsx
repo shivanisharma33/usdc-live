@@ -36,7 +36,7 @@ export default function AboutHero() {
 
             {/* Main Cloned Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-bold tracking-tight leading-[1.12] text-white mb-6 font-sans">
-              Building The Future Of <br />
+              Building The Future Of{" "}
               <span className="text-[#3daeff]">
                 AI Infrastructure
               </span>
@@ -49,13 +49,13 @@ export default function AboutHero() {
             </p>
 
             {/* ── Capsule Joined Button Group ── */}
-            <div className="inline-flex items-center border border-white/12 rounded-full bg-[#02050c]/50 p-[1.5px] overflow-hidden backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <div className="inline-flex items-center border border-white/12 rounded-lg bg-[#02050c]/50 p-[1.5px] overflow-hidden backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
 
               {/* Left Button: Download Overview (Filled blue with white text) */}
               <a
                 href="/docs/overview.pdf"
                 download
-                className="group flex items-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-l-full transition-all duration-200 cursor-pointer"
+                className="group flex items-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-l-[6.5px] transition-all duration-200 cursor-pointer"
               >
                 <span>Download Overview</span>
                 <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40 group-hover:border-white/70 transition-colors">
@@ -79,9 +79,9 @@ export default function AboutHero() {
           </div>
 
           {/* ── Right Content (Globe Image) ── */}
-          <div className="lg:col-span-5 h-[350px] md:h-[480px] lg:h-auto flex items-center justify-center relative select-none z-10">
+          <div className="lg:col-span-5 h-[280px] md:h-[380px] lg:h-auto flex items-center justify-center relative select-none z-10">
             {/* Globe image centered for mobile, shifted off-screen on desktop to match image */}
-            <div className="w-full max-w-[500px] lg:max-w-none lg:absolute lg:right-[-12vw] lg:w-[58vw] lg:h-[58vw] lg:max-w-[780px] lg:max-h-[780px] flex items-center justify-center pointer-events-none">
+            <div className="w-full max-w-[400px] lg:max-w-none lg:absolute lg:right-[-10vw] lg:w-[48vw] lg:h-[48vw] lg:max-w-[640px] lg:max-h-[640px] flex items-center justify-center pointer-events-none">
               <img
                 src="/about_globe.png"
                 alt="USDC AI Infrastructure Globe"

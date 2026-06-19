@@ -7,6 +7,7 @@ const ThreeDStack = dynamic(() => import("./ThreeDStack"), { ssr: false });
 
 export default function InfrastructureStack() {
   const [inView, setInView] = useState(false);
+  const [activePlate, setActivePlate] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export default function InfrastructureStack() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03]"
     >
       {/* Background Hexagonal Grid Pattern in top-right */}
       <div className="absolute top-0 right-0 w-[320px] h-[280px] opacity-80 pointer-events-none select-none z-0 overflow-hidden [mask-image:radial-gradient(ellipse_at_top_right,white_40%,transparent_100%)]">
@@ -84,7 +85,7 @@ export default function InfrastructureStack() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         {/* Badge & Headers */}
-        <div className="flex flex-col items-start text-left mb-14 md:mb-20">
+        <div className="flex flex-col items-start text-left mb-8 md:mb-10">
           {/* Pill Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-md mb-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
             <span className="w-3.5 h-[1.5px] bg-[#3daeff] rounded-full" />
@@ -95,53 +96,68 @@ export default function InfrastructureStack() {
 
           {/* Heading */}
           <h2 className="text-4xl sm:text-5xl md:text-[52px] font-bold text-white tracking-tight leading-none mb-6">
-            From Power to{" "}
-            <span className="text-[#0091ff]">AI Compute</span>
+            From Power to <span className="text-[#0091ff]">AI Compute</span>
           </h2>
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/40 max-w-[500px] leading-[1.6] font-normal font-sans">
-            USDC delivers the complete infrastructure stack required for
-            next-generation AI deployment.
+            USDC delivers the complete infrastructure stack required for next-generation AI deployment.
           </p>
         </div>
 
         {/* Content Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Column: Feature List with Indicators */}
-          <div className="lg:col-span-5 flex flex-col gap-10 md:gap-12 w-full text-left order-2 lg:order-2">
-            {features.map((feat, index) => (
-              <div
-                key={feat.title}
-                className="flex items-start gap-4 transition-all duration-1000 ease-out"
-                style={{
-                  opacity: inView ? 1 : 0,
-                  transform: inView
-                    ? "translateX(0px)"
-                    : "translateX(30px)",
-                  transitionDelay: `${150 + index * 100}ms`,
-                }}
-              >
-                {/* Vertical Indicator Line */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Feature List with Clickable Triggers */}
+          <div className="lg:col-span-5 flex flex-col gap-6 md:gap-8 w-full text-left order-2 lg:order-2">
+            {features.map((feat, index) => {
+              const plateIndex = 3 - index;
+              const isActive = activePlate === plateIndex;
+              return (
                 <div
-                  className="w-[2px] bg-[#0091ff] flex-shrink-0 self-stretch rounded-full transition-all duration-[1200ms] ease-out origin-top"
-                  style={{
-                    transform: inView ? "scaleY(1)" : "scaleY(0)",
-                    transitionDelay: `${300 + index * 100}ms`,
+                  key={feat.title}
+                  onClick={() => {
+                    if (plateIndex === 3) {
+                      setActivePlate(null); // Click anchor to close other layers
+                    } else {
+                      setActivePlate((prev) => (prev === plateIndex ? null : plateIndex));
+                    }
                   }}
-                />
+                  className={`flex items-start gap-4 p-4 rounded-2xl border transition-all duration-500 ease-out cursor-pointer group ${isActive
+                      ? "bg-[#02050c]/85 border-[#0091ff]/40 shadow-[0_0_24px_rgba(0,145,255,0.08)] scale-[1.02]"
+                      : "bg-transparent border-transparent hover:bg-[#02050c]/40 hover:border-white/[0.04]"
+                    }`}
+                  style={{
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? "translateX(0px)" : "translateX(30px)",
+                    transitionDelay: `${150 + index * 100}ms`,
+                  }}
+                >
+                  {/* Vertical Indicator Line */}
+                  <div
+                    className={`w-[2.5px] flex-shrink-0 self-stretch rounded-full transition-all duration-[800ms] ease-out origin-top ${isActive
+                        ? "bg-[#3daeff] shadow-[0_0_8px_#3daeff] scale-y-110"
+                        : "bg-[#0091ff] group-hover:bg-[#3daeff]"
+                      }`}
+                    style={{
+                      transform: inView ? "scaleY(1)" : "scaleY(0)",
+                      transitionDelay: `${300 + index * 100}ms`,
+                    }}
+                  />
 
-                {/* Text details */}
-                <div className="flex flex-col">
-                  <h3 className="text-white text-base md:text-lg font-bold tracking-tight mb-2 select-none">
-                    {feat.title}
-                  </h3>
-                  <p className="text-white/40 text-[12px] md:text-[13px] font-medium leading-[1.6] max-w-md select-none">
-                    {feat.desc}
-                  </p>
+                  {/* Text details */}
+                  <div className="flex flex-col">
+                    <h3 className={`text-base md:text-lg font-bold tracking-tight mb-2 select-none transition-colors duration-300 ${isActive ? "text-[#3daeff]" : "text-white group-hover:text-[#3daeff]"
+                      }`}>
+                      {feat.title}
+                    </h3>
+                    <p className={`text-[12px] md:text-[13px] font-medium leading-[1.6] max-w-md select-none transition-colors duration-300 ${isActive ? "text-white/70" : "text-white/40 group-hover:text-white/60"
+                      }`}>
+                      {feat.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Right Column: 3D Stack Model */}
@@ -152,8 +168,8 @@ export default function InfrastructureStack() {
               transform: inView ? "translateY(0px)" : "translateY(30px)",
             }}
           >
-            <div className="relative w-full max-w-2xl aspect-[4/3] sm:aspect-[1.3] overflow-hidden rounded-[24px] bg-[#02050c]/30 backdrop-blur-xl">
-              <ThreeDStack />
+            <div className="relative w-full max-w-2xl h-[450px] sm:h-[520px] md:h-[580px] lg:h-[640px] overflow-hidden">
+              <ThreeDStack activePlate={activePlate} onPlateChange={setActivePlate} />
             </div>
           </div>
         </div>

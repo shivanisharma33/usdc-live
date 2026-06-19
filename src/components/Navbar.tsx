@@ -21,7 +21,7 @@ export default function Navbar() {
     { label: "Investor", href: "#" },
     { label: "News & insight", href: "#" },
     { label: "Press Release", href: "/press-release" },
-    { label: "Management Team", href: "#" },
+    { label: "Management Team", href: "/management-team" },
     { label: "Career", href: "#" },
     { label: "About us", href: "/about" },
     { label: "Location", href: "#" },

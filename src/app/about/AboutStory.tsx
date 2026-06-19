@@ -74,7 +74,7 @@ export default function AboutStory() {
           
           {/* Left Column: 3D Stack Graphic */}
           <div className="lg:col-span-5 flex items-center justify-center">
-            <div className="relative w-full max-w-[480px] aspect-[1.15] overflow-hidden rounded-[24px] bg-[#02050c]/30 border border-white/[0.06] backdrop-blur-xl shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.02)]">
+            <div className="relative w-full max-w-[480px] h-[420px] sm:h-[480px] md:h-[520px] overflow-hidden">
               {/* Dynamic WebGL Stack */}
               <ThreeDStack />
             </div>

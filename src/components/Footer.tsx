@@ -115,7 +115,7 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About us", href: "/about" },
-                { label: "Our Team", href: "#" },
+                { label: "Our Team", href: "/management-team" },
                 { label: "Latest News", href: "#" }
               ].map((link, idx) => (
                 <li key={idx}>

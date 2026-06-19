@@ -6,6 +6,7 @@ import AboutHero from "@/app/about/AboutHero";
 import AboutStory from "@/app/about/AboutStory";
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
+import AboutByNumbers from "@/components/AboutByNumbers";
 
 export const metadata: Metadata = {
   title: "About Us — USDC | Building the Future of AI Infrastructure",
@@ -27,6 +28,9 @@ export default function AboutPage() {
 
       {/* Core Values Section */}
       <CoreValuesSection />
+
+      {/* Cloned By The Numbers Section */}
+      <AboutByNumbers />
 
       {/* Cloned Timeline Stack Section */}
       <AboutStory />
