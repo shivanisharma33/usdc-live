@@ -67,11 +67,10 @@ function Field({
       <div
         onFocus={onFocus}
         onBlur={onBlur}
-        className={`relative rounded-xl border bg-white/[0.025] backdrop-blur-md transition-all duration-300 ${
-          isFocused
+        className={`relative rounded-xl border bg-white/[0.025] backdrop-blur-md transition-all duration-300 ${isFocused
             ? "border-[#3daeff]/60 shadow-[0_0_0_1px_rgba(61,174,255,0.35),0_8px_30px_rgba(61,174,255,0.18)]"
             : "border-white/[0.08] hover:border-white/[0.16]"
-        }`}
+          }`}
       >
         {/* Holographic focus sheen */}
         <span
@@ -84,9 +83,8 @@ function Field({
         />
         <div className="relative flex items-center gap-3 px-3.5">
           <span
-            className={`flex-shrink-0 transition-colors duration-300 ${
-              active ? "text-[#3daeff]" : "text-white/35"
-            }`}
+            className={`flex-shrink-0 transition-colors duration-300 ${active ? "text-[#3daeff]" : "text-white/35"
+              }`}
           >
             {icon}
           </span>
@@ -272,9 +270,8 @@ export default function ContactPortal() {
                 full
               >
                 <select
-                  className={`${inputCls} appearance-none cursor-pointer ${
-                    values.service ? "text-white" : "text-white/30"
-                  }`}
+                  className={`${inputCls} appearance-none cursor-pointer ${values.service ? "text-white" : "text-white/30"
+                    }`}
                   value={values.service}
                   onChange={(e) => set("service", e.target.value)}
                 >

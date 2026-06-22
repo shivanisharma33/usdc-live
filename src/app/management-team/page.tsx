@@ -9,7 +9,7 @@ import TeamCTA from "@/components/team/TeamCTA";
 export const metadata: Metadata = {
   title: "Management Team — USDC | Architecting AI Infrastructure",
   description:
-    "Meet the leadership team at USDC. We bring together deep expertise in energy integration, grid engineering, server hardware, and cloud compute to scale the physical backbone of AI.",
+    "Meet the management team at USDC. We bring together deep expertise in energy integration, grid engineering, server hardware, and cloud compute to scale the physical backbone of AI.",
 };
 
 export default function ManagementTeamPage() {

@@ -162,18 +162,18 @@ export default function TeamHero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
           </span>
           <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
-            SYS DIRECTORY // HUMAN CAPITAL MATRIX
+            Governance
           </span>
         </div>
 
         {/* Heading */}
         <h1
           style={enterStyle(220)}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.08] text-white mb-6 font-sans"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase"
         >
-          Architects of the <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400">
-            Compute Era
+          Management <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
+            Team
           </span>
         </h1>
 
@@ -182,7 +182,7 @@ export default function TeamHero() {
           style={enterStyle(340)}
           className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px] mb-12"
         >
-          We co-locate AI infrastructure directly with grid networks and clean power reserves, bypassing bottlenecks to scale dense GPU server farms on demand. Meet the team making it happen.
+          Meet the experienced executives driving USDC's vision of revolutionizing AI infrastructure and sustainable data center operations.
         </p>
 
         {/* HUD Stats telemetry */}

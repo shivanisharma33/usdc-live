@@ -19,12 +19,11 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Investor", href: "#" },
-    { label: "News & insight", href: "#" },
+    { label: "News & insight", href: "/news-insights" },
     { label: "Press Release", href: "/press-release" },
     { label: "Management Team", href: "/management-team" },
     { label: "Career", href: "#" },
     { label: "About us", href: "/about" },
-    { label: "Location", href: "#" },
   ];
 
   return (

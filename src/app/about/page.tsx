@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/app/about/AboutHero";
-import AboutStory from "@/app/about/AboutStory";
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
 import AboutByNumbers from "@/components/AboutByNumbers";
+import BuildingFutureSection from "@/components/BuildingFutureSection";
 
 export const metadata: Metadata = {
   title: "About Us — USDC | Building the Future of AI Infrastructure",
@@ -23,6 +23,9 @@ export default function AboutPage() {
       {/* Hero section cloned to match the reference image */}
       <AboutHero />
 
+      {/* Building the Future from Day One Section */}
+      <BuildingFutureSection />
+
       {/* Mission Vision Section */}
       <MissionVisionSection />
 
@@ -31,9 +34,6 @@ export default function AboutPage() {
 
       {/* Cloned By The Numbers Section */}
       <AboutByNumbers />
-
-      {/* Cloned Timeline Stack Section */}
-      <AboutStory />
 
       {/* Footer component */}
       <Footer />
