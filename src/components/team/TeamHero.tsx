@@ -2,6 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Cpu, Zap, Shield } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const NetworkArchitecture3D = dynamic(() => import("./NetworkArchitecture3D"), {
+  ssr: false,
+});
 
 export default function TeamHero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -149,73 +154,89 @@ export default function TeamHero() {
       <div className="absolute top-0 left-0 w-full h-[25%] bg-gradient-to-b from-[#04070f] to-transparent pointer-events-none z-[5]" />
       <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-[#04070f] to-transparent pointer-events-none z-[5]" />
 
-      {/* MAIN TEXT */}
-      <div className="relative z-10 w-full max-w-[960px] mx-auto px-6 md:px-12 flex flex-col items-center text-center select-none">
+      {/* MAIN TEXT & 3D MODEL GRID */}
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center select-none">
         
-        {/* Futuristic Status Badge */}
-        <div
-          style={enterStyle(100)}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/20 bg-white/[0.02] backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(6,182,212,0.08)]"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-          </span>
-          <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
-            Governance
-          </span>
+        {/* Left Column (Content) */}
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+          {/* Futuristic Status Badge */}
+          <div
+            style={enterStyle(100)}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/20 bg-white/[0.02] backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(6,182,212,0.08)] lg:self-start"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
+              Governance
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h1
+            style={enterStyle(220)}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase"
+          >
+            Management <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
+              Team
+            </span>
+          </h1>
+
+          {/* Subtitle description */}
+          <p
+            style={enterStyle(340)}
+            className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px] mb-12"
+          >
+            Meet the experienced executives driving USDC's vision of revolutionizing AI infrastructure and sustainable data center operations.
+          </p>
+
+          {/* HUD Stats telemetry */}
+          <div
+            style={enterStyle(460)}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mt-2"
+          >
+            {[
+              { icon: <Cpu className="w-4 h-4 text-cyan-400" />, title: "DEPLOYED SYSTEM CAPACITY", val: "120MW+" },
+              { icon: <Zap className="w-4 h-4 text-blue-400" />, title: "GRID INTERCONNECTION", val: "≤12 Months" },
+              { icon: <Shield className="w-4 h-4 text-indigo-400" />, title: "HARDWARE STANDARDS", val: "Blackwell Ready" },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="relative p-[1px] rounded-xl overflow-hidden bg-gradient-to-b from-white/[0.08] to-transparent group"
+              >
+                <div className="relative z-10 w-full h-full bg-[#02050c]/80 backdrop-blur-md rounded-[11px] p-5 flex flex-col items-center justify-center border border-white/[0.02]">
+                  <div className="flex items-center gap-2 mb-2">
+                    {item.icon}
+                    <span className="text-[8px] font-mono tracking-widest text-white/40 uppercase">
+                      {item.title}
+                    </span>
+                  </div>
+                  <span className="text-[20px] font-extrabold text-white tracking-tight">
+                    {item.val}
+                  </span>
+                  
+                  {/* Tech Corners */}
+                  <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/20 rounded-tl-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
+                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-white/20 rounded-br-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Heading */}
-        <h1
-          style={enterStyle(220)}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase"
+        {/* Right Column (3D Model) */}
+        <div 
+          style={enterStyle(580)}
+          className="lg:col-span-5 w-full flex items-center justify-center relative min-h-[350px] lg:min-h-[550px]"
         >
-          Management <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
-            Team
-          </span>
-        </h1>
-
-        {/* Subtitle description */}
-        <p
-          style={enterStyle(340)}
-          className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px] mb-12"
-        >
-          Meet the experienced executives driving USDC's vision of revolutionizing AI infrastructure and sustainable data center operations.
-        </p>
-
-        {/* HUD Stats telemetry */}
-        <div
-          style={enterStyle(460)}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-[700px] mt-2"
-        >
-          {[
-            { icon: <Cpu className="w-4 h-4 text-cyan-400" />, title: "DEPLOYED SYSTEM CAPACITY", val: "120MW+" },
-            { icon: <Zap className="w-4 h-4 text-blue-400" />, title: "GRID INTERCONNECTION", val: "≤12 Months" },
-            { icon: <Shield className="w-4 h-4 text-indigo-400" />, title: "HARDWARE STANDARDS", val: "Blackwell Ready" },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="relative p-[1px] rounded-xl overflow-hidden bg-gradient-to-b from-white/[0.08] to-transparent group"
-            >
-              <div className="relative z-10 w-full h-full bg-[#02050c]/80 backdrop-blur-md rounded-[11px] p-5 flex flex-col items-center justify-center border border-white/[0.02]">
-                <div className="flex items-center gap-2 mb-2">
-                  {item.icon}
-                  <span className="text-[8px] font-mono tracking-widest text-white/40 uppercase">
-                    {item.title}
-                  </span>
-                </div>
-                <span className="text-[20px] font-extrabold text-white tracking-tight">
-                  {item.val}
-                </span>
-                
-                {/* Tech Corners */}
-                <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/20 rounded-tl-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
-                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-white/20 rounded-br-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
-              </div>
-            </div>
-          ))}
+          {/* Subtle backdrop light behind the canvas */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500/[0.03] blur-[70px] pointer-events-none" />
+          
+          <div className="w-full h-full min-h-[350px] sm:min-h-[450px] lg:min-h-[550px] flex items-center justify-center">
+            <NetworkArchitecture3D />
+          </div>
         </div>
 
       </div>

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import TeamHero from "@/components/team/TeamHero";
 import TeamGrid from "@/components/team/TeamGrid";
 import TeamCTA from "@/components/team/TeamCTA";
+import WhatDrivesUs from "@/components/team/WhatDrivesUs";
 
 export const metadata: Metadata = {
   title: "Management Team — USDC | Architecting AI Infrastructure",
@@ -19,6 +20,9 @@ export default function ManagementTeamPage() {
       
       {/* Immersive Hero Header */}
       <TeamHero />
+
+      {/* What Drives Us values block */}
+      <WhatDrivesUs />
       
       {/* Interactive Core Team Grid */}
       <TeamGrid />
