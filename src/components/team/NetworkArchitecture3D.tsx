@@ -419,7 +419,10 @@ export default function NetworkArchitecture3D() {
       if (coreSegs) {
         coreSegs.forEach((s) => {
           const drawn = s.geometry.attributes.position.count > 0;
-          s.material.opacity = drawn ? Math.min(1, 0.85 * coreBreath + coreBurst) : s.material.opacity;
+          const mat = s.material as any;
+          if (mat) {
+            mat.opacity = drawn ? Math.min(1, 0.85 * coreBreath + coreBurst) : mat.opacity;
+          }
         });
       }
 
@@ -467,7 +470,7 @@ export default function NetworkArchitecture3D() {
           sDetail.visible = cp > 0.8;
           sDetail.traverse((o) => {
             if (o instanceof THREE.Line || o instanceof THREE.Mesh) {
-              const m = o.material as THREE.Material;
+              const m = o.material as any;
               if (m) {
                 m.opacity = cp > 0.8 ? (cp - 0.8) / 0.2 : 0;
               }
@@ -482,7 +485,8 @@ export default function NetworkArchitecture3D() {
       const dSegs = depthCube.userData.segs as THREE.Line[];
       if (dSegs) {
         dSegs.forEach((s) => {
-          s.material.opacity = 0.5 * dpr;
+          const mat = s.material as any;
+          if (mat) mat.opacity = 0.5 * dpr;
         });
       }
 
@@ -530,7 +534,8 @@ export default function NetworkArchitecture3D() {
 
           const targetGlow = (0.5 + 0.5 * nearTip) * 0.55 + c.burst * 0.45;
           c.glow += (targetGlow - c.glow) * Math.min(1, dt * 6);
-          c.line.material.opacity = Math.min(1, 0.45 + 0.55 * c.glow * actFade);
+          const lineMat = c.line.material as any;
+          if (lineMat) lineMat.opacity = Math.min(1, 0.45 + 0.55 * c.glow * actFade);
 
           const pulse = 0.6 + 0.4 * Math.sin(t * 2.5 + ci);
           c.node.material.opacity = Math.min(1, 0.7 + 0.3 * pulse + c.burst * 0.5);

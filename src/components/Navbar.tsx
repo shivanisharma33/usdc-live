@@ -18,6 +18,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
+    { label: "ARMS", href: "/arms" },
     { label: "Investor", href: "#" },
     { label: "News & insight", href: "/news-insights" },
     { label: "Press Release", href: "/press-release" },
