@@ -218,11 +218,6 @@ export default function NewsInsightsPage() {
         <div className="absolute top-[40%] right-[-10%] w-[700px] h-[700px] rounded-full bg-[#3daeff]/[0.03] blur-[150px] animate-[pulse_12s_ease-in-out_infinite]" />
         <div className="absolute bottom-[10%] left-[20%] w-[800px] h-[800px] rounded-full bg-indigo-600/[0.02] blur-[160px]" />
 
-        {/* Diagonal tech telemetry lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-[0.03] stroke-white" fill="none">
-          <line x1="0" y1="100" x2="100%" y2="600" strokeWidth="1" strokeDasharray="10 15" />
-          <line x1="100%" y1="200" x2="0" y2="900" strokeWidth="0.75" />
-        </svg>
       </div>
 
       {/* ── HERO SECTION ── */}

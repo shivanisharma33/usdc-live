@@ -112,20 +112,6 @@ export default function Navbar() {
         <div className="w-[1px] h-5 bg-white/[0.12]" />
 
         <div className="flex items-center gap-6">
-          {/* Dark Mode Toggle */}
-          <button
-            aria-label="Toggle theme"
-            className="flex items-center justify-center w-[34px] h-[34px] rounded-[8px] border border-[#eab308]/60 bg-[#04070f] p-[2px] shadow-[0_0_10px_rgba(234,179,8,0.4)] hover:border-[#ffd700] hover:shadow-[0_0_15px_rgba(255,215,0,0.6)] transition-all duration-200 cursor-pointer"
-          >
-            <Image
-              src="/DigiPowerX Posts (1).png"
-              alt="Theme"
-              width={34}
-              height={34}
-              className="w-full h-full rounded-[6px]"
-            />
-          </button>
-
           {/* Contact Us Button */}
           <Link
             href="/contact"
@@ -192,22 +178,11 @@ export default function Navbar() {
             );
           })}
 
-          <div className="flex items-center justify-between gap-4 mt-2">
-            {/* Theme toggle mobile */}
-            <button className="w-[42px] h-[42px] rounded-[10px] border border-[#eab308]/60 bg-[#04070f] p-[3px] shadow-[0_0_12px_rgba(234,179,8,0.4)] hover:border-[#ffd700] hover:shadow-[0_0_18px_rgba(255,215,0,0.6)] flex items-center justify-center hover:opacity-90 transition-all duration-200">
-              <Image
-                src="/DigiPowerX Posts (1).png"
-                alt="Theme"
-                width={42}
-                height={42}
-                className="w-full h-full rounded-[8px]"
-              />
-            </button>
-
+          <div className="flex items-center justify-center gap-4 mt-2 w-full">
             <Link
               href="/contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 flex-grow h-[42px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] rounded-[10px] text-[12px] font-bold text-white hover:from-[#58c4ff] hover:to-[#0091ff] transition-all duration-200"
+              className="flex items-center justify-center gap-2 w-full h-[42px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] rounded-[10px] text-[12px] font-bold text-white hover:from-[#58c4ff] hover:to-[#0091ff] transition-all duration-200"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Contact Us</span>

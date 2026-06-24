@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Zap, ShieldCheck, RefreshCw, Cpu } from "lucide-react";
+import Link from "next/link";
+import PowerToComputeDiagram from "@/components/PowerToComputeDiagram";
+import EnergyStackGrid from "@/components/EnergyStackGrid";
+import EnergyEconomicsAdvantage from "@/components/EnergyEconomicsAdvantage";
+import SuperiorEconomics from "@/components/SuperiorEconomics";
 
 export const metadata: Metadata = {
   title: "Energy Integration — USDC | Empowering High-Density AI Compute",
@@ -37,99 +42,68 @@ export default function EnergyPage() {
   return (
     <div className="relative min-h-screen bg-[#04070f] text-white flex flex-col font-sans overflow-x-hidden">
       {/* Navigation Header */}
-      <Navbar />
-
-      {/* ── HERO SECTION ── */}
+      <Navbar />      {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden select-none">
         {/* Ambient Background Glows */}
-        <div className="absolute top-1/2 right-[-20%] -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="absolute bottom-[-10%] left-1/3 w-[500px] h-[500px] bg-[#3daeff]/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#3daeff]/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
 
         {/* Subtle grid line backdrop */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_75%,transparent_100%)] pointer-events-none z-0" />
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* Left Column: Heading and Description */}
-            <div className="flex-1 flex flex-col items-start text-left relative z-20">
-              {/* Pill Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-                <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
-                <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
-                  Grid-Scale Infrastructure
-                </span>
-              </div>
+        <div className="relative z-10 w-full max-w-[860px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
 
-              {/* Main Heading */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-tight leading-[1.05] text-white mb-2 font-sans">
-                ENERGY
-              </h1>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-bold tracking-tight leading-[1.05] text-[#3daeff] mb-8 font-sans">
-                INTEGRATION
-              </h2>
-
-              {/* Description */}
-              <p className="text-[14px] md:text-[15px] text-white/70 font-normal leading-[1.75] max-w-[620px] mb-10 font-sans">
-                USDC controls the foundation of the AI compute stack by owning and integrating the power delivery system. We bridge high-voltage grid infrastructure directly with GPU-dense clusters to guarantee maximum reliability, scale, and cost-efficiency.
-              </p>
-
-              {/* Metrics Card */}
-              <div className="w-full max-w-[440px] border border-white/[0.12] rounded-[16px] bg-[#080d1a]/50 backdrop-blur-sm p-6">
-                <div className="flex items-center justify-between gap-6">
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-3xl md:text-4xl font-bold text-white mb-1.5 font-sans">
-                      400+ MW
-                    </div>
-                    <div className="text-[9px] font-semibold text-white/50 tracking-[0.15em] uppercase text-center font-sans">
-                      Potential Conversion
-                    </div>
-                  </div>
-
-                  <div className="w-[1px] h-12 bg-white/[0.12]" />
-
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-3xl md:text-4xl font-bold text-[#3daeff] mb-1.5 font-sans">
-                      55 MW
-                    </div>
-                    <div className="text-[9px] font-semibold text-white/50 tracking-[0.15em] uppercase text-center font-sans">
-                      In Development
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Visual Component / Card */}
-            <div className="flex-1 w-full max-w-[500px] relative">
-              <div className="absolute inset-0 bg-[#0091ff]/[0.05] rounded-3xl blur-[40px] pointer-events-none" />
-              <div className="relative border border-white/[0.08] bg-[#02050c]/40 backdrop-blur-md rounded-3xl p-8 shadow-[0_24px_50px_rgba(0,0,0,0.6)]">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#3daeff]/10 border border-[#3daeff]/35 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-[#3daeff]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white font-sans">Energy Assets</h3>
-                    <p className="text-xs text-white/40 font-sans">Substation & Grid Connection Specs</p>
-                  </div>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { label: "Substation Voltage", val: "115kV / 230kV Direct Connection" },
-                    { label: "PUE Rating", val: "<1.15 Design Average" },
-                    { label: "Grid Redundancy", val: "N+1 / 2N Configuration" },
-                    { label: "Target Load Capacity", val: "Up to 80kW+ Per Rack" },
-                  ].map((spec, i) => (
-                    <li key={i} className="flex justify-between items-center py-2.5 border-b border-white/[0.05] last:border-0">
-                      <span className="text-xs text-white/50 font-sans">{spec.label}</span>
-                      <span className="text-xs font-semibold text-white font-sans">{spec.val}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          {/* Pill Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-[0.25em] uppercase font-sans">
+              Infrastructure Platform
+            </span>
           </div>
+
+          {/* Main Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase">
+            From Power To <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
+              AI Compute
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[620px] mb-12 font-sans">
+            USDC integrates power, cooling, data center infrastructure, and GPU compute into a unified platform built for next-generation AI workloads.
+          </p>
+
+          {/* Capsule Joined Button Group */}
+          <div className="inline-flex items-center border border-white/12 rounded-lg bg-[#02050c]/50 p-[1.5px] overflow-hidden backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <Link
+              href="/data-center"
+              className="group flex items-center justify-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-l-[6.5px] transition-all duration-200 cursor-pointer"
+            >
+              <span>Explore Infrastructure</span>
+            </Link>
+            <Link
+              href="/arms"
+              className="group flex items-center justify-center gap-2 px-6 py-3 text-white/80 hover:text-white text-[13px] font-bold transition-all duration-200 cursor-pointer"
+            >
+              <span>View ARMS 200</span>
+            </Link>
+          </div>
+
         </div>
       </section>
+
+      {/* ── POWER TO COMPUTE SCHEMA DIAGRAM SECTION ── */}
+      <PowerToComputeDiagram />
+
+      {/* ── ENERGY STACK LAYERS SECTION ── */}
+      <EnergyStackGrid />
+
+      {/* ── THE ENERGY ECONOMICS ADVANTAGE SECTION ── */}
+      <EnergyEconomicsAdvantage />
+
+      {/* ── SUPERIOR ECONOMICS ADVANTAGE SECTION ── */}
+      <SuperiorEconomics />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
       <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">

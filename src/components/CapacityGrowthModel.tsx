@@ -275,7 +275,7 @@ export default function CapacityGrowthModel() {
     const CUBE = 3.0;
     const SUB = 4;
     const GAP = 9.5;
-    
+
     interface Stack {
       root: THREE.Group;
       ped: THREE.Group;
@@ -297,8 +297,8 @@ export default function CapacityGrowthModel() {
 
     const data = [
       { year: "2023", val: "55 GW", cubes: 1, x: -GAP },
-      { year: "2027", val: "171 GW", cubes: 2, x: 0 },
-      { year: "2030", val: "219 GW", cubes: 3, x: GAP },
+      { year: "2027", val: "171 GW", cubes: 3, x: 0 },
+      { year: "2030", val: "219 GW", cubes: 4, x: GAP },
     ];
 
     // Build labels helper
@@ -496,12 +496,12 @@ export default function CapacityGrowthModel() {
       const rise = easeOut(clamp01(p / 0.5));
       cube.position.y = cube.userData.baseY - (1 - rise) * 2.2;
       (cube.userData.glass.material as THREE.MeshBasicMaterial).opacity = 0.55 * clamp01(p / 0.4);
-      
+
       const ed = cube.userData.edges;
       const ig = cube.userData.internal;
       const ep = clamp01((p - 0.1) / 0.5);
       const edn = Math.floor(ed.userData.total * easeInOut(ep));
-      
+
       ed.geometry.setDrawRange(0, edn);
       if (cube.userData.glow) {
         cube.userData.glow.geometry.setDrawRange(0, edn);
@@ -557,7 +557,7 @@ export default function CapacityGrowthModel() {
         s.dotMat.opacity = ip;
         s.ring.quaternion.copy(camera.quaternion);
         s.dot.quaternion.copy(camera.quaternion);
-        
+
         if (ip > 0.5 && s.valEl.style.opacity !== "1") s.valEl.style.opacity = "1";
         if (pp > 0.5 && s.yrEl.style.opacity !== "1") s.yrEl.style.opacity = "1";
       });

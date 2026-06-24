@@ -122,11 +122,10 @@ export default function InvestorPage() {
       {/* Navbar component */}
       <Navbar />
 
-      {/* Main Content Area */}
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         
         {/* ── HERO SECTION ── */}
-        <section className="relative min-h-[560px] md:min-h-[680px] flex items-center px-4 sm:px-6 pt-16 pb-20 border-b border-white/5 overflow-hidden">
+        <section className="relative min-h-[560px] md:min-h-[680px] flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-36 border-b border-white/5 overflow-hidden">
           {/* Background Ambient Glows */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-[#3daeff]/[0.06] blur-[120px]" />
@@ -142,13 +141,11 @@ export default function InvestorPage() {
                 WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
               }}
             />
-            {/* Vertical column divider glow */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
           </div>
 
-          <div className="relative z-10 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-8 items-center">
-            {/* Left Column: Text copy */}
-            <div className="flex flex-col items-center text-center lg:items-start lg:text-left transition-all duration-700">
+          <div className="relative z-10 w-full max-w-[860px] mx-auto flex flex-col items-center text-center">
+            {/* Center Content: Text copy */}
+            <div className="flex flex-col items-center text-center transition-all duration-700">
               
               {/* Badge */}
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#3daeff]/30 bg-[#3daeff]/5 backdrop-blur-sm mb-8">
@@ -172,7 +169,7 @@ export default function InvestorPage() {
               </p>
 
               {/* Action buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-12">
+              <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/usdc-deck.pdf"
                   target="_blank"
@@ -190,75 +187,6 @@ export default function InvestorPage() {
                 </Link>
               </div>
 
-            </div>
-
-            {/* Right Column: Premium Visual Card */}
-            <div className="w-full relative flex items-center justify-center">
-              {/* Outer decorative card wraps */}
-              <div className="absolute -inset-10 bg-[radial-gradient(circle_at_60%_40%,rgba(61,174,255,0.12),transparent_55%)] blur-2xl pointer-events-none" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(61,174,255,0.06),transparent_60%)] blur-3xl pointer-events-none" />
-
-              <div className="relative w-full max-w-[580px] aspect-[1.15] bg-[#02050c]/80 backdrop-blur-md rounded-3xl border border-white/[0.04] p-8 overflow-hidden shadow-[2px_10px_35px_rgba(0,0,0,0.5)]">
-                {/* Tech corners */}
-                <div className="absolute -top-px -right-px w-14 h-14 border-t-2 border-r-2 border-[#3daeff]/50 rounded-tr-3xl pointer-events-none" />
-                <div className="absolute -bottom-px -left-px w-14 h-14 border-b-2 border-l-2 border-[#3daeff]/50 rounded-bl-3xl pointer-events-none" />
-                <div className="absolute -top-px -left-px w-8 h-8 border-t border-l border-white/15 rounded-tl-3xl pointer-events-none" />
-                <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-white/15 rounded-br-3xl pointer-events-none" />
-
-                {/* Internal card stats & metrics representation */}
-                <div className="h-full flex flex-col justify-between">
-                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
-                    <div>
-                      <div className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-1">
-                        Corporate Stats
-                      </div>
-                      <div className="text-xl font-bold text-white tracking-tight">
-                        USDC Enterprise Hub
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1.5 px-3 py-1 bg-[#3daeff]/5 border border-[#3daeff]/20 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00e878] shadow-[0_0_6px_rgba(0,232,120,0.6)] animate-pulse" />
-                      <span className="text-[9px] font-semibold text-[#3daeff] uppercase tracking-wider">
-                        FY26 Q2 Live
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Grid numbers */}
-                  <div className="grid grid-cols-2 gap-6 my-6">
-                    <div className="border-l border-white/10 pl-4 py-1">
-                      <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-1">
-                        Power capacity
-                      </div>
-                      <div className="text-2xl font-bold text-white">40 MW</div>
-                    </div>
-                    <div className="border-l border-white/10 pl-4 py-1">
-                      <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-1">
-                        Global Uptime
-                      </div>
-                      <div className="text-2xl font-bold text-[#3daeff]">99.999%</div>
-                    </div>
-                    <div className="border-l border-white/10 pl-4 py-1">
-                      <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-1">
-                        Redundancy
-                      </div>
-                      <div className="text-2xl font-bold text-white">Tier III</div>
-                    </div>
-                    <div className="border-l border-white/10 pl-4 py-1">
-                      <div className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-1">
-                        Market Value
-                      </div>
-                      <div className="text-2xl font-bold text-white">$14.2B</div>
-                    </div>
-                  </div>
-
-                  {/* Footer message on visual */}
-                  <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-white/30">
-                    <span>USDC Corporation</span>
-                    <span>AI infrastructure scale</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

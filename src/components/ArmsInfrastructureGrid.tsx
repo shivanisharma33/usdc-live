@@ -74,7 +74,7 @@ function EnergyInfrastructureCanvas() {
       // Main box outer glow
       ctx.shadowColor = "rgba(0, 145, 255, 0.35)";
       ctx.shadowBlur = 15;
-      
+
       // Main box fill
       ctx.fillStyle = "rgba(4, 7, 15, 0.85)";
       ctx.beginPath();
@@ -139,7 +139,7 @@ function EnergyInfrastructureCanvas() {
         ctx.fillStyle = "rgba(4, 7, 15, 0.95)";
         ctx.strokeStyle = "rgba(255, 255, 255, 0.35)";
         ctx.lineWidth = 1.5;
-        
+
         ctx.beginPath();
         ctx.roundRect(x - subSize / 2, subBoxY, subSize, subSize, 3);
         ctx.fill();
@@ -342,7 +342,7 @@ function FacilitiesCanvas() {
       for (let i = 0; i < numBlades; i++) {
         const pctBottom = (i + 0.1) / numBlades;
         const byBlade = y + h * pctBottom;
-        
+
         // Horizontal slot line across front-right face
         // Edge 2-6 is Left, Edge 1-5 is Right (on that specific face)
         const pLeft = project(x + w / 2, byBlade, z + d * 0.4, cx, cy);
@@ -363,7 +363,7 @@ function FacilitiesCanvas() {
           ctx.shadowColor = "#3daeff";
           ctx.shadowBlur = 6;
           ctx.fillStyle = "#3daeff";
-          
+
           // Draw a small indicator LED dot on the blade
           const ledPos = project(x + w / 2, byBlade, z - d * 0.2, cx, cy);
           ctx.beginPath();
@@ -548,7 +548,7 @@ function ComputeCanvas() {
       // Outer peripheral nodes configuration (6 memory nodes)
       const radius = 80;
       const nodes: { x: number; y: number; z: number }[] = [];
-      
+
       // Let's rotate the peripheral node coordinates slowly over time
       const rotAngle = time * 0.0003;
       for (let i = 0; i < 6; i++) {
@@ -691,9 +691,8 @@ export default function ArmsInfrastructureGrid() {
     >
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div
-          className={`grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-1000 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           {columns.map((col) => {
             const Canvas = col.CanvasComponent;
@@ -714,7 +713,7 @@ export default function ArmsInfrastructureGrid() {
                     <h3 className="text-lg md:text-xl font-bold tracking-tight text-[#0091ff] mb-3 group-hover:opacity-0 transition-opacity duration-300">
                       {col.title}
                     </h3>
-                    
+
                     {/* Technical Spec Tags */}
                     <div className="flex flex-wrap gap-1.5 group-hover:opacity-0 transition-opacity duration-300">
                       {col.specs.map((spec) => (
@@ -738,7 +737,7 @@ export default function ArmsInfrastructureGrid() {
 
                 {/* Sliding Drawer Overlay Panel (Covers full card on hover with dark blue background matching page/panels) */}
                 <div className="absolute inset-0 w-full h-full pt-5 pb-8 px-8 md:px-10 bg-[#02050c]/98 backdrop-blur-md border-t border-white/[0.08] transition-all duration-[850ms] ease-out translate-y-[calc(100%-110px)] group-hover:translate-y-0 z-20 flex flex-col justify-start">
-                  
+
                   {/* Floating top header inside drawer (visible only on hover) */}
                   <div className="absolute top-8 left-8 md:left-10 right-8 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-[850ms] ease-out">
                     <div className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-2 uppercase">
@@ -751,14 +750,14 @@ export default function ArmsInfrastructureGrid() {
 
                   {/* Pull handle indicator bar */}
                   <div className="w-8 h-[2px] bg-white/10 rounded-full mx-auto mb-4 group-hover:bg-[#3daeff]/40 transition-colors duration-[850ms] ease-out flex-shrink-0" />
-                  
+
                   {/* Description Text wrapper with dynamic margin on hover to clear the header */}
                   <div className="relative overflow-y-auto max-h-[300px] mt-0 group-hover:mt-16 transition-all duration-[850ms] ease-out pr-1">
                     <p className="text-[13px] md:text-sm text-white/50 leading-[1.65] font-normal group-hover:text-white/80 transition-colors duration-300">
                       {col.desc}
                     </p>
                   </div>
-                  
+
                   {/* Fade overlay on preview state (placed at the bottom of the visible 110px boundary) */}
                   <div className="absolute top-[86px] left-0 right-0 h-6 bg-gradient-to-t from-[#02050c] to-transparent pointer-events-none group-hover:opacity-0 transition-opacity duration-300" />
 
