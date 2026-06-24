@@ -22,6 +22,7 @@ import {
   Activity
 } from "lucide-react";
 import Link from "next/link";
+import Orb from "@/components/Orb";
 
 interface Article {
   id: string;
@@ -225,72 +226,87 @@ export default function NewsInsightsPage() {
       </div>
 
       {/* ── HERO SECTION ── */}
-      <section className="relative z-10 w-full pt-36 pb-20 md:pt-44 md:pb-28 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center">
-        {/* Animated telemetric badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-white/[0.02] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(61,174,255,0.06)] animate-[fadeIn_1s_ease-out]">
-          <Sparkles className="w-3.5 h-3.5 text-[#3daeff] animate-[spin_4s_linear_infinite]" />
-          <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
-            USDC Intelligence Hub
-          </span>
+      <section className="relative w-full pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden flex flex-col items-center border-b border-white/5">
+        
+        {/* Background WebGL Orb Animation */}
+        <div className="absolute inset-0 z-0 opacity-100">
+          <Orb
+            hoverIntensity={0.5}
+            rotateOnHover={true}
+            hue={0}
+            forceHoverState={false}
+            backgroundColor="#04070f"
+          />
         </div>
 
-        {/* Large Cinematic Header */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tighter text-center uppercase leading-[0.95] mb-6">
-          NEWS & <br className="sm:hidden" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] via-blue-400 to-indigo-500 relative">
-            Insights
-            <span className="absolute bottom-1 left-0 w-full h-[3px] bg-[#3daeff]/20 blur-[1px]" />
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-[14px] md:text-[16px] text-white/50 text-center max-w-[640px] leading-relaxed mb-12">
-          Discover high-performance computing blueprints, next-generation cooling architectures, clean power grids, and sustainable computing infrastructure innovations.
-        </p>
-
-        {/* Glassmorphism Search & Filters Block */}
-        <div className="w-full max-w-[850px] p-1.5 rounded-[22px] bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0px_rgba(255,255,255,0.05)] flex flex-col gap-4">
-
-          {/* Futuristic Search bar input */}
-          <div className="relative flex items-center w-full px-5 py-3.5 rounded-[16px] bg-black/40 border border-white/5 focus-within:border-[#3daeff]/40 transition-colors duration-300 group">
-            <Search className="w-5 h-5 text-white/40 group-focus-within:text-[#3daeff] transition-colors" />
-            <input
-              type="text"
-              placeholder="Search databases, innovations, whitepapers..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent border-none outline-none text-white text-[15px] pl-4 placeholder-white/20 font-sans"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="p-1 rounded-full hover:bg-white/5 text-white/40 hover:text-white transition-all cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-            <div className="absolute right-4 font-mono text-[9px] text-white/20 tracking-wider hidden sm:block">
-              SYS_REQ: ENGAGE
-            </div>
+        {/* Content Wrapper */}
+        <div className="relative z-10 w-full max-w-[1280px] px-6 md:px-12 lg:px-16 flex flex-col items-center">
+          {/* Animated telemetric badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-white/[0.02] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(61,174,255,0.06)] animate-[fadeIn_1s_ease-out]">
+            <Sparkles className="w-3.5 h-3.5 text-[#3daeff] animate-[spin_4s_linear_infinite]" />
+            <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
+              USDC Intelligence Hub
+            </span>
           </div>
 
-          {/* Scrolling category filters */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1.5 px-2 scrollbar-none">
-            {categories.map((category) => {
-              const isActive = selectedCategory === category;
-              return (
+          {/* Large Cinematic Header */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tighter text-center uppercase leading-[0.95] mb-6">
+            NEWS & <br className="sm:hidden" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] via-blue-400 to-indigo-500 relative">
+              Insights
+              <span className="absolute bottom-1 left-0 w-full h-[3px] bg-[#3daeff]/20 blur-[1px]" />
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-[14px] md:text-[16px] text-white/50 text-center max-w-[640px] leading-relaxed mb-12">
+            Discover high-performance computing blueprints, next-generation cooling architectures, clean power grids, and sustainable computing infrastructure innovations.
+          </p>
+
+          {/* Glassmorphism Search & Filters Block */}
+          <div className="w-full max-w-[850px] p-1.5 rounded-[22px] bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0px_rgba(255,255,255,0.05)] flex flex-col gap-4">
+
+            {/* Futuristic Search bar input */}
+            <div className="relative flex items-center w-full px-5 py-3.5 rounded-[16px] bg-black/40 border border-white/5 focus-within:border-[#3daeff]/40 transition-colors duration-300 group">
+              <Search className="w-5 h-5 text-white/40 group-focus-within:text-[#3daeff] transition-colors" />
+              <input
+                type="text"
+                placeholder="Search databases, innovations, whitepapers..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-transparent border-none outline-none text-white text-[15px] pl-4 placeholder-white/20 font-sans"
+              />
+              {searchQuery && (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`flex-shrink-0 px-5 py-2 rounded-xl text-[12px] font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${isActive
-                      ? "bg-[#3daeff] text-black border-[#3daeff] shadow-[0_0_15px_rgba(61,174,255,0.3)] scale-[1.03]"
-                      : "bg-white/[0.01] text-white/60 border-white/5 hover:border-white/20 hover:text-white"
-                    }`}
+                  onClick={() => setSearchQuery("")}
+                  className="p-1 rounded-full hover:bg-white/5 text-white/40 hover:text-white transition-all cursor-pointer"
                 >
-                  {category}
+                  <X className="w-4 h-4" />
                 </button>
-              );
-            })}
+              )}
+              <div className="absolute right-4 font-mono text-[9px] text-white/20 tracking-wider hidden sm:block">
+                SYS_REQ: ENGAGE
+              </div>
+            </div>
+
+            {/* Scrolling category filters */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1.5 px-2 scrollbar-none">
+              {categories.map((category) => {
+                const isActive = selectedCategory === category;
+                return (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`flex-shrink-0 px-5 py-2 rounded-xl text-[12px] font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${isActive
+                        ? "bg-[#3daeff] text-black border-[#3daeff] shadow-[0_0_15px_rgba(61,174,255,0.3)] scale-[1.03]"
+                        : "bg-white/[0.01] text-white/60 border-white/5 hover:border-white/20 hover:text-white"
+                      }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

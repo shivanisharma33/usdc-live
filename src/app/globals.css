@@ -217,3 +217,19 @@ body {
     transform: none;
   }
 }
+
+/* ───────────── Career page animations ───────────── */
+
+@keyframes shimmerSlide {
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(200%) skewX(-12deg); }
+}
+
+.career-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(61,174,255,0.06) 50%, transparent 100%);
+  animation: shimmerSlide 3.5s ease-in-out infinite;
+  pointer-events: none;
+}

@@ -112,15 +112,12 @@ export default function InfrastructureStack() {
             {features.map((feat, index) => {
               const plateIndex = 3 - index;
               const isActive = activePlate === plateIndex;
+              const isAnyCardActive = activePlate !== null;
               return (
                 <div
                   key={feat.title}
                   onClick={() => {
-                    if (plateIndex === 3) {
-                      setActivePlate(null); // Click anchor to close other layers
-                    } else {
-                      setActivePlate((prev) => (prev === plateIndex ? null : plateIndex));
-                    }
+                    setActivePlate((prev) => (prev === plateIndex ? null : plateIndex));
                   }}
                   className={`flex items-start gap-4 p-4 rounded-2xl border transition-all duration-500 ease-out cursor-pointer group ${isActive
                       ? "bg-[#02050c]/85 border-[#0091ff]/40 shadow-[0_0_24px_rgba(0,145,255,0.08)] scale-[1.02]"
@@ -136,7 +133,9 @@ export default function InfrastructureStack() {
                   <div
                     className={`w-[2.5px] flex-shrink-0 self-stretch rounded-full transition-all duration-[800ms] ease-out origin-top ${isActive
                         ? "bg-[#3daeff] shadow-[0_0_8px_#3daeff] scale-y-110"
-                        : "bg-[#0091ff] group-hover:bg-[#3daeff]"
+                        : isAnyCardActive
+                          ? "bg-[#0091ff]/20 group-hover:bg-[#0091ff]/40"
+                          : "bg-[#0091ff] group-hover:bg-[#3daeff]"
                       }`}
                     style={{
                       transform: inView ? "scaleY(1)" : "scaleY(0)",
@@ -146,11 +145,19 @@ export default function InfrastructureStack() {
 
                   {/* Text details */}
                   <div className="flex flex-col">
-                    <h3 className={`text-base md:text-lg font-bold tracking-tight mb-2 select-none transition-colors duration-300 ${isActive ? "text-[#3daeff]" : "text-white group-hover:text-[#3daeff]"
+                    <h3 className={`text-base md:text-lg font-bold tracking-tight mb-2 select-none transition-all duration-300 ${isActive
+                        ? "text-[#3daeff] opacity-100"
+                        : isAnyCardActive
+                          ? "text-white/30 group-hover:text-white/60"
+                          : "text-white group-hover:text-[#3daeff]"
                       }`}>
                       {feat.title}
                     </h3>
-                    <p className={`text-[12px] md:text-[13px] font-medium leading-[1.6] max-w-md select-none transition-colors duration-300 ${isActive ? "text-white/70" : "text-white/40 group-hover:text-white/60"
+                    <p className={`text-[12px] md:text-[13px] font-medium leading-[1.6] max-w-md select-none transition-all duration-300 ${isActive
+                        ? "text-white/70"
+                        : isAnyCardActive
+                          ? "text-white/15 group-hover:text-white/35"
+                          : "text-white/40 group-hover:text-white/60"
                       }`}>
                       {feat.desc}
                     </p>

@@ -62,7 +62,7 @@ export default function CapacityGrowthModel() {
 
     // ============ FLOOR GRID ============
     const floorGroup = new THREE.Group();
-    scene.add(floorGroup);
+    // scene.add(floorGroup); // Disabled floor grid to remove the background grid lines as requested
 
     const gridMat = new THREE.LineBasicMaterial({
       color: 0xffffff,

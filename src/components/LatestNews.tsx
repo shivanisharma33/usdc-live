@@ -175,54 +175,6 @@ export default function LatestNews() {
           ))}
         </div>
 
-        {/* ── Bottom Metrics Capsule Bar ── */}
-        <div
-          className="w-full rounded-2xl md:rounded-full border border-white/[0.08] bg-[#070b14]/90 backdrop-blur-md py-6 px-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0 relative overflow-hidden"
-          style={{
-            boxShadow: "0 4px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)",
-            ...fadeUp(350),
-          }}
-        >
-          {/* Background subtle glow inside metrics bar */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/[0.02] via-transparent to-blue-500/[0.02] pointer-events-none" />
-
-          {/* Metric 1 */}
-          <div className="flex items-center gap-4">
-            <span className="text-[34px] md:text-[38px] font-extrabold text-[#3daeff] leading-none tracking-tight">
-              100+
-            </span>
-            <span className="text-[9px] md:text-[10px] font-bold text-white/45 tracking-[0.2em] uppercase leading-snug">
-              ARTICLES PUBLISHED
-            </span>
-          </div>
-
-          {/* Divider 1 */}
-          <div className="hidden md:block w-px h-8 bg-gradient-to-b from-transparent via-[#3daeff]/30 to-transparent" />
-
-          {/* Metric 2 */}
-          <div className="flex items-center gap-4">
-            <span className="text-[34px] md:text-[38px] font-extrabold text-[#3daeff] leading-none tracking-tight">
-              12K+
-            </span>
-            <span className="text-[9px] md:text-[10px] font-bold text-white/45 tracking-[0.2em] uppercase leading-snug">
-              ARTICLES PUBLISHED
-            </span>
-          </div>
-
-          {/* Divider 2 */}
-          <div className="hidden md:block w-px h-8 bg-gradient-to-b from-transparent via-[#3daeff]/30 to-transparent" />
-
-          {/* Metric 3 */}
-          <div className="flex items-center gap-4">
-            <span className="text-[34px] md:text-[38px] font-extrabold text-[#3daeff] leading-none tracking-tight">
-              5
-            </span>
-            <span className="text-[9px] md:text-[10px] font-bold text-white/45 tracking-[0.2em] uppercase leading-snug">
-              MONTHLY READERS
-            </span>
-          </div>
-        </div>
-
       </div>
 
       {/* ── Bottom decorative line ── */}

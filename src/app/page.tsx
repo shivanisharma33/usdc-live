@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import RedefiningData from "@/components/RedefiningData";
 import InfrastructureStack from "@/components/InfrastructureStack";
 import AIDemand from "@/components/AIDemand";
-import Arms200System from "@/components/Arms200System";
 import AIInfrastructureExcellence from "@/components/AIInfrastructureExcellence";
 import NvidiaRoadmap from "@/components/NvidiaRoadmap";
 import Arms200Platform from "@/components/Arms200Platform";
@@ -43,8 +42,7 @@ export default function Home() {
       <AIDemand />
 
 
-      {/* Render the ARMS 200 System section */}
-      <Arms200System />
+
 
       {/* Render the AI Infrastructure Excellence section */}
       <AIInfrastructureExcellence />

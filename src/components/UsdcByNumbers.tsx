@@ -41,7 +41,7 @@ export default function UsdcByNumbers() {
       color: "#ffffff",
     },
     {
-      value: "300",
+      value: "400+",
       label: "MEGAWATTS OF POTENTIAL\nCONVERSION ASSETS",
       color: "#ffffff",
     },

@@ -6,6 +6,7 @@ import ArmsHero from "@/components/ArmsHero";
 import Arms200Advantages from "@/components/Arms200Advantages";
 import ArmsInfrastructureGrid from "@/components/ArmsInfrastructureGrid";
 import Arms200System from "@/components/Arms200System";
+import ArmsTechnicalSpecs from "@/components/ArmsTechnicalSpecs";
 
 export const metadata: Metadata = {
   title: "ARMS Modular Systems — USDC | Enterprise-Scale AI Infrastructure",
@@ -30,6 +31,9 @@ export default function ArmsPage() {
 
       {/* ARMS 200 System detailed specs grid & Certificate section */}
       <Arms200System />
+
+      {/* ARMS Technical Specifications list & Future Ready platform */}
+      <ArmsTechnicalSpecs />
 
       {/* Footer component */}
       <Footer />

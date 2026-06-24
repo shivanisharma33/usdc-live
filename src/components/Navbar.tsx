@@ -17,14 +17,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: "ARMS", href: "/arms" },
-    { label: "Investor", href: "#" },
-    { label: "News & insight", href: "/news-insights" },
-    { label: "Press Release", href: "/press-release" },
-    { label: "Management Team", href: "/management-team" },
-    { label: "Career", href: "#" },
+  const navLinks: { label: string; href: string; dropdown?: { label: string; href: string }[] }[] = [
     { label: "About us", href: "/about" },
+    { label: "Investor", href: "/investor" },
+    { label: "News & insight", href: "/news-insights" },
+    {
+      label: "Company",
+      href: "#",
+      dropdown: [
+        { label: "Management Team", href: "/management-team" },
+        { label: "Press Release", href: "/press-release" },
+      ],
+    },
+    {
+      label: "Infrastructure",
+      href: "#",
+      dropdown: [
+        { label: "ARMS", href: "/arms" },
+        { label: "Energy", href: "/energy" },
+        { label: "Data Center", href: "/data-center" },
+      ],
+    },
+    { label: "Career", href: "/career" },
   ];
 
   return (
@@ -51,15 +65,47 @@ export default function Navbar() {
       {/* Right-aligned Navigation with Glassmorphism Effect (Desktop Only) */}
       <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
         <div className="flex items-center gap-[38px]">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="relative text-white/80 text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.dropdown) {
+              return (
+                <div key={link.label} className="relative group/dropdown py-1">
+                  <button className="flex items-center gap-1 text-white/80 text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 cursor-pointer font-sans">
+                    <span>{link.label}</span>
+                    <svg
+                      className="w-3.5 h-3.5 transition-transform duration-300 group-hover/dropdown:rotate-180 text-white/60 group-hover/dropdown:text-[#3daeff]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[180px] bg-[#04070f]/95 border border-white/[0.08] backdrop-blur-xl rounded-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.65)] py-2.5 opacity-0 invisible translate-y-1 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-300 z-50">
+                    {link.dropdown.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        className="block px-4 py-2 text-[13.5px] text-white/75 hover:text-[#3daeff] hover:bg-white/[0.03] transition-all duration-200 font-sans"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="relative text-white/80 text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Divider */}
@@ -111,16 +157,40 @@ export default function Navbar() {
       {/* Mobile Drawer Navigation Menu */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] md:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-2 border-b border-white/[0.03] font-sans"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            if (link.dropdown) {
+              return (
+                <div key={link.label} className="flex flex-col w-full border-b border-white/[0.03] pb-2">
+                  <div className="text-white/45 text-[11px] font-bold tracking-[0.15em] uppercase py-1.5 font-sans">
+                    {link.label}
+                  </div>
+                  <div className="flex flex-col pl-4 gap-2 mt-1">
+                    {link.dropdown.map((subLink) => (
+                      <Link
+                        key={subLink.label}
+                        href={subLink.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-white text-[15px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-1 font-sans"
+                      >
+                        {subLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-2 border-b border-white/[0.03] font-sans"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
 
           <div className="flex items-center justify-between gap-4 mt-2">
             {/* Theme toggle mobile */}
