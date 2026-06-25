@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import RedefiningData from "@/components/RedefiningData";
+import SpeedScaleSovereignty from "@/components/SpeedScaleSovereignty";
 import InfrastructureStack from "@/components/InfrastructureStack";
 import AIDemand from "@/components/AIDemand";
 import AIInfrastructureExcellence from "@/components/AIInfrastructureExcellence";
 import NvidiaRoadmap from "@/components/NvidiaRoadmap";
-import Arms200Platform from "@/components/Arms200Platform";
 import UsdcByNumbers from "@/components/UsdcByNumbers";
 import LatestNews from "@/components/LatestNews";
 import ContactSection from "@/components/ContactSection";
@@ -32,8 +31,8 @@ export default function Home() {
       {/* Render the Hero section */}
       <Hero />
 
-      {/* Render the Redefining Data section */}
-      <RedefiningData />
+      {/* Render the Speed, Scale, Sovereignty section */}
+      <SpeedScaleSovereignty />
 
       {/* Render the Infrastructure Stack section */}
       <InfrastructureStack />
@@ -49,8 +48,6 @@ export default function Home() {
 
       {/* Render the NVIDIA Roadmap section */}
       <NvidiaRoadmap />
-      {/* Render the ARMS 200 Platform section */}
-      <Arms200Platform />
 
       {/* Render the USDC By The Numbers section */}
       <UsdcByNumbers />

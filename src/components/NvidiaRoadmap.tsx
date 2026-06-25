@@ -457,20 +457,20 @@ export default function NvidiaRoadmap() {
 
         {/* ═══ Bottom Stats Bar ═══ */}
         <div
-          className="inline-grid grid-cols-2 md:grid-cols-4 border border-white/[0.06] rounded-lg overflow-hidden max-w-[580px]"
+          className="grid w-full grid-cols-2 md:grid-cols-4 border border-white/[0.06] rounded-lg overflow-hidden"
           style={fadeUp(700)}
         >
           {stats.map((stat, i) => (
             <div
               key={i}
-              className={`flex flex-col items-start justify-center px-5 py-4 bg-[#060c18]/50 ${
+              className={`flex flex-col items-center justify-center px-5 py-4 bg-[#060c18]/50 ${
                 i < stats.length - 1 ? "border-r border-white/[0.06]" : ""
               }`}
             >
-              <span className="text-[20px] md:text-[22px] font-bold text-white tracking-tight leading-none mb-1.5">
+              <span className="text-[20px] md:text-[22px] font-bold text-white tracking-tight leading-none mb-1.5 text-center">
                 {stat.value}
               </span>
-              <span className="text-[8px] font-semibold text-white/25 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.4]">
+              <span className="text-[8px] font-semibold text-white/25 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.4] text-center">
                 {stat.label}
               </span>
             </div>

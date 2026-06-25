@@ -7,7 +7,7 @@ const ThreeDStack = dynamic(() => import("./ThreeDStack"), { ssr: false });
 
 export default function InfrastructureStack() {
   const [inView, setInView] = useState(false);
-  const [activePlate, setActivePlate] = useState<number | null>(null);
+  const [activePlate, setActivePlate] = useState<number | null>(3);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function InfrastructureStack() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] pt-4 pb-12 md:pt-6 md:pb-16 border-t border-white/[0.03]"
     >
       {/* Background Hexagonal Grid Pattern in top-right */}
       <div className="absolute top-0 right-0 w-[320px] h-[280px] opacity-80 pointer-events-none select-none z-0 overflow-hidden [mask-image:radial-gradient(ellipse_at_top_right,white_40%,transparent_100%)]">
