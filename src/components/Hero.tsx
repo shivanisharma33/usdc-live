@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Zap, Clock, Shield, Cpu, ArrowRight, ArrowDown } from "lucide-react";
+import Link from "next/link";
 import WaveBackground from "@/components/WaveBackground";
 
 export default function Hero() {
@@ -33,20 +34,20 @@ export default function Hero() {
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 w-full sm:w-auto px-4 relative z-10 animate-slide-up [animation-delay:250ms]">
         {/* Explore Data Centers */}
-        <button className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_24px_rgba(61,174,255,0.4)] active:scale-[0.98] transition-all duration-200 cursor-pointer">
+        <Link href="/data-center" className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_24px_rgba(61,174,255,0.4)] active:scale-[0.98] transition-all duration-200 cursor-pointer">
           <span>Explore Data Centers</span>
           <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40">
             <ArrowRight className="w-3 h-3 text-white" />
           </div>
-        </button>
+        </Link>
 
         {/* Download PDF */}
-        <button className="w-full sm:w-auto px-6 py-3.5 border border-white/12 hover:border-white/25 hover:bg-white/[0.02] text-white/90 hover:text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all duration-200 cursor-pointer">
+        <Link href="/contact" className="w-full sm:w-auto px-6 py-3.5 border border-white/12 hover:border-white/25 hover:bg-white/[0.02] text-white/90 hover:text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all duration-200 cursor-pointer">
           <span>Download PDF</span>
           <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/20">
             <ArrowDown className="w-3 h-3 text-white/70" />
           </div>
-        </button>
+        </Link>
       </div>
 
       {/* Metrics Capsule Dashboard */}

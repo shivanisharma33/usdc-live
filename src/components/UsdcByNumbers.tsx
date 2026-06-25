@@ -33,7 +33,7 @@ export default function UsdcByNumbers() {
     {
       value: "4",
       label: "UNITED STATES-BASED\nREDEVELOPMENT SITES",
-      color: "#3daeff",
+      color: "#ffffff",
     },
     {
       value: "55",
@@ -43,7 +43,7 @@ export default function UsdcByNumbers() {
     {
       value: "400+",
       label: "MEGAWATTS OF POTENTIAL\nCONVERSION ASSETS",
-      color: "#ffffff",
+      color: "#3daeff",
     },
   ];
 

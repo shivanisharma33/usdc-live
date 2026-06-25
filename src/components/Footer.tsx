@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 /* ═══════════════════════ Footer Component ═══════════════════════ */
@@ -79,14 +80,16 @@ export default function Footer() {
 
           {/* Logo & Description Column (Left) */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <Image
-              src="/USDC_3 1.png"
-              alt="USDC Logo"
-              width={140}
-              height={50}
-              className="h-[46px] w-auto"
-              priority
-            />
+            <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
+              <Image
+                src="/USDC_3 1.png"
+                alt="USDC Logo"
+                width={140}
+                height={50}
+                className="h-[46px] w-auto"
+                priority
+              />
+            </Link>
             <p className="text-[12px] text-white/45 max-w-[420px] leading-[1.8] mt-6 font-normal">
               Powering the future of data with state-of-the-art infrastructure and solutions designed for the demands of the digital economy.
             </p>
@@ -116,15 +119,15 @@ export default function Footer() {
                 { label: "Home", href: "/" },
                 { label: "About us", href: "/about" },
                 { label: "Our Team", href: "/management-team" },
-                { label: "Latest News", href: "#" }
+                { label: "Latest News", href: "/news-insights" }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-[11px] text-white/45 hover:text-[#3daeff] transition-colors duration-200 font-bold"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Calendar, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 /* ═══════════════════════ LatestNews Component ═══════════════════════ */
 
@@ -88,21 +89,22 @@ export default function LatestNews() {
 
           {/* Browse All News Button */}
           <div className="flex items-start md:items-center" style={fadeUp(100)}>
-            <button className="flex items-center gap-3 px-6 py-3 rounded-xl bg-[#3daeff] hover:bg-[#2fa0f0] text-white font-extrabold text-xs tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(61,174,255,0.2)] hover:shadow-[0_4px_25px_rgba(61,174,255,0.3)] cursor-pointer group">
+            <Link href="/news-insights" className="flex items-center gap-3 px-6 py-3 rounded-xl bg-[#3daeff] hover:bg-[#2fa0f0] text-white font-extrabold text-xs tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(61,174,255,0.2)] hover:shadow-[0_4px_25px_rgba(61,174,255,0.3)] cursor-pointer group">
               Browse All News
               <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 transition-colors">
                 <ArrowUpRight className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
 
         {/* ── News Cards Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 md:mb-20">
           {newsItems.map((item, idx) => (
-            <div
+            <Link
+              href="/news-insights"
               key={idx}
-              className="group flex flex-col p-6 sm:p-8 rounded-2xl bg-[#eaeef6] border border-white/[0.08] relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+              className="group flex flex-col p-6 sm:p-8 rounded-2xl bg-[#eaeef6] border border-white/[0.08] relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] no-underline"
               style={{
                 boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
                 ...fadeUp(150 + idx * 100),
@@ -171,7 +173,7 @@ export default function LatestNews() {
                 </div>
 
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

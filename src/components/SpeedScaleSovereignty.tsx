@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Gauge, Zap, ShieldCheck, BarChart3, Lock, Link, Layers } from "lucide-react";
 
 type TabType = "speed" | "scale" | "sovereignty";
@@ -8,6 +8,14 @@ type TabType = "speed" | "scale" | "sovereignty";
 export default function SpeedScaleSovereignty() {
   const [activeTab, setActiveTab] = useState<TabType>("speed");
   const [sliderVal, setSliderVal] = useState<number>(52.6768); // Yields exactly 1.16 Megawatts initially
+  const [tabTransition, setTabTransition] = useState(false);
+
+  // Trigger entrance animation on tab change
+  useEffect(() => {
+    setTabTransition(true);
+    const timeout = setTimeout(() => setTabTransition(false), 50);
+    return () => clearTimeout(timeout);
+  }, [activeTab]);
 
   // Left column content configuration
   const tabData = {
@@ -203,14 +211,63 @@ export default function SpeedScaleSovereignty() {
 
   return (
     <section className="w-full relative overflow-hidden bg-[#04070f] px-4 py-12 md:py-16">
-      {/* Centered Rounded Container Card matching the design image */}
-      <div
-        className="w-full max-w-[1280px] mx-auto bg-[#03060d] rounded-[24px] overflow-hidden p-8 sm:p-10 md:p-12 lg:p-16 relative"
-        style={{
-          boxShadow: "0 25px 60px rgba(0,0,0,0.5)",
-        }}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[0.3fr_0.7fr] gap-8 lg:gap-12 xl:gap-16 items-start">
+
+      {/* ── Inline keyframes for border animation & floating orbs ── */}
+      <style>{`
+        @keyframes border-spin {
+          0% { --border-angle: 0deg; }
+          100% { --border-angle: 360deg; }
+        }
+        @keyframes float-orb {
+          0%, 100% { transform: translateY(0px) scale(1); opacity: 0.25; }
+          50% { transform: translateY(-30px) scale(1.15); opacity: 0.5; }
+        }
+        @keyframes fade-slide-up {
+          0% { opacity: 0; transform: translateY(18px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer-line {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .tab-content-enter {
+          animation: fade-slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .speed-card {
+          transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+        .speed-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 36px rgba(61, 174, 255, 0.12);
+        }
+        .speed-card:hover .speed-icon {
+          box-shadow: 0 0 18px rgba(61, 174, 255, 0.4);
+          border-color: rgba(61, 174, 255, 0.7);
+        }
+        .speed-card:hover .speed-value {
+          text-shadow: 0 0 20px rgba(61, 174, 255, 0.5);
+        }
+      `}</style>
+
+      {/* Centered Rounded Container Card with animated gradient border */}
+      <div className="w-full max-w-[1280px] mx-auto relative rounded-[26px] p-[1px]" style={{
+        background: "linear-gradient(135deg, rgba(61,174,255,0.35) 0%, rgba(61,174,255,0.05) 25%, rgba(61,174,255,0.02) 50%, rgba(61,174,255,0.08) 75%, rgba(61,174,255,0.3) 100%)",
+      }}>
+        <div
+          className="w-full bg-[#03060d] rounded-[25px] overflow-hidden p-8 sm:p-10 md:p-12 lg:p-16 relative"
+          style={{
+            boxShadow: "0 25px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(61,174,255,0.08)",
+          }}
+        >
+
+          {/* ── Ambient floating orbs ── */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="absolute top-[15%] left-[8%] w-[120px] h-[120px] rounded-full bg-[#3daeff]/[0.06] blur-[60px]" style={{ animation: "float-orb 8s ease-in-out infinite" }} />
+            <div className="absolute top-[55%] right-[12%] w-[90px] h-[90px] rounded-full bg-[#0084ff]/[0.08] blur-[50px]" style={{ animation: "float-orb 6s ease-in-out infinite 2s" }} />
+            <div className="absolute bottom-[10%] left-[40%] w-[150px] h-[150px] rounded-full bg-[#3daeff]/[0.04] blur-[70px]" style={{ animation: "float-orb 10s ease-in-out infinite 4s" }} />
+          </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[0.3fr_0.7fr] gap-8 lg:gap-12 xl:gap-16 items-start relative z-10">
 
           {/* ═══ Left Column: Static Layout Structure (Content varies by activeTab) ═══ */}
           <div className="flex flex-col justify-between min-h-[280px] lg:min-h-[320px]">
@@ -233,7 +290,10 @@ export default function SpeedScaleSovereignty() {
                     >
                       {tab}
                       {isActive && (
-                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3daeff] rounded-full animate-pulse" />
+                        <>
+                          <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3daeff] rounded-full" />
+                          <span className="absolute bottom-[-2px] left-[10%] w-[80%] h-[4px] bg-[#3daeff]/40 rounded-full blur-[4px]" />
+                        </>
                       )}
                     </button>
                   );
@@ -252,14 +312,15 @@ export default function SpeedScaleSovereignty() {
 
             {/* ── SPEED TAB VIEW ── */}
             {activeTab === "speed" && (
+              <div className="tab-content-enter w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 w-full">
 
                 {/* Stat 1: 10x */}
-                <div className="flex flex-col items-start pb-6 border-b border-white/[0.08] sm:pr-6 sm:border-r sm:border-b sm:border-white/[0.08] sm:pb-6 lg:pb-0 lg:border-b-0 lg:pr-6 xl:pr-8 lg:border-r lg:border-white/[0.08]">
-                  <div className="w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff]">
+                <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:pr-6 sm:border-r sm:border-b sm:border-white/[0.08] sm:pb-6 lg:pb-0 lg:border-b-0 lg:pr-6 xl:pr-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                     <Gauge className="w-5 h-5" />
                   </div>
-                  <span className="text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3">
+                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
                     10x
                   </span>
                   <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
@@ -271,11 +332,11 @@ export default function SpeedScaleSovereignty() {
                 </div>
 
                 {/* Stat 2: ~$0.04/kWh */}
-                <div className="flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-0 sm:pl-6 sm:border-b sm:border-white/[0.08] sm:pb-6 lg:py-0 lg:border-b-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08]">
-                  <div className="w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff]">
+                <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-0 sm:pl-6 sm:border-b sm:border-white/[0.08] sm:pb-6 lg:py-0 lg:border-b-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                     <Zap className="w-5 h-5" />
                   </div>
-                  <span className="text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3">
+                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
                     ~$0.04<span className="text-[14px] sm:text-[16px] lg:text-[12px] xl:text-[15px] font-bold text-[#3daeff]">/kWh</span>
                   </span>
                   <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
@@ -287,11 +348,11 @@ export default function SpeedScaleSovereignty() {
                 </div>
 
                 {/* Stat 3: 2N */}
-                <div className="flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-6 sm:pr-6 sm:border-r sm:border-white/[0.08] sm:border-b-0 sm:pb-0 lg:py-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08]">
-                  <div className="w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff]">
+                <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-6 sm:pr-6 sm:border-r sm:border-white/[0.08] sm:border-b-0 sm:pb-0 lg:py-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <span className="text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3">
+                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
                     2N
                   </span>
                   <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
@@ -303,11 +364,11 @@ export default function SpeedScaleSovereignty() {
                 </div>
 
                 {/* Stat 4: 400MW+ */}
-                <div className="flex flex-col items-start pt-6 sm:pt-6 sm:pl-6 lg:pt-0 lg:pl-6 xl:pl-8">
-                  <div className="w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff]">
+                <div className="speed-card flex flex-col items-start pt-6 sm:pt-6 sm:pl-6 lg:pt-0 lg:pl-6 xl:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
+                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                     <BarChart3 className="w-5 h-5" />
                   </div>
-                  <span className="text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3">
+                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
                     400MW+
                   </span>
                   <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
@@ -319,11 +380,12 @@ export default function SpeedScaleSovereignty() {
                 </div>
 
               </div>
+              </div>
             )}
 
             {/* ── SCALE TAB VIEW ── */}
             {activeTab === "scale" && (
-              <div className="w-full max-w-[550px] mx-auto py-4">
+              <div className="tab-content-enter w-full max-w-[550px] mx-auto py-4">
 
                 {/* Configurator Controls */}
                 <div className="flex flex-col w-full">
@@ -338,9 +400,9 @@ export default function SpeedScaleSovereignty() {
                         {formattedPower.unit}
                       </span>
                     </div>
-                    <button className="px-4 py-2 text-[10px] font-bold text-[#3daeff] uppercase tracking-wider border border-[#3daeff]/35 rounded-md hover:bg-[#3daeff]/10 transition-all duration-300 cursor-pointer">
+                    <a href="/contact" className="px-4 py-2 text-[10px] font-bold text-[#3daeff] uppercase tracking-wider border border-[#3daeff]/35 rounded-md hover:bg-[#3daeff]/10 transition-all duration-300 cursor-pointer inline-block">
                       Configure Yours &gt;
-                    </button>
+                    </a>
                   </div>
 
                   {/* Range Slider Container */}
@@ -407,10 +469,10 @@ export default function SpeedScaleSovereignty() {
 
             {/* ── SOVEREIGNTY TAB VIEW ── */}
             {activeTab === "sovereignty" && (
-              <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 w-full items-center">
+              <div className="tab-content-enter grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 w-full items-center">
 
                 {/* 3D Isometric visual with Radar concentric rings (Left) */}
-                <div className="relative w-full aspect-[4/3] max-w-[360px] mx-auto border border-white/[0.04] bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner">
+                <div className="relative w-full aspect-[4/3] max-w-[360px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
                   <svg width="100%" height="100%" viewBox="0 0 400 280">
                     <defs>
                       <radialGradient id="blue-glow-gradient" cx="50%" cy="50%" r="50%">
@@ -471,8 +533,8 @@ export default function SpeedScaleSovereignty() {
                 <div className="flex flex-col gap-5 w-full">
 
                   {/* Feature 1: Data Stays Yours */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff]">
+                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
+                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
                       <Lock className="w-4 h-4" />
                     </div>
                     <div>
@@ -486,8 +548,8 @@ export default function SpeedScaleSovereignty() {
                   </div>
 
                   {/* Feature 2: Complete Access Control */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff]">
+                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
+                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
                       <ShieldCheck className="w-4 h-4" />
                     </div>
                     <div>
@@ -501,8 +563,8 @@ export default function SpeedScaleSovereignty() {
                   </div>
 
                   {/* Feature 3: Compliance by Design */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff]">
+                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
+                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
                       <Link className="w-4 h-4" />
                     </div>
                     <div>
@@ -516,8 +578,8 @@ export default function SpeedScaleSovereignty() {
                   </div>
 
                   {/* Feature 4: Isolation at Every Layer */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff]">
+                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
+                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
                       <Layers className="w-4 h-4" />
                     </div>
                     <div>
@@ -537,6 +599,7 @@ export default function SpeedScaleSovereignty() {
 
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
