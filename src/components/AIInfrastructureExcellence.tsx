@@ -1074,45 +1074,43 @@ export default function AIInfrastructureExcellence() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {/* Card 1: POWER ADVANTAGE */}
             <div
-              className="relative rounded-[16px] border border-white/20 bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-300 hover:border-[#3daeff]/20 min-h-[200px]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
               style={{
-                boxShadow: "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 ...fadeUp(140),
               }}
             >
               <div className="relative z-10 max-w-[60%] sm:max-w-[55%]">
-                <span className="text-4xl font-extrabold text-white/10 leading-none block mb-3">
+                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   1.
                 </span>
-                <h3 className="text-[12px] font-extrabold text-white tracking-[0.15em] uppercase mb-3 font-sans">
+                <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">
                   POWER ADVANTAGE
                 </h3>
-                <p className="text-[11px] md:text-[12px] text-white/40 leading-[1.8] font-normal">
+                <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
                   40MW+ capacity with strategic energy assets positioned for long-term AI infrastructure growth.
                 </p>
               </div>
-              <div className="absolute bottom-0 right-0 w-[150px] h-[120px] sm:w-[170px] sm:h-[130px] md:w-[190px] md:h-[145px] pointer-events-none">
+              <div className="absolute bottom-0 right-0 w-[150px] h-[120px] sm:w-[170px] sm:h-[130px] md:w-[190px] md:h-[145px] pointer-events-none group-hover:scale-105 transition-transform duration-500">
                 <IsometricPowerGrid />
               </div>
             </div>
 
             {/* Card 2: RAPID DEPLOYMENT */}
             <div
-              className="relative rounded-[16px] border border-white/20 bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-300 hover:border-[#3daeff]/20"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)]"
               style={{
-                boxShadow: "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 ...fadeUp(200),
               }}
             >
               <div className="relative z-10 flex flex-col xl:flex-row justify-between items-stretch gap-4 h-full">
                 <div className="flex-1 min-w-[200px]">
-                  <span className="text-4xl font-extrabold text-white/10 leading-none block mb-3">
+                  <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                     2.
                   </span>
-                  <h3 className="text-[12px] font-extrabold text-white tracking-[0.15em] uppercase mb-3 font-sans">
+                  <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">
                     RAPID DEPLOYMENT
                   </h3>
-                  <p className="text-[11px] md:text-[12px] text-white/40 leading-[1.8] font-normal">
+                  <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
                     Deploy AI-ready<br />Infrastructure in weeks<br />Instead of years.
                   </p>
                 </div>
@@ -1152,21 +1150,20 @@ export default function AIInfrastructureExcellence() {
           <div className="grid grid-cols-1 lg:grid-cols-[3.5fr_3fr_3.5fr] gap-3 md:gap-4">
             {/* Card 3: ADVANCED COOLING */}
             <div
-              className="relative rounded-[16px] border border-white/20 bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-300 hover:border-[#3daeff]/20"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)]"
               style={{
-                boxShadow: "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 ...fadeUp(260),
               }}
             >
               <div className="relative z-10 flex flex-col justify-between h-full min-h-[190px]">
                 <div>
-                  <span className="text-3xl font-extrabold text-white/10 leading-none block mb-3">
+                  <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                     3.
                   </span>
-                  <h3 className="text-[12px] font-extrabold text-white tracking-[0.15em] uppercase mb-2 font-sans">
+                  <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
                     ADVANCED COOLING
                   </h3>
-                  <p className="text-[11px] md:text-[12px] text-white/40 leading-[1.8] font-normal">
+                  <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
                     Direct-to-chip cooling engineered for dense AI workloads.
                   </p>
                 </div>
@@ -1178,59 +1175,57 @@ export default function AIInfrastructureExcellence() {
 
             {/* Card 4: AI OPTIMIZED */}
             <div
-              className="relative rounded-[16px] border border-white/20 bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-300 hover:border-[#3daeff]/20 min-h-[200px]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
               style={{
-                boxShadow: "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 ...fadeUp(320),
               }}
             >
               <div className="relative z-10 max-w-[55%]">
-                <span className="text-3xl font-extrabold text-white/10 leading-none block mb-3">
+                <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   4.
                 </span>
-                <h3 className="text-[12px] font-extrabold text-white tracking-[0.15em] uppercase mb-2 font-sans">
+                <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
                   AI OPTIMIZED
                 </h3>
-                <p className="text-[11px] md:text-[12px] text-white/40 leading-[1.8] font-normal">
+                <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
                   Built for Blackwell, Vera Rubin and future GPUs.
                 </p>
               </div>
-              <div className="absolute bottom-[-10px] right-[-10px] w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] pointer-events-none">
+              <div className="absolute bottom-[-10px] right-[-10px] w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] pointer-events-none group-hover:scale-105 transition-transform duration-500">
                 <IsometricCubeStack />
               </div>
             </div>
 
             {/* Card 5: ENTERPRISE GRADE */}
             <div
-              className="relative rounded-[16px] border border-white/20 bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-300 hover:border-[#3daeff]/20 min-h-[200px]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
               style={{
-                boxShadow: "0 2px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.02)",
                 ...fadeUp(380),
               }}
             >
               <div className="relative z-10 max-w-[60%] sm:max-w-[55%]">
-                <span className="text-3xl font-extrabold text-white/10 leading-none block mb-3">
+                <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   5.
                 </span>
-                <h3 className="text-[12px] font-extrabold text-white tracking-[0.15em] uppercase mb-3 font-sans">
+                <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">
                   ENTERPRISE GRADE
                 </h3>
                 <ul className="space-y-2.5">
-                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 font-normal">
+                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 group-hover:text-white/65 font-normal transition-colors duration-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] flex-shrink-0" />
                     Tier III Design
                   </li>
-                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 font-normal">
+                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 group-hover:text-white/65 font-normal transition-colors duration-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] flex-shrink-0" />
                     99.99% Reliability
                   </li>
-                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 font-normal">
+                  <li className="flex items-center gap-2 text-[11px] md:text-[12px] text-white/45 group-hover:text-white/65 font-normal transition-colors duration-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] flex-shrink-0" />
                     Security &amp; Compliance
                   </li>
                 </ul>
               </div>
-              <div className="absolute bottom-[-15px] right-[-15px] w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] pointer-events-none">
+              <div className="absolute bottom-[-15px] right-[-15px] w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] pointer-events-none group-hover:scale-105 transition-transform duration-500">
                 <EnterpriseGradeShield />
               </div>
             </div>

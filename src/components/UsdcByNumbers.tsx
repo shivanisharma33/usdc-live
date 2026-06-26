@@ -43,7 +43,7 @@ export default function UsdcByNumbers() {
     {
       value: "400+",
       label: "MEGAWATTS OF POTENTIAL\nCONVERSION ASSETS",
-      color: "#3daeff",
+      color: "#ffffff",
     },
   ];
 
@@ -79,7 +79,7 @@ export default function UsdcByNumbers() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center justify-center text-center px-6 py-6 md:py-8 ${
+                className={`flex flex-col items-center justify-center text-center px-6 py-5 md:py-6 transition-all duration-500 hover:bg-[#02050c]/40 group cursor-default ${
                   i < stats.length - 1
                     ? "border-b md:border-b-0 md:border-r border-white/[0.06]"
                     : ""
@@ -87,14 +87,16 @@ export default function UsdcByNumbers() {
               >
                 {/* Large Number */}
                 <span
-                  className="text-[40px] sm:text-[46px] md:text-[50px] lg:text-[56px] font-extrabold tracking-tight leading-none mb-3"
+                  className="text-[40px] sm:text-[46px] md:text-[52px] lg:text-[60px] font-extrabold tracking-tight leading-none mb-2 transition-all duration-500 select-none block"
                   style={{ color: stat.color }}
                 >
-                  {stat.value}
+                  <span className={`inline-block transition-all duration-500 group-hover:scale-105 ${i === 2 ? "group-hover:drop-shadow-[0_0_15px_rgba(61,174,255,0.65)]" : "group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.45)]"}`}>
+                    {stat.value}
+                  </span>
                 </span>
 
                 {/* Label */}
-                <span className="text-[9px] md:text-[10px] font-bold text-white/35 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.6]">
+                <span className="text-[9px] md:text-[10px] font-bold text-white/30 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.6] group-hover:text-white/60 transition-colors duration-300">
                   {stat.label}
                 </span>
               </div>

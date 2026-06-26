@@ -17,6 +17,31 @@ export default function SpeedScaleSovereignty() {
     return () => clearTimeout(timeout);
   }, [activeTab]);
 
+  // Animate range slider when scale tab is shown
+  useEffect(() => {
+    if (activeTab === "scale") {
+      setSliderVal(0);
+      const targetVal = 52.6768;
+      const duration = 1000; // 1 second animation duration
+      const startTime = performance.now();
+      let frameId: number;
+
+      const animate = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuad = progress * (2 - progress); // Smooth decelerating easing curve
+        setSliderVal(easeOutQuad * targetVal);
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(animate);
+        }
+      };
+
+      frameId = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(frameId);
+    }
+  }, [activeTab]);
+
   // Left column content configuration
   const tabData = {
     speed: {
@@ -421,7 +446,7 @@ export default function SpeedScaleSovereignty() {
                     />
 
                     {/* Tick Mark Labels */}
-                    <div className="flex justify-between text-[8px] font-semibold text-white/30 tracking-wider mt-3.5 uppercase">
+                    <div className="flex justify-between text-[11px] sm:text-[12px] font-bold text-white/40 tracking-wider mt-3.5 uppercase">
                       <span>300 W</span>
                       <span>1 kW</span>
                       <span>100 kW</span>
@@ -433,26 +458,26 @@ export default function SpeedScaleSovereignty() {
                   {/* Configuration Outputs */}
                   <div className="grid grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
                     <div>
-                      <span className="text-[8px] font-semibold text-white/25 tracking-widest uppercase block mb-1">
+                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
                         Configuration 1
                       </span>
-                      <span className="text-[12.5px] sm:text-[13.5px] font-bold text-white">
+                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
                         {cruiserCount > 0 ? `${cruiserCount} Cruisers` : "—"}
                       </span>
                     </div>
                     <div>
-                      <span className="text-[8px] font-semibold text-white/25 tracking-widest uppercase block mb-1">
+                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
                         Configuration 2
                       </span>
-                      <span className="text-[12.5px] sm:text-[13.5px] font-bold text-white">
+                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
                         {tritonCount > 0 ? `${tritonCount} Tritons` : "—"}
                       </span>
                     </div>
                     <div>
-                      <span className="text-[8px] font-semibold text-white/25 tracking-widest uppercase block mb-1">
+                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
                         Configuration 3
                       </span>
-                      <span className="text-[12.5px] sm:text-[13.5px] font-bold text-white">
+                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
                         {leviathanCount > 0 ? `${leviathanCount} Leviathan${leviathanCount > 1 ? "s" : ""}` : "—"}
                       </span>
                     </div>
@@ -469,10 +494,10 @@ export default function SpeedScaleSovereignty() {
 
             {/* ── SOVEREIGNTY TAB VIEW ── */}
             {activeTab === "sovereignty" && (
-              <div className="tab-content-enter grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8 w-full items-center">
+              <div className="tab-content-enter flex justify-center w-full items-center py-4">
 
-                {/* 3D Isometric visual with Radar concentric rings (Left) */}
-                <div className="relative w-full aspect-[4/3] max-w-[360px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
+                {/* 3D Isometric visual with Radar concentric rings */}
+                <div className="relative w-full aspect-[4/3] max-w-[380px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
                   <svg width="100%" height="100%" viewBox="0 0 400 280">
                     <defs>
                       <radialGradient id="blue-glow-gradient" cx="50%" cy="50%" r="50%">
@@ -527,71 +552,6 @@ export default function SpeedScaleSovereignty() {
                       })
                     )}
                   </svg>
-                </div>
-
-                {/* Vertical Features list (Right) - cardless design */}
-                <div className="flex flex-col gap-5 w-full">
-
-                  {/* Feature 1: Data Stays Yours */}
-                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
-                      <Lock className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-white uppercase tracking-wider mb-1">
-                        Data Stays Yours
-                      </h4>
-                      <p className="text-[11.5px] text-white/50 leading-[1.5]">
-                        Your data remains on-site, within your organization, or inside your country&apos;s borders.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Feature 2: Complete Access Control */}
-                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
-                      <ShieldCheck className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-white uppercase tracking-wider mb-1">
-                        Complete Access Control
-                      </h4>
-                      <p className="text-[11.5px] text-white/50 leading-[1.5]">
-                        You decide who has access, what stays, and where it runs.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Feature 3: Compliance by Design */}
-                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
-                      <Link className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-white uppercase tracking-wider mb-1">
-                        Compliance by Design
-                      </h4>
-                      <p className="text-[11.5px] text-white/50 leading-[1.5]">
-                        Built to meet enterprise, regulatory, and sovereignty requirements.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Feature 4: Isolation at Every Layer */}
-                  <div className="flex items-start gap-4 group cursor-default p-3 rounded-lg transition-all duration-300 hover:bg-white/[0.02]">
-                    <div className="w-[38px] h-[38px] rounded-full border border-[#3daeff]/35 flex items-center justify-center flex-shrink-0 text-[#3daeff] transition-all duration-300 group-hover:border-[#3daeff]/70 group-hover:shadow-[0_0_14px_rgba(61,174,255,0.25)]">
-                      <Layers className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-white uppercase tracking-wider mb-1">
-                        Isolation at Every Layer
-                      </h4>
-                      <p className="text-[11.5px] text-white/50 leading-[1.5]">
-                        Physical, operational, and network isolation for true control.
-                      </p>
-                    </div>
-                  </div>
-
                 </div>
 
               </div>

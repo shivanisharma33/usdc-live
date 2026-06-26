@@ -120,8 +120,8 @@ export default function InfrastructureStack() {
                     setActivePlate((prev) => (prev === plateIndex ? null : plateIndex));
                   }}
                   className={`flex items-start gap-4 p-4 rounded-2xl border transition-all duration-500 ease-out cursor-pointer group ${isActive
-                      ? "bg-[#02050c]/85 border-[#0091ff]/40 shadow-[0_0_24px_rgba(0,145,255,0.08)] scale-[1.02]"
-                      : "bg-transparent border-transparent hover:bg-[#02050c]/40 hover:border-white/[0.04]"
+                      ? "bg-[#02050c]/85 border-[#0091ff]/40 shadow-[0_0_24px_rgba(0,145,255,0.12)] scale-[1.02]"
+                      : "bg-transparent border-transparent hover:bg-[#02050c]/55 hover:border-[#0091ff]/15 hover:shadow-[0_4px_20px_rgba(0,145,255,0.03)] hover:scale-[1.01]"
                     }`}
                   style={{
                     opacity: inView ? 1 : 0,
@@ -132,7 +132,7 @@ export default function InfrastructureStack() {
                   {/* Vertical Indicator Line */}
                   <div
                     className={`w-[2.5px] flex-shrink-0 self-stretch rounded-full transition-all duration-[800ms] ease-out origin-top ${isActive
-                        ? "bg-[#3daeff] shadow-[0_0_8px_#3daeff] scale-y-110"
+                        ? "bg-[#3daeff] shadow-[0_0_10px_#3daeff] scale-y-110"
                         : isAnyCardActive
                           ? "bg-[#0091ff]/20 group-hover:bg-[#0091ff]/40"
                           : "bg-[#0091ff] group-hover:bg-[#3daeff]"
@@ -169,13 +169,15 @@ export default function InfrastructureStack() {
 
           {/* Right Column: 3D Stack Model */}
           <div
-            className="lg:col-span-7 flex justify-center w-full order-1 lg:order-1 transition-all duration-1000 ease-out"
+            className="lg:col-span-7 flex justify-center w-full order-1 lg:order-1 transition-all duration-1000 ease-out relative"
             style={{
               opacity: inView ? 1 : 0,
               transform: inView ? "translateY(0px)" : "translateY(30px)",
             }}
           >
-            <div className="relative w-full max-w-2xl h-[450px] sm:h-[520px] md:h-[580px] lg:h-[640px] overflow-hidden">
+            {/* Ambient blue light behind 3D stack */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
+            <div className="relative w-full max-w-2xl h-[450px] sm:h-[520px] md:h-[580px] lg:h-[640px] overflow-hidden z-10">
               <ThreeDStack activePlate={activePlate} onPlateChange={setActivePlate} />
             </div>
           </div>

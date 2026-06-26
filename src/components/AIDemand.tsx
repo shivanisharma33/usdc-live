@@ -130,27 +130,43 @@ export default function AIDemand() {
               the competition.
             </p>
 
+            {/* Styles for glow effects */}
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                .text-shadow-glow-blue {
+                  transition: all 0.3s ease;
+                }
+                .group:hover .text-shadow-glow-blue {
+                  text-shadow: 0 0 10px rgba(61, 174, 255, 0.5);
+                  color: #ffffff;
+                }
+              `
+            }} />
+
             {/* Stats Grid 2×2 */}
             <div
-              className="grid grid-cols-2 gap-x-10 gap-y-7 max-w-[420px]"
+              className="grid grid-cols-2 gap-4 max-w-[440px] w-full"
               style={fadeUp(280)}
             >
               {stats.map((stat, i) => (
-                <div key={i} className="flex flex-col items-start gap-2">
+                <div
+                  key={i}
+                  className="flex flex-col items-start gap-3 p-4 rounded-xl bg-[#060b18]/45 border border-white/[0.06] backdrop-blur-sm hover:border-[#3daeff]/35 hover:bg-[#060b18]/70 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,145,255,0.06)] transition-all duration-300 group cursor-default"
+                >
                   {/* Icon + Value */}
                   <div className="flex items-center gap-3">
-                    <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-blue-500/[0.07] border border-blue-400/[0.1]">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/[0.08] border border-blue-400/[0.12] group-hover:bg-[#3daeff]/15 group-hover:border-[#3daeff]/35 group-hover:shadow-[0_0_8px_rgba(61,174,255,0.25)] transition-all duration-300">
                       <StatIcon type={stat.icon} />
                     </div>
-                    <span className="text-[22px] md:text-[26px] font-bold text-white tracking-tight leading-none">
+                    <span className="text-[20px] md:text-[23px] font-bold text-white tracking-tight leading-none text-shadow-glow-blue">
                       {stat.value}
-                      <span className="text-[13px] md:text-[15px] font-semibold text-white/55 ml-0.5">
+                      <span className="text-[12px] md:text-[14px] font-semibold text-white/55 ml-0.5">
                         {stat.unit}
                       </span>
                     </span>
                   </div>
                   {/* Label */}
-                  <span className="text-[8px] font-semibold text-white/25 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.5] pl-12">
+                  <span className="text-[8px] font-semibold text-white/30 tracking-[0.18em] uppercase whitespace-pre-line leading-[1.4] pl-0.5 group-hover:text-white/55 transition-colors duration-300">
                     {stat.label}
                   </span>
                 </div>

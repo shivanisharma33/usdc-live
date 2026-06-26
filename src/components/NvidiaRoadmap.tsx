@@ -457,20 +457,18 @@ export default function NvidiaRoadmap() {
 
         {/* ═══ Bottom Stats Bar ═══ */}
         <div
-          className="grid w-full grid-cols-2 md:grid-cols-4 border border-white/[0.06] rounded-lg overflow-hidden"
+          className="grid w-full grid-cols-2 md:grid-cols-4 gap-4 p-2 bg-[#080d1a]/40 border border-white/[0.06] rounded-2xl backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)]"
           style={fadeUp(700)}
         >
           {stats.map((stat, i) => (
             <div
               key={i}
-              className={`flex flex-col items-center justify-center px-5 py-4 bg-[#060c18]/50 ${
-                i < stats.length - 1 ? "border-r border-white/[0.06]" : ""
-              }`}
+              className="flex flex-col items-center justify-center px-5 py-6 bg-[#060c18]/65 hover:bg-[#060c18]/90 hover:border-white/10 border border-transparent rounded-xl transition-all duration-300 hover:-translate-y-0.5 group cursor-default"
             >
-              <span className="text-[20px] md:text-[22px] font-bold text-white tracking-tight leading-none mb-1.5 text-center">
+              <span className="text-[20px] md:text-[22px] font-black text-white tracking-tight leading-none mb-2 text-center group-hover:text-[#3daeff] group-hover:drop-shadow-[0_0_8px_rgba(61,174,255,0.4)] transition-all duration-300">
                 {stat.value}
               </span>
-              <span className="text-[8px] font-semibold text-white/25 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.4] text-center">
+              <span className="text-[8px] font-bold text-white/30 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.4] text-center group-hover:text-white/50 transition-colors duration-300">
                 {stat.label}
               </span>
             </div>

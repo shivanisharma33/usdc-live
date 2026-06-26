@@ -54,17 +54,17 @@ export default function Footer() {
     {
       label: "EMAIL US",
       value: "HELLO@USDC.COM",
-      icon: <Mail className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />,
+      icon: <Mail className="w-3.5 h-3.5 text-[#3daeff]" strokeWidth={2.5} />,
     },
     {
       label: "CALL US",
       value: "(555) 123-4567",
-      icon: <Phone className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />,
+      icon: <Phone className="w-3.5 h-3.5 text-[#3daeff]" strokeWidth={2.5} />,
     },
     {
       label: "USDC HEADQUARTERS",
       value: "218 NW 24TH ST 2ND FL, MIAMI, FL 33127",
-      icon: <MapPin className="w-3.5 h-3.5 text-black" strokeWidth={2.5} />,
+      icon: <MapPin className="w-3.5 h-3.5 text-[#3daeff]" strokeWidth={2.5} />,
     },
   ];
 
@@ -90,7 +90,7 @@ export default function Footer() {
                 priority
               />
             </Link>
-            <p className="text-[12px] text-white/45 max-w-[420px] leading-[1.8] mt-6 font-normal">
+            <p className="text-[13.5px] text-white/45 max-w-[420px] leading-[1.8] mt-6 font-normal">
               Powering the future of data with state-of-the-art infrastructure and solutions designed for the demands of the digital economy.
             </p>
             {/* Horizontal Blue Gradient Rule */}
@@ -101,7 +101,7 @@ export default function Footer() {
                 <a
                   key={idx}
                   href={social.href}
-                  className="w-9 h-9 border border-white/12 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/25 rounded-lg flex items-center justify-center text-white/50 hover:text-white transition-all duration-300"
+                  className="w-9 h-9 border border-white/12 bg-white/[0.03] hover:bg-[#3daeff]/10 hover:border-[#3daeff]/35 hover:text-[#3daeff] rounded-lg flex items-center justify-center text-white/50 hover:text-[#3daeff] hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(61,174,255,0.15)] transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -109,9 +109,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company Links Column (Middle) */}
           <div className="lg:col-span-3 flex flex-col items-start md:pl-10">
-            <h4 className="text-[11.5px] font-black text-white/90 uppercase tracking-widest mb-6">
+            <h4 className="text-[13.5px] font-black text-white/90 uppercase tracking-widest mb-6">
               Company
             </h4>
             <ul className="flex flex-col gap-3.5">
@@ -124,7 +123,7 @@ export default function Footer() {
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-[11px] text-white/45 hover:text-[#3daeff] transition-colors duration-200 font-bold"
+                    className="text-[13px] text-white/45 hover:text-[#3daeff] transition-colors duration-200 font-bold"
                   >
                     {link.label}
                   </Link>
@@ -135,22 +134,22 @@ export default function Footer() {
 
           {/* Contact Details Column (Right) */}
           <div className="lg:col-span-3 flex flex-col items-start">
-            <h4 className="text-[11.5px] font-black text-white/90 uppercase tracking-widest mb-6">
+            <h4 className="text-[13.5px] font-black text-white/90 uppercase tracking-widest mb-6">
               Contact Us
             </h4>
             <div className="flex flex-col gap-5">
               {contactItems.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-4">
+                <div key={idx} className="flex items-start gap-4 group/footeritem">
                   {/* White Circular Icon Holder */}
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/[0.08] border border-blue-500/20 flex items-center justify-center flex-shrink-0 group-hover/footeritem:bg-[#3daeff]/20 group-hover/footeritem:border-[#3daeff]/40 transition-all duration-300">
                     {item.icon}
                   </div>
                   {/* Contact Text labels */}
                   <div className="flex flex-col">
-                    <span className="text-[8px] font-black text-white/35 tracking-wider uppercase leading-none mb-1">
+                    <span className="text-[9.5px] font-black text-white/35 tracking-wider uppercase leading-none mb-1 group-hover/footeritem:text-white/55 transition-colors">
                       {item.label}
                     </span>
-                    <span className="text-[10px] sm:text-[10.5px] font-black text-white/80 tracking-wide uppercase leading-tight">
+                    <span className="text-[14px] font-black text-white/80 tracking-wide uppercase leading-tight group-hover/footeritem:text-[#3daeff] transition-colors">
                       {item.value}
                     </span>
                   </div>
@@ -165,10 +164,10 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 py-8 border-t border-white/[0.05] border-b border-white/[0.05]">
           {/* Subscribe Description */}
           <div className="flex flex-col items-start gap-1.5">
-            <h4 className="text-[12px] font-black text-white/95 uppercase tracking-widest">
+            <h4 className="text-[13.5px] font-black text-white/95 uppercase tracking-widest">
               Stay Updated
             </h4>
-            <p className="text-[11.5px] text-white/45 max-w-[340px] leading-relaxed font-normal">
+            <p className="text-[13px] text-white/45 max-w-[340px] leading-relaxed font-normal">
               Subscribe to our newsletter for the latest insights and data center news.
             </p>
           </div>
@@ -181,11 +180,11 @@ export default function Footer() {
               type="email"
               placeholder="Enter Your Email"
               required
-              className="flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-xs text-white placeholder-white/30 outline-none focus:border-[#0091ff] transition-colors"
+              className="flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300"
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-[#3daeff] hover:bg-[#2fa0f0] text-black font-black text-xs tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] cursor-pointer"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-black text-[13px] tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] hover:shadow-[0_4px_20px_rgba(61,174,255,0.35)] cursor-pointer"
             >
               SUBSCRIBE
             </button>
@@ -193,7 +192,7 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Row (Copyright & Policy) ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-white/30 font-bold font-sans">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-white/30 font-bold font-sans">
           <span>© 2026 USDC. All rights reserved.</span>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-white transition-colors duration-200">
