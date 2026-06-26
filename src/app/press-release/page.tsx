@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PressReleaseHero from "@/components/press/PressReleaseHero";
 import PressReleaseGrid from "@/components/press/PressReleaseGrid";
 import PressReleaseCTA from "@/components/press/PressReleaseCTA";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "Press Releases — USDC | Latest News & Announcements",
@@ -25,6 +26,9 @@ export default function PressReleasePage() {
 
       {/* Newsletter + Media CTA */}
       <PressReleaseCTA />
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       <Footer />
     </div>

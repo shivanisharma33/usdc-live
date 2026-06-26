@@ -7,6 +7,7 @@ import CareerWhy from "@/app/career/CareerWhy";
 import CareerOpenRoles from "@/app/career/CareerOpenRoles";
 import CareerCulture from "@/app/career/CareerCulture";
 import CareerCTA from "@/app/career/CareerCTA";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "Careers — USDC | Shape the Future of AI Infrastructure",
@@ -23,6 +24,7 @@ export default function CareerPage() {
       <CareerOpenRoles />
       <CareerCulture />
       <CareerCTA />
+      <PartnerSection />
       <Footer />
     </div>
   );

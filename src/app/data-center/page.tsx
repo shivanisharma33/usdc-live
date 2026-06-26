@@ -3,6 +3,12 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Server, Thermometer, Shield, Columns } from "lucide-react";
+import DataCenterArchitecture from "@/components/DataCenterArchitecture";
+import BuiltForAiSection from "@/components/BuiltForAiSection";
+import FacilitySpecification from "@/components/FacilitySpecification";
+import WhyUsdcSection from "@/components/WhyUsdcSection";
+import PartnerSection from "@/components/PartnerSection";
+
 
 export const metadata: Metadata = {
   title: "Data Center — USDC | High-Density GPU Computing Environment",
@@ -40,99 +46,115 @@ export default function DataCenterPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden select-none">
+      <section className="relative w-full min-h-[80vh] flex items-center pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden select-none">
         {/* Ambient Background Glows */}
-        <div className="absolute top-1/2 right-[-20%] -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="absolute bottom-[-10%] left-1/3 w-[500px] h-[500px] bg-[#3daeff]/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
-
-        {/* Subtle grid line backdrop */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_75%,transparent_100%)] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none z-0" />
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            {/* Left Column: Heading and Description */}
-            <div className="flex-1 flex flex-col items-start text-left relative z-20">
-              {/* Pill Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-                <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
-                <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
-                  Next-Gen Compute Environments
-                </span>
-              </div>
-
-              {/* Main Heading */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-bold tracking-tight leading-[1.05] text-white mb-2 font-sans">
-                DATA CENTER
-              </h1>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-bold tracking-tight leading-[1.05] text-[#3daeff] mb-8 font-sans">
-                PLATFORM
-              </h2>
-
-              {/* Description */}
-              <p className="text-[14px] md:text-[15px] text-white/70 font-normal leading-[1.75] max-w-[620px] mb-10 font-sans">
-                Designed to house massive clusters of next-generation GPU servers, USDC's modular data center platforms deliver advanced fluid dynamics, structural support, and physical-logical security to maximize operational efficiency.
-              </p>
-
-              {/* Metrics Card */}
-              <div className="w-full max-w-[440px] border border-white/[0.12] rounded-[16px] bg-[#080d1a]/50 backdrop-blur-sm p-6">
-                <div className="flex items-center justify-between gap-6">
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-3xl md:text-4xl font-bold text-white mb-1.5 font-sans">
-                      80 kW+
-                    </div>
-                    <div className="text-[9px] font-semibold text-white/50 tracking-[0.15em] uppercase text-center font-sans">
-                      Per-Rack Density
-                    </div>
-                  </div>
-
-                  <div className="w-[1px] h-12 bg-white/[0.12]" />
-
-                  <div className="flex flex-col items-center flex-1">
-                    <div className="text-3xl md:text-4xl font-bold text-[#3daeff] mb-1.5 font-sans">
-                      Tier III
-                    </div>
-                    <div className="text-[9px] font-semibold text-white/50 tracking-[0.15em] uppercase text-center font-sans">
-                      Uptime Standard
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="flex flex-col items-center text-center max-w-[800px] mx-auto animate-fade-in">
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-[#02050c]/50 mb-8">
+              <span className="w-6 h-[1.5px] bg-[#3daeff] rounded-full" />
+              <span className="text-[10px] font-black tracking-[0.25em] text-white/95 uppercase font-sans">
+                AI READY. BUILT DIFFERENT.
+              </span>
             </div>
 
-            {/* Right Column: Visual Specs Card */}
-            <div className="flex-1 w-full max-w-[500px] relative">
-              <div className="absolute inset-0 bg-[#0091ff]/[0.05] rounded-3xl blur-[40px] pointer-events-none" />
-              <div className="relative border border-white/[0.08] bg-[#02050c]/40 backdrop-blur-md rounded-3xl p-8 shadow-[0_24px_50px_rgba(0,0,0,0.6)]">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#3daeff]/10 border border-[#3daeff]/35 flex items-center justify-center">
-                    <Server className="w-6 h-6 text-[#3daeff]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white font-sans">Datacenter Pods</h3>
-                    <p className="text-xs text-white/40 font-sans">Structural & Thermal Enclosure Specs</p>
-                  </div>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { label: "Cooling Architecture", val: "Direct-to-Chip Liquid Cooling" },
-                    { label: "Rack Structural Capacity", val: "Up to 4,500 lbs Per Rack" },
-                    { label: "Deployment Cycle", val: "4 to 8 Weeks Commissioning" },
-                    { label: "Compliance & Safety", val: "Conforms to ANSI/TIA-942 Rated-3" },
-                  ].map((spec, i) => (
-                    <li key={i} className="flex justify-between items-center py-2.5 border-b border-white/[0.05] last:border-0">
-                      <span className="text-xs text-white/50 font-sans">{spec.label}</span>
-                      <span className="text-xs font-semibold text-white font-sans">{spec.val}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Main Heading */}
+            <h1 className="text-[56px] sm:text-[72px] md:text-[88px] lg:text-[100px] font-black tracking-tight leading-[0.92] text-white uppercase font-sans">
+              <span className="block">DATA</span>
+              <span className="text-[#3daeff] block">CENTERS</span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[480px] mx-auto mt-8 mb-10 font-sans">
+              Purpose-built AI-ready facilities engineered for high-density GPU infrastructure, advanced cooling, and rapid deployment.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto mx-auto">
+              <a
+                href="#facilities"
+                className="group flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap"
+              >
+                <span>EXPLORE FACILITIES</span>
+                <svg className="w-5 h-5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M6.5 10H13.5M13.5 10L10.5 7M13.5 10L10.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+
+              <a
+                href="/brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex-1 flex items-center justify-center gap-3 px-6 py-3.5 border border-white/20 hover:border-white/50 bg-transparent text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap"
+              >
+                <span>DOWNLOAD BROCHURE</span>
+                <svg className="w-5 h-5 text-white/90 transition-transform duration-200 group-hover:translate-y-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
+                  <path d="M10 6.5V13.5M10 13.5L7 10.5M10 13.5L13 10.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── METRICS BANNER SECTION ── */}
+      <section className="w-full bg-[#04070f] pb-16 md:pb-24 select-none relative z-10">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.01] backdrop-blur-sm py-8 px-6 md:px-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0 items-center text-center">
+              
+              {/* Metric 1 */}
+              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">120KW+</div>
+                <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RACK DENSITY</div>
+                <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
+              </div>
+
+              {/* Metric 2 */}
+              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">40MW+</div>
+                <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">POWER CAPACITY</div>
+                <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
+              </div>
+
+              {/* Metric 3 */}
+              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">≤ 12 MTHS</div>
+                <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RAPID DEPLOYMENT</div>
+                <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
+              </div>
+
+              {/* Metric 4 */}
+              <div className="flex flex-col items-center">
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">TIER III</div>
+                <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RELIABILITY</div>
+                <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DATA CENTER ARCHITECTURE SECTION ── */}
+      <DataCenterArchitecture />
+
+      {/* ── BUILT FOR AI SECTION ── */}
+      {/* <BuiltForAiSection /> */}
+
+      {/* ── WHY USDC: INTEGRATED INFRASTRUCTURE ── */}
+      <WhyUsdcSection />
+
+      {/* ── FACILITY SPECIFICATION SECTION ── */}
+      <FacilitySpecification />
+
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">
+      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="text-center max-w-[700px] mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 font-sans">
@@ -168,6 +190,9 @@ export default function DataCenterPage() {
           </div>
         </div>
       </section>
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer component */}
       <Footer />

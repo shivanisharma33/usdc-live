@@ -7,6 +7,7 @@ import SmartContactCards from "@/components/contact/SmartContactCards";
 import ContactPortal from "@/components/contact/ContactPortal";
 import GlobalPresence from "@/components/contact/GlobalPresence";
 import ContactCTA from "@/components/contact/ContactCTA";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "Contact USDC — Let's Build The Future Together",
@@ -33,6 +34,9 @@ export default function ContactPage() {
 
       {/* Closing call-to-action */}
       <ContactCTA />
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       <Footer />
     </div>

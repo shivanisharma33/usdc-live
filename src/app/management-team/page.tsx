@@ -6,6 +6,7 @@ import TeamHero from "@/components/team/TeamHero";
 import TeamGrid from "@/components/team/TeamGrid";
 import TeamCTA from "@/components/team/TeamCTA";
 import WhatDrivesUs from "@/components/team/WhatDrivesUs";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "Management Team — USDC | Architecting AI Infrastructure",
@@ -30,6 +31,9 @@ export default function ManagementTeamPage() {
       {/* Call to action */}
       <TeamCTA />
       
+      {/* Partner Section */}
+      <PartnerSection />
+
       <Footer />
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,23 +13,25 @@ import {
   Zap,
   Database,
   ChevronRight,
+  TrendingUp,
+  Globe,
 } from "lucide-react";
-
+ 
 /* ────────────── Dropdown item config with icons & descriptions ────────────── */
-
+ 
 interface DropdownItem {
   label: string;
   href: string;
   description: string;
   icon: React.ElementType;
 }
-
+ 
 interface NavLink {
   label: string;
   href: string;
   dropdown?: DropdownItem[];
 }
-
+ 
 const navLinks: NavLink[] = [
   { label: "About us", href: "/about" },
   { label: "Investor", href: "/investor" },
@@ -69,6 +71,12 @@ const navLinks: NavLink[] = [
         icon: Zap,
       },
       {
+        label: "Global Network",
+        href: "/global-network",
+        description: "US footprint backbone",
+        icon: Globe,
+      },
+      {
         label: "Data Center",
         href: "/data-center",
         description: "Enterprise facilities",
@@ -78,15 +86,80 @@ const navLinks: NavLink[] = [
   },
   { label: "Career", href: "/career" },
 ];
-
+ 
+/* ═══════════════════════════ Stock Ticker Component ═══════════════════════════ */
+ 
+function NavbarStockTicker() {
+  const [stock, setStock] = useState({ price: 0, changePercent: 0 });
+  const [loading, setLoading] = useState(true);
+ 
+  useEffect(() => {
+    const fetchStock = async () => {
+      try {
+        const apiKey = process.env.NEXT_PUBLIC_MASSIVE_API_KEY;
+        if (!apiKey) return;
+       
+        const symbol = 'DGXX';
+        const today = new Date().toISOString().split('T')[0];
+        const [snapshotRes, dailyRes] = await Promise.all([
+          fetch(`https://api.massive.com/v2/snapshot/locale/us/markets/stocks/tickers/${symbol}?apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v1/open-close/${symbol}/${today}?adjusted=true&apiKey=${apiKey}`).catch(() => null),
+        ]);
+       
+        const snapshotData = snapshotRes?.ok ? await snapshotRes.json() : null;
+        const dailyData = dailyRes?.ok ? await dailyRes.json() : null;
+       
+        const snapshot = snapshotData?.ticker;
+        const daily = dailyData;
+       
+        const livePrice = Number(snapshot?.day?.c) || Number(daily?.close) || 0;
+        const openPrice = Number(snapshot?.day?.o) || Number(daily?.open) || livePrice;
+       
+        if (!livePrice) return;
+        const change = livePrice - openPrice;
+        const changePercent = openPrice ? (change / openPrice) * 100 : 0;
+       
+        setStock({ price: livePrice, changePercent });
+      } catch (e) {
+        console.error("Navbar ticker error:", e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStock();
+    const int = setInterval(fetchStock, 60000);
+    return () => clearInterval(int);
+  }, []);
+ 
+  if (loading) return <div className="h-9 w-[110px] bg-white/5 animate-pulse rounded-[10px]" />;
+ 
+  const isPositive = stock.changePercent >= 0;
+ 
+  return (
+    <div className="hidden lg:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
+      <div className="flex flex-col items-center justify-center px-3 py-1.5 bg-white/[0.04] border-r border-white/10 h-[38px]">
+        <span className="text-[6.5px] font-bold text-[#3daeff] tracking-widest uppercase leading-none mb-0.5">Nasdaq</span>
+        <span className="text-[10px] font-black text-white tracking-widest leading-none">USDC</span>
+      </div>
+      <div className="flex flex-col justify-center px-3 py-1 h-[38px]">
+        <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
+        <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
+          {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
+          <TrendingUp className="w-2.5 h-2.5" style={{ transform: isPositive ? 'none' : 'scaleY(-1)' }} />
+        </span>
+      </div>
+    </div>
+  );
+}
+ 
 /* ═══════════════════════════ Navbar Component ═══════════════════════════ */
-
+ 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -94,7 +167,7 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+ 
   /* Delayed close so the dropdown doesn't vanish when moving cursor to it */
   const handleMouseEnter = useCallback((label: string) => {
     if (closeTimerRef.current) {
@@ -103,13 +176,13 @@ export default function Navbar() {
     }
     setOpenDropdown(label);
   }, []);
-
+ 
   const handleMouseLeave = useCallback(() => {
     closeTimerRef.current = setTimeout(() => {
       setOpenDropdown(null);
     }, 150);
   }, []);
-
+ 
   const handleLinkClick = useCallback(() => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
@@ -117,7 +190,7 @@ export default function Navbar() {
     }
     setOpenDropdown(null);
   }, []);
-
+ 
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-300 ${isScrolled
@@ -138,7 +211,7 @@ export default function Navbar() {
           />
         </Link>
       </div>
-
+ 
       {/* ═══ Desktop Navigation ═══ */}
       <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
         <div className="flex items-center gap-[38px]">
@@ -168,7 +241,7 @@ export default function Navbar() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-
+ 
                   {/* ═══ Premium Dropdown Panel ═══ */}
                   <div
                     className={`absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[260px] rounded-[16px] overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50 ${isOpen
@@ -191,7 +264,7 @@ export default function Navbar() {
                               }`}
                           />
                         </div>
-
+ 
                         {/* Menu items */}
                         <div className="p-2">
                           {link.dropdown.map((subLink, idx) => {
@@ -211,15 +284,15 @@ export default function Navbar() {
                               >
                                 {/* Hover glow background */}
                                 <div className="absolute inset-0 rounded-[10px] bg-gradient-to-r from-[#3daeff]/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-
+ 
                                 {/* Left accent bar */}
                                 <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[2.5px] h-0 bg-[#3daeff] rounded-r-full group-hover:h-[55%] transition-all duration-400 shadow-[0_0_10px_#3daeff,0_0_4px_#3daeff]" />
-
+ 
                                 {/* Icon container */}
                                 <div className="relative flex items-center justify-center w-9 h-9 rounded-[9px] bg-white/[0.03] border border-white/[0.06] group-hover:border-[#3daeff]/25 group-hover:bg-[#3daeff]/[0.06] transition-all duration-300 flex-shrink-0">
                                   <IconComp className="w-4 h-4 text-white/40 group-hover:text-[#3daeff] transition-colors duration-300" />
                                 </div>
-
+ 
                                 {/* Text content */}
                                 <div className="relative flex-1 min-w-0">
                                   <div className="text-[13px] font-semibold text-white/80 group-hover:text-white transition-colors duration-300 leading-tight">
@@ -229,14 +302,14 @@ export default function Navbar() {
                                     {subLink.description}
                                   </div>
                                 </div>
-
+ 
                                 {/* Arrow indicator */}
                                 <ChevronRight className="w-3.5 h-3.5 text-white/0 group-hover:text-[#3daeff]/70 transition-all duration-300 flex-shrink-0 -translate-x-1 group-hover:translate-x-0" />
                               </Link>
                             );
                           })}
                         </div>
-
+ 
                         {/* Bottom subtle gradient fade */}
                         <div className="h-[1px] mx-3 bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
                         <div className="px-4 py-2.5 flex items-center justify-center">
@@ -250,7 +323,7 @@ export default function Navbar() {
                 </div>
               );
             }
-
+ 
             return (
               <Link
                 key={link.label}
@@ -262,22 +335,24 @@ export default function Navbar() {
             );
           })}
         </div>
-
+ 
         {/* Divider */}
-        <div className="w-[1px] h-5 bg-white/[0.12]" />
-
-        <div className="flex items-center gap-6">
+        <div className="w-[1px] h-5 bg-white/[0.12] hidden md:block" />
+ 
+        <div className="flex items-center gap-4 lg:gap-6">
+          <NavbarStockTicker />
+ 
           {/* Contact Us Button */}
           <Link
             href="/contact"
-            className="flex items-center justify-center gap-2 h-[34px] px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer"
+            className="hidden sm:flex items-center justify-center gap-2 h-[38px] px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>Contact Us</span>
           </Link>
         </div>
       </nav>
-
+ 
       {/* ═══ Mobile Menu Toggle ═══ */}
       <div className="flex md:hidden items-center gap-4">
         <button
@@ -293,7 +368,7 @@ export default function Navbar() {
           )}
         </button>
       </div>
-
+ 
       {/* ═══ Mobile Drawer ═══ */}
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] md:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
@@ -319,7 +394,7 @@ export default function Navbar() {
                 </div>
               );
             }
-
+ 
             return (
               <Link
                 key={link.label}
@@ -331,7 +406,7 @@ export default function Navbar() {
               </Link>
             );
           })}
-
+ 
           <div className="flex items-center justify-center gap-4 mt-2 w-full">
             <Link
               href="/contact"
@@ -347,3 +422,4 @@ export default function Navbar() {
     </header>
   );
 }
+ 

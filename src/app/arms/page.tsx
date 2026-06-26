@@ -4,9 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ArmsHero from "@/components/ArmsHero";
 import Arms200Advantages from "@/components/Arms200Advantages";
+import ArmsModelShowcase from "@/components/ArmsModelShowcase";
 import ArmsInfrastructureGrid from "@/components/ArmsInfrastructureGrid";
 import Arms200System from "@/components/Arms200System";
 import ArmsTechnicalSpecs from "@/components/ArmsTechnicalSpecs";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "ARMS Modular Systems — USDC | Enterprise-Scale AI Infrastructure",
@@ -26,6 +28,9 @@ export default function ArmsPage() {
       {/* ARMS 200 Advantages section */}
       <Arms200Advantages />
 
+      {/* Interactive 3D ARMS Model Showcase */}
+      <ArmsModelShowcase />
+
       {/* 3D Modular Infrastructure Grid Section */}
       <ArmsInfrastructureGrid />
 
@@ -34,6 +39,9 @@ export default function ArmsPage() {
 
       {/* ARMS Technical Specifications list & Future Ready platform */}
       <ArmsTechnicalSpecs />
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer component */}
       <Footer />

@@ -37,7 +37,7 @@ export default function Hero() {
 
       {/* Hero Title */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 animate-slide-up relative z-10">
-        Deploy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI Infrastructure</span> <br /> in Weeks Not Years
+        Deploy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI Infrastructure</span> <br /> in Months Not Years
       </h1>
 
       {/* Hero Description */}

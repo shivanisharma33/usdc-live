@@ -7,6 +7,7 @@ import BuildingFutureSection from "@/components/BuildingFutureSection";
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
 import AboutByNumbers from "@/components/AboutByNumbers";
+import PartnerSection from "@/components/PartnerSection";
 
 
 export const metadata: Metadata = {
@@ -35,6 +36,9 @@ export default function AboutPage() {
 
       {/* Cloned By The Numbers Section */}
       <AboutByNumbers />
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer component */}
       <Footer />

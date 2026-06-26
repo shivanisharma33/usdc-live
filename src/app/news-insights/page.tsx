@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PartnerSection from "@/components/PartnerSection";
 import {
   Search,
   Calendar,
@@ -773,6 +774,9 @@ export default function NewsInsightsPage() {
           </div>
         </div>
       )}
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer Integration */}
       <Footer />

@@ -8,7 +8,7 @@ import AIInfrastructureExcellence from "@/components/AIInfrastructureExcellence"
 import NvidiaRoadmap from "@/components/NvidiaRoadmap";
 import UsdcByNumbers from "@/components/UsdcByNumbers";
 import LatestNews from "@/components/LatestNews";
-import ContactSection from "@/components/ContactSection";
+import PartnerSection from "@/components/PartnerSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -55,8 +55,8 @@ export default function Home() {
       {/* Render the Latest News section */}
       <LatestNews />
 
-      {/* Render the Contact Section */}
-      <ContactSection />
+      {/* Partner with us CTA Section */}
+      <PartnerSection />
 
       {/* Footer / Info section */}
       <Footer />

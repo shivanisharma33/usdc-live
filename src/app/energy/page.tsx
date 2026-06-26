@@ -8,6 +8,7 @@ import PowerToComputeDiagram from "@/components/PowerToComputeDiagram";
 import EnergyStackGrid from "@/components/EnergyStackGrid";
 import EnergyEconomicsAdvantage from "@/components/EnergyEconomicsAdvantage";
 import SuperiorEconomics from "@/components/SuperiorEconomics";
+import PartnerSection from "@/components/PartnerSection";
 
 export const metadata: Metadata = {
   title: "Energy Integration — USDC | Empowering High-Density AI Compute",
@@ -142,6 +143,9 @@ export default function EnergyPage() {
           </div>
         </div>
       </section>
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer component */}
       <Footer />

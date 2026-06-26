@@ -257,7 +257,7 @@ export default function NvidiaRoadmap() {
       num: "01",
       title: "BLACKWELL",
       desc: "Optimized for high-density AI training and large-scale inference workloads.",
-      img: "/gpu_board_1.png",
+      img: "/Blackwell 200.avif",
       features: [
         { text: "POWER READY", iconType: "power", x: "top-[-6px] left-[-4px]" },
         { text: "DIRECT-TO-CHIP COOLING", iconType: "cooling", x: "top-[15%] right-[-2%] lg:right-[2%]" },
@@ -269,7 +269,7 @@ export default function NvidiaRoadmap() {
       num: "02",
       title: "ORACLE BLACKWELL",
       desc: "Purpose-built infrastructure supporting enterprise-scale AI deployment.",
-      img: "/gpu_board_2.png",
+      img: "/Oracle Blackwell.avif",
       features: [
         { text: "ENTERPRISE SECURE", iconType: "shield", x: "top-[-6px] left-[-4px]" },
         { text: "CLOUD INTEGRATED", iconType: "cloud", x: "top-[15%] right-[-2%] lg:right-[2%]" },
@@ -281,7 +281,7 @@ export default function NvidiaRoadmap() {
       num: "03",
       title: "VERA RUBIN",
       desc: "Future-ready architecture designed for the next generation of AI compute.",
-      img: "/news_ai_chip.png",
+      img: "/Vera Rubin.avif",
       features: [
         { text: "NEXT-GEN ARCH", iconType: "cpu", x: "top-[-6px] left-[-4px]" },
         { text: "ULTRA-DENSE CORES", iconType: "density", x: "top-[15%] right-[-2%] lg:right-[2%]" },
@@ -351,15 +351,14 @@ export default function NvidiaRoadmap() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start mb-16">
           {/* ── Left Column: Hardware Images with Floating Labels ── */}
           <div
-            className="relative"
+            className="relative w-full"
             style={{
-              minHeight: "400px",
               ...fadeUp(240),
             }}
           >
             {/* Primary GPU Image Container with Cross-Fade */}
             <div
-              className="absolute top-[8%] left-[8%] w-[84%] aspect-[1.6] rounded-lg overflow-hidden"
+              className="relative mx-auto my-8 w-[84%] aspect-[1.1] rounded-lg overflow-hidden"
               style={{
                 transform: "perspective(900px) rotateY(-3deg) rotateX(1.1deg)",
                 boxShadow:

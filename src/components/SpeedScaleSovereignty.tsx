@@ -496,62 +496,18 @@ export default function SpeedScaleSovereignty() {
               {activeTab === "sovereignty" && (
                 <div className="tab-content-enter flex justify-center w-full items-center py-4">
 
-                  {/* 3D Isometric visual with Radar concentric rings */}
-                  <div className="relative w-full aspect-[4/3] max-w-[380px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
-                    <svg width="100%" height="100%" viewBox="0 0 400 280">
-                      <defs>
-                        <radialGradient id="blue-glow-gradient" cx="50%" cy="50%" r="50%">
-                          <stop offset="0%" stopColor="#0084ff" stopOpacity="0.45" />
-                          <stop offset="100%" stopColor="#0084ff" stopOpacity="0" />
-                        </radialGradient>
-                      </defs>
-
-                      {/* Floor Mesh lines */}
-                      {Array.from({ length: 4 }).map((_, r) => {
-                        const startX = x0 - r * dx;
-                        const startY = y0 + r * dy;
-                        const endX = x0 + 3 * dx - r * dx;
-                        const endY = y0 + 3 * dy + r * dy;
-                        return (
-                          <line
-                            key={`col-line-${r}`}
-                            x1={startX}
-                            y1={startY}
-                            x2={endX}
-                            y2={endY}
-                            stroke="rgba(255, 255, 255, 0.05)"
-                            strokeWidth="1"
-                            strokeDasharray="3 3"
-                          />
-                        );
-                      })}
-                      {Array.from({ length: 5 }).map((_, c) => {
-                        const startX = x0 + c * dx;
-                        const startY = y0 + c * dy;
-                        const endX = x0 + c * dx - 2 * dx;
-                        const endY = y0 + c * dy + 2 * dy;
-                        return (
-                          <line
-                            key={`row-line-${c}`}
-                            x1={startX}
-                            y1={startY}
-                            x2={endX}
-                            y2={endY}
-                            stroke="rgba(255, 255, 255, 0.05)"
-                            strokeWidth="1"
-                            strokeDasharray="3 3"
-                          />
-                        );
-                      })}
-
-                      {/* Cubes, with (c=1, r=1) set as the central glowing active node with radar rings */}
-                      {Array.from({ length: 3 }).map((_, r) =>
-                        Array.from({ length: 4 }).map((_, c) => {
-                          const isCenter = c === 1 && r === 1;
-                          return renderCube(c, r, isCenter, isCenter);
-                        })
-                      )}
-                    </svg>
+                  {/* 3D Network Hub Visualization (Three.js) */}
+                  <div className="relative w-full aspect-[4/3] max-w-[550px] mx-auto rounded-xl overflow-hidden">
+                    <iframe
+                      src="/network-hub.html"
+                      title="Network Hub Visualization"
+                      className="w-full h-full border-0"
+                      style={{
+                        borderRadius: 'inherit',
+                        pointerEvents: 'auto',
+                      }}
+                      allow="autoplay"
+                    />
                   </div>
 
                 </div>

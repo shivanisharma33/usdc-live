@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PartnerSection from "@/components/PartnerSection";
 import Link from "next/link";
 import {
   FileText,
@@ -733,6 +734,9 @@ export default function InvestorPage() {
         </section>
 
       </main>
+
+      {/* Partner Section */}
+      <PartnerSection />
 
       {/* Footer component */}
       <Footer />
