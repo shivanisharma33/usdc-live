@@ -17,97 +17,234 @@ import {
   Clock,
 } from "lucide-react";
 
-// Timeframe configuration
-interface TimeframeData {
-  price: string;
-  change: string;
-  changePercent: string;
-  isPositive: boolean;
-  high: string;
-  low: string;
-  volume: string;
-  chartPath: string;
+interface StockDataPoint {
+  date: string;
+  price: number;
+  volume: number;
 }
 
-const timeframeConfig: Record<string, TimeframeData> = {
-  "1D": {
-    price: "34.82",
-    change: "+1.45",
-    changePercent: "+4.34%",
-    isPositive: true,
-    high: "35.10",
-    low: "33.20",
-    volume: "1.24M",
-    chartPath: "M 0 150 Q 50 120, 100 180 T 200 100 T 300 140 T 400 90 T 500 110 T 600 60",
-  },
-  "1W": {
-    price: "35.40",
-    change: "+2.03",
-    changePercent: "+6.08%",
-    isPositive: true,
-    high: "36.20",
-    low: "32.80",
-    volume: "5.82M",
-    chartPath: "M 0 160 Q 60 140, 120 130 T 240 150 T 360 100 T 480 80 T 600 50",
-  },
-  "1M": {
-    price: "36.95",
-    change: "+3.58",
-    changePercent: "+10.73%",
-    isPositive: true,
-    high: "37.50",
-    low: "31.40",
-    volume: "24.1M",
-    chartPath: "M 0 180 Q 70 170, 140 120 T 280 130 T 420 80 T 560 60 T 600 30",
-  },
-  "3M": {
-    price: "32.10",
-    change: "-2.72",
-    changePercent: "-7.81%",
-    isPositive: false,
-    high: "38.20",
-    low: "30.15",
-    volume: "76.4M",
-    chartPath: "M 0 80 Q 70 110, 140 150 T 280 180 T 420 160 T 560 130 T 600 150",
-  },
-  "6M": {
-    price: "38.50",
-    change: "+7.65",
-    changePercent: "+24.80%",
-    isPositive: true,
-    high: "40.20",
-    low: "28.50",
-    volume: "162.8M",
-    chartPath: "M 0 190 Q 90 150, 180 130 T 360 90 T 540 60 T 600 20",
-  },
-  "ALL": {
-    price: "42.30",
-    change: "+19.80",
-    changePercent: "+88.00%",
-    isPositive: true,
-    high: "44.50",
-    low: "18.20",
-    volume: "520.4M",
-    chartPath: "M 0 200 Q 100 160, 200 120 T 400 80 T 600 10",
-  },
+interface StockData {
+  symbol: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  volume: number;
+  high: number;
+  low: number;
+  open: number;
+  lastUpdated: string;
+}
+
+const generateSvgPath = (points: StockDataPoint[]) => {
+  if (!points || points.length === 0) return "M 0 100 L 600 100";
+  if (points.length === 1) return `M 0 100 L 600 100`;
+
+  const minPrice = Math.min(...points.map(p => p.price));
+  const maxPrice = Math.max(...points.map(p => p.price));
+  const range = maxPrice - minPrice || 1;
+
+  const padding = 20;
+  const usableHeight = 200 - padding * 2;
+
+  let path = `M 0 ${200 - padding - ((points[0].price - minPrice) / range) * usableHeight}`;
+  for (let i = 1; i < points.length; i++) {
+    const x = (i / (points.length - 1)) * 600;
+    const y = 200 - padding - ((points[i].price - minPrice) / range) * usableHeight;
+    path += ` L ${x} ${y}`;
+  }
+  return path;
 };
+
+const formatDate = (isoString: string) => {
+  try {
+    const d = new Date(isoString + "T00:00:00");
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  } catch (e) {
+    return isoString;
+  }
+};
+
+const generateSlug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
 
 export default function InvestorPage() {
   const [selectedTimeframe, setSelectedTimeframe] = useState<string>("1M");
   const [animateChart, setAnimateChart] = useState<boolean>(false);
   const [currentDate, setCurrentDate] = useState<string>("");
 
+  const [liveStockData, setLiveStockData] = useState<StockData | null>(null);
+  const [isLoadingStock, setIsLoadingStock] = useState(true);
+  const [historicalData, setHistoricalData] = useState<StockDataPoint[]>([]);
+  const [isLoadingChart, setIsLoadingChart] = useState(false);
+  const [pressReleases, setPressReleases] = useState<any[]>([]);
+  const [isLoadingReleases, setIsLoadingReleases] = useState(true);
+
+  const cachedDataRef = React.useRef<Record<string, StockDataPoint[]>>({});
+
   useEffect(() => {
-    // Set static or current formatted date
     const date = new Date();
-    setCurrentDate(
-      date.toLocaleDateString("en-US", {
-        month: "numeric",
-        day: "numeric",
-        year: "numeric",
-      })
-    );
+    setCurrentDate(date.toLocaleDateString("en-US", { month: "numeric", day: "numeric", year: "numeric" }));
   }, []);
+
+  useEffect(() => {
+    const fetchLatestReleases = async () => {
+      try {
+        setIsLoadingReleases(true);
+        const url = "https://thankful-miracle-1ed8bdfdaf.strapiapp.com/api/press-releases?populate[pdf_file][fields]=url,name&fields=title,date,content&sort[0]=date:desc&pagination[page]=1&pagination[pageSize]=4";
+        const res = await fetch(url);
+        if (res.ok) {
+          const json = await res.json();
+          setPressReleases(json.data || []);
+        }
+      } catch (err) {
+        console.error("Error fetching press releases:", err);
+      } finally {
+        setIsLoadingReleases(false);
+      }
+    };
+    fetchLatestReleases();
+  }, []);
+
+  useEffect(() => {
+    const fetchStockData = async () => {
+      try {
+        setIsLoadingStock(true);
+        const apiKey = process.env.NEXT_PUBLIC_MASSIVE_API_KEY;
+        if (!apiKey) throw new Error('API Key missing');
+
+        const symbol = 'DGXX';
+        const today = new Date().toISOString().split('T')[0];
+
+        const [snapshotRes, quoteRes, tradeRes, dailyRes] = await Promise.all([
+          fetch(`https://api.massive.com/v2/snapshot/locale/us/markets/stocks/tickers/${symbol}?apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v3/quotes/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v3/trades/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v1/open-close/${symbol}/${today}?adjusted=true&apiKey=${apiKey}`).catch(() => null),
+        ]);
+
+        const snapshotData = snapshotRes?.ok ? await snapshotRes.json() : null;
+        const quoteData = quoteRes?.ok ? await quoteRes.json() : null;
+        const tradeData = tradeRes?.ok ? await tradeRes.json() : null;
+        const dailyData = dailyRes?.ok ? await dailyRes.json() : null;
+
+        const snapshot = snapshotData?.ticker;
+        const quote = quoteData?.results?.[0];
+        const trade = tradeData?.results?.[0];
+        const daily = dailyData;
+
+        const livePrice = Number(quote?.ask_price) || Number(trade?.price) || Number(snapshot?.day?.c) || Number(daily?.close) || 0;
+        const openPrice = Number(snapshot?.day?.o) || Number(daily?.open) || livePrice;
+        const volume = Number(snapshot?.day?.v) || Number(daily?.volume) || 0;
+        const high = Number(snapshot?.day?.h) || Number(daily?.high) || livePrice;
+        const low = Number(snapshot?.day?.l) || Number(daily?.low) || livePrice;
+
+        if (!livePrice) return;
+
+        const change = livePrice - openPrice;
+        const changePercent = openPrice ? (change / openPrice) * 100 : 0;
+
+        setLiveStockData({
+          symbol: 'USDC',
+          price: Number(livePrice.toFixed(2)),
+          change: Number(change.toFixed(2)),
+          changePercent: Number(changePercent.toFixed(2)),
+          volume,
+          high: Number(high.toFixed(2)),
+          low: Number(low.toFixed(2)),
+          open: Number(openPrice.toFixed(2)),
+          lastUpdated: new Date().toISOString()
+        });
+      } catch (err) {
+        console.error('Error fetching stock data:', err);
+      } finally {
+        setIsLoadingStock(false);
+      }
+    };
+
+    fetchStockData();
+    const interval = setInterval(fetchStockData, 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const fetchHistoricalData = async () => {
+      try {
+        if (cachedDataRef.current[selectedTimeframe]) {
+          setHistoricalData(cachedDataRef.current[selectedTimeframe]);
+          return;
+        }
+
+        if (selectedTimeframe === "1D" && liveStockData) {
+          const dataPoints: StockDataPoint[] = [];
+          const intervals = 14;
+          for (let i = 0; i <= intervals; i++) {
+            const timeStr = `${Math.floor(9.5 + i * 0.5)}:${i % 2 === 0 ? '30' : '00'}`;
+            const progress = i / intervals;
+            let price = liveStockData.open;
+            if (progress < 0.3) price = liveStockData.open + (liveStockData.high - liveStockData.open) * (progress / 0.3);
+            else if (progress < 0.7) price = liveStockData.high - (liveStockData.high - liveStockData.low) * ((progress - 0.3) / 0.4);
+            else price = liveStockData.low + (liveStockData.price - liveStockData.low) * ((progress - 0.7) / 0.3);
+            dataPoints.push({ date: timeStr, price: Number(price.toFixed(2)), volume: Math.floor(liveStockData.volume / intervals) });
+          }
+          setHistoricalData(dataPoints);
+          cachedDataRef.current["1D"] = dataPoints;
+          return;
+        }
+
+        setIsLoadingChart(true);
+        let daysToFetch = 30; let intervalDays = 2;
+        switch (selectedTimeframe) {
+          case "1W": daysToFetch = 7; intervalDays = 1; break;
+          case "1M": daysToFetch = 30; intervalDays = 2; break;
+          case "3M": daysToFetch = 90; intervalDays = 4; break;
+          case "6M": daysToFetch = 180; intervalDays = 7; break;
+          case "ALL": daysToFetch = 730; intervalDays = 21; break;
+        }
+
+        const dates: string[] = [];
+        const today = new Date();
+        for (let i = daysToFetch - 1; i >= 0; i -= intervalDays) {
+          const d = new Date(today);
+          d.setDate(d.getDate() - i);
+          if (d.getDay() !== 0 && d.getDay() !== 6) dates.push(d.toISOString().split('T')[0]);
+        }
+
+        const apiKey = process.env.NEXT_PUBLIC_MASSIVE_API_KEY;
+        const symbol = 'DGXX';
+        const batchPromises = dates.map(dateString =>
+          fetch(`https://api.massive.com/v1/open-close/${symbol}/${dateString}?adjusted=true&apiKey=${apiKey}`)
+            .then(res => res.ok ? res.json() : null).catch(() => null)
+        );
+
+        const results = await Promise.all(batchPromises);
+        const dataPoints: StockDataPoint[] = [];
+
+        results.forEach((data, index) => {
+          if (data && data.status === 'OK') {
+            const currentPrice = data.close ?? data.preMarket ?? data.high ?? data.open;
+            if (currentPrice) {
+              dataPoints.push({
+                date: new Date(dates[index]).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                price: Number(currentPrice.toFixed(2)),
+                volume: data.volume || 0,
+              });
+            }
+          }
+        });
+
+        if (dataPoints.length > 0) {
+          setHistoricalData(dataPoints);
+          cachedDataRef.current[selectedTimeframe] = dataPoints;
+        }
+      } catch (e) { } finally {
+        setIsLoadingChart(false);
+      }
+    };
+    fetchHistoricalData();
+  }, [selectedTimeframe, liveStockData]);
 
   const handleTimeframeChange = (timeframe: string) => {
     setAnimateChart(true);
@@ -115,7 +252,9 @@ export default function InvestorPage() {
     setTimeout(() => setAnimateChart(false), 500);
   };
 
-  const activeData = timeframeConfig[selectedTimeframe];
+  const chartPath = generateSvgPath(historicalData);
+  const isPositive = liveStockData ? liveStockData.change >= 0 : true;
+  const lastY = historicalData.length > 0 ? chartPath.split(' ').pop() : 100;
 
   return (
     <div className="relative min-h-screen bg-[#04070f] text-white flex flex-col font-sans overflow-x-hidden selection:bg-[#3daeff] selection:text-black">
@@ -123,16 +262,16 @@ export default function InvestorPage() {
       <Navbar />
 
       <main className="flex-grow">
-        
+
         {/* ── HERO SECTION ── */}
         <section className="relative min-h-[560px] md:min-h-[680px] flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-36 border-b border-white/5 overflow-hidden">
           {/* Background Ambient Glows */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-[#3daeff]/[0.06] blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#3daeff]/[0.04] blur-[140px]" />
-            
+
             {/* Subtle grid line overlay */}
-            <div 
+            <div
               className="absolute inset-0 opacity-[0.025]"
               style={{
                 backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
@@ -146,7 +285,7 @@ export default function InvestorPage() {
           <div className="relative z-10 w-full max-w-[860px] mx-auto flex flex-col items-center text-center">
             {/* Center Content: Text copy */}
             <div className="flex flex-col items-center text-center transition-all duration-700">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#3daeff]/30 bg-[#3daeff]/5 backdrop-blur-sm mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] shadow-[0_0_8px_rgba(61,174,255,0.8)] animate-pulse" />
@@ -195,10 +334,10 @@ export default function InvestorPage() {
         <section className="py-20 lg:py-24 px-4 sm:px-6">
           <div className="max-w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-              
+
               {/* Left & Center: Interactive Stock Chart */}
               <div className="lg:col-span-2 bg-[#080808]/80 border border-white/5 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 flex flex-col backdrop-blur-md">
-                
+
                 {/* Header of Chart container */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
                   <div className="text-center sm:text-left">
@@ -209,7 +348,7 @@ export default function InvestorPage() {
                       Real-time market tracking (NASDAQ: USDC)
                     </p>
                   </div>
-                  
+
                   {/* Timeframe selector tabs */}
                   <div className="flex flex-wrap justify-center gap-1 bg-white/[0.03] p-1 rounded-lg border border-white/5">
                     {["1D", "1W", "1M", "3M", "6M", "ALL"].map((timeframe) => {
@@ -218,11 +357,10 @@ export default function InvestorPage() {
                         <button
                           key={timeframe}
                           onClick={() => handleTimeframeChange(timeframe)}
-                          className={`px-4 py-1.5 text-[10px] font-bold rounded-md transition-all cursor-pointer ${
-                            isActive
+                          className={`px-4 py-1.5 text-[10px] font-bold rounded-md transition-all cursor-pointer ${isActive
                               ? "bg-[#3daeff] text-black shadow-lg shadow-[#3daeff]/20"
                               : "text-white/40 hover:text-white"
-                          }`}
+                            }`}
                         >
                           {timeframe}
                         </button>
@@ -253,32 +391,30 @@ export default function InvestorPage() {
 
                       {/* Area pathway */}
                       <path
-                        d={`${activeData.chartPath} L 600 200 L 0 200 Z`}
+                        d={`${chartPath} L 600 200 L 0 200 Z`}
                         fill="url(#chartGlow)"
-                        className={`transition-all duration-500 ease-in-out ${
-                          animateChart ? "opacity-30 scale-y-95 origin-bottom" : "opacity-100"
-                        }`}
+                        className={`transition-all duration-500 ease-in-out ${animateChart || isLoadingChart ? "opacity-30 scale-y-95 origin-bottom" : "opacity-100"
+                          }`}
                       />
 
                       {/* Line pathway */}
                       <path
-                        d={activeData.chartPath}
+                        d={chartPath}
                         fill="none"
-                        stroke={activeData.isPositive ? "#00e878" : "#ff4a4a"}
+                        stroke={isPositive ? "#00e878" : "#ff4a4a"}
                         strokeWidth="3.5"
                         strokeLinecap="round"
-                        className={`transition-all duration-500 ease-in-out ${
-                          animateChart ? "opacity-40 scale-y-95 origin-bottom" : "opacity-100"
-                        }`}
+                        className={`transition-all duration-500 ease-in-out ${animateChart || isLoadingChart ? "opacity-40 scale-y-95 origin-bottom" : "opacity-100"
+                          }`}
                       />
 
                       {/* Glowing Endpoint marker */}
                       <circle
                         cx="600"
-                        cy={activeData.chartPath.slice(-2)}
+                        cy={lastY}
                         r="5"
-                        fill={activeData.isPositive ? "#00e878" : "#ff4a4a"}
-                        className={`animate-ping ${animateChart ? "opacity-0" : "opacity-100"}`}
+                        fill={isPositive ? "#00e878" : "#ff4a4a"}
+                        className={`animate-ping ${animateChart || isLoadingChart ? "opacity-0" : "opacity-100"}`}
                       />
                     </svg>
                   </div>
@@ -294,7 +430,7 @@ export default function InvestorPage() {
 
               {/* Right: Stock Price and News Card Column */}
               <div className="space-y-6">
-                
+
                 {/* Nasdaq Ticker details */}
                 <div className="bg-[#080808]/80 border border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[280px] backdrop-blur-md">
                   <div>
@@ -305,7 +441,11 @@ export default function InvestorPage() {
                         </div>
                         {/* Interactive price loader */}
                         <div className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-2 font-sans flex items-baseline gap-1">
-                          <span>${activeData.price}</span>
+                          {isLoadingStock ? (
+                            <span className="animate-pulse">---</span>
+                          ) : (
+                            <span>${liveStockData?.price.toFixed(2) || "0.00"}</span>
+                          )}
                           <span className="text-[10px] text-white/30 font-medium font-sans">USD</span>
                         </div>
                       </div>
@@ -317,7 +457,7 @@ export default function InvestorPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10">
                           <Clock className="w-3 h-3 text-white/30" />
                           <span className="text-[9px] font-bold text-white/30 uppercase tracking-wider">
-                            Delayed 15m
+                            Real-Time
                           </span>
                         </div>
                       </div>
@@ -329,41 +469,43 @@ export default function InvestorPage() {
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Change
                         </div>
-                        <div className={`font-bold font-sans ${activeData.isPositive ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
-                          {activeData.change}
+                        <div className={`font-bold font-sans ${isPositive ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
+                          {isPositive ? "+" : ""}{liveStockData?.change.toFixed(2) || "0.00"}
                         </div>
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Change %
                         </div>
-                        <div className={`font-bold font-sans ${activeData.isPositive ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
-                          {activeData.changePercent}
+                        <div className={`font-bold font-sans ${isPositive ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
+                          {isPositive ? "+" : ""}{liveStockData?.changePercent.toFixed(2) || "0.00"}%
                         </div>
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Volume
                         </div>
-                        <div className="text-white font-semibold font-sans">{activeData.volume}</div>
+                        <div className="text-white font-semibold font-sans">
+                          {liveStockData ? (liveStockData.volume >= 1000000 ? (liveStockData.volume / 1000000).toFixed(2) + 'M' : (liveStockData.volume / 1000).toFixed(1) + 'K') : "0"}
+                        </div>
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Open
                         </div>
-                        <div className="text-white font-semibold font-sans">$33.37</div>
+                        <div className="text-white font-semibold font-sans">${liveStockData?.open.toFixed(2) || "0.00"}</div>
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Today&apos;s High
                         </div>
-                        <div className="text-white font-semibold font-sans">${activeData.high}</div>
+                        <div className="text-white font-semibold font-sans">${liveStockData?.high.toFixed(2) || "0.00"}</div>
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-0.5">
                           Today&apos;s Low
                         </div>
-                        <div className="text-white font-semibold font-sans">${activeData.low}</div>
+                        <div className="text-white font-semibold font-sans">${liveStockData?.low.toFixed(2) || "0.00"}</div>
                       </div>
                     </div>
                   </div>
@@ -385,43 +527,40 @@ export default function InvestorPage() {
                   <h3 className="text-xs font-black uppercase tracking-widest text-white/30 mb-6 pb-3 border-b border-white/5 text-center lg:text-left">
                     Latest Announcements
                   </h3>
-                  
+
                   <div className="space-y-6">
-                    <div className="block text-center lg:text-left space-y-1 group">
-                      <div className="text-[9px] font-semibold text-[#3daeff] tracking-widest uppercase">
-                        June 18, 2026
+                    {isLoadingReleases ? (
+                      <div className="space-y-6 animate-pulse">
+                        {[...Array(3)].map((_, idx) => (
+                          <div key={idx} className="block text-center lg:text-left space-y-2">
+                            <div className="h-2 w-16 bg-white/5 rounded mx-auto lg:mx-0"></div>
+                            <div className="h-4 w-full bg-white/5 rounded"></div>
+                            <div className="h-4 w-3/4 bg-white/5 rounded mx-auto lg:mx-0"></div>
+                          </div>
+                        ))}
                       </div>
-                      <Link 
-                        href="/press-release" 
-                        className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug"
-                      >
-                        USDC Announces Strong Q1 2026 Financial Performance Reports
-                      </Link>
-                    </div>
-
-                    <div className="block text-center lg:text-left space-y-1 group">
-                      <div className="text-[9px] font-semibold text-[#3daeff] tracking-widest uppercase">
-                        June 02, 2026
-                      </div>
-                      <Link 
-                        href="/press-release" 
-                        className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug"
-                      >
-                        USDC Acquires Prime Real Estate in Northern Virginia for 20MW Campus Expansion
-                      </Link>
-                    </div>
-
-                    <div className="block text-center lg:text-left space-y-1 group">
-                      <div className="text-[9px] font-semibold text-[#3daeff] tracking-widest uppercase">
-                        May 14, 2026
-                      </div>
-                      <Link 
-                        href="/press-release" 
-                        className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug"
-                      >
-                        USDC and Partners Deploy Hydro-Power Liquid Cooling System to ARMS Infrastructure
-                      </Link>
-                    </div>
+                    ) : pressReleases.length === 0 ? (
+                      <div className="text-center py-6 text-white/30 text-xs">No press releases found.</div>
+                    ) : (
+                      pressReleases.slice(0, 3).map((item, idx) => {
+                        const dateStr = formatDate(item.date);
+                        return (
+                          <div key={idx} className="block text-center lg:text-left space-y-1 group">
+                            <div className="text-[9px] font-semibold text-[#3daeff] tracking-widest uppercase">
+                              {dateStr}
+                            </div>
+                            <Link
+                              href={item.pdf_file?.url || '#'}
+                              target={item.pdf_file?.url ? "_blank" : "_self"}
+                              rel="noopener noreferrer"
+                              className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug line-clamp-2"
+                            >
+                              {item.title}
+                            </Link>
+                          </div>
+                        );
+                      })
+                    )}
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-white/5 text-center">
@@ -444,7 +583,7 @@ export default function InvestorPage() {
         {/* ── INVESTOR RESOURCES SECTION ── */}
         <section className="py-20 lg:py-24 px-4 sm:px-6 border-t border-white/5">
           <div className="max-w-[1400px] mx-auto">
-            
+
             {/* Section Title */}
             <div className="mb-12 lg:mb-16 flex flex-col items-center sm:items-start text-center sm:text-left">
               <h2 className="text-3xl font-semibold uppercase tracking-tighter mb-4">
@@ -455,7 +594,7 @@ export default function InvestorPage() {
 
             {/* Resources Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              
+
               {/* Card 1: SEC Filings */}
               <Link
                 href="/sec-filings"

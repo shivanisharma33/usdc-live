@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/app/about/AboutHero";
+import BuildingFutureSection from "@/components/BuildingFutureSection";
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
 import AboutByNumbers from "@/components/AboutByNumbers";
-import BuildingFutureSection from "@/components/BuildingFutureSection";
+
 
 export const metadata: Metadata = {
   title: "About Us — USDC | Building the Future of AI Infrastructure",

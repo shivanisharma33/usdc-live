@@ -292,274 +292,274 @@ export default function SpeedScaleSovereignty() {
             <div className="absolute bottom-[10%] left-[40%] w-[150px] h-[150px] rounded-full bg-[#3daeff]/[0.04] blur-[70px]" style={{ animation: "float-orb 10s ease-in-out infinite 4s" }} />
           </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[0.3fr_0.7fr] gap-8 lg:gap-12 xl:gap-16 items-start relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.3fr_0.7fr] gap-8 lg:gap-12 xl:gap-16 items-start relative z-10">
 
-          {/* ═══ Left Column: Static Layout Structure (Content varies by activeTab) ═══ */}
-          <div className="flex flex-col justify-between min-h-[280px] lg:min-h-[320px]">
-            <div>
-              {/* Tab-specific Heading */}
-              <h2 className="text-[32px] sm:text-[36px] md:text-[38px] lg:text-[40px] font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
-                {tabData[activeTab].heading}
-              </h2>
+            {/* ═══ Left Column: Static Layout Structure (Content varies by activeTab) ═══ */}
+            <div className="flex flex-col justify-between min-h-[280px] lg:min-h-[320px]">
+              <div>
+                {/* Tab-specific Heading */}
+                <h2 className="text-[32px] sm:text-[36px] md:text-[38px] lg:text-[40px] font-extrabold tracking-[-0.02em] leading-[1.1] text-white">
+                  {tabData[activeTab].heading}
+                </h2>
 
-              {/* Tab Trigger Buttons */}
-              <div className="flex items-center gap-6 mt-8 mb-6 border-b border-white/[0.08] pb-3">
-                {(["speed", "scale", "sovereignty"] as TabType[]).map((tab) => {
-                  const isActive = activeTab === tab;
-                  return (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`relative text-[14px] sm:text-[15px] font-bold tracking-[0.06em] uppercase transition-all duration-300 pb-3 cursor-pointer ${isActive ? "text-white" : "text-white/35 hover:text-white/60"
-                        }`}
-                    >
-                      {tab}
-                      {isActive && (
-                        <>
-                          <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3daeff] rounded-full" />
-                          <span className="absolute bottom-[-2px] left-[10%] w-[80%] h-[4px] bg-[#3daeff]/40 rounded-full blur-[4px]" />
-                        </>
-                      )}
-                    </button>
-                  );
-                })}
+                {/* Tab Trigger Buttons */}
+                <div className="flex items-center gap-6 mt-8 mb-6 border-b border-white/[0.08] pb-3">
+                  {(["speed", "scale", "sovereignty"] as TabType[]).map((tab) => {
+                    const isActive = activeTab === tab;
+                    return (
+                      <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`relative text-[14px] sm:text-[15px] font-bold tracking-[0.06em] uppercase transition-all duration-300 pb-3 cursor-pointer ${isActive ? "text-white" : "text-white/35 hover:text-white/60"
+                          }`}
+                      >
+                        {tab}
+                        {isActive && (
+                          <>
+                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#3daeff] rounded-full" />
+                            <span className="absolute bottom-[-2px] left-[10%] w-[80%] h-[4px] bg-[#3daeff]/40 rounded-full blur-[4px]" />
+                          </>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
+
+              {/* Tab-specific Description */}
+              <p className="text-[13.5px] sm:text-[14.5px] text-white/50 leading-[1.7] font-normal max-w-[340px]">
+                {tabData[activeTab].description}
+              </p>
             </div>
 
-            {/* Tab-specific Description */}
-            <p className="text-[13.5px] sm:text-[14.5px] text-white/50 leading-[1.7] font-normal max-w-[340px]">
-              {tabData[activeTab].description}
-            </p>
-          </div>
+            {/* ═══ Right Column: Dynamic View Panels ═══ */}
+            <div className="w-full flex items-center justify-center">
 
-          {/* ═══ Right Column: Dynamic View Panels ═══ */}
-          <div className="w-full flex items-center justify-center">
+              {/* ── SPEED TAB VIEW ── */}
+              {activeTab === "speed" && (
+                <div className="tab-content-enter w-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 w-full">
 
-            {/* ── SPEED TAB VIEW ── */}
-            {activeTab === "speed" && (
-              <div className="tab-content-enter w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 w-full">
-
-                {/* Stat 1: 10x */}
-                <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:pr-6 sm:border-r sm:border-b sm:border-white/[0.08] sm:pb-6 lg:pb-0 lg:border-b-0 lg:pr-6 xl:pr-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
-                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
-                    <Gauge className="w-5 h-5" />
-                  </div>
-                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                    10x
-                  </span>
-                  <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
-                    Faster Deployment
-                  </span>
-                  <p className="text-[12px] text-white/50 leading-[1.6]">
-                    Modular ARMS 200 pods enable delivery in weeks, not years—getting you to compute faster.
-                  </p>
-                </div>
-
-                {/* Stat 2: ~$0.04/kWh */}
-                <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-0 sm:pl-6 sm:border-b sm:border-white/[0.08] sm:pb-6 lg:py-0 lg:border-b-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
-                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
-                    <Zap className="w-5 h-5" />
-                  </div>
-                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                    ~$0.04<span className="text-[14px] sm:text-[16px] lg:text-[12px] xl:text-[15px] font-bold text-[#3daeff]">/kWh</span>
-                  </span>
-                  <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
-                    Lower Operating Cost
-                  </span>
-                  <p className="text-[12px] text-white/50 leading-[1.6]">
-                    Access to low-cost power and efficient infrastructure drives industry-leading economics.
-                  </p>
-                </div>
-
-                {/* Stat 3: 2N */}
-                <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-6 sm:pr-6 sm:border-r sm:border-white/[0.08] sm:border-b-0 sm:pb-0 lg:py-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
-                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                    2N
-                  </span>
-                  <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
-                    Enterprise Reliability
-                  </span>
-                  <p className="text-[12px] text-white/50 leading-[1.6]">
-                    Redundant power, cooling, and network architecture delivers Tier III uptime and resilience.
-                  </p>
-                </div>
-
-                {/* Stat 4: 400MW+ */}
-                <div className="speed-card flex flex-col items-start pt-6 sm:pt-6 sm:pl-6 lg:pt-0 lg:pl-6 xl:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
-                  <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
-                    <BarChart3 className="w-5 h-5" />
-                  </div>
-                  <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                    400MW+
-                  </span>
-                  <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
-                    Scalable Capacity
-                  </span>
-                  <p className="text-[12px] text-white/50 leading-[1.6]">
-                    Existing and planned capacity pipeline supports long-term growth and expansion.
-                  </p>
-                </div>
-
-              </div>
-              </div>
-            )}
-
-            {/* ── SCALE TAB VIEW ── */}
-            {activeTab === "scale" && (
-              <div className="tab-content-enter w-full max-w-[550px] mx-auto py-4">
-
-                {/* Configurator Controls */}
-                <div className="flex flex-col w-full">
-
-                  {/* Top display value + Button */}
-                  <div className="flex justify-between items-end mb-6">
-                    <div>
-                      <span className="text-[34px] sm:text-[38px] font-extrabold text-[#3daeff] leading-none tracking-tight block">
-                        {formattedPower.value}
+                    {/* Stat 1: 10x */}
+                    <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:pr-6 sm:border-r sm:border-b sm:border-white/[0.08] sm:pb-6 lg:pb-0 lg:border-b-0 lg:pr-6 xl:pr-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                      <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
+                        <Gauge className="w-5 h-5" />
+                      </div>
+                      <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
+                        10x
                       </span>
-                      <span className="text-[10px] font-bold text-white/35 uppercase tracking-widest block mt-0.5">
-                        {formattedPower.unit}
+                      <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
+                        Faster Deployment
                       </span>
+                      <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
+                        Modular ARMS 200 pods enable delivery in weeks, not years—getting you to compute faster.
+                      </p>
                     </div>
-                    <a href="/contact" className="px-4 py-2 text-[10px] font-bold text-[#3daeff] uppercase tracking-wider border border-[#3daeff]/35 rounded-md hover:bg-[#3daeff]/10 transition-all duration-300 cursor-pointer inline-block">
-                      Configure Yours &gt;
-                    </a>
+
+                    {/* Stat 2: ~$0.04/kWh */}
+                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-0 sm:pl-6 sm:border-b sm:border-white/[0.08] sm:pb-6 lg:py-0 lg:border-b-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                      <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
+                        <Zap className="w-5 h-5" />
+                      </div>
+                      <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
+                        ~$0.04<span className="text-[14px] sm:text-[16px] lg:text-[12px] xl:text-[15px] font-bold text-[#3daeff]">/kWh</span>
+                      </span>
+                      <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
+                        Lower Operating Cost
+                      </span>
+                      <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
+                        Access to low-cost power and efficient infrastructure drives industry-leading economics.
+                      </p>
+                    </div>
+
+                    {/* Stat 3: 2N */}
+                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-6 sm:pr-6 sm:border-r sm:border-white/[0.08] sm:border-b-0 sm:pb-0 lg:py-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                      <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
+                        <ShieldCheck className="w-5 h-5" />
+                      </div>
+                      <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
+                        2N
+                      </span>
+                      <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
+                        Enterprise Reliability
+                      </span>
+                      <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
+                        Redundant power, cooling, and network architecture delivers Tier III uptime and resilience.
+                      </p>
+                    </div>
+
+                    {/* Stat 4: 400MW+ */}
+                    <div className="speed-card flex flex-col items-start pt-6 sm:pt-6 sm:pl-6 lg:pt-0 lg:pl-6 xl:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
+                      <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
+                        <BarChart3 className="w-5 h-5" />
+                      </div>
+                      <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
+                        400MW+
+                      </span>
+                      <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
+                        Scalable Capacity
+                      </span>
+                      <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
+                        Existing and planned capacity pipeline supports long-term growth and expansion.
+                      </p>
+                    </div>
+
                   </div>
-
-                  {/* Range Slider Container */}
-                  <div className="relative mb-8 pt-4">
-                    <input
-                      type="range"
-                      min="0"
-                      max="100"
-                      step="0.01"
-                      value={sliderVal}
-                      onChange={(e) => setSliderVal(parseFloat(e.target.value))}
-                      className="w-full h-1 bg-white/[0.08] rounded-lg appearance-none cursor-pointer accent-[#3daeff]"
-                      style={{
-                        background: `linear-gradient(to right, #3daeff 0%, #3daeff ${sliderVal}%, rgba(255,255,255,0.08) ${sliderVal}%, rgba(255,255,255,0.08) 100%)`,
-                      }}
-                    />
-
-                    {/* Tick Mark Labels */}
-                    <div className="flex justify-between text-[11px] sm:text-[12px] font-bold text-white/40 tracking-wider mt-3.5 uppercase">
-                      <span>300 W</span>
-                      <span>1 kW</span>
-                      <span>100 kW</span>
-                      <span>10 MW</span>
-                      <span>50 MW</span>
-                    </div>
-                  </div>
-
-                  {/* Configuration Outputs */}
-                  <div className="grid grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
-                    <div>
-                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                        Configuration 1
-                      </span>
-                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                        {cruiserCount > 0 ? `${cruiserCount} Cruisers` : "—"}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                        Configuration 2
-                      </span>
-                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                        {tritonCount > 0 ? `${tritonCount} Tritons` : "—"}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                        Configuration 3
-                      </span>
-                      <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                        {leviathanCount > 0 ? `${leviathanCount} Leviathan${leviathanCount > 1 ? "s" : ""}` : "—"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Slider Disclaimer */}
-                  <span className="text-[8px] font-medium text-white/20 tracking-wide block leading-[1.3] mt-2">
-                    Nearest-fit configurations. Units outside their practical range are excluded.
-                  </span>
                 </div>
+              )}
 
-              </div>
-            )}
+              {/* ── SCALE TAB VIEW ── */}
+              {activeTab === "scale" && (
+                <div className="tab-content-enter w-full max-w-[550px] mx-auto py-4">
 
-            {/* ── SOVEREIGNTY TAB VIEW ── */}
-            {activeTab === "sovereignty" && (
-              <div className="tab-content-enter flex justify-center w-full items-center py-4">
+                  {/* Configurator Controls */}
+                  <div className="flex flex-col w-full">
 
-                {/* 3D Isometric visual with Radar concentric rings */}
-                <div className="relative w-full aspect-[4/3] max-w-[380px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
-                  <svg width="100%" height="100%" viewBox="0 0 400 280">
-                    <defs>
-                      <radialGradient id="blue-glow-gradient" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stopColor="#0084ff" stopOpacity="0.45" />
-                        <stop offset="100%" stopColor="#0084ff" stopOpacity="0" />
-                      </radialGradient>
-                    </defs>
+                    {/* Top display value + Button */}
+                    <div className="flex justify-between items-end mb-6">
+                      <div>
+                        <span className="text-[34px] sm:text-[38px] font-extrabold text-[#3daeff] leading-none tracking-tight block">
+                          {formattedPower.value}
+                        </span>
+                        <span className="text-[10px] font-bold text-white/35 uppercase tracking-widest block mt-0.5">
+                          {formattedPower.unit}
+                        </span>
+                      </div>
+                      <a href="/contact" className="px-4 py-2 text-[10px] font-bold text-[#3daeff] uppercase tracking-wider border border-[#3daeff]/35 rounded-md hover:bg-[#3daeff]/10 transition-all duration-300 cursor-pointer inline-block">
+                        Configure Yours &gt;
+                      </a>
+                    </div>
 
-                    {/* Floor Mesh lines */}
-                    {Array.from({ length: 4 }).map((_, r) => {
-                      const startX = x0 - r * dx;
-                      const startY = y0 + r * dy;
-                      const endX = x0 + 3 * dx - r * dx;
-                      const endY = y0 + 3 * dy + r * dy;
-                      return (
-                        <line
-                          key={`col-line-${r}`}
-                          x1={startX}
-                          y1={startY}
-                          x2={endX}
-                          y2={endY}
-                          stroke="rgba(255, 255, 255, 0.05)"
-                          strokeWidth="1"
-                          strokeDasharray="3 3"
-                        />
-                      );
-                    })}
-                    {Array.from({ length: 5 }).map((_, c) => {
-                      const startX = x0 + c * dx;
-                      const startY = y0 + c * dy;
-                      const endX = x0 + c * dx - 2 * dx;
-                      const endY = y0 + c * dy + 2 * dy;
-                      return (
-                        <line
-                          key={`row-line-${c}`}
-                          x1={startX}
-                          y1={startY}
-                          x2={endX}
-                          y2={endY}
-                          stroke="rgba(255, 255, 255, 0.05)"
-                          strokeWidth="1"
-                          strokeDasharray="3 3"
-                        />
-                      );
-                    })}
+                    {/* Range Slider Container */}
+                    <div className="relative mb-8 pt-4">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                        value={sliderVal}
+                        onChange={(e) => setSliderVal(parseFloat(e.target.value))}
+                        className="w-full h-1 bg-white/[0.08] rounded-lg appearance-none cursor-pointer accent-[#3daeff]"
+                        style={{
+                          background: `linear-gradient(to right, #3daeff 0%, #3daeff ${sliderVal}%, rgba(255,255,255,0.08) ${sliderVal}%, rgba(255,255,255,0.08) 100%)`,
+                        }}
+                      />
 
-                    {/* Cubes, with (c=1, r=1) set as the central glowing active node with radar rings */}
-                    {Array.from({ length: 3 }).map((_, r) =>
-                      Array.from({ length: 4 }).map((_, c) => {
-                        const isCenter = c === 1 && r === 1;
-                        return renderCube(c, r, isCenter, isCenter);
-                      })
-                    )}
-                  </svg>
+                      {/* Tick Mark Labels */}
+                      <div className="flex justify-between text-[11px] sm:text-[12px] font-bold text-white/40 tracking-wider mt-3.5 uppercase">
+                        <span>300 W</span>
+                        <span>1 kW</span>
+                        <span>100 kW</span>
+                        <span>10 MW</span>
+                        <span>50 MW</span>
+                      </div>
+                    </div>
+
+                    {/* Configuration Outputs */}
+                    <div className="grid grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
+                      <div>
+                        <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
+                          Configuration 1
+                        </span>
+                        <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
+                          {cruiserCount > 0 ? `${cruiserCount} Cruisers` : "—"}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
+                          Configuration 2
+                        </span>
+                        <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
+                          {tritonCount > 0 ? `${tritonCount} Tritons` : "—"}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
+                          Configuration 3
+                        </span>
+                        <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
+                          {leviathanCount > 0 ? `${leviathanCount} Leviathan${leviathanCount > 1 ? "s" : ""}` : "—"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Slider Disclaimer */}
+                    <span className="text-[8px] font-medium text-white/20 tracking-wide block leading-[1.3] mt-2">
+                      Nearest-fit configurations. Units outside their practical range are excluded.
+                    </span>
+                  </div>
+
                 </div>
+              )}
 
-              </div>
-            )}
+              {/* ── SOVEREIGNTY TAB VIEW ── */}
+              {activeTab === "sovereignty" && (
+                <div className="tab-content-enter flex justify-center w-full items-center py-4">
 
+                  {/* 3D Isometric visual with Radar concentric rings */}
+                  <div className="relative w-full aspect-[4/3] max-w-[380px] mx-auto border border-[#3daeff]/10 bg-[#02050c]/30 rounded-xl overflow-hidden shadow-inner" style={{ boxShadow: 'inset 0 0 40px rgba(61,174,255,0.04), 0 0 20px rgba(61,174,255,0.06)' }}>
+                    <svg width="100%" height="100%" viewBox="0 0 400 280">
+                      <defs>
+                        <radialGradient id="blue-glow-gradient" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#0084ff" stopOpacity="0.45" />
+                          <stop offset="100%" stopColor="#0084ff" stopOpacity="0" />
+                        </radialGradient>
+                      </defs>
+
+                      {/* Floor Mesh lines */}
+                      {Array.from({ length: 4 }).map((_, r) => {
+                        const startX = x0 - r * dx;
+                        const startY = y0 + r * dy;
+                        const endX = x0 + 3 * dx - r * dx;
+                        const endY = y0 + 3 * dy + r * dy;
+                        return (
+                          <line
+                            key={`col-line-${r}`}
+                            x1={startX}
+                            y1={startY}
+                            x2={endX}
+                            y2={endY}
+                            stroke="rgba(255, 255, 255, 0.05)"
+                            strokeWidth="1"
+                            strokeDasharray="3 3"
+                          />
+                        );
+                      })}
+                      {Array.from({ length: 5 }).map((_, c) => {
+                        const startX = x0 + c * dx;
+                        const startY = y0 + c * dy;
+                        const endX = x0 + c * dx - 2 * dx;
+                        const endY = y0 + c * dy + 2 * dy;
+                        return (
+                          <line
+                            key={`row-line-${c}`}
+                            x1={startX}
+                            y1={startY}
+                            x2={endX}
+                            y2={endY}
+                            stroke="rgba(255, 255, 255, 0.05)"
+                            strokeWidth="1"
+                            strokeDasharray="3 3"
+                          />
+                        );
+                      })}
+
+                      {/* Cubes, with (c=1, r=1) set as the central glowing active node with radar rings */}
+                      {Array.from({ length: 3 }).map((_, r) =>
+                        Array.from({ length: 4 }).map((_, c) => {
+                          const isCenter = c === 1 && r === 1;
+                          return renderCube(c, r, isCenter, isCenter);
+                        })
+                      )}
+                    </svg>
+                  </div>
+
+                </div>
+              )}
+
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );
