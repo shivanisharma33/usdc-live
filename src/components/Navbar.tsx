@@ -136,7 +136,7 @@ function NavbarStockTicker() {
   const isPositive = stock.changePercent >= 0;
 
   return (
-    <div className="hidden lg:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
+    <div className="hidden xl:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
       <div className="flex flex-col justify-center px-3 py-1.5 h-[38px]">
         <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
         <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
@@ -194,24 +194,23 @@ export default function Navbar() {
         : "bg-transparent h-[85px]"
         }`}
     >
-      
-
-      {/* ═══ Desktop Navigation ═══ */}
-      <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
-      {/* Left Section - USDC Logo */}
-      <div className="flex-shrink-0">
-        <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
+      {/* Left Section - USDC Logo (Visible on all screens) */}
+      <div className="flex-shrink-0 relative z-50">
+        <Link href="/" className="hover:opacity-80 transition-opacity duration-200 block">
           <Image
             src="/USDC_3 1.png"
             alt="USDC Logo"
-            width={140}
-            height={50}
-            className="h-[46px] w-auto transition-all duration-300"
+            width={130}
+            height={46}
+            className="h-[32px] sm:h-[38px] md:h-[42px] w-auto transition-all duration-300"
             priority
           />
         </Link>
       </div>
-        <div className="flex items-center gap-[38px]">
+
+      {/* ═══ Desktop Navigation ═══ */}
+      <nav className="hidden lg:flex items-center gap-4 xl:gap-6 px-6 xl:px-8 py-2 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
+        <div className="flex items-center gap-4 lg:gap-6 xl:gap-[38px]">
           {navLinks.map((link) => {
             if (link.dropdown) {
               const isOpen = openDropdown === link.label;
@@ -353,7 +352,7 @@ export default function Navbar() {
         </div>
 
         {/* Divider */}
-        <div className="w-[1px] h-5 bg-white/[0.12] hidden md:block" />
+        <div className="w-[1px] h-5 bg-white/[0.12] hidden lg:block" />
 
         <div className="flex items-center gap-4 lg:gap-6">
           <NavbarStockTicker />
@@ -370,7 +369,7 @@ export default function Navbar() {
       </nav>
 
       {/* ═══ Mobile Menu Toggle ═══ */}
-      <div className="flex md:hidden items-center gap-4">
+      <div className="flex lg:hidden items-center gap-4">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="flex items-center justify-center w-11 h-11 text-white hover:text-[#3daeff] transition-colors duration-200 cursor-pointer border border-white/[0.08] bg-white/[0.03]"
@@ -387,7 +386,7 @@ export default function Navbar() {
 
       {/* ═══ Mobile Drawer ═══ */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] md:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
+        <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] lg:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
           {navLinks.map((link) => {
             if (link.dropdown) {
               return (
