@@ -456,7 +456,7 @@ export default function SpeedScaleSovereignty() {
                     </div>
 
                     {/* Configuration Outputs */}
-                    <div className="grid grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
                       <div>
                         <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
                           Configuration 1

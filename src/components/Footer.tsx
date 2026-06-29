@@ -174,17 +174,17 @@ export default function Footer() {
           {/* Newsletter Form */}
           <form
             onSubmit={handleSubscribe}
-            className="flex items-center gap-3 w-full max-w-[520px]"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-[520px]"
           >
             <input
               type="email"
               placeholder="Enter Your Email"
               required
-              className="flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300"
+              className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300"
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-black text-[13px] tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] hover:shadow-[0_4px_20px_rgba(61,174,255,0.35)] cursor-pointer"
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-black text-[13px] tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] hover:shadow-[0_4px_20px_rgba(61,174,255,0.35)] cursor-pointer text-center"
             >
               SUBSCRIBE
             </button>
@@ -192,9 +192,9 @@ export default function Footer() {
         </div>
 
         {/* ── Bottom Row (Copyright & Policy) ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-white/30 font-bold font-sans">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-white/30 font-bold font-sans text-center sm:text-left">
           <span>© 2026 USDC. All rights reserved.</span>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2">
             <a href="#" className="hover:text-white transition-colors duration-200">
               Privacy Policy
             </a>

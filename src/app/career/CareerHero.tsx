@@ -171,7 +171,7 @@ export default function CareerHero() {
             <div className="absolute top-0 left-[15%] right-[15%] h-px"
               style={{ background: "linear-gradient(90deg, transparent, rgba(61,174,255,0.5), transparent)" }} />
 
-            <div className="grid grid-cols-3 divide-x divide-white/[0.05]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.05]">
               {[
                 { value: "50+", label: "Open Roles", sub: "Across all teams" },
                 { value: "4", label: "US Sites", sub: "& growing" },

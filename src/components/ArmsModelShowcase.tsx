@@ -158,7 +158,7 @@ export default function ArmsModelShowcase() {
 
         {/* ── Stats Row ── */}
         <div
-          className="grid grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16"
           style={enter(120)}
         >
           {stats.map((s, i) => (
@@ -181,11 +181,10 @@ export default function ArmsModelShowcase() {
           {/* Center 3D Model */}
           <div className="lg:col-span-6" style={enter(300)}>
             <div
-              className="relative w-full rounded-2xl overflow-hidden border border-white/[0.06]"
+              className="relative w-full rounded-2xl overflow-hidden border border-white/[0.06] h-[340px] sm:h-[420px] md:h-[520px]"
               style={{
                 background:
                   "radial-gradient(ellipse at 50% 55%, rgba(61,174,255,0.05) 0%, rgba(4,7,15,0.0) 70%)",
-                height: "520px",
               }}
             >
               {/* Corner accents */}

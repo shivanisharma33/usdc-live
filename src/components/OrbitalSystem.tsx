@@ -318,10 +318,17 @@ export default function OrbitalSystem() {
       height = container.clientHeight;
       
       renderer.setSize(width, height);
-      camera.aspect = width / height;
+      const aspect = width / height;
+      camera.aspect = aspect;
+      if (aspect < 1.2) {
+        camera.fov = 42 * (1.2 / aspect);
+      } else {
+        camera.fov = 42;
+      }
       camera.updateProjectionMatrix();
     };
     window.addEventListener("resize", handleResize);
+    handleResize(); // Initialize with correct responsive FOV
 
     // ── Animation Loop ──
     let animationId = 0;

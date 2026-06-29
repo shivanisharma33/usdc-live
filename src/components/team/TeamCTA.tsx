@@ -61,7 +61,7 @@ export default function TeamCTA() {
         {/* Main Card Container */}
         <div
           style={fadeUp(0)}
-          className="relative rounded-3xl overflow-hidden border border-white/[0.07] bg-gradient-to-br from-[#071324]/85 to-[#04070f]/95 p-10 md:p-14 shadow-[0_25px_55px_rgba(0,0,0,0.5)]"
+          className="relative rounded-3xl overflow-hidden border border-white/[0.07] bg-gradient-to-br from-[#071324]/85 to-[#04070f]/95 p-6 sm:p-10 md:p-14 shadow-[0_25px_55px_rgba(0,0,0,0.5)]"
         >
           {/* Internal Grid Backdrop */}
           <div

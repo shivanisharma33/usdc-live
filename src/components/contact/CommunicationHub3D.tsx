@@ -475,12 +475,19 @@ export default function CommunicationHub3D() {
     const onResize = () => {
       width = container.clientWidth || width;
       height = container.clientHeight || height;
-      camera.aspect = width / height;
+      const aspect = width / height;
+      camera.aspect = aspect;
+      if (aspect < 1.2) {
+        camera.fov = 42 * (1.2 / aspect);
+      } else {
+        camera.fov = 42;
+      }
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
       partMat.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
     };
     window.addEventListener("resize", onResize);
+    onResize(); // Initialize with correct responsive FOV
 
     return () => {
       cancelAnimationFrame(frameRef.current);

@@ -612,10 +612,17 @@ export default function CapacityGrowthModel() {
       const h = container.clientHeight;
       renderer.setSize(w, h);
       curAspect = w / h;
-      camera.left = -rig.d * curAspect;
-      camera.right = rig.d * curAspect;
-      camera.top = rig.d;
-      camera.bottom = -rig.d;
+      if (curAspect < 1) {
+        camera.left = -rig.d;
+        camera.right = rig.d;
+        camera.top = rig.d / curAspect;
+        camera.bottom = -rig.d / curAspect;
+      } else {
+        camera.left = -rig.d * curAspect;
+        camera.right = rig.d * curAspect;
+        camera.top = rig.d;
+        camera.bottom = -rig.d;
+      }
       camera.updateProjectionMatrix();
       camera.position.copy(rig.target).addScaledVector(ISO_DIR, ISO_DIST);
       camera.lookAt(rig.target);

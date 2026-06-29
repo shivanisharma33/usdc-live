@@ -52,10 +52,17 @@ export default function ThreeDStack({ activePlate, onPlateChange }: ThreeDStackP
       renderer.setSize(w, h);
       const a = w / h;
       const f = 7.8;
-      camera.left = -f * a;
-      camera.right = f * a;
-      camera.top = f;
-      camera.bottom = -f;
+      if (a < 1) {
+        camera.left = -f;
+        camera.right = f;
+        camera.top = f / a;
+        camera.bottom = -f / a;
+      } else {
+        camera.left = -f * a;
+        camera.right = f * a;
+        camera.top = f;
+        camera.bottom = -f;
+      }
       camera.updateProjectionMatrix();
     }
     camera.position.set(9, 8.2, 9);

@@ -82,13 +82,14 @@ export default function AboutByNumbers() {
             transform: inView ? "translateY(0)" : "translateY(30px)",
           }}
         >
-          <div className="grid grid-cols-4 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 items-center">
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center justify-center text-center py-6 sm:py-9 px-2 sm:px-6 min-h-[120px] sm:min-h-[150px] ${
-                  i < stats.length - 1 ? "border-r border-[#3daeff]/35" : ""
-                }`}
+                className={`flex flex-col items-center justify-center text-center py-6 sm:py-9 px-2 sm:px-6 min-h-[120px] sm:min-h-[150px]
+                  ${i % 2 === 0 ? "border-r border-white/10" : "border-r-0"}
+                  ${i < 2 ? "border-b border-white/10" : "border-b-0"}
+                  md:border-b-0 md:border-r md:border-[#3daeff]/35 ${i === stats.length - 1 ? "md:border-r-0" : ""}`}
               >
                 <span className="text-base sm:text-2xl md:text-[36px] font-bold text-white tracking-tight leading-none font-sans">
                   {stat.value}

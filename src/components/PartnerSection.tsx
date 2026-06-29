@@ -10,7 +10,7 @@ export default function PartnerSection() {
   return (
     <section className="w-full bg-[#04070f] py-16 md:py-24 px-6 md:px-12 lg:px-16 select-none overflow-hidden">
       {/* ── Centered Bordered Card Section Wrapper ── */}
-      <div className="relative w-full max-w-[1280px] mx-auto rounded-[24px] border border-[#3daeff]/40 bg-[#04070f] overflow-hidden p-8 sm:p-12 md:p-14 lg:p-16 min-h-[500px] shadow-[0_0_50px_rgba(61,174,255,0.06)]">
+      <div className="relative w-full max-w-[1280px] mx-auto rounded-[24px] border border-[#3daeff]/40 bg-[#04070f] overflow-hidden p-5 sm:p-12 md:p-14 lg:p-16 min-h-[500px] shadow-[0_0_50px_rgba(61,174,255,0.06)]">
 
         {/* ── Ambient Background Glows inside the card ── */}
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -32,9 +32,9 @@ export default function PartnerSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-black tracking-tight leading-[1.08] text-white font-sans uppercase">
-              <span className="block whitespace-nowrap">READY TO OWN THE</span>
-              <span className="text-[#3daeff] block whitespace-nowrap">AI INFRASTRUCTURE</span>
+            <h2 className="text-[26px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
+              <span className="block sm:whitespace-nowrap">READY TO OWN THE</span>
+              <span className="text-[#3daeff] block sm:whitespace-nowrap">AI INFRASTRUCTURE</span>
               <span className="block">LAYER?</span>
             </h2>
 

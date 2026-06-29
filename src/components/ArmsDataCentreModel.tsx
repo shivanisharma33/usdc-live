@@ -512,7 +512,13 @@ function initScene(canvas: HTMLCanvasElement) {
   const ro = new ResizeObserver(() => {
     const w = canvas.parentElement?.clientWidth ?? window.innerWidth;
     const h = canvas.parentElement?.clientHeight ?? window.innerHeight;
-    camera.aspect = w / h;
+    const aspect = w / h;
+    camera.aspect = aspect;
+    if (aspect < 1.2) {
+      camera.fov = 32 * (1.2 / aspect);
+    } else {
+      camera.fov = 32;
+    }
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
   });

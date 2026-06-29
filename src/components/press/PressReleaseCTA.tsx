@@ -63,7 +63,7 @@ export default function PressReleaseCTA() {
         {/* ── Main CTA Card ── */}
         <div
           style={fadeUp(0)}
-          className="relative rounded-3xl overflow-hidden border border-white/[0.07] bg-gradient-to-br from-[#0a1628]/80 to-[#04070f]/90 p-10 md:p-14"
+          className="relative rounded-3xl overflow-hidden border border-white/[0.07] bg-gradient-to-br from-[#0a1628]/80 to-[#04070f]/90 p-6 sm:p-10 md:p-14"
         >
           {/* Background grid pattern */}
           <div
