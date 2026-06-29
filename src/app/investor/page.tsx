@@ -296,11 +296,9 @@ export default function InvestorPage() {
               </div>
 
               {/* Title */}
-              <h1 className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold uppercase tracking-tighter mb-6 text-white leading-[0.95]">
-                Investor{" "}
-                <span className="bg-gradient-to-r from-[#3daeff] to-[#0ea5e9] bg-clip-text text-transparent">
-                  Center
-                </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+                <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Investor&nbsp;</span>
+                <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Center</span>
               </h1>
 
               {/* Description */}

@@ -32,11 +32,13 @@ export default function AboutHero() {
           </div>
 
           {/* Main Cloned Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-bold tracking-tight leading-[1.12] text-white mb-6 font-sans">
-            Building The Future Of{" "}
-            <span className="text-[#3daeff]">
-              AI Infrastructure
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10">
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Building&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">The&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms]">Future&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms]">Of&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:400ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
           </h1>
 
           {/* Description Subtitle */}

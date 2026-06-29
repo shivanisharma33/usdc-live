@@ -63,11 +63,13 @@ export default function EnergyPage() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase">
-            From Power To <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
-              AI Compute
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">From&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">Power&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms]">To&nbsp;</span>
+            <br />
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Compute</span>
           </h1>
 
           {/* Description */}

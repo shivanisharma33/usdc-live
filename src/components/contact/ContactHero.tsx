@@ -83,15 +83,13 @@ export default function ContactHero() {
 
           {/* Heading */}
           <h1
-            className={`text-[40px] sm:text-[54px] lg:text-[60px] font-bold tracking-tight leading-[1.04] text-white mb-6 ${enter(160)}`}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10"
           >
-            Let&apos;s Build The{" "}
-            <span className="relative inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] via-[#3daeff] to-[#0091ff] cx-gradient-flow">
-                Future
-              </span>
-            </span>{" "}
-            Together
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Let&apos;s&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">Build&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms]">The&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Future</span>{" "}
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms]">Together</span>
           </h1>
 
           {/* Supporting copy */}

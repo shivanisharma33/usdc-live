@@ -137,11 +137,7 @@ function NavbarStockTicker() {
 
   return (
     <div className="hidden lg:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
-      <div className="flex flex-col items-center justify-center px-3 py-1.5 bg-white/[0.04] border-r border-white/10 h-[38px]">
-        <span className="text-[6.5px] font-bold text-[#3daeff] tracking-widest uppercase leading-none mb-0.5">Nasdaq</span>
-        <span className="text-[10px] font-black text-white tracking-widest leading-none">USDC</span>
-      </div>
-      <div className="flex flex-col justify-center px-3 py-1 h-[38px]">
+      <div className="flex flex-col justify-center px-3 py-1.5 h-[38px]">
         <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
         <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
           {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
@@ -198,6 +194,10 @@ export default function Navbar() {
         : "bg-transparent h-[85px]"
         }`}
     >
+      
+
+      {/* ═══ Desktop Navigation ═══ */}
+      <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
       {/* Left Section - USDC Logo */}
       <div className="flex-shrink-0">
         <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
@@ -211,9 +211,6 @@ export default function Navbar() {
           />
         </Link>
       </div>
-
-      {/* ═══ Desktop Navigation ═══ */}
-      <nav className="hidden md:flex items-center gap-6 ml-auto px-8 py-2.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
         <div className="flex items-center gap-[38px]">
           {navLinks.map((link) => {
             if (link.dropdown) {
@@ -334,6 +331,25 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* DigiPowerX Logo */}
+          <Link
+            href="https://digipowerx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group"
+          >
+            <div className="absolute inset-0 rounded-[8px] bg-yellow-500/20 blur-md group-hover:bg-yellow-400/40 group-hover:blur-lg transition-all duration-500 opacity-80 group-hover:opacity-100" />
+            <div className="relative rounded-[8px] border border-yellow-500/35 group-hover:border-yellow-400/60 overflow-hidden shadow-[0_0_12px_rgba(234,179,8,0.3)] group-hover:shadow-[0_0_20px_rgba(234,179,8,0.6)] transition-all duration-500">
+              <Image
+                src="/digipowerx_logo.png"
+                alt="DigiPowerX Logo"
+                width={28}
+                height={28}
+                className="object-contain"
+              />
+            </div>
+          </Link>
         </div>
 
         {/* Divider */}
@@ -391,6 +407,39 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
+                </div>
+              );
+            }
+
+            if (link.label === "Career") {
+              return (
+                <div key={link.label} className="flex items-center justify-between py-2 border-b border-white/[0.03] w-full">
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 font-sans"
+                  >
+                    {link.label}
+                  </Link>
+                  {/* DigiPowerX Logo with Glow */}
+                  <Link
+                    href="https://digipowerx.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group mr-2"
+                  >
+                    <div className="absolute inset-0 rounded-[6px] bg-yellow-500/25 blur-sm group-hover:bg-yellow-400/45 group-hover:blur-md transition-all duration-500 opacity-90" />
+                    <div className="relative rounded-[6px] border border-yellow-500/40 overflow-hidden shadow-[0_0_8px_rgba(234,179,8,0.4)] transition-all duration-500">
+                      <Image
+                        src="/digipowerx_logo.png"
+                        alt="DigiPowerX Logo"
+                        width={24}
+                        height={24}
+                        className="object-contain"
+                      />
+                    </div>
+                  </Link>
                 </div>
               );
             }

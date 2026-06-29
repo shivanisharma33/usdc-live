@@ -102,13 +102,12 @@ export default function CareerHero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-[52px] sm:text-[68px] md:text-[82px] lg:text-[96px] font-black tracking-[-0.03em] leading-[0.92] text-white mb-4" style={fade(80)}>
-          We&apos;re looking
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10" style={fade(80)}>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">We&apos;re&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">looking&nbsp;</span>
           <br />
-          <span className="text-transparent bg-clip-text"
-            style={{ backgroundImage: "linear-gradient(125deg, #74d1ff 0%, #3daeff 35%, #0068d6 80%)" }}>
-            for builders.
-          </span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">for&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">builders.</span>
         </h1>
 
         {/* Animated role ticker */}

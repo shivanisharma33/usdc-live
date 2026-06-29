@@ -85,13 +85,10 @@ export default function TeamHero() {
 
         {/* Heading */}
         <h1
-          style={enterStyle(220)}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase"
         >
-          Management <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
-            Team
-          </span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Management&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Team</span>
         </h1>
 
         {/* Subtitle description */}

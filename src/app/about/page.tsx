@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/app/about/AboutHero";
+import AboutJourneySection from "@/components/AboutJourneySection";
 import BuildingFutureSection from "@/components/BuildingFutureSection";
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
@@ -24,6 +25,9 @@ export default function AboutPage() {
 
       {/* Hero section cloned to match the reference image */}
       <AboutHero />
+
+      {/* Interactive scroll-linked milestone journey timeline */}
+      <AboutJourneySection />
 
       {/* Building the Future from Day One Section */}
       <BuildingFutureSection />

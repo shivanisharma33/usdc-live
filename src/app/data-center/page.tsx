@@ -62,9 +62,9 @@ export default function DataCenterPage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-[56px] sm:text-[72px] md:text-[88px] lg:text-[100px] font-black tracking-tight leading-[0.92] text-white uppercase font-sans">
-              <span className="block">DATA</span>
-              <span className="text-[#3daeff] block">CENTERS</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+              <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Data&nbsp;</span>
+              <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Centers</span>
             </h1>
 
             {/* Description */}

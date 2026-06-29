@@ -107,17 +107,14 @@ export default function PressReleaseHero() {
 
         {/* Heading */}
         <h1
-          style={enter(220)}
-          className="text-[36px] sm:text-[50px] md:text-[62px] lg:text-[74px] font-extralight tracking-[-0.03em] leading-[1.05] text-white mb-5"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10"
         >
-          Discover our{" "}
-          <span className="relative inline-block">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec8ff] via-[#3daeff] to-[#a78bfa] cx-gradient-flow">
-              latest
-            </span>
-          </span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Discover&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">our&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">latest</span>
           <br />
-          press releases
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms]">press&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms]">releases</span>
         </h1>
 
         {/* Subtitle */}

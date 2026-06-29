@@ -35,9 +35,9 @@ export default function GlobalNetworkPage() {
             </span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5.5vw,5rem)] font-extrabold tracking-tighter leading-[0.95] mb-8 uppercase text-center">
-            <span className="block text-white">GLOBAL</span>
-            <span className="block text-[#3daeff]">NETWORK</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 text-center uppercase">
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Global&nbsp;</span>
+            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Network</span>
           </h1>
 
           <p className="text-white/60 text-sm md:text-[16px] max-w-xl mb-10 leading-relaxed font-medium tracking-wide text-center">

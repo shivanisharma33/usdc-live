@@ -36,8 +36,15 @@ export default function Hero() {
       </div>
 
       {/* Hero Title */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 animate-slide-up relative z-10">
-        Deploy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI Infrastructure</span> <br /> in Months Not Years
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10">
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Deploy&nbsp;</span>
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
+        <br />
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms]">in&nbsp;</span>
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms]">Months&nbsp;</span>
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:400ms]">Not&nbsp;</span>
+        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:480ms]">Years</span>
       </h1>
 
       {/* Hero Description */}
@@ -103,7 +110,7 @@ export default function Hero() {
 
       {/* Metrics Capsule Dashboard */}
       <div className="w-full max-w-5xl bg-[#02050c]/55 backdrop-blur-xl border border-white/[0.08] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.02)] animate-slide-up [animation-delay:350ms] hero-capsule-glow">
-        
+
         {/* Metric 1 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
           <Zap className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
@@ -156,7 +163,7 @@ export default function Hero() {
             AI Ready
           </span>
         </div>
-        
+
       </div>
     </main>
   );

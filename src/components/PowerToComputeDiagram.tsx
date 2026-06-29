@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function PowerToComputeDiagram() {
   return (
-    <section className="w-full bg-[#04070f] py-20 md:py-28 text-white select-none overflow-hidden relative border-t border-white/[0.03]">
+    <section className="w-full bg-[#000413] py-20 md:py-28 text-white select-none overflow-hidden relative border-t border-white/[0.03]">
       {/* Background ambient lighting */}
       <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.02] rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[30%] right-[-10%] w-[600px] h-[600px] bg-sky-500/[0.02] rounded-full blur-[140px] pointer-events-none z-0" />

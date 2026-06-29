@@ -40,280 +40,569 @@ function glowDot(ctx: CanvasRenderingContext2D, x: number, y: number, r: number)
    1.  GENERATION ASSETS
    ══════════════════════════════════════════════════════════════════════════ */
 function GenerationCanvas() {
-  const ref = useRef<HTMLCanvasElement|null>(null);
-  const [hov, setHov] = useState(false);
-
+  const [mounted, setMounted] = React.useState(false);
   useEffect(() => {
-    const cv = ref.current; if (!cv) return;
-    const ctx = cv.getContext("2d"); if (!ctx) return;
-    let w = 0, h = 0, af = 0;
-    const resize = () => { const d = initCanvas(cv, ctx); w = d.w; h = d.h; };
-    resize();
-    const ro = new ResizeObserver(resize);
-    if (cv.parentElement) ro.observe(cv.parentElement);
+    setMounted(true);
+  }, []);
 
-    const draw = (t: number) => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.lineCap = "round"; ctx.lineJoin = "round";
-      const cx = w / 2, by = h * 0.84;
-      const f = Math.sin(t * 0.0016) * 2;
-      const s = Math.min(w / 340, h / 260);
-
-      // ── ground ──
-      ctx.strokeStyle = C.white8; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(cx - 150*s, by); ctx.lineTo(cx + 150*s, by); ctx.stroke();
-      ctx.strokeStyle = C.lineVDim;
-      for (let i = -6; i <= 6; i++) { ctx.beginPath(); ctx.moveTo(cx+i*22*s, by); ctx.lineTo(cx+i*26*s, by+16*s); ctx.stroke(); }
-
-      /* ─── WIND TURBINE (lattice tower) ─── */
-      const wx = cx - 100*s, wby = by, wty = by - 130*s + f;
-
-      // Lattice tower legs
-      ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-      ctx.beginPath(); ctx.moveTo(wx-10*s, wby); ctx.lineTo(wx-3*s, wty+8*s); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(wx+10*s, wby); ctx.lineTo(wx+3*s, wty+8*s); ctx.stroke();
-      // Center spine
-      ctx.beginPath(); ctx.moveTo(wx, wby); ctx.lineTo(wx, wty+8*s); ctx.stroke();
-
-      // Cross bracing
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.6*s;
-      const segs = 6;
-      for (let i = 0; i < segs; i++) {
-        const y1 = wby - i*(wby-wty-8*s)/segs;
-        const y2 = wby - (i+1)*(wby-wty-8*s)/segs;
-        const w1 = 10*s - i*(7*s/segs);
-        const w2 = 10*s - (i+1)*(7*s/segs);
-        ctx.beginPath(); ctx.moveTo(wx-w1, y1); ctx.lineTo(wx+w2, y2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(wx+w1, y1); ctx.lineTo(wx-w2, y2); ctx.stroke();
-        // Horizontal rung
-        ctx.beginPath(); ctx.moveTo(wx-w1, y1); ctx.lineTo(wx+w1, y1); ctx.stroke();
-      }
-
-      // Base footer plates
-      ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-      ctx.beginPath(); ctx.moveTo(wx-14*s, wby); ctx.lineTo(wx-10*s, wby); ctx.lineTo(wx-8*s, wby-5*s); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(wx+14*s, wby); ctx.lineTo(wx+10*s, wby); ctx.lineTo(wx+8*s, wby-5*s); ctx.stroke();
-
-      // Nacelle housing
-      ctx.fillStyle = C.fill; ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.2*s;
-      ctx.beginPath();
-      ctx.moveTo(wx-8*s, wty+8*s); ctx.lineTo(wx+12*s, wty+6*s);
-      ctx.lineTo(wx+12*s, wty+2*s); ctx.lineTo(wx-8*s, wty+4*s); ctx.closePath();
-      ctx.fill(); ctx.stroke();
-
-      // Blades (3, rotating)
-      const bLen = 42*s, bAng = (t * 0.0007) % (Math.PI*2);
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.4*s;
-      for (let b = 0; b < 3; b++) {
-        const a = bAng + b*Math.PI*2/3;
-        const tx = wx + Math.cos(a)*bLen;
-        const ty = wty+5*s + Math.sin(a)*bLen;
-        ctx.beginPath(); ctx.moveTo(wx, wty+5*s); ctx.lineTo(tx, ty); ctx.stroke();
-        // Blade taper width lines
-        const mx = wx + Math.cos(a)*bLen*0.45;
-        const my = wty+5*s + Math.sin(a)*bLen*0.45;
-        const pa = a + Math.PI/2;
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.5*s;
-        ctx.beginPath();
-        ctx.moveTo(mx+Math.cos(pa)*4*s, my+Math.sin(pa)*4*s);
-        ctx.lineTo(mx-Math.cos(pa)*4*s, my-Math.sin(pa)*4*s);
-        ctx.stroke();
-        ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.4*s;
-      }
-      glowDot(ctx, wx, wty+5*s, 2.5*s);
-
-      /* ─── SOLAR PANELS (2 angled panels) ─── */
-      const spx = cx - 58*s, spy = by - 12*s + f;
-      for (let i = 0; i < 2; i++) {
-        const px = spx + i*30*s;
-        const py = spy - i*10*s;
-        // Support pole
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.8*s;
-        ctx.beginPath(); ctx.moveTo(px+13*s, py+2*s); ctx.lineTo(px+13*s, by); ctx.stroke();
-        // Angled bracket
-        ctx.beginPath(); ctx.moveTo(px+13*s, py); ctx.lineTo(px+8*s, py-4*s); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(px+13*s, py); ctx.lineTo(px+18*s, py-4*s); ctx.stroke();
-
-        // Panel face
-        ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-        const pw = 26*s, ph = 15*s;
-        ctx.beginPath();
-        ctx.moveTo(px+2*s, py-3*s); ctx.lineTo(px+pw, py-6*s);
-        ctx.lineTo(px+pw-2*s, py-6*s-ph); ctx.lineTo(px, py-3*s-ph+2*s);
-        ctx.closePath(); ctx.fill(); ctx.stroke();
-
-        // Cell grid
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.4*s;
-        // Horizontal mid
-        ctx.beginPath();
-        ctx.moveTo(px+1*s, py-3*s-ph/2+1*s); ctx.lineTo(px+pw-1*s, py-6*s-ph/2);
-        ctx.stroke();
-        // Verticals
-        for (let v = 1; v <= 3; v++) {
-          const frac = v/4;
-          const topX = px + frac*(pw-2*s); const topY = py-3*s-ph+2*s + frac*(-3*s);
-          const botX = px+2*s + frac*(pw-2*s); const botY = py-3*s + frac*(-3*s);
-          ctx.beginPath(); ctx.moveTo(topX, topY); ctx.lineTo(botX, botY); ctx.stroke();
-        }
-      }
-
-      /* ─── MAIN GENERATOR / POWER PLANT ─── */
-      const gx = cx - 8*s, gy = by - 88*s + f, gw = 90*s, gh = 82*s;
-
-      // Main housing body
-      ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1.2*s;
-      ctx.beginPath(); ctx.rect(gx, gy, gw, gh); ctx.fill(); ctx.stroke();
-
-      // Top rim plate
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.5*s;
-      ctx.beginPath(); ctx.moveTo(gx-4*s, gy); ctx.lineTo(gx+gw+4*s, gy); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(gx-4*s, gy+3*s); ctx.lineTo(gx+gw+4*s, gy+3*s); ctx.stroke();
-
-      // Bottom plate
-      ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-      ctx.beginPath(); ctx.moveTo(gx-2*s, gy+gh); ctx.lineTo(gx+gw+2*s, gy+gh); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(gx-2*s, gy+gh+3*s); ctx.lineTo(gx+gw+2*s, gy+gh+3*s); ctx.stroke();
-
-      // Vertical structural frame sections
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.7*s;
-      const secCount = 7;
-      for (let i = 1; i < secCount; i++) {
-        const sx = gx + (gw/secCount)*i;
-        ctx.beginPath(); ctx.moveTo(sx, gy+5*s); ctx.lineTo(sx, gy+gh-3*s); ctx.stroke();
-      }
-
-      // Horizontal bands
-      ctx.strokeStyle = C.lineVDim; ctx.lineWidth = 0.6*s;
-      for (let i = 1; i <= 4; i++) {
-        const ly = gy + i*(gh/5);
-        ctx.beginPath(); ctx.moveTo(gx+3*s, ly); ctx.lineTo(gx+gw-3*s, ly); ctx.stroke();
-      }
-
-      // Ventilation louvers (lower left)
-      ctx.strokeStyle = C.white15; ctx.lineWidth = 0.5*s;
-      for (let i = 0; i < 7; i++) {
-        const vy = gy+gh-22*s+i*2.6*s;
-        ctx.beginPath(); ctx.moveTo(gx+5*s, vy); ctx.lineTo(gx+28*s, vy); ctx.stroke();
-      }
-
-      // Control panel box (mid-right face)
-      ctx.strokeStyle = C.line; ctx.lineWidth = 0.8*s;
-      ctx.beginPath(); ctx.roundRect(gx+gw-28*s, gy+20*s, 22*s, 16*s, 1*s); ctx.stroke();
-      // Gauges inside
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.6*s;
-      ctx.beginPath(); ctx.arc(gx+gw-20*s, gy+28*s, 4*s, 0, Math.PI*2); ctx.stroke();
-      ctx.beginPath(); ctx.arc(gx+gw-10*s, gy+28*s, 4*s, 0, Math.PI*2); ctx.stroke();
-      // Gauge needles
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 0.6*s;
-      const needleAng = t*0.001;
-      ctx.beginPath(); ctx.moveTo(gx+gw-20*s, gy+28*s); ctx.lineTo(gx+gw-20*s+Math.cos(needleAng)*3*s, gy+28*s-Math.sin(needleAng)*3*s); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(gx+gw-10*s, gy+28*s); ctx.lineTo(gx+gw-10*s+Math.cos(needleAng+1)*3*s, gy+28*s-Math.sin(needleAng+1)*3*s); ctx.stroke();
-
-      // Exhaust pipes on top (2)
-      for (let i = 0; i < 2; i++) {
-        const px = gx+12*s+i*20*s;
-        ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-        // Left pipe wall
-        ctx.beginPath(); ctx.moveTo(px, gy); ctx.lineTo(px, gy-20*s); ctx.stroke();
-        // Right pipe wall
-        ctx.beginPath(); ctx.moveTo(px+6*s, gy); ctx.lineTo(px+6*s, gy-18*s); ctx.stroke();
-        // Top cap
-        ctx.beginPath(); ctx.moveTo(px-2*s, gy-20*s); ctx.lineTo(px+8*s, gy-20*s); ctx.stroke();
-        // Inner detail
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.5*s;
-        ctx.beginPath(); ctx.moveTo(px+3*s, gy-2*s); ctx.lineTo(px+3*s, gy-16*s); ctx.stroke();
-        // Flanges
-        ctx.strokeStyle = C.line; ctx.lineWidth = 0.7*s;
-        ctx.beginPath(); ctx.moveTo(px-1*s, gy-8*s); ctx.lineTo(px+7*s, gy-8*s); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(px-1*s, gy-14*s); ctx.lineTo(px+7*s, gy-14*s); ctx.stroke();
-      }
-
-      // Side cooling radiator fins (right side)
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.6*s;
-      for (let i = 0; i < 7; i++) {
-        const fy = gy+10*s+i*9*s;
-        ctx.beginPath();
-        ctx.moveTo(gx+gw, fy); ctx.lineTo(gx+gw+10*s, fy+1.5*s);
-        ctx.lineTo(gx+gw+10*s, fy+7*s); ctx.lineTo(gx+gw, fy+8*s);
-        ctx.stroke();
-      }
-
-      // Pipe connections (left side going down to base)
-      ctx.strokeStyle = C.line; ctx.lineWidth = 0.8*s;
-      ctx.beginPath(); ctx.moveTo(gx, gy+25*s); ctx.lineTo(gx-12*s, gy+25*s); ctx.lineTo(gx-12*s, by); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(gx, gy+40*s); ctx.lineTo(gx-8*s, gy+40*s); ctx.lineTo(gx-8*s, by); ctx.stroke();
-
-      // Bolts on body corners
-      ctx.fillStyle = C.line;
-      [[gx+3*s,gy+5*s],[gx+gw-3*s,gy+5*s],[gx+3*s,gy+gh-4*s],[gx+gw-3*s,gy+gh-4*s]].forEach(([bx,by2])=>{
-        ctx.beginPath(); ctx.arc(bx,by2,1.2*s,0,Math.PI*2); ctx.fill();
+  const rainParticles = React.useMemo(() => {
+    const W = 1500, H = 980;
+    const COUNT = 40;
+    const particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const x = Math.random() * W;
+      const height = 6 + Math.random() * 22;
+      const width = 0.8 + Math.random() * 1.2;
+      const dur = 8 + Math.random() * 10;
+      const delay = -Math.random() * dur;
+      const maxOpacity = 0.05 + Math.random() * 0.10;
+      particles.push({
+        x: x.toFixed(1),
+        y: (-height).toFixed(1),
+        width: width.toFixed(1),
+        height: height.toFixed(1),
+        dur: dur.toFixed(2) + "s",
+        begin: delay.toFixed(2) + "s",
+        maxOpacity: maxOpacity.toFixed(3),
+        to: H + 20,
       });
+    }
+    return particles;
+  }, []);
 
-      /* ─── BATTERY CABINET ─── */
-      const bx2 = cx+100*s, by2 = by-48*s+f, bw2=34*s, bh2=42*s;
-      ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1.2*s;
-      ctx.beginPath(); ctx.roundRect(bx2, by2, bw2, bh2, 3*s); ctx.fill(); ctx.stroke();
-      // Top handle
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.8*s;
-      ctx.beginPath(); ctx.moveTo(bx2+8*s, by2); ctx.lineTo(bx2+8*s, by2-4*s);
-      ctx.lineTo(bx2+bw2-8*s, by2-4*s); ctx.lineTo(bx2+bw2-8*s, by2); ctx.stroke();
-      // Vent lines
-      ctx.strokeStyle = C.white15; ctx.lineWidth = 0.5*s;
-      for (let i = 0; i < 4; i++) {
-        ctx.beginPath(); ctx.moveTo(bx2+4*s, by2+7*s+i*3.5*s); ctx.lineTo(bx2+14*s, by2+7*s+i*3.5*s); ctx.stroke();
-      }
-      // Lightning bolt
-      const bi = 0.5+0.5*Math.sin(t*(hov?0.008:0.004));
-      ctx.fillStyle = `rgba(61,174,255,${0.4+0.6*bi})`;
-      ctx.shadowColor = C.glow; ctx.shadowBlur = 6*bi;
-      const lx = bx2+16*s, ly = by2+7*s;
-      ctx.beginPath();
-      ctx.moveTo(lx+10*s,ly); ctx.lineTo(lx+2*s,ly+13*s); ctx.lineTo(lx+7*s,ly+13*s);
-      ctx.lineTo(lx+4*s,ly+25*s); ctx.lineTo(lx+12*s,ly+11*s); ctx.lineTo(lx+7*s,ly+11*s);
-      ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
-      // Terminal posts on top
-      glowDot(ctx, bx2+10*s, by2-4*s, 2*s);
-      glowDot(ctx, bx2+bw2-10*s, by2-4*s, 2*s);
+  return (
+    <div className="w-full h-[220px] relative overflow-hidden flex items-center justify-center select-none">
+      <svg className="w-full h-full block" viewBox="0 0 1500 980" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow95_t" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.6" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glow110_t" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3.4" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
 
-      /* ─── CABLES & PULSES ─── */
-      // Cable 1: turbine → generator
-      ctx.strokeStyle = "rgba(255,255,255,0.10)"; ctx.lineWidth = 0.8*s;
-      const c1s = {x:wx+6*s, y:wby-25*s+f};
-      const c1cp = {x:cx-45*s, y:by-8*s+f};
-      const c1e = {x:gx, y:gy+gh*0.55};
-      ctx.beginPath(); ctx.moveTo(c1s.x,c1s.y); ctx.quadraticCurveTo(c1cp.x,c1cp.y,c1e.x,c1e.y); ctx.stroke();
+          <linearGradient id="navyFill_t" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#020a26" />
+            <stop offset="100%" stopColor="#04123e" />
+          </linearGradient>
 
-      // Cable 2: generator → battery
-      const c2s = {x:gx+gw, y:gy+gh*0.4};
-      const c2e = {x:bx2, y:by2+bh2*0.35};
-      ctx.beginPath(); ctx.moveTo(c2s.x,c2s.y); ctx.lineTo(c2e.x,c2e.y); ctx.stroke();
+          {/* Tower spine paths for energy particles */}
+          <path id="towerPathLeft"
+                d="M 380,720 L 400,560 L 420,420 L 440,290 L 460,200 L 470,150" fill="none" />
+          <path id="towerPathRight"
+                d="M 560,720 L 540,560 L 520,420 L 500,290 L 480,200 L 470,150" fill="none" />
+          <path id="towerPathCenter"
+                d="M 470,720 L 470,150" fill="none" />
 
-      // Energy pulses
-      ctx.shadowColor = C.glow; ctx.shadowBlur = 8; ctx.fillStyle = "#fff";
-      const fr = hov ? 0.002 : 0.001;
-      [0,0.5].forEach(o => {
-        const p = ((t*fr)+o)%1;
-        const qx = (1-p)*(1-p)*c1s.x+2*(1-p)*p*c1cp.x+p*p*c1e.x;
-        const qy = (1-p)*(1-p)*c1s.y+2*(1-p)*p*c1cp.y+p*p*c1e.y;
-        ctx.beginPath(); ctx.arc(qx,qy,2.2*s,0,Math.PI*2); ctx.fill();
-      });
-      [0,0.5].forEach(o => {
-        const p = ((t*fr*1.3)+o)%1;
-        ctx.beginPath();
-        ctx.arc(c2s.x+(c2e.x-c2s.x)*p, c2s.y+(c2e.y-c2s.y)*p, 2.2*s, 0, Math.PI*2); ctx.fill();
-      });
-      ctx.shadowBlur = 0;
+          {/* Sub-X energy paths (zig-zag through new diagonal bracing) */}
+          <path id="towerZigLeft"
+                d="M 348,677 L 392,591 L 369,548 L 391,419 L 405,333 L 470,200" fill="none" />
+          <path id="towerZigRight"
+                d="M 592,677 L 548,591 L 571,548 L 549,419 L 535,333 L 470,200" fill="none" />
 
-      // Junction dots
-      [c1s,c1e,c2s,c2e].forEach(pt => glowDot(ctx, pt.x, pt.y, 3*s));
+          {/* Shimmer paths along the cross arms */}
+          <path id="lowerCrossPath" d="M 320,290 L 620,290" fill="none" />
+          <path id="upperCrossPath" d="M 395,200 L 545,200" fill="none" />
 
-      af = requestAnimationFrame(draw);
-    };
-    af = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(af); ro.disconnect(); };
-  }, [hov]);
+          {/* Cable path */}
+          <path id="cablePath"
+                d="M 645,738 L 870,738 L 870,720 L 935,720" fill="none" />
+        </defs>
 
-  return <canvas ref={ref} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} className="w-full h-[220px] block cursor-pointer" />;
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Breathing glow on whole illustration */
+            @keyframes breathe_t {
+              0%, 100% { filter: url(#glow95_t); }
+              50%      { filter: url(#glow110_t); }
+            }
+            .illustration_t {
+              animation: breathe_t 5s ease-in-out infinite;
+              transform-origin: center;
+            }
+
+            /* Lightning bolt pulse */
+            @keyframes boltPulse_t {
+              0%, 70%, 100% { opacity: 0.95; filter: drop-shadow(0 0 3px #4ab8ff); }
+              35%           { opacity: 1;    filter: drop-shadow(0 0 12px #6cc8ff) drop-shadow(0 0 20px #4ab8ff); }
+            }
+            .bolt_t { animation: boltPulse_t 2.6s ease-in-out infinite; }
+
+            @keyframes cabinetPulse_t {
+              0%, 100% { opacity: 0.92; }
+              50%      { opacity: 1; }
+            }
+            .cabinet_t { animation: cabinetPulse_t 2.6s ease-in-out infinite; }
+
+            /* Cable dashed flow */
+            @keyframes dashFlow_t { to { stroke-dashoffset: -40; } }
+            .cable-dash_t { stroke-dasharray: 5 5; animation: dashFlow_t 2.2s linear infinite; }
+
+            /* Reflection flicker */
+            @keyframes reflectFlicker_t {
+              0%, 100% { opacity: 0.22; }
+              50%      { opacity: 0.34; }
+            }
+            .ground-reflect_t { animation: reflectFlicker_t 5s ease-in-out infinite; }
+
+            /* Energy particle styles */
+            .energy-dot_t {
+              fill: #b8e6ff;
+              filter: drop-shadow(0 0 3px #6cc8ff) drop-shadow(0 0 6px #4ab8ff);
+            }
+            .tower-spark_t {
+              fill: #cce8ff;
+              filter: drop-shadow(0 0 3px #6cc8ff) drop-shadow(0 0 6px #4ab8ff);
+            }
+
+            /* Intersection joints - emissive nodes */
+            @keyframes nodePulse_t {
+              0%, 100% { opacity: 0.45; }
+              50%      { opacity: 0.95; }
+            }
+            .joint-node_t {
+              animation: nodePulse_t 3.6s ease-in-out infinite;
+            }
+            .joint-stagger-1_t { animation-delay: -0.6s; }
+            .joint-stagger-2_t { animation-delay: -1.2s; }
+            .joint-stagger-3_t { animation-delay: -1.8s; }
+            .joint-stagger-4_t { animation-delay: -2.4s; }
+
+            /* Crossarm shimmer */
+            .shimmer-dot_t {
+              fill: #e8f6ff;
+              filter: drop-shadow(0 0 4px #b8e6ff) drop-shadow(0 0 8px #6cc8ff);
+            }
+          `
+        }} />
+
+        {/* Background digital rain */}
+        <g id="rain">
+          {mounted && rainParticles.map((p, idx) => (
+            <rect
+              key={idx}
+              x={p.x}
+              y={p.y}
+              width={p.width}
+              height={p.height}
+              fill="#4ab8ff"
+              opacity="0"
+              rx="0.5"
+            >
+              <animate
+                attributeName="y"
+                from={p.y}
+                to={p.to}
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                values={`0;${p.maxOpacity};${p.maxOpacity};0`}
+                keyTimes="0;0.15;0.85;1"
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+            </rect>
+          ))}
+        </g>
+
+        {/* Ground reflection */}
+        <g className="ground-reflect_t">
+          <ellipse cx="470" cy="760" rx="220" ry="4" fill="#2a7fd6" opacity="0.4" />
+          <ellipse cx="1080" cy="760" rx="170" ry="4" fill="#2a7fd6" opacity="0.4" />
+        </g>
+
+        {/* Ground line */}
+        <line x1="120" y1="752" x2="1380" y2="752"
+              stroke="#3a7fc8" strokeWidth="1" opacity="0.6" />
+
+        <g className="illustration_t">
+          {/* Outer glow rails */}
+          <g stroke="#2f6fbf" strokeWidth="3" opacity="0.35" fill="none" strokeLinecap="round">
+            <line x1="412" y1="290" x2="340" y2="720" />
+            <line x1="528" y1="290" x2="600" y2="720" />
+            <line x1="320" y1="290" x2="620" y2="290" />
+            <line x1="395" y1="200" x2="545" y2="200" />
+            <line x1="438" y1="200" x2="412" y2="290" />
+            <line x1="502" y1="200" x2="528" y2="290" />
+            <line x1="465" y1="173" x2="438" y2="200" />
+            <line x1="475" y1="173" x2="502" y2="200" />
+          </g>
+
+          {/* PRIMARY STRUCTURE */}
+          <g stroke="#7fc7ff" strokeWidth="1.4" fill="none"
+             strokeLinecap="round" strokeLinejoin="round">
+            <path d="M 460,170 L 470,150 L 480,170 Z" />
+            <line x1="470" y1="170" x2="470" y2="188" />
+            <line x1="458" y1="156" x2="482" y2="156" strokeWidth="1" opacity="0.85" />
+            <line x1="460" y1="160" x2="460" y2="170" strokeWidth="0.8" opacity="0.7" />
+            <line x1="480" y1="160" x2="480" y2="170" strokeWidth="0.8" opacity="0.7" />
+
+            <line x1="395" y1="200" x2="545" y2="200" />
+            <line x1="395" y1="200" x2="395" y2="218" />
+            <line x1="545" y1="200" x2="545" y2="218" />
+            <line x1="390" y1="206" x2="400" y2="206" strokeWidth="0.9" />
+            <line x1="540" y1="206" x2="550" y2="206" strokeWidth="0.9" />
+
+            <line x1="465" y1="173" x2="438" y2="200" />
+            <line x1="475" y1="173" x2="502" y2="200" />
+            <line x1="438" y1="200" x2="465" y2="200" />
+            <line x1="502" y1="200" x2="475" y2="200" />
+
+            <line x1="438" y1="200" x2="475" y2="173" strokeWidth="0.9" opacity="0.8" />
+            <line x1="502" y1="200" x2="465" y2="173" strokeWidth="0.9" opacity="0.8" />
+
+            <line x1="438" y1="200" x2="412" y2="290" />
+            <line x1="502" y1="200" x2="528" y2="290" />
+            <line x1="432" y1="222" x2="508" y2="222" strokeWidth="0.9" opacity="0.8" />
+            <line x1="425" y1="245" x2="515" y2="245" />
+            <line x1="419" y1="267" x2="521" y2="267" strokeWidth="0.9" opacity="0.8" />
+
+            <line x1="438" y1="200" x2="515" y2="245" strokeWidth="0.9" />
+            <line x1="502" y1="200" x2="425" y2="245" strokeWidth="0.9" />
+            <line x1="425" y1="245" x2="528" y2="290" strokeWidth="0.9" />
+            <line x1="515" y1="245" x2="412" y2="290" strokeWidth="0.9" />
+
+            <line x1="320" y1="290" x2="620" y2="290" />
+            <line x1="320" y1="290" x2="320" y2="312" />
+            <line x1="620" y1="290" x2="620" y2="312" />
+            <line x1="320" y1="290" x2="340" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="360" y1="290" x2="340" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="360" y1="290" x2="380" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="400" y1="290" x2="380" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="400" y1="290" x2="412" y2="290" strokeWidth="0.9" opacity="0.85" />
+            <line x1="528" y1="290" x2="540" y2="290" strokeWidth="0.9" opacity="0.85" />
+            <line x1="540" y1="290" x2="560" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="580" y1="290" x2="560" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="580" y1="290" x2="600" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="620" y1="290" x2="600" y2="302" strokeWidth="0.9" opacity="0.85" />
+            <line x1="320" y1="302" x2="412" y2="302" strokeWidth="0.8" opacity="0.75" />
+            <line x1="528" y1="302" x2="620" y2="302" strokeWidth="0.8" opacity="0.75" />
+
+            <line x1="412" y1="290" x2="340" y2="720" />
+            <line x1="528" y1="290" x2="600" y2="720" />
+
+            <line x1="398" y1="376" x2="542" y2="376" />
+            <line x1="384" y1="462" x2="556" y2="462" />
+            <line x1="369" y1="548" x2="571" y2="548" />
+            <line x1="355" y1="634" x2="585" y2="634" />
+
+            <line x1="412" y1="290" x2="542" y2="376" strokeWidth="1.2" />
+            <line x1="528" y1="290" x2="398" y2="376" strokeWidth="1.2" />
+            <line x1="398" y1="376" x2="556" y2="462" strokeWidth="1.2" />
+            <line x1="542" y1="376" x2="384" y2="462" strokeWidth="1.2" />
+            <line x1="384" y1="462" x2="571" y2="548" strokeWidth="1.2" />
+            <line x1="556" y1="462" x2="369" y2="548" strokeWidth="1.2" />
+            <line x1="369" y1="548" x2="585" y2="634" strokeWidth="1.2" />
+            <line x1="571" y1="548" x2="355" y2="634" strokeWidth="1.2" />
+            <line x1="355" y1="634" x2="600" y2="720" strokeWidth="1.2" />
+            <line x1="585" y1="634" x2="340" y2="720" strokeWidth="1.2" />
+          </g>
+
+          {/* Sub-bracing details */}
+          <g stroke="#5ab0ff" strokeWidth="0.9" fill="none" opacity="0.85"
+             strokeLinecap="round" strokeLinejoin="round">
+            <line x1="405" y1="333" x2="535" y2="333" />
+            <line x1="412" y1="290" x2="535" y2="333" />
+            <line x1="528" y1="290" x2="405" y2="333" />
+            <line x1="405" y1="333" x2="542" y2="376" />
+            <line x1="535" y1="333" x2="398" y2="376" />
+
+            <line x1="391" y1="419" x2="549" y2="419" />
+            <line x1="398" y1="376" x2="549" y2="419" />
+            <line x1="542" y1="376" x2="391" y2="419" />
+            <line x1="391" y1="419" x2="556" y2="462" />
+            <line x1="549" y1="419" x2="384" y2="462" />
+
+            <line x1="378" y1="505" x2="562" y2="505" />
+            <line x1="384" y1="462" x2="562" y2="505" />
+            <line x1="556" y1="462" x2="378" y2="505" />
+            <line x1="378" y1="505" x2="571" y2="548" />
+            <line x1="562" y1="505" x2="369" y2="548" />
+
+            <line x1="362" y1="591" x2="578" y2="591" />
+            <line x1="369" y1="548" x2="578" y2="591" />
+            <line x1="571" y1="548" x2="362" y2="591" />
+            <line x1="362" y1="591" x2="585" y2="634" />
+            <line x1="578" y1="591" x2="355" y2="634" />
+
+            <line x1="348" y1="677" x2="592" y2="677" />
+            <line x1="355" y1="634" x2="592" y2="677" />
+            <line x1="585" y1="634" x2="348" y2="677" />
+            <line x1="348" y1="677" x2="600" y2="720" />
+            <line x1="592" y1="677" x2="340" y2="720" />
+          </g>
+
+          {/* Center stiffeners */}
+          <g stroke="#4a98e0" strokeWidth="0.7" fill="none" opacity="0.6">
+            <line x1="470" y1="290" x2="470" y2="333" />
+            <line x1="470" y1="333" x2="470" y2="376" />
+            <line x1="470" y1="376" x2="470" y2="419" />
+            <line x1="470" y1="419" x2="470" y2="462" />
+            <line x1="470" y1="462" x2="470" y2="505" />
+            <line x1="470" y1="505" x2="470" y2="548" />
+            <line x1="470" y1="548" x2="470" y2="591" />
+            <line x1="470" y1="591" x2="470" y2="634" />
+            <line x1="470" y1="634" x2="470" y2="677" />
+            <line x1="470" y1="677" x2="470" y2="720" />
+          </g>
+
+          {/* Gusset plates */}
+          <g>
+            <g fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="0.7">
+              <polygon points="398,372 404,376 398,380 392,376" />
+              <polygon points="542,372 548,376 542,380 536,376" />
+              <polygon points="384,458 390,462 384,466 378,462" />
+              <polygon points="556,458 562,462 556,466 550,462" />
+              <polygon points="369,544 375,548 369,552 363,548" />
+              <polygon points="571,544 577,548 571,552 565,548" />
+              <polygon points="355,630 361,634 355,638 349,634" />
+              <polygon points="585,630 591,634 585,638 579,634" />
+              <polygon points="340,716 346,720 340,724 334,720" />
+              <polygon points="600,716 606,720 600,724 594,720" />
+              <polygon points="412,286 418,290 412,294 406,290" />
+              <polygon points="528,286 534,290 528,294 522,290" />
+            </g>
+            <g fill="#9fd8ff">
+              <circle cx="396" cy="376" r="0.7" /><circle cx="400" cy="376" r="0.7" />
+              <circle cx="540" cy="376" r="0.7" /><circle cx="544" cy="376" r="0.7" />
+              <circle cx="382" cy="462" r="0.7" /><circle cx="386" cy="462" r="0.7" />
+              <circle cx="554" cy="462" r="0.7" /><circle cx="558" cy="462" r="0.7" />
+              <circle cx="367" cy="548" r="0.7" /><circle cx="371" cy="548" r="0.7" />
+              <circle cx="569" cy="548" r="0.7" /><circle cx="573" cy="548" r="0.7" />
+              <circle cx="353" cy="634" r="0.7" /><circle cx="357" cy="634" r="0.7" />
+              <circle cx="583" cy="634" r="0.7" /><circle cx="587" cy="634" r="0.7" />
+              <circle cx="338" cy="720" r="0.7" /><circle cx="342" cy="720" r="0.7" />
+              <circle cx="598" cy="720" r="0.7" /><circle cx="602" cy="720" r="0.7" />
+              <circle cx="410" cy="290" r="0.7" /><circle cx="414" cy="290" r="0.7" />
+              <circle cx="526" cy="290" r="0.7" /><circle cx="530" cy="290" r="0.7" />
+            </g>
+            <g fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="0.7">
+              <polygon points="320,286 326,290 320,294 314,290" />
+              <polygon points="620,286 626,290 620,294 614,290" />
+              <polygon points="395,196 399,200 395,204 391,200" />
+              <polygon points="545,196 549,200 545,204 541,200" />
+            </g>
+          </g>
+
+          {/* Insulator strings */}
+          <g stroke="#7fc7ff" strokeWidth="0.9" fill="#020a26" strokeLinecap="round">
+            <rect x="316" y="312" width="8" height="4" rx="1" fill="#0b1f5c" />
+            <ellipse cx="320" cy="320" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="326" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="332" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="338" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="344" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="350" rx="5" ry="2.2" />
+            <ellipse cx="320" cy="356" rx="5" ry="2.2" />
+            <rect x="313" y="360" width="14" height="5" rx="1.5" fill="#0b1f5c" />
+            <line x1="306" y1="365" x2="334" y2="365" strokeWidth="1.2" />
+          </g>
+          <g stroke="#7fc7ff" strokeWidth="0.9" fill="#020a26" strokeLinecap="round">
+            <rect x="616" y="312" width="8" height="4" rx="1" fill="#0b1f5c" />
+            <ellipse cx="620" cy="320" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="326" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="332" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="338" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="344" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="350" rx="5" ry="2.2" />
+            <ellipse cx="620" cy="356" rx="5" ry="2.2" />
+            <rect x="613" y="360" width="14" height="5" rx="1.5" fill="#0b1f5c" />
+            <line x1="606" y1="365" x2="634" y2="365" strokeWidth="1.2" />
+          </g>
+
+          <g stroke="#7fc7ff" strokeWidth="0.8" fill="#0b1f5c" strokeLinecap="round">
+            <rect x="392" y="218" width="6" height="3" rx="1" />
+            <ellipse cx="395" cy="225" rx="3.5" ry="1.8" fill="#020a26" />
+            <ellipse cx="395" cy="230" rx="3.5" ry="1.8" fill="#020a26" />
+            <ellipse cx="395" cy="235" rx="3.5" ry="1.8" fill="#020a26" />
+            <rect x="390" y="238" width="10" height="3.5" rx="1" />
+            <rect x="542" y="218" width="6" height="3" rx="1" />
+            <ellipse cx="545" cy="225" rx="3.5" ry="1.8" fill="#020a26" />
+            <ellipse cx="545" cy="230" rx="3.5" ry="1.8" fill="#020a26" />
+            <ellipse cx="545" cy="235" rx="3.5" ry="1.8" fill="#020a26" />
+            <rect x="540" y="238" width="10" height="3.5" rx="1" />
+          </g>
+
+          <g stroke="#7fc7ff" strokeWidth="1.4" fill="url(#navyFill_t)" strokeLinejoin="round">
+            <rect x="320" y="720" width="78" height="22" rx="2" />
+            <rect x="542" y="720" width="78" height="22" rx="2" />
+          </g>
+          <g fill="#9fd8ff">
+            <circle cx="328" cy="731" r="0.9" /><circle cx="390" cy="731" r="0.9" />
+            <circle cx="550" cy="731" r="0.9" /><circle cx="612" cy="731" r="0.9" />
+          </g>
+
+          <g stroke="#9fd8ff" strokeWidth="0.4" fill="none" opacity="0.55">
+            <line x1="412" y1="290" x2="340" y2="720" />
+            <line x1="528" y1="290" x2="600" y2="720" />
+          </g>
+
+          {/* EMISSIVE NODES */}
+          <g fill="#b8e6ff">
+            <circle className="joint-node_t" cx="470" cy="333" r="1.7" />
+            <circle className="joint-node_t joint-stagger-1_t" cx="470" cy="419" r="1.7" />
+            <circle className="joint-node_t joint-stagger-2_t" cx="470" cy="505" r="1.7" />
+            <circle className="joint-node_t joint-stagger-3_t" cx="470" cy="591" r="1.7" />
+            <circle className="joint-node_t joint-stagger-4_t" cx="470" cy="677" r="1.7" />
+            <circle className="joint-node_t joint-stagger-2_t" cx="470" cy="311" r="1.1" />
+            <circle className="joint-node_t joint-stagger-3_t" cx="470" cy="355" r="1.1" />
+            <circle className="joint-node_t joint-stagger-1_t" cx="470" cy="397" r="1.1" />
+            <circle className="joint-node_t joint-stagger-4_t" cx="470" cy="441" r="1.1" />
+            <circle className="joint-node_t joint-stagger-2_t" cx="470" cy="483" r="1.1" />
+            <circle className="joint-node_t joint-stagger-1_t" cx="470" cy="527" r="1.1" />
+            <circle className="joint-node_t joint-stagger-3_t" cx="470" cy="569" r="1.1" />
+            <circle className="joint-node_t joint-stagger-4_t" cx="470" cy="613" r="1.1" />
+            <circle className="joint-node_t joint-stagger-2_t" cx="470" cy="655" r="1.1" />
+            <circle className="joint-node_t joint-stagger-1_t" cx="470" cy="699" r="1.1" />
+            <circle className="joint-node_t" cx="470" cy="155" r="1.4" />
+            <circle className="joint-node_t joint-stagger-2_t" cx="320" cy="290" r="1.4" />
+            <circle className="joint-node_t joint-stagger-3_t" cx="620" cy="290" r="1.4" />
+            <circle className="joint-node_t joint-stagger-1_t" cx="395" cy="200" r="1.2" />
+            <circle className="joint-node_t joint-stagger-4_t" cx="545" cy="200" r="1.2" />
+          </g>
+
+          {/* Cable */}
+          <g>
+            <path d="M 620,738 L 870,738 L 870,720 L 935,720"
+                  stroke="#7fc7ff" strokeWidth="1.5" fill="none"
+                  strokeLinecap="round" strokeLinejoin="round" />
+            <path className="cable-dash_t"
+                  d="M 620,738 L 870,738 L 870,720 L 935,720"
+                  stroke="#b8e6ff" strokeWidth="1.2" fill="none"
+                  strokeLinecap="round" opacity="0.85" />
+            <rect x="930" y="712" width="14" height="16" rx="2"
+                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.2" />
+          </g>
+
+          {/* Cabinet */}
+          <g className="cabinet_t">
+            <path d="M 1180,470 L 1198,460 L 1198,738 L 1180,748 Z"
+                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.4" />
+            <line x1="1188" y1="475" x2="1188" y2="730"
+                  stroke="#5ab0ff" strokeWidth="0.8" opacity="0.7" />
+            <rect x="940" y="470" width="240" height="278" rx="8"
+                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.6" />
+            <rect x="966" y="496" width="188" height="226" rx="5"
+                  fill="#030f33" stroke="#5ab0ff" strokeWidth="1.2" />
+            <path className="bolt_t"
+                  d="M 1078,520 L 1030,610 L 1058,610 L 1042,690 L 1098,592 L 1066,592 L 1086,520 Z"
+                  fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.1"
+                  strokeLinejoin="round" />
+          </g>
+        </g>
+
+        {/* Energy sparks */}
+        <g>
+          <circle className="tower-spark_t" r="2.6">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="0s">
+              <mpath href="#towerPathLeft" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2.2">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="-1.0s">
+              <mpath href="#towerPathLeft" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2.4">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.0s">
+              <mpath href="#towerPathLeft" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2.6">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="-0.5s">
+              <mpath href="#towerPathRight" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2.2">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="-1.6s">
+              <mpath href="#towerPathRight" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2.4">
+            <animateMotion dur="3.2s" repeatCount="indefinite" begin="-2.6s">
+              <mpath href="#towerPathRight" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="2" opacity="0.75">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="-0.8s">
+              <mpath href="#towerPathCenter" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="1.8" opacity="0.75">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="-2.4s">
+              <mpath href="#towerPathCenter" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="1.8" opacity="0.85">
+            <animateMotion dur="5s" repeatCount="indefinite" begin="0s">
+              <mpath href="#towerZigLeft" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="1.8" opacity="0.85">
+            <animateMotion dur="5s" repeatCount="indefinite" begin="-2.5s">
+              <mpath href="#towerZigLeft" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="1.8" opacity="0.85">
+            <animateMotion dur="5s" repeatCount="indefinite" begin="-1.2s">
+              <mpath href="#towerZigRight" /></animateMotion>
+          </circle>
+          <circle className="tower-spark_t" r="1.8" opacity="0.85">
+            <animateMotion dur="5s" repeatCount="indefinite" begin="-3.7s">
+              <mpath href="#towerZigRight" /></animateMotion>
+          </circle>
+        </g>
+
+        {/* Crossbar shimmer */}
+        <g>
+          <circle className="shimmer-dot_t" r="2.2">
+            <animateMotion dur="3.4s" repeatCount="indefinite" begin="0s">
+              <mpath href="#lowerCrossPath" /></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0"
+                     keyTimes="0;0.1;0.9;1" dur="3.4s" repeatCount="indefinite" />
+          </circle>
+          <circle className="shimmer-dot_t" r="2.2">
+            <animateMotion dur="3.4s" repeatCount="indefinite" begin="-1.7s">
+              <mpath href="#lowerCrossPath" /></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0"
+                     keyTimes="0;0.1;0.9;1" dur="3.4s" begin="-1.7s" repeatCount="indefinite" />
+          </circle>
+          <circle className="shimmer-dot_t" r="1.8">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="-0.8s">
+              <mpath href="#upperCrossPath" /></animateMotion>
+            <animate attributeName="opacity" values="0;1;1;0"
+                     keyTimes="0;0.1;0.9;1" dur="3s" begin="-0.8s" repeatCount="indefinite" />
+          </circle>
+        </g>
+
+        {/* Cable energy dots */}
+        <g>
+          <circle className="energy-dot_t" r="3">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="0s">
+              <mpath href="#cablePath" /></animateMotion>
+          </circle>
+          <circle className="energy-dot_t" r="2.6">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="-0.6s">
+              <mpath href="#cablePath" /></animateMotion>
+          </circle>
+          <circle className="energy-dot_t" r="2.8">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="-1.2s">
+              <mpath href="#cablePath" /></animateMotion>
+          </circle>
+          <circle className="energy-dot_t" r="2.4">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="-1.8s">
+              <mpath href="#cablePath" /></animateMotion>
+          </circle>
+          <circle className="energy-dot_t" r="2.6">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="-2.4s">
+              <mpath href="#cablePath" /></animateMotion>
+          </circle>
+        </g>
+      </svg>
+    </div>
+  );
 }
 
 
@@ -321,218 +610,352 @@ function GenerationCanvas() {
    2.  TRANSFORMATION
    ══════════════════════════════════════════════════════════════════════════ */
 function TransformationCanvas() {
-  const ref = useRef<HTMLCanvasElement|null>(null);
-  const [hov, setHov] = useState(false);
-
+  const [mounted, setMounted] = React.useState(false);
   useEffect(() => {
-    const cv = ref.current; if (!cv) return;
-    const ctx = cv.getContext("2d"); if (!ctx) return;
-    let w = 0, h = 0, af = 0;
-    const resize = () => { const d = initCanvas(cv, ctx); w = d.w; h = d.h; };
-    resize();
-    const ro = new ResizeObserver(resize);
-    if (cv.parentElement) ro.observe(cv.parentElement);
+    setMounted(true);
+  }, []);
 
-    const draw = (t: number) => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.lineCap = "round"; ctx.lineJoin = "round";
-      const cx = w / 2, by = h * 0.84;
-      const f = Math.sin(t * 0.0016) * 2;
-      const s = Math.min(w / 340, h / 260);
-
-      // ground
-      ctx.strokeStyle = C.white8; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(cx-140*s, by); ctx.lineTo(cx+140*s, by); ctx.stroke();
-      ctx.strokeStyle = C.lineVDim;
-      for (let i = -6; i <= 6; i++) { ctx.beginPath(); ctx.moveTo(cx+i*22*s, by); ctx.lineTo(cx+i*26*s, by+16*s); ctx.stroke(); }
-
-      /* ─── TRANSFORMER MAIN TANK ─── */
-      const tx = cx - 50*s, ty = by - 68*s + f, tw = 82*s, th = 62*s;
-
-      // Tank body
-      ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1.3*s;
-      ctx.beginPath(); ctx.roundRect(tx, ty, tw, th, 3*s); ctx.fill(); ctx.stroke();
-
-      // Top flange plate (thick)
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.6*s;
-      ctx.beginPath(); ctx.moveTo(tx-5*s, ty); ctx.lineTo(tx+tw+5*s, ty); ctx.stroke();
-      ctx.strokeStyle = C.line; ctx.lineWidth = 0.8*s;
-      ctx.beginPath(); ctx.moveTo(tx-5*s, ty+3*s); ctx.lineTo(tx+tw+5*s, ty+3*s); ctx.stroke();
-
-      // Bottom flange
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.2*s;
-      ctx.beginPath(); ctx.moveTo(tx-3*s, ty+th); ctx.lineTo(tx+tw+3*s, ty+th); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(tx-3*s, ty+th+3*s); ctx.lineTo(tx+tw+3*s, ty+th+3*s); ctx.stroke();
-
-      // Vertical cooling fin lines inside tank face
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.65*s;
-      const fins = 10;
-      for (let i = 1; i <= fins; i++) {
-        const fx = tx + (tw/(fins+1))*i;
-        ctx.beginPath(); ctx.moveTo(fx, ty+6*s); ctx.lineTo(fx, ty+th-4*s); ctx.stroke();
-      }
-
-      // Horizontal detail bands
-      ctx.strokeStyle = C.lineVDim;
-      for (let i = 1; i <= 3; i++) {
-        ctx.beginPath(); ctx.moveTo(tx+3*s, ty+i*(th/4)); ctx.lineTo(tx+tw-3*s, ty+i*(th/4)); ctx.stroke();
-      }
-
-      // ── SIDE RADIATOR FINS (zig-zag corrugated look, left) ──
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.7*s;
-      const radH = th - 12*s;
-      const radW = 14*s;
-      const zigCount = 8;
-      // Left side
-      ctx.beginPath(); ctx.moveTo(tx-1*s, ty+6*s);
-      for (let i = 0; i < zigCount; i++) {
-        const zy = ty+6*s + i*(radH/zigCount);
-        const zy2 = ty+6*s + (i+0.5)*(radH/zigCount);
-        ctx.lineTo(tx - radW, zy + radH/(zigCount*2));
-        ctx.lineTo(tx - 1*s, zy2 + radH/(zigCount*2));
-      }
-      ctx.stroke();
-      // Right side
-      ctx.beginPath(); ctx.moveTo(tx+tw+1*s, ty+6*s);
-      for (let i = 0; i < zigCount; i++) {
-        const zy = ty+6*s + i*(radH/zigCount);
-        const zy2 = ty+6*s + (i+0.5)*(radH/zigCount);
-        ctx.lineTo(tx+tw + radW, zy + radH/(zigCount*2));
-        ctx.lineTo(tx+tw + 1*s, zy2 + radH/(zigCount*2));
-      }
-      ctx.stroke();
-
-      // Transformer symbol (coils)
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.8*s;
-      const ccx = tx+tw/2, ccy = ty+th/2;
-      ctx.beginPath(); ctx.arc(ccx-10*s, ccy, 12*s, -Math.PI*0.55, Math.PI*0.55); ctx.stroke();
-      ctx.beginPath(); ctx.arc(ccx+10*s, ccy, 12*s, Math.PI*0.45, Math.PI*1.55); ctx.stroke();
-
-      // Bolt details at corners
-      ctx.fillStyle = C.line;
-      [[tx+4*s,ty+5*s],[tx+tw-4*s,ty+5*s],[tx+4*s,ty+th-4*s],[tx+tw-4*s,ty+th-4*s]].forEach(([bx,by2])=>{
-        ctx.beginPath(); ctx.arc(bx,by2,1.2*s,0,Math.PI*2); ctx.fill();
+  const rainParticles = React.useMemo(() => {
+    const W = 1500, H = 980;
+    const COUNT = 36;
+    const particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const x = Math.random() * W;
+      const height = 8 + Math.random() * 22;
+      const width = 1 + Math.random() * 1.2;
+      const dur = 7 + Math.random() * 9;
+      const delay = -Math.random() * dur;
+      const maxOpacity = 0.06 + Math.random() * 0.10;
+      particles.push({
+        x: x.toFixed(1),
+        y: (-height).toFixed(1),
+        width: width.toFixed(1),
+        height: height.toFixed(1),
+        dur: dur.toFixed(2) + "s",
+        begin: delay.toFixed(2) + "s",
+        maxOpacity: maxOpacity.toFixed(3),
+        to: H + 20,
       });
+    }
+    return particles;
+  }, []);
 
-      /* ─── HIGH-VOLTAGE BUSHINGS (3 tall) ─── */
-      const bushPos = [tx+tw*0.22, tx+tw*0.5, tx+tw*0.78];
-      const bushH = 48*s;
+  return (
+    <div className="w-full h-[220px] relative overflow-hidden flex items-center justify-center select-none">
+      <svg className="w-full h-full block" viewBox="0 0 1500 980" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          {/* Glow filters for the breathing effect */}
+          <filter id="glow95" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.4" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glow110" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4.2" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
 
-      bushPos.forEach(bpx => {
-        const topY = ty - bushH;
+          {/* Dark navy gradient fills */}
+          <linearGradient id="navyFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#020a26" />
+            <stop offset="100%" stopColor="#04123e" />
+          </linearGradient>
 
-        // Main insulator rod
-        ctx.strokeStyle = C.lineBright; ctx.lineWidth = 1.8*s;
-        ctx.beginPath(); ctx.moveTo(bpx, ty); ctx.lineTo(bpx, topY); ctx.stroke();
+          <radialGradient id="fanCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#0b1f5c" />
+            <stop offset="100%" stopColor="#020a26" />
+          </radialGradient>
 
-        // Inner rod (thinner)
-        ctx.strokeStyle = C.line; ctx.lineWidth = 0.5*s;
-        ctx.beginPath(); ctx.moveTo(bpx, ty-2*s); ctx.lineTo(bpx, topY+3*s); ctx.stroke();
+          {/* Path the energy particles will travel along (power module -> cooling unit) */}
+          <path id="flowPath"
+                d="M 1075,580 L 1175,580 L 1175,300 L 870,300 L 870,420 L 840,420"
+                fill="none" />
+        </defs>
 
-        // Insulator disc ribs (6 discs, wider at bottom)
-        ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-        const discCount = 6;
-        for (let d = 0; d < discCount; d++) {
-          const dy = ty - 5*s - d*(bushH-12*s)/discCount;
-          const dw = (7 - d*0.6)*s;
-          // Top surface
-          ctx.beginPath(); ctx.moveTo(bpx-dw*1.4, dy); ctx.lineTo(bpx+dw*1.4, dy); ctx.stroke();
-          // Underside (slightly lower, shorter)
-          ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.6*s;
-          ctx.beginPath(); ctx.moveTo(bpx-dw, dy+2*s); ctx.lineTo(bpx+dw, dy+2*s); ctx.stroke();
-          ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-          // Connecting vertical edges
-          ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.4*s;
-          ctx.beginPath(); ctx.moveTo(bpx-dw*1.4, dy); ctx.lineTo(bpx-dw, dy+2*s); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(bpx+dw*1.4, dy); ctx.lineTo(bpx+dw, dy+2*s); ctx.stroke();
-          ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-        }
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* ===== Background digital rain ===== */
+            .rain-particle {
+              fill: #4ab8ff;
+              opacity: 0;
+            }
 
-        // Terminal sphere top
-        glowDot(ctx, bpx, topY, 3.5*s);
+            /* ===== Neon glow breathing on the whole unit ===== */
+            @keyframes breathe {
+              0%, 100% { filter: url(#glow95); }
+              50%      { filter: url(#glow110); }
+            }
+            .cooling-unit {
+              animation: breathe 4.5s ease-in-out infinite;
+              transform-origin: center;
+            }
 
-        // Base mounting plate
-        ctx.strokeStyle = C.line; ctx.lineWidth = 0.8*s;
-        ctx.beginPath(); ctx.moveTo(bpx-6*s, ty-1*s); ctx.lineTo(bpx+6*s, ty-1*s); ctx.stroke();
-      });
+            /* ===== Fan rotation ===== */
+            @keyframes spin {
+              from { transform: rotate(0deg); }
+              to   { transform: rotate(360deg); }
+            }
+            .fan-blades {
+              transform-box: fill-box;
+              transform-origin: center;
+              animation: spin 4s linear infinite;
+            }
 
-      // Wire connecting bushing tops
-      ctx.strokeStyle = C.white15; ctx.lineWidth = 0.8*s;
-      ctx.beginPath();
-      ctx.moveTo(bushPos[0]-8*s, ty-bushH-2*s);
-      ctx.lineTo(bushPos[0], ty-bushH);
-      ctx.lineTo(bushPos[1], ty-bushH-5*s);
-      ctx.lineTo(bushPos[2], ty-bushH);
-      ctx.lineTo(bushPos[2]+8*s, ty-bushH-2*s);
-      ctx.stroke();
+            /* ===== Lightning pulse ===== */
+            @keyframes boltPulse {
+              0%, 70%, 100% { opacity: 0.95; filter: drop-shadow(0 0 4px #4ab8ff); }
+              35%           { opacity: 1;    filter: drop-shadow(0 0 14px #6cc8ff) drop-shadow(0 0 22px #4ab8ff); }
+            }
+            .bolt {
+              animation: boltPulse 2.6s ease-in-out infinite;
+            }
 
-      /* ─── AUXILIARY CABINET (right) ─── */
-      const ax = cx+60*s, ay = by-52*s+f, aw=38*s, ah=46*s;
-      ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1.2*s;
-      ctx.beginPath(); ctx.roundRect(ax, ay, aw, ah, 3*s); ctx.fill(); ctx.stroke();
+            /* ===== Power module subtle outer pulse ===== */
+            @keyframes modulePulse {
+              0%, 100% { opacity: 0.9; }
+              50%      { opacity: 1; }
+            }
+            .power-module-outer {
+              animation: modulePulse 2.6s ease-in-out infinite;
+            }
 
-      // Display screen
-      ctx.fillStyle = "rgba(61,174,255,0.06)";
-      ctx.strokeStyle = C.lineBright; ctx.lineWidth = 0.8*s;
-      const sx = ax+4*s, sy = ay+5*s, sw = aw-8*s, sh = 16*s;
-      ctx.beginPath(); ctx.roundRect(sx, sy, sw, sh, 2*s); ctx.fill(); ctx.stroke();
+            /* ===== Reflection flicker ===== */
+            @keyframes reflectFlicker {
+              0%, 100% { opacity: 0.28; }
+              40%      { opacity: 0.38; }
+              65%      { opacity: 0.22; }
+            }
+            .ground-reflect {
+              animation: reflectFlicker 4.5s ease-in-out infinite;
+            }
 
-      // Oscilloscope wave inside screen
-      ctx.strokeStyle = C.dot; ctx.lineWidth = 0.7*s;
-      ctx.beginPath();
-      for (let i = 0; i <= 20; i++) {
-        const px = sx+2*s+i*(sw-4*s)/20;
-        const py = sy+sh/2 + Math.sin(i*0.9+t*0.003)*5*s;
-        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-      }
-      ctx.stroke();
+            /* ===== Dashed connector flow ===== */
+            @keyframes dashFlow {
+              to { stroke-dashoffset: -40; }
+            }
+            .connector {
+              stroke-dasharray: 6 6;
+              animation: dashFlow 2.4s linear infinite;
+            }
 
-      // Buttons / indicator LEDs
-      for (let i = 0; i < 4; i++) {
-        glowDot(ctx, ax+6*s+i*7*s, ay+ah-8*s, 1.5*s);
-      }
+            /* ===== Energy particles in pipeline ===== */
+            .energy-dot {
+              fill: #b8e6ff;
+              filter: drop-shadow(0 0 4px #6cc8ff) drop-shadow(0 0 8px #4ab8ff);
+            }
+          `
+        }} />
 
-      // Lightning bolt
-      const bi2 = 0.5+0.5*Math.sin(t*(hov?0.007:0.0035));
-      ctx.fillStyle = `rgba(61,174,255,${0.4+0.6*bi2})`;
-      ctx.shadowColor = C.glow; ctx.shadowBlur = 5*bi2;
-      const lx2 = ax+14*s, ly2 = ay+24*s;
-      ctx.beginPath();
-      ctx.moveTo(lx2+7*s,ly2); ctx.lineTo(lx2,ly2+9*s); ctx.lineTo(lx2+4*s,ly2+9*s);
-      ctx.lineTo(lx2+2*s,ly2+17*s); ctx.lineTo(lx2+9*s,ly2+7*s); ctx.lineTo(lx2+5*s,ly2+7*s);
-      ctx.closePath(); ctx.fill(); ctx.shadowBlur = 0;
+        {/* ===== Background digital rain ===== */}
+        <g id="rain">
+          {mounted && rainParticles.map((p, idx) => (
+            <rect
+              key={idx}
+              x={p.x}
+              y={p.y}
+              width={p.width}
+              height={p.height}
+              fill="#4ab8ff"
+              opacity="0"
+              rx="0.5"
+            >
+              <animate
+                attributeName="y"
+                from={p.y}
+                to={p.to}
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                values={`0;${p.maxOpacity};${p.maxOpacity};0`}
+                keyTimes="0;0.15;0.85;1"
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+            </rect>
+          ))}
+        </g>
 
-      /* ─── CONNECTING PIPE & FLOW ─── */
-      const cs = {x:tx+tw+2*s, y:ty+th*0.42};
-      const ce = {x:ax, y:ay+ah*0.38};
-      // Pipe outline (thicker, double-line)
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 3*s;
-      ctx.beginPath(); ctx.moveTo(cs.x, cs.y); ctx.quadraticCurveTo((cs.x+ce.x)/2, Math.max(cs.y,ce.y)+14*s, ce.x, ce.y); ctx.stroke();
-      ctx.strokeStyle = C.fill; ctx.lineWidth = 1.8*s;
-      ctx.beginPath(); ctx.moveTo(cs.x, cs.y); ctx.quadraticCurveTo((cs.x+ce.x)/2, Math.max(cs.y,ce.y)+14*s, ce.x, ce.y); ctx.stroke();
+        {/* ===== Ground line ===== */}
+        <line x1="120" y1="780" x2="1380" y2="780"
+              stroke="#1e4a8a" strokeWidth="1" opacity="0.55" />
 
-      // Energy pulses
-      ctx.shadowColor = C.glow; ctx.shadowBlur = 8; ctx.fillStyle = "#fff";
-      const fr2 = hov ? 0.003 : 0.0015;
-      const gQ = (p: number) => {
-        const cpx = (cs.x+ce.x)/2, cpy = Math.max(cs.y,ce.y)+14*s;
-        return { x:(1-p)*(1-p)*cs.x+2*(1-p)*p*cpx+p*p*ce.x, y:(1-p)*(1-p)*cs.y+2*(1-p)*p*cpy+p*p*ce.y };
-      };
-      [0,0.5].forEach(o => {
-        const pt = gQ(((t*fr2)+o)%1);
-        ctx.beginPath(); ctx.arc(pt.x,pt.y,2.2*s,0,Math.PI*2); ctx.fill();
-      });
-      ctx.shadowBlur = 0;
-      glowDot(ctx, cs.x, cs.y, 3*s);
-      glowDot(ctx, ce.x, ce.y, 3*s);
+        {/* ===== Ground reflection (soft mirrored glow under units) ===== */}
+        <g className="ground-reflect">
+          <ellipse cx="540" cy="788" rx="380" ry="6" fill="#2a7fd6" opacity="0.35" />
+          <ellipse cx="1115" cy="788" rx="120" ry="4" fill="#2a7fd6" opacity="0.35" />
+        </g>
 
-      af = requestAnimationFrame(draw);
-    };
-    af = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(af); ro.disconnect(); };
-  }, [hov]);
+        {/* =====================================================
+             COOLING UNIT (left, large)
+             ===================================================== */}
+        <g className="cooling-unit">
+          {/* Top handles */}
+          <rect x="260" y="245" width="60" height="22" rx="4"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+          <rect x="740" y="245" width="60" height="22" rx="4"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
 
-  return <canvas ref={ref} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} className="w-full h-[220px] block cursor-pointer" />;
+          {/* Rear shadow body (slight offset to suggest depth) */}
+          <rect x="232" y="278" width="822" height="402" rx="14"
+                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.7" />
+
+          {/* Main body */}
+          <rect x="220" y="270" width="820" height="400" rx="14"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
+
+          {/* Inner recessed panel */}
+          <rect x="252" y="306" width="756" height="328" rx="10"
+                fill="#030f33" stroke="#5ab0ff" strokeWidth="1.6" />
+
+          {/* ====== Left Fan ====== */}
+          <g transform="translate(440,470)">
+            {/* Outer ring */}
+            <circle r="128" fill="url(#fanCore)" stroke="#7fc7ff" strokeWidth="2.2" />
+            <circle r="118" fill="none" stroke="#5ab0ff" strokeWidth="1" opacity="0.8" />
+            {/* Blades */}
+            <g className="fan-blades">
+              {/* 4 curved blades, each a teardrop/petal */}
+              <g fill="#1f7be0" stroke="#7fc7ff" strokeWidth="1.8" strokeLinejoin="round">
+                <path d="M 0,0 C 20,-30 60,-60 95,-55 C 70,-30 35,-10 0,0 Z" />
+                <path d="M 0,0 C 30,20 60,60 55,95 C 30,70 10,35 0,0 Z" />
+                <path d="M 0,0 C -20,30 -60,60 -95,55 C -70,30 -35,10 0,0 Z" />
+                <path d="M 0,0 C -30,-20 -60,-60 -55,-95 C -30,-70 -10,-35 0,0 Z" />
+              </g>
+              {/* Hub */}
+              <circle r="16" fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="1.8" />
+              <circle r="6"  fill="#7fc7ff" />
+            </g>
+          </g>
+
+          {/* ====== Right Fan ====== */}
+          <g transform="translate(820,470)">
+            <circle r="128" fill="url(#fanCore)" stroke="#7fc7ff" strokeWidth="2.2" />
+            <circle r="118" fill="none" stroke="#5ab0ff" strokeWidth="1" opacity="0.8" />
+            <g className="fan-blades" style={{ animationDuration: "4s" }}>
+              <g fill="#1f7be0" stroke="#7fc7ff" strokeWidth="1.8" strokeLinejoin="round">
+                <path d="M 0,0 C 20,-30 60,-60 95,-55 C 70,-30 35,-10 0,0 Z" />
+                <path d="M 0,0 C 30,20 60,60 55,95 C 30,70 10,35 0,0 Z" />
+                <path d="M 0,0 C -20,30 -60,60 -95,55 C -70,30 -35,10 0,0 Z" />
+                <path d="M 0,0 C -30,-20 -60,-60 -55,-95 C -30,-70 -10,-35 0,0 Z" />
+              </g>
+              <circle r="16" fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="1.8" />
+              <circle r="6"  fill="#7fc7ff" />
+            </g>
+          </g>
+
+          {/* Feet */}
+          <rect x="278" y="670" width="40" height="36" rx="3"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+          <rect x="942" y="670" width="40" height="36" rx="3"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+        </g>
+
+        {/* =====================================================
+             CONNECTOR / PIPELINE
+             ===================================================== */}
+        <g>
+          {/* Bottom horizontal segment (enters cooling unit at right side, low) */}
+          <path className="connector"
+                d="M 1040,580 L 1175,580"
+                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95" />
+          {/* Vertical segment up */}
+          <path className="connector"
+                d="M 1175,580 L 1175,300"
+                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+                style={{ animationDelay: "-0.6s" }} />
+          {/* Top horizontal segment (over) */}
+          <path className="connector"
+                d="M 1175,300 L 870,300"
+                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+                style={{ animationDelay: "-1.2s" }} />
+          {/* Drop down into top of cooling unit */}
+          <path className="connector"
+                d="M 870,300 L 870,272"
+                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+                style={{ animationDelay: "-1.8s" }} />
+        </g>
+
+        {/* ===== Energy particles riding the connector ===== */}
+        <g id="energyParticles">
+          <circle className="energy-dot" r="3.5">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="0s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+          <circle className="energy-dot" r="3">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="-0.6s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+          <circle className="energy-dot" r="3.5">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="-1.2s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+          <circle className="energy-dot" r="2.8">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="-1.8s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+          <circle className="energy-dot" r="3.2">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="-2.4s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+          <circle className="energy-dot" r="3">
+            <animateMotion dur="3.6s" repeatCount="indefinite" rotate="0" begin="-3.0s">
+              <mpath href="#flowPath" />
+            </animateMotion>
+          </circle>
+        </g>
+
+        {/* =====================================================
+             POWER MODULE (right, small)
+             ===================================================== */}
+        <g className="power-module-outer">
+          {/* Rear stacked layers (suggest depth) */}
+          <rect x="1228" y="498" width="148" height="148" rx="8"
+                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.55" />
+          <rect x="1218" y="490" width="148" height="148" rx="8"
+                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.75" />
+
+          {/* Side handles */}
+          <rect x="1196" y="540" width="14" height="36" rx="3"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
+          <rect x="1356" y="540" width="14" height="36" rx="3"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
+
+          {/* Main module body */}
+          <rect x="1208" y="482" width="148" height="148" rx="8"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
+
+          {/* Inner recessed panel */}
+          <rect x="1224" y="498" width="116" height="116" rx="5"
+                fill="#030f33" stroke="#5ab0ff" strokeWidth="1.4" />
+
+          {/* Lightning bolt */}
+          <path className="bolt"
+                d="M 1290,510 L 1262,562 L 1280,562 L 1272,602 L 1304,548 L 1284,548 L 1294,510 Z"
+                fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.2" strokeLinejoin="round" />
+
+          {/* Feet */}
+          <rect x="1226" y="630" width="14" height="14" rx="2"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+          <rect x="1324" y="630" width="14" height="14" rx="2"
+                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+        </g>
+      </svg>
+    </div>
+  );
 }
 
 
@@ -540,140 +963,407 @@ function TransformationCanvas() {
    3.  COMPUTE DELIVERY
    ══════════════════════════════════════════════════════════════════════════ */
 function ComputeDeliveryCanvas() {
-  const ref = useRef<HTMLCanvasElement|null>(null);
-  const [hov, setHov] = useState(false);
-
+  const [mounted, setMounted] = React.useState(false);
   useEffect(() => {
-    const cv = ref.current; if (!cv) return;
-    const ctx = cv.getContext("2d"); if (!ctx) return;
-    let w = 0, h = 0, af = 0;
-    const resize = () => { const d = initCanvas(cv, ctx); w = d.w; h = d.h; };
-    resize();
-    const ro = new ResizeObserver(resize);
-    if (cv.parentElement) ro.observe(cv.parentElement);
+    setMounted(true);
+  }, []);
 
-    const draw = (t: number) => {
-      ctx.clearRect(0, 0, w, h);
-      ctx.lineCap = "round"; ctx.lineJoin = "round";
-      const cx = w / 2, by = h * 0.87;
-      const f = Math.sin(t * 0.0014) * 1.5;
-      const s = Math.min(w / 340, h / 260);
+  const rainParticles = React.useMemo(() => {
+    const W = 1500, H = 980;
+    const COUNT = 38;
+    const particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const x = Math.random() * W;
+      const height = 6 + Math.random() * 22;
+      const width = 0.8 + Math.random() * 1.2;
+      const dur = 8 + Math.random() * 10;
+      const delay = -Math.random() * dur;
+      const maxOpacity = 0.05 + Math.random() * 0.10;
+      particles.push({
+        x: x.toFixed(1),
+        y: (-height).toFixed(1),
+        width: width.toFixed(1),
+        height: height.toFixed(1),
+        dur: dur.toFixed(2) + "s",
+        begin: delay.toFixed(2) + "s",
+        maxOpacity: maxOpacity.toFixed(3),
+        to: H + 20,
+      });
+    }
+    return particles;
+  }, []);
 
-      // ground
-      ctx.strokeStyle = C.white8; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(cx-140*s, by); ctx.lineTo(cx+140*s, by); ctx.stroke();
-      ctx.strokeStyle = C.lineVDim;
-      for (let i = -6; i <= 6; i++) { ctx.beginPath(); ctx.moveTo(cx+i*22*s, by); ctx.lineTo(cx+i*26*s, by+14*s); ctx.stroke(); }
+  const RACKS = [
+    { x: 380, cls: "rack-1" },
+    { x: 650, cls: "rack-2" },
+    { x: 920, cls: "rack-3" }
+  ];
 
-      /* ─── THREE SERVER RACKS ─── */
-      const rw = 50*s, rh = 130*s, gap = 14*s;
-      const totalW = rw*3 + gap*2;
-      const rx0 = cx - totalW/2;
+  const MODULE_SLOTS = [215, 305, 395, 485];
+  const PSU_TOP = 580;
+  const PSU_BOTTOM = 690;
+  const MOD_W = 170;
+  const MOD_H = 86;
 
-      // ── Overhead cable tray (drawn first) ──
-      const trayY = by - rh - 14*s + f;
-      ctx.strokeStyle = C.line; ctx.lineWidth = 1*s;
-      ctx.beginPath(); ctx.moveTo(rx0-8*s, trayY); ctx.lineTo(rx0+totalW+8*s, trayY); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(rx0-8*s, trayY-5*s); ctx.lineTo(rx0+totalW+8*s, trayY-5*s); ctx.stroke();
-      // Cross bars on tray
-      ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.5*s;
-      for (let i = 0; i < 12; i++) {
-        const tbx = rx0-4*s + i*(totalW+16*s)/12;
-        ctx.beginPath(); ctx.moveTo(tbx, trayY); ctx.lineTo(tbx, trayY-5*s); ctx.stroke();
-      }
+  const BLINK_CLASSES = ["blink-a", "blink-b", "blink-c", "blink-d"];
+  const ACTIVITY_DURS = [2.2, 2.6, 2.4, 2.8, 3.0];
+  const MAIN_LED_DELAYS = [0, -0.4, -0.8, -1.2, -1.6, -2.0, -2.4];
 
-      for (let r = 0; r < 3; r++) {
-        const rx = rx0 + r*(rw+gap);
-        const ry = by - rh + f*(1+r*0.05);
+  return (
+    <div className="w-full h-[220px] relative overflow-hidden flex items-center justify-center select-none">
+      <svg className="w-full h-full block" viewBox="0 0 1500 980" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow95_s" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="1.4" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glow110_s" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.8" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
 
-        // Cable drops from tray
-        ctx.strokeStyle = C.line; ctx.lineWidth = 0.8*s;
-        ctx.beginPath(); ctx.moveTo(rx+rw*0.3, trayY); ctx.lineTo(rx+rw*0.3, ry); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(rx+rw*0.7, trayY); ctx.lineTo(rx+rw*0.7, ry); ctx.stroke();
+          <linearGradient id="cabinetFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#020a26" />
+            <stop offset="100%" stopColor="#040f3a" />
+          </linearGradient>
 
-        // Main rack body
-        ctx.fillStyle = C.fill; ctx.strokeStyle = C.line; ctx.lineWidth = 1.3*s;
-        ctx.beginPath(); ctx.roundRect(rx, ry, rw, rh, 2*s); ctx.fill(); ctx.stroke();
+          <linearGradient id="moduleFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#020824" />
+            <stop offset="100%" stopColor="#030d30" />
+          </linearGradient>
+        </defs>
 
-        // Top ventilation panel
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.6*s;
-        ctx.beginPath(); ctx.moveTo(rx+3*s, ry+5*s); ctx.lineTo(rx+rw-3*s, ry+5*s); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(rx+3*s, ry+7*s); ctx.lineTo(rx+rw-3*s, ry+7*s); ctx.stroke();
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Whole-illustration breathing */
+            @keyframes breathe_s {
+              0%, 100% { filter: url(#glow95_s); }
+              50%      { filter: url(#glow110_s); }
+            }
+            .illustration_s {
+              animation: breathe_s 5s ease-in-out infinite;
+            }
 
-        // Server blade rows
-        const bladeCount = 12;
-        const bTop = ry + 10*s;
-        const bBot = ry + rh - 16*s;
-        const bH = (bBot - bTop) / bladeCount;
+            /* Per-rack subtle pulse */
+            @keyframes rackPulse_s {
+              0%, 100% { opacity: 0.96; }
+              50%      { opacity: 1; }
+            }
+            .rack-1 { animation: rackPulse_s 4.4s ease-in-out infinite; }
+            .rack-2 { animation: rackPulse_s 4.4s ease-in-out -1.5s infinite; }
+            .rack-3 { animation: rackPulse_s 4.4s ease-in-out -3.0s infinite; }
 
-        for (let b = 0; b < bladeCount; b++) {
-          const bladeY = bTop + b * bH;
+            /* Reflection flicker */
+            @keyframes reflectFlicker_s {
+              0%, 100% { opacity: 0.22; }
+              50%      { opacity: 0.36; }
+            }
+            .ground-reflect_s { animation: reflectFlicker_s 5s ease-in-out infinite; }
 
-          // Blade divider
-          ctx.strokeStyle = "rgba(255,255,255,0.05)";
-          ctx.lineWidth = 0.4*s;
-          ctx.beginPath(); ctx.moveTo(rx+3*s, bladeY+bH); ctx.lineTo(rx+rw-3*s, bladeY+bH); ctx.stroke();
+            /* ===== LED blink ===== */
+            @keyframes blinkA_s {
+              0%, 45%, 100% { opacity: 1; }
+              50%, 55%      { opacity: 0.25; }
+            }
+            @keyframes blinkB_s {
+              0%, 100% { opacity: 1; }
+              20%, 30% { opacity: 0.3; }
+              70%      { opacity: 0.6; }
+            }
+            @keyframes blinkC_s {
+              0%, 100% { opacity: 0.95; }
+              33%, 38% { opacity: 0.2; }
+              66%, 70% { opacity: 0.5; }
+            }
+            @keyframes blinkD_s {
+              0%, 100% { opacity: 1; }
+              50%, 60% { opacity: 0.35; }
+            }
+            .blink-a { animation: blinkA_s 2.4s ease-in-out infinite; }
+            .blink-b { animation: blinkB_s 3.1s ease-in-out infinite; }
+            .blink-c { animation: blinkC_s 2.7s ease-in-out infinite; }
+            .blink-d { animation: blinkD_s 3.5s ease-in-out infinite; }
 
-          // Faceplate detail lines
-          ctx.strokeStyle = C.white15; ctx.lineWidth = 0.5*s;
-          // Long detail bar
-          ctx.beginPath(); ctx.moveTo(rx+5*s, bladeY+bH*0.5); ctx.lineTo(rx+rw*0.5, bladeY+bH*0.5); ctx.stroke();
-          // Short handle
-          ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.4*s;
-          ctx.beginPath(); ctx.moveTo(rx+5*s, bladeY+bH*0.3); ctx.lineTo(rx+14*s, bladeY+bH*0.3); ctx.stroke();
-          // Right-side detail lines
-          ctx.strokeStyle = C.lineVDim; ctx.lineWidth = 0.4*s;
-          ctx.beginPath(); ctx.moveTo(rx+rw*0.58, bladeY+bH*0.35); ctx.lineTo(rx+rw-18*s, bladeY+bH*0.35); ctx.stroke();
-          ctx.beginPath(); ctx.moveTo(rx+rw*0.58, bladeY+bH*0.65); ctx.lineTo(rx+rw-18*s, bladeY+bH*0.65); ctx.stroke();
+            /* ===== Main LED slow pulse ===== */
+            @keyframes mainPulse_s {
+              0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 2px #6cc8ff); }
+              50%      { opacity: 1;    filter: drop-shadow(0 0 5px #b8e6ff) drop-shadow(0 0 10px #6cc8ff); }
+            }
+            .main-led { animation: mainPulse_s 2.6s ease-in-out infinite; }
 
-          // LED indicators
-          const noise = Math.sin(t*(hov?0.015:0.007)+r*20+b*13.7);
-          if (noise > -0.3) {
-            const intensity = (noise+0.3)/1.3;
-            ctx.fillStyle = `rgba(61,174,255,${0.45+0.55*intensity})`;
-            ctx.shadowColor = C.glow; ctx.shadowBlur = hov ? 5 : 3;
-            // Activity LED
-            ctx.beginPath(); ctx.arc(rx+rw-7*s, bladeY+bH*0.4, 1.3*s, 0, Math.PI*2); ctx.fill();
-            // Status LED
-            ctx.fillStyle = `rgba(61,174,255,${0.25+0.35*intensity})`;
-            ctx.beginPath(); ctx.arc(rx+rw-13*s, bladeY+bH*0.4, 1*s, 0, Math.PI*2); ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-        }
+            /* ===== Activity bar ===== */
+            @keyframes activityFlow_s { to { stroke-dashoffset: -90; } }
+            .activity-flow {
+              stroke-dasharray: 14 76;
+              animation: activityFlow_s 2.4s linear infinite;
+            }
+          `
+        }} />
 
-        // Activity sweep line
-        const sweepPos = ((t*(hov?0.06:0.03)+r*15) % rh);
-        if (sweepPos > 10 && sweepPos < rh-10) {
-          ctx.strokeStyle = "rgba(61,174,255,0.45)";
-          ctx.shadowColor = C.glow; ctx.shadowBlur = 4;
-          ctx.lineWidth = 0.7*s;
-          ctx.beginPath(); ctx.moveTo(rx+3*s, ry+sweepPos); ctx.lineTo(rx+rw-3*s, ry+sweepPos); ctx.stroke();
-          ctx.shadowBlur = 0;
-        }
+        {/* Background digital rain */}
+        <g id="rain">
+          {mounted && rainParticles.map((p, idx) => (
+            <rect
+              key={idx}
+              x={p.x}
+              y={p.y}
+              width={p.width}
+              height={p.height}
+              fill="#4ab8ff"
+              opacity="0"
+              rx="0.5"
+            >
+              <animate
+                attributeName="y"
+                from={p.y}
+                to={p.to}
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+              <animate
+                attributeName="opacity"
+                values={`0;${p.maxOpacity};${p.maxOpacity};0`}
+                keyTimes="0;0.15;0.85;1"
+                dur={p.dur}
+                begin={p.begin}
+                repeatCount="indefinite"
+              />
+            </rect>
+          ))}
+        </g>
 
-        // Bottom power supply unit
-        ctx.strokeStyle = C.lineDim; ctx.lineWidth = 0.7*s;
-        ctx.beginPath(); ctx.roundRect(rx+4*s, ry+rh-14*s, rw-8*s, 10*s, 1.5*s); ctx.stroke();
-        // PSU internal detail
-        ctx.strokeStyle = C.lineVDim; ctx.lineWidth = 0.4*s;
-        ctx.beginPath(); ctx.moveTo(rx+rw/2, ry+rh-13*s); ctx.lineTo(rx+rw/2, ry+rh-5*s); ctx.stroke();
-        // Power connector dots
-        glowDot(ctx, rx+rw-10*s, ry+rh-9*s, 1.8*s);
-        glowDot(ctx, rx+12*s, ry+rh-9*s, 1.8*s);
+        {/* Ground reflection band */}
+        <g className="ground-reflect_s">
+          <ellipse cx="480"  cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
+          <ellipse cx="750"  cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
+          <ellipse cx="1020" cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
+          <ellipse cx="750"  cy="778" rx="450" ry="2" fill="#2a7fd6" opacity="0.25" />
+        </g>
 
-        // Side panel vertical edge details
-        ctx.strokeStyle = C.lineVDim; ctx.lineWidth = 0.4*s;
-        ctx.beginPath(); ctx.moveTo(rx+2*s, ry+10*s); ctx.lineTo(rx+2*s, ry+rh-16*s); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(rx+rw-2*s, ry+10*s); ctx.lineTo(rx+rw-2*s, ry+rh-16*s); ctx.stroke();
-      }
+        {/* Ground line */}
+        <line x1="200" y1="772" x2="1300" y2="772"
+              stroke="#3a7fc8" strokeWidth="1" opacity="0.55" />
 
-      af = requestAnimationFrame(draw);
-    };
-    af = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(af); ro.disconnect(); };
-  }, [hov]);
+        <g className="illustration_s">
+          {/* Outer halo layer */}
+          <g stroke="#2f6fbf" strokeWidth="3" opacity="0.35" fill="none">
+            <rect x="380" y="200" width="200" height="540" rx="10" />
+            <rect x="650" y="200" width="200" height="540" rx="10" />
+            <rect x="920" y="200" width="200" height="540" rx="10" />
+          </g>
 
-  return <canvas ref={ref} onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} className="w-full h-[220px] block cursor-pointer" />;
+          {/* Racks cabinets */}
+          <g id="racksContainer">
+            {RACKS.map((rack, rackIdx) => (
+              <g key={rackIdx} className={rack.cls}>
+                {/* Rear depth layer */}
+                <rect x={rack.x + 4} y="204" width="200" height="540" rx="10"
+                      fill="#020824" stroke="#2a6bbf" strokeWidth="0.9" opacity="0.55" />
+
+                {/* Main cabinet body */}
+                <rect x={rack.x} y="200" width="200" height="540" rx="10"
+                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.8" />
+
+                {/* Inner highlight outline */}
+                <rect x={rack.x + 4} y="204" width="192" height="532" rx="8"
+                      fill="none" stroke="#9fd8ff" strokeWidth="0.5" opacity="0.6" />
+
+                {/* Corner mounting rail markers */}
+                <g fill="#9fd8ff">
+                  <circle cx={rack.x + 8}  cy="208" r="0.9" />
+                  <circle cx={rack.x + 192} cy="208" r="0.9" />
+                  <circle cx={rack.x + 8}  cy="732" r="0.9" />
+                  <circle cx={rack.x + 192} cy="732" r="0.9" />
+                </g>
+
+                {/* Feet */}
+                <rect x={rack.x + 18}  y="740" width="22" height="14" rx="2"
+                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+                <rect x={rack.x + 160} y="740" width="22" height="14" rx="2"
+                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+
+                {/* PSU / Bottom panel */}
+                {(() => {
+                  const psuX = rack.x + 15;
+                  return (
+                    <g>
+                      <rect x={psuX} y={PSU_TOP} width={MOD_W} height={PSU_BOTTOM - PSU_TOP} rx="3"
+                            fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
+                      <rect x={psuX + 3} y={PSU_TOP + 3} width={MOD_W - 6} height={PSU_BOTTOM - PSU_TOP - 6} rx="2"
+                            fill="none" stroke="#7fc7ff" strokeWidth="0.5" opacity="0.6" />
+                      {[0, 1, 2, 3, 4, 5].map(i => (
+                        <line key={i} x1={psuX + 30} y1={PSU_TOP + 22 + i*10}
+                              x2={psuX + MOD_W - 30} y2={PSU_TOP + 22 + i*10}
+                              stroke="#3a7fc8" strokeWidth="0.7" opacity="0.7" />
+                      ))}
+                      <rect x={psuX + 10} y={PSU_TOP + 30} width="6" height="32" rx="1"
+                            fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
+                      <rect x={psuX + MOD_W - 16} y={PSU_TOP + 30} width="6" height="32" rx="1"
+                            fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
+                      <circle cx={psuX + 14} cy={PSU_TOP + 12} r="1.1"
+                              fill="#5cc4ff" className={`blink-${["a","b","c","d"][rackIdx % 4]}`} opacity="0.85" />
+                      <g fill="#7fc7ff">
+                        <circle cx={psuX + 4} cy={PSU_TOP + 4} r="0.7" />
+                        <circle cx={psuX + MOD_W - 4} cy={PSU_TOP + 4} r="0.7" />
+                        <circle cx={psuX + 4} cy={PSU_BOTTOM - 4} r="0.7" />
+                        <circle cx={psuX + MOD_W - 4} cy={PSU_BOTTOM - 4} r="0.7" />
+                      </g>
+                    </g>
+                  );
+                })()}
+
+                {/* 4 Active Server Modules */}
+                {MODULE_SLOTS.map((slotY, slotIdx) => {
+                  const mx = rack.x + 15;
+                  const my = slotY;
+                  const globalModIdx = rackIdx * 4 + slotIdx;
+
+                  const blinkA = BLINK_CLASSES[(globalModIdx + 0) % 4];
+                  const blinkB = BLINK_CLASSES[(globalModIdx + 1) % 4];
+                  const blinkC = BLINK_CLASSES[(globalModIdx + 2) % 4];
+                  const blinkD = BLINK_CLASSES[(globalModIdx + 3) % 4];
+                  const actDur = ACTIVITY_DURS[globalModIdx % ACTIVITY_DURS.length];
+                  const actDelay = -(globalModIdx * 0.37) % actDur;
+                  const mainDelay = MAIN_LED_DELAYS[globalModIdx % MAIN_LED_DELAYS.length];
+
+                  return (
+                    <g key={slotIdx} transform={`translate(${mx}, ${my})`}>
+                      <rect x="0" y="0" width={MOD_W} height={MOD_H} rx="3"
+                            fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
+                      <rect x="2.5" y="2.5" width={MOD_W - 5} height={MOD_H - 5} rx="2"
+                            fill="none" stroke="#7fc7ff" strokeWidth="0.45" opacity="0.55" />
+
+                      <g>
+                        <rect x="7" y="8" width="34" height="20" rx="1.5"
+                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                        <circle cx="12" cy="18" r="1.3" fill="#5cc4ff" className={blinkA} />
+                        <line x1="17" y1="18" x2="37" y2="18" stroke="#3a7fc8" strokeWidth="0.5" />
+
+                        <rect x="7" y="33" width="34" height="20" rx="1.5"
+                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                        <circle cx="12" cy="43" r="1.3" fill="#5cc4ff" className={blinkB} />
+                        <line x1="17" y1="43" x2="37" y2="43" stroke="#3a7fc8" strokeWidth="0.5" />
+
+                        <rect x="7" y="58" width="34" height="20" rx="1.5"
+                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                        <circle cx="12" cy="68" r="1.3" fill="#5cc4ff" className={blinkC} />
+                        <line x1="17" y1="68" x2="37" y2="68" stroke="#3a7fc8" strokeWidth="0.5" />
+                      </g>
+
+                      <g>
+                        <circle cx="55" cy="43" r="4.6" fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
+                        <circle cx="55" cy="43" r="3.8" fill="#3a8fdc" className="main-led"
+                                style={{ animationDelay: `${mainDelay}s` }} />
+                        <circle cx="55" cy="43" r="1.6" fill="#cce8ff" opacity="0.95" />
+
+                        <line x1="63" y1="43" x2="145" y2="43"
+                              stroke="#284e85" strokeWidth="1.6" strokeLinecap="round" />
+                        <line x1="63" y1="43" x2="145" y2="43"
+                              stroke="#7fc7ff" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+                        <line x1="63" y1="43" x2="145" y2="43"
+                              stroke="#e8f6ff" strokeWidth="1.5" strokeLinecap="round"
+                              className="activity-flow"
+                              style={{
+                                strokeDasharray: "14 76",
+                                animation: `activityFlow_s ${actDur}s linear ${actDelay}s infinite`
+                              }} />
+
+                        <g stroke="#5ab0ff" strokeWidth="0.5" opacity="0.55">
+                          <line x1="80"  y1="40" x2="80"  y2="46" />
+                          <line x1="100" y1="40" x2="100" y2="46" />
+                          <line x1="120" y1="40" x2="120" y2="46" />
+                          <line x1="140" y1="40" x2="140" y2="46" />
+                        </g>
+                      </g>
+
+                      <g>
+                        <g fill="#5ab0ff" opacity="0.65">
+                          <circle cx="152" cy="10" r="0.7" /><circle cx="156" cy="10" r="0.7" />
+                          <circle cx="160" cy="10" r="0.7" /><circle cx="164" cy="10" r="0.7" />
+                          <circle cx="152" cy="14" r="0.7" /><circle cx="156" cy="14" r="0.7" />
+                          <circle cx="160" cy="14" r="0.7" /><circle cx="164" cy="14" r="0.7" />
+                          <circle cx="152" cy="18" r="0.7" /><circle cx="156" cy="18" r="0.7" />
+                          <circle cx="160" cy="18" r="0.7" /><circle cx="164" cy="18" r="0.7" />
+                          <circle cx="152" cy="22" r="0.7" /><circle cx="156" cy="22" r="0.7" />
+                          <circle cx="160" cy="22" r="0.7" /><circle cx="164" cy="22" r="0.7" />
+                        </g>
+
+                        <rect x="150" y="58" width="6" height="3.5" rx="0.5"
+                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                        <rect x="158" y="58" width="6" height="3.5" rx="0.5"
+                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                        <rect x="150" y="64" width="6" height="3.5" rx="0.5"
+                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                        <rect x="158" y="64" width="6" height="3.5" rx="0.5"
+                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+
+                        <circle cx="153" cy="74" r="1.8"
+                                fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
+                        <circle cx="153" cy="74" r="0.7" fill="#5cc4ff" className={blinkD} />
+                        <circle cx="161" cy="74" r="1.8"
+                                fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
+                        <circle cx="161" cy="74" r="0.7" fill="#5cc4ff" className={blinkB} />
+
+                        <circle cx="50" cy="9" r="0.9" fill="#5cc4ff" className={blinkA} />
+                        <circle cx="60" cy="9" r="0.9" fill="#5cc4ff" className={blinkC} />
+                        <circle cx="70" cy="9" r="0.9" fill="#5cc4ff" className={blinkD} />
+                      </g>
+
+                      <g stroke="#3a7fc8" strokeWidth="0.35" opacity="0.45" fill="none">
+                        <path d="M 48,76 L 48,72 L 56,72 L 56,76" />
+                        <path d="M 90,76 L 90,72 L 110,72 L 110,76" />
+                        <circle cx="48" cy="76" r="0.4" fill="#5ab0ff" />
+                        <circle cx="110" cy="76" r="0.4" fill="#5ab0ff" />
+                      </g>
+
+                      <g fill="#7fc7ff">
+                        <circle cx="4" cy="4" r="0.7" />
+                        <circle cx={MOD_W - 4} cy="4" r="0.7" />
+                        <circle cx="4" cy={MOD_H - 4} r="0.7" />
+                        <circle cx={MOD_W - 4} cy={MOD_H - 4} r="0.7" />
+                      </g>
+                    </g>
+                  );
+                })}
+
+                {/* Inter-module rising energy pulse */}
+                {(() => {
+                  const pulseX = rack.x + 100;
+                  return (
+                    <g>
+                      <circle cx={pulseX} cy="690" r="1.6" fill="#b8e6ff"
+                              filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
+                        <animate attributeName="cy" from="690" to="210"
+                                 dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
+                        <animate attributeName="opacity"
+                                 values="0;0.95;0.95;0" keyTimes="0;0.15;0.85;1"
+                                 dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
+                      </circle>
+                      <circle cx={pulseX + 6} cy="690" r="1.2" fill="#b8e6ff"
+                              filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
+                        <animate attributeName="cy" from="690" to="210"
+                                 dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
+                        <animate attributeName="opacity"
+                                 values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1"
+                                 dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
+                      </circle>
+                    </g>
+                  );
+                })()}
+              </g>
+            ))}
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
 }
 
 

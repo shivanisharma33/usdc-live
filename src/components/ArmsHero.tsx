@@ -26,14 +26,11 @@ export default function ArmsHero() {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[82px] font-bold tracking-tight leading-[1.05] text-white mb-2 font-sans">
-          ARMS
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">ARMS&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Modular&nbsp;</span>
+          <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Systems</span>
         </h1>
-
-        {/* Subheading */}
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[48px] xl:text-[62px] font-bold tracking-tight leading-[1.05] text-[#3daeff] mb-8 font-sans">
-          MODULAR SYSTEMS
-        </h2>
 
         {/* Description */}
         <p className="text-[14px] md:text-[15px] text-white/65 font-normal leading-[1.8] max-w-[580px] mb-10 font-sans">
