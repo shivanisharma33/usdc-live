@@ -93,7 +93,7 @@ export default function PressReleaseHero() {
       />
 
       {/* ═══ TEXT CONTENT ═══ */}
-      <div className="relative z-10 w-full max-w-[900px] mx-auto px-6 md:px-12 flex flex-col items-center text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">
         {/* Pill Badge */}
         <div
           style={enter(100)}
@@ -107,7 +107,7 @@ export default function PressReleaseHero() {
 
         {/* Heading */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10"
         >
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Discover&nbsp;</span>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">our&nbsp;</span>

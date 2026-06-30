@@ -235,7 +235,7 @@ export default function SpeedScaleSovereignty() {
   };
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] px-4 py-12 md:py-16">
+    <section className="w-full relative overflow-hidden bg-[#04070f] px-4 py-20 md:py-28">
 
       {/* ── Inline keyframes for border animation & floating orbs ── */}
       <style>{`
@@ -338,10 +338,10 @@ export default function SpeedScaleSovereignty() {
               {/* ── SPEED TAB VIEW ── */}
               {activeTab === "speed" && (
                 <div className="tab-content-enter w-full">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 lg:gap-y-0 w-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0 w-full">
 
                     {/* Stat 1: 10x */}
-                    <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:pr-6 sm:border-r sm:border-b sm:border-white/[0.08] sm:pb-6 lg:pb-0 lg:border-b-0 lg:pr-6 xl:pr-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                    <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:border-b-0 sm:pb-0 sm:pr-6 md:pr-8 sm:border-r sm:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <Gauge className="w-5 h-5" />
                       </div>
@@ -356,29 +356,13 @@ export default function SpeedScaleSovereignty() {
                       </p>
                     </div>
 
-                    {/* Stat 2: ~$0.04/kWh */}
-                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-0 sm:pl-6 sm:border-b sm:border-white/[0.08] sm:pb-6 lg:py-0 lg:border-b-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
-                      <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
-                        <Zap className="w-5 h-5" />
-                      </div>
-                      <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                        ~$0.04<span className="text-[14px] sm:text-[16px] lg:text-[12px] xl:text-[15px] font-bold text-[#3daeff]">/kWh</span>
-                      </span>
-                      <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
-                        Lower Operating Cost
-                      </span>
-                      <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
-                        Access to low-cost power and efficient infrastructure drives industry-leading economics.
-                      </p>
-                    </div>
-
-                    {/* Stat 3: 2N */}
-                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:pt-6 sm:pr-6 sm:border-r sm:border-white/[0.08] sm:border-b-0 sm:pb-0 lg:py-0 lg:px-6 lg:pl-6 xl:px-8 xl:pl-8 lg:border-r lg:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                    {/* Stat 2: N+1 */}
+                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:py-0 sm:border-b-0 sm:px-6 md:px-8 sm:border-r sm:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <ShieldCheck className="w-5 h-5" />
                       </div>
                       <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                        2N
+                        N+1
                       </span>
                       <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
                         Enterprise Reliability
@@ -388,13 +372,13 @@ export default function SpeedScaleSovereignty() {
                       </p>
                     </div>
 
-                    {/* Stat 4: 400MW+ */}
-                    <div className="speed-card flex flex-col items-start pt-6 sm:pt-6 sm:pl-6 lg:pt-0 lg:pl-6 xl:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
+                    {/* Stat 3: 50MW+ */}
+                    <div className="speed-card flex flex-col items-start pt-6 sm:pt-0 sm:pl-6 md:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <BarChart3 className="w-5 h-5" />
                       </div>
                       <span className="speed-value text-[28px] sm:text-[32px] lg:text-[24px] xl:text-[30px] font-extrabold text-[#3daeff] leading-none mb-3 transition-all duration-300">
-                        400MW+
+                        50MW+
                       </span>
                       <span className="text-[13px] font-bold text-white leading-tight mb-2 min-h-[36px] block">
                         Scalable Capacity

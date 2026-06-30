@@ -6,7 +6,7 @@ import InfrastructureStack from "@/components/InfrastructureStack";
 import AIDemand from "@/components/AIDemand";
 import AIInfrastructureExcellence from "@/components/AIInfrastructureExcellence";
 import NvidiaRoadmap from "@/components/NvidiaRoadmap";
-import UsdcByNumbers from "@/components/UsdcByNumbers";
+
 import LatestNews from "@/components/LatestNews";
 import PartnerSection from "@/components/PartnerSection";
 import Footer from "@/components/Footer";
@@ -40,17 +40,11 @@ export default function Home() {
       {/* Render the AI Demand section */}
       <AIDemand />
 
-
-
-
       {/* Render the AI Infrastructure Excellence section */}
       <AIInfrastructureExcellence />
 
       {/* Render the NVIDIA Roadmap section */}
       <NvidiaRoadmap />
-
-      {/* Render the USDC By The Numbers section */}
-      <UsdcByNumbers />
 
       {/* Render the Latest News section */}
       <LatestNews />

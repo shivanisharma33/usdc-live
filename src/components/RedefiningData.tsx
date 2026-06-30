@@ -176,7 +176,7 @@ export default function RedefiningData() {
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between text-[10.5px] font-bold text-slate-800 select-none">
                       <span className="text-[#0091ff] whitespace-nowrap">USDC Infrastructure</span>
-                      <span className="text-[#0091ff] whitespace-nowrap">≤ 12 Months</span>
+                      <span className="text-[#0091ff] whitespace-nowrap">4 Months</span>
                     </div>
                     {/* Progress Bar */}
                     <div className="w-full h-3.5 rounded-full bg-slate-100 overflow-hidden flex">

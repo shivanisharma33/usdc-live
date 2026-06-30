@@ -283,7 +283,7 @@ export default function InvestorPage() {
             />
           </div>
 
-          <div className="relative z-10 w-full max-w-[860px] mx-auto flex flex-col items-center text-center">
+          <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
             {/* Center Content: Text copy */}
             <div className="flex flex-col items-center text-center transition-all duration-700">
 
@@ -296,7 +296,7 @@ export default function InvestorPage() {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
                 <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Investor&nbsp;</span>
                 <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Center</span>
               </h1>

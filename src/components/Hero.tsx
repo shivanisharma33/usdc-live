@@ -36,7 +36,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Title */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10">
         <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Deploy&nbsp;</span>
         <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
         <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
@@ -115,7 +115,7 @@ export default function Hero() {
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
           <Zap className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
-            40MW+
+            1-50MW+
           </span>
           <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             Power Capacity
@@ -129,7 +129,7 @@ export default function Hero() {
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
           <Clock className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
-            ≤ 12 Months
+            4 Months
           </span>
           <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             Deployment Timeline

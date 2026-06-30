@@ -165,7 +165,7 @@ function SmartCard({ def, delay }: { def: CardDef; delay: number }) {
       />
 
       {/* Card body */}
-      <div className="relative h-full rounded-[21px] bg-[#080d18]/90 backdrop-blur-xl border border-white/[0.06] p-7 overflow-hidden shadow-[0_18px_50px_rgba(0,0,0,0.45)] group-hover:shadow-[0_30px_70px_rgba(0,0,0,0.6)] transition-shadow duration-500">
+      <div className="relative h-full rounded-[21px] bg-[#080d18]/90 backdrop-blur-xl border border-white/[0.06] p-7 overflow-hidden transition-shadow duration-500">
         {/* Pointer-follow glow */}
         <span
           className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"

@@ -247,7 +247,7 @@ export default function GlobalPresence() {
             {STATS.map((s, i) => (
               <div
                 key={i}
-                className="cx-reveal flex items-center gap-3.5 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] px-4 py-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:border-[#3daeff]/30 hover:bg-white/[0.05] transition-all"
+                className="cx-reveal flex items-center gap-3.5 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] px-4 py-3.5 hover:border-[#3daeff]/30 hover:bg-white/[0.05] transition-all"
                 data-delay={200 + i * 70}
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#3daeff]/25 to-transparent border border-[#3daeff]/30 text-[#7fc8ff] flex-shrink-0">

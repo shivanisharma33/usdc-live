@@ -13,7 +13,7 @@ export default function PowerToComputeDiagram() {
       {/* Header Container */}
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 flex flex-col items-center">
         {/* Header Content */}
-        <div className="text-center max-w-[800px] mb-12 md:mb-16">
+        <div className="text-center max-w-[1000px] mb-12 md:mb-16">
           {/* Pill Badge */}
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
@@ -23,7 +23,7 @@ export default function PowerToComputeDiagram() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-extrabold tracking-tight leading-[1.08] text-white mb-6 font-sans uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide leading-[1.1] text-white mb-6 font-sans uppercase">
             From Power To <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
               GPU Compute
@@ -41,7 +41,7 @@ export default function PowerToComputeDiagram() {
       <div className="w-full relative flex items-center justify-center mb-16 sm:mb-20 select-none z-10">
         {/* Ambient halo behind the image */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-blue-500/[0.04] blur-[120px] pointer-events-none" />
-        
+
         <div className="w-full relative overflow-hidden flex items-center justify-center">
           <Image
             src="/image 50.png"
@@ -58,7 +58,7 @@ export default function PowerToComputeDiagram() {
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 flex flex-col items-center">
         {/* ── Bottom Grid Bar ── */}
         <div className="w-full border border-white/[0.08] rounded-2xl bg-[#02050c]/60 backdrop-blur-md px-6 py-8 md:py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center items-center shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-          
+
           {/* Column 1 */}
           <div className="flex flex-col items-center">
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">

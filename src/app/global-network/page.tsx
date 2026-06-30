@@ -27,7 +27,7 @@ export default function GlobalNetworkPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none z-0" />
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
-        <div className="flex-1 relative z-10 w-full max-w-[860px] mx-auto px-6 flex flex-col items-center text-center lg:pt-12 py-2 md:py-10 animate-fade-in">
+        <div className="flex-1 relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center lg:pt-12 py-2 md:py-10 animate-fade-in">
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#3daeff]/35 bg-[#3daeff]/5 backdrop-blur-sm mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] shadow-[0_0_8px_#3daeff]"></span>
             <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-[#3daeff]">
@@ -35,7 +35,7 @@ export default function GlobalNetworkPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 text-center uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 text-center uppercase">
             <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Global&nbsp;</span>
             <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Network</span>
           </h1>

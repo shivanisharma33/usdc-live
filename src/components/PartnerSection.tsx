@@ -8,7 +8,7 @@ import WaveBackground from "@/components/WaveBackground";
 export default function PartnerSection() {
 
   return (
-    <section className="w-full bg-[#04070f] py-16 md:py-24 px-6 md:px-12 lg:px-16 select-none overflow-hidden">
+    <section className="w-full bg-[#04070f] py-20 md:py-28 px-6 md:px-12 lg:px-16 select-none overflow-hidden">
       {/* ── Centered Bordered Card Section Wrapper ── */}
       <div className="relative w-full max-w-[1280px] mx-auto rounded-[24px] border border-[#3daeff]/40 bg-[#04070f] overflow-hidden p-5 sm:p-12 md:p-14 lg:p-16 min-h-[500px] shadow-[0_0_50px_rgba(61,174,255,0.06)]">
 

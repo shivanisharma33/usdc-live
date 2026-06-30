@@ -15,10 +15,10 @@ export default function ArmsHero() {
       {/* ── Subtle grid line backdrop ── */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_75%,transparent_100%)] pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-[860px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
 
         {/* Pill Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
           <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
           <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
             The People Behind The Power
@@ -26,7 +26,7 @@ export default function ArmsHero() {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">ARMS&nbsp;</span>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Modular&nbsp;</span>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Systems</span>

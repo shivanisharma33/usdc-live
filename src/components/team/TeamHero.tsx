@@ -68,7 +68,7 @@ export default function TeamHero() {
       <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-[#04070f] to-transparent pointer-events-none z-[5]" />
 
       {/* MAIN TEXT SECTION */}
-      <div className="relative z-10 w-full max-w-[860px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center select-none">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center select-none">
         {/* Futuristic Status Badge */}
         <div
           style={enterStyle(100)}
@@ -85,7 +85,7 @@ export default function TeamHero() {
 
         {/* Heading */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase"
         >
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Management&nbsp;</span>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Team</span>

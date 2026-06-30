@@ -90,7 +90,7 @@ export default function AIDemand() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-24 lg:py-28">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* ══════ LEFT COLUMN ══════ */}

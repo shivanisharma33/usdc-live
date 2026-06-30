@@ -17,7 +17,7 @@ export default function EnergyEconomicsAdvantage() {
         </div>
 
         {/* Left-Aligned Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase max-w-[900px]">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px]">
           Built For Long-Term <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
             Economic Advantage.
@@ -60,7 +60,7 @@ export default function EnergyEconomicsAdvantage() {
                 <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight leading-none font-sans">
                   0 Wait Time
                 </span>
-                <span className="text-[9px] font-bold text-white/35 tracking-wider uppercase mt-1.5 font-mono">
+                <span className="text-[10px] font-bold text-white/35 tracking-[0.18em] uppercase mt-1.5 font-mono">
                   For Primary Grid Queue Approvals
                 </span>
               </div>
@@ -95,7 +95,7 @@ export default function EnergyEconomicsAdvantage() {
                 <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight leading-none font-sans">
                   Highest Value
                 </span>
-                <span className="text-[9px] font-bold text-white/35 tracking-wider uppercase mt-1.5 font-mono">
+                <span className="text-[10px] font-bold text-white/35 tracking-[0.18em] uppercase mt-1.5 font-mono">
                   Yield Per Megawatt Generated
                 </span>
               </div>

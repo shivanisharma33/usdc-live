@@ -2,15 +2,15 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { 
-  Gauge, 
-  Shield, 
-  Wind, 
-  Clock, 
-  TrendingUp, 
-  Box, 
-  Database, 
-  Handshake 
+import {
+  Gauge,
+  Shield,
+  Wind,
+  Clock,
+  TrendingUp,
+  Box,
+  Database,
+  Handshake
 } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -29,7 +29,7 @@ function Arms300Visual() {
       {/* Ground lines */}
       <path d="M10 70L70 100M70 100L130 70" stroke="rgba(0,145,255,0.06)" strokeWidth="1" />
       <path d="M30 60L70 80M70 80L110 60" stroke="rgba(0,145,255,0.04)" strokeWidth="1" />
-      
+
       {/* Isometric Server Box */}
       {/* Top face */}
       <path
@@ -141,12 +141,12 @@ export default function ArmsTechnicalSpecs() {
     },
     {
       name: "Deployment Time",
-      value: "≤ 12 Months",
+      value: "4 Months",
       Icon: Clock,
     },
     {
       name: "Scalability",
-      value: "200 KW To 50 MW+",
+      value: "1-50 MW+",
       Icon: TrendingUp,
     },
     {
@@ -182,9 +182,8 @@ export default function ArmsTechnicalSpecs() {
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start transition-all duration-1000 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           {/* ══════════ LEFT COLUMN: TECHNICAL SPECIFICATIONS ══════════ */}
           <div className="lg:col-span-6 flex flex-col items-start w-full">
@@ -216,12 +215,12 @@ export default function ArmsTechnicalSpecs() {
                           {item.name}
                         </span>
                       </div>
-                      
+
                       {/* Center: Vertical Divider */}
                       <div className="col-span-1 flex justify-center text-white/10 font-light">
                         |
                       </div>
-                      
+
                       {/* Right: Spec Value */}
                       <div className="col-span-6 text-xs md:text-sm font-semibold text-[#3daeff] tracking-wide text-left pl-2">
                         {item.value}
@@ -289,7 +288,7 @@ export default function ArmsTechnicalSpecs() {
               <p className="text-[12px] md:text-[13px] text-white/45 mb-6 text-left leading-[1.6]">
                 DigiPowerX leverages industry-leading technology through partnerships with:
               </p>
-              
+
               {/* Partner Badges */}
               <div className="w-full flex flex-col gap-4">
                 {/* Partner 1: Super Micro */}

@@ -7,6 +7,8 @@ import DataCenterArchitecture from "@/components/DataCenterArchitecture";
 import BuiltForAiSection from "@/components/BuiltForAiSection";
 import FacilitySpecification from "@/components/FacilitySpecification";
 import WhyUsdcSection from "@/components/WhyUsdcSection";
+import ArmsGallery from "@/components/ArmsGallery";
+import DcimSection from "@/components/DcimSection";
 import PartnerSection from "@/components/PartnerSection";
 
 
@@ -52,7 +54,7 @@ export default function DataCenterPage() {
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col items-center text-center max-w-[800px] mx-auto animate-fade-in">
+          <div className="flex flex-col items-center text-center max-w-5xl mx-auto animate-fade-in">
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-[#02050c]/50 mb-8">
               <span className="w-6 h-[1.5px] bg-[#3daeff] rounded-full" />
@@ -62,7 +64,7 @@ export default function DataCenterPage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
               <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Data&nbsp;</span>
               <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Centers</span>
             </h1>
@@ -117,14 +119,14 @@ export default function DataCenterPage() {
 
               {/* Metric 2 */}
               <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
-                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">40MW+</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">1-50MW+</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">POWER CAPACITY</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
               </div>
 
               {/* Metric 3 */}
               <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
-                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">≤ 12 MTHS</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">4 MTHS</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RAPID DEPLOYMENT</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
               </div>
@@ -150,8 +152,14 @@ export default function DataCenterPage() {
       {/* ── WHY USDC: INTEGRATED INFRASTRUCTURE ── */}
       <WhyUsdcSection />
 
+      {/* Real-world deployment image gallery section */}
+      <ArmsGallery />
+
       {/* ── FACILITY SPECIFICATION SECTION ── */}
       <FacilitySpecification />
+
+      {/* USDC DCIM software telemetry dashboard section */}
+      <DcimSection />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
       <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">

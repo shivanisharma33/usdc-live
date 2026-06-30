@@ -7,6 +7,7 @@ import Arms200Advantages from "@/components/Arms200Advantages";
 import ArmsModelShowcase from "@/components/ArmsModelShowcase";
 import ArmsInfrastructureGrid from "@/components/ArmsInfrastructureGrid";
 import Arms200System from "@/components/Arms200System";
+import ArmsGallery from "@/components/ArmsGallery";
 import ArmsTechnicalSpecs from "@/components/ArmsTechnicalSpecs";
 import PartnerSection from "@/components/PartnerSection";
 
@@ -36,6 +37,9 @@ export default function ArmsPage() {
 
       {/* ARMS 200 System detailed specs grid & Certificate section */}
       <Arms200System />
+
+      {/* Real-world deployment image gallery section */}
+      <ArmsGallery />
 
       {/* ARMS Technical Specifications list & Future Ready platform */}
       <ArmsTechnicalSpecs />

@@ -83,7 +83,7 @@ export default function ContactHero() {
 
           {/* Heading */}
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10"
           >
             <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Let&apos;s&nbsp;</span>
             <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">Build&nbsp;</span>
@@ -155,7 +155,7 @@ export default function ContactHero() {
         <div className={`relative ${enter(260)}`}>
           <div className="relative aspect-square w-full max-w-[560px] mx-auto cx-floatY">
             {/* Glass stage backdrop */}
-            <div className="absolute inset-[6%] rounded-[32px] bg-white/[0.018] backdrop-blur-[2px] border border-white/[0.07]" />
+            <div className="absolute inset-[6%] rounded-[32px] bg-white/[0.018] backdrop-blur-[2px]" />
             {/* Rotating holographic conic ring */}
             <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none opacity-60">
               <div
@@ -175,7 +175,7 @@ export default function ContactHero() {
             <CommunicationHub3D />
 
             {/* Caption chip */}
-            <div className="absolute bottom-[7%] left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#02050c]/70 backdrop-blur-md border border-white/[0.1] flex items-center gap-2 shadow-[0_6px_20px_rgba(0,0,0,0.5)]">
+            <div className="absolute bottom-[7%] left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#02050c]/70 backdrop-blur-md flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] cx-pulse" />
               <span className="text-[9.5px] font-semibold text-white/70 tracking-[0.2em] uppercase">
                 AI Communication Hub

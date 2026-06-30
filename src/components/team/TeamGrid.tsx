@@ -105,7 +105,7 @@ export default function TeamGrid() {
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           {/* Header */}
           <div className="flex flex-col items-start text-left border-b border-white/[0.06] pb-8 mb-16">
-            
+
             <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
               Executive Council
             </h2>

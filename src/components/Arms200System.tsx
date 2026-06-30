@@ -240,7 +240,7 @@ export default function Arms200System() {
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* ══════ LEFT COLUMN: HEADER & 2X2 GRID ══════ */}
           <div
             className="lg:col-span-7 flex flex-col items-start text-left transition-all duration-1000 ease-out"
@@ -276,7 +276,7 @@ export default function Arms200System() {
             <div className="grid grid-cols-1 sm:grid-cols-2 w-full mt-8 relative">
               {/* Vertical divider line (Desktop only) */}
               <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.08]" />
-              
+
               {/* Horizontal divider line (Desktop only) */}
               <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-px bg-white/[0.08]" />
 
@@ -323,7 +323,7 @@ export default function Arms200System() {
             <div className="relative w-full max-w-[350px] bg-[#02050c]/30 p-2.5 rounded-2xl border border-white/[0.06] shadow-[0_24px_50px_-12px_rgba(0,0,0,0.7)]">
               {/* Radial glow background */}
               <div className="absolute inset-0 bg-blue-500/[0.03] rounded-2xl blur-[40px] pointer-events-none" />
-              
+
               <Image
                 src="/arms200_certificate.png"
                 alt="EPI Certificate of Conformance ANSI/TIA-942 Rated-3"

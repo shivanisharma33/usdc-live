@@ -1040,7 +1040,7 @@ export default function AIInfrastructureExcellence() {
     <section
       id="ai-infrastructure-excellence"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 lg:py-32"
+      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28"
     >
       {/* ── Ambient Background Glows ── */}
       <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
@@ -1087,7 +1087,7 @@ export default function AIInfrastructureExcellence() {
                   POWER ADVANTAGE
                 </h3>
                 <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
-                  40MW+ capacity with strategic energy assets positioned for long-term AI infrastructure growth.
+                  1-50MW+ capacity with strategic energy assets positioned for long-term AI infrastructure growth.
                 </p>
               </div>
               <div className="absolute bottom-0 right-0 w-[150px] h-[120px] sm:w-[170px] sm:h-[130px] md:w-[190px] md:h-[145px] pointer-events-none group-hover:scale-105 transition-transform duration-500">
@@ -1132,7 +1132,7 @@ export default function AIInfrastructureExcellence() {
                   <div>
                     <div className="flex justify-between items-center text-[10px] font-bold text-white tracking-wider mb-2 uppercase">
                       <span>USDC Infrastructure</span>
-                      <span className="text-[#3daeff]">≤ 12 Months</span>
+                      <span className="text-[#3daeff]">4 Months</span>
                     </div>
                     <div className="w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                       <div

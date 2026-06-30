@@ -89,7 +89,7 @@ export default function CareerHero() {
       ))}
 
       {/* ── Main content ── */}
-      <div className="relative z-10 flex flex-col items-center max-w-[900px] mx-auto">
+      <div className="relative z-10 flex flex-col items-center max-w-5xl mx-auto">
 
         {/* Badge */}
         <div style={fade(0)}
@@ -102,7 +102,7 @@ export default function CareerHero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-4xl leading-[1.1] text-white mb-6 relative z-10" style={fade(80)}>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10" style={fade(80)}>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">We&apos;re&nbsp;</span>
           <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">looking&nbsp;</span>
           <br />
