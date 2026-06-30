@@ -270,17 +270,6 @@ export default function InvestorPage() {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-[#3daeff]/[0.06] blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#3daeff]/[0.04] blur-[140px]" />
-
-            {/* Subtle grid line overlay */}
-            <div
-              className="absolute inset-0 opacity-[0.025]"
-              style={{
-                backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-                backgroundSize: "64px 64px",
-                maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-                WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-              }}
-            />
           </div>
 
           <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">

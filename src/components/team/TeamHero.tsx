@@ -41,9 +41,6 @@ export default function TeamHero() {
 
 
 
-      {/* Grid Pattern mask */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-[1]" />
-      
       {/* Ambient scan-lines */}
       <div
         className="absolute inset-0 pointer-events-none z-[3] opacity-[0.03]"

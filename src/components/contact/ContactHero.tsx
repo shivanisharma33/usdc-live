@@ -49,20 +49,6 @@ export default function ContactHero() {
         }}
       />
 
-      {/* ── Glowing grid pattern ── */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none opacity-[0.5]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(61,174,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(61,174,255,0.06) 1px, transparent 1px)",
-          backgroundSize: "54px 54px",
-          maskImage:
-            "radial-gradient(circle at 50% 45%, black 10%, transparent 72%)",
-          WebkitMaskImage:
-            "radial-gradient(circle at 50% 45%, black 10%, transparent 72%)",
-        }}
-      />
-
       {/* ── Ambient corner glows ── */}
       <div className="absolute -top-24 -left-24 w-[520px] h-[520px] bg-blue-500/[0.07] rounded-full blur-[150px] pointer-events-none z-[1]" />
       <div className="absolute bottom-0 -right-24 w-[480px] h-[480px] bg-cyan-400/[0.05] rounded-full blur-[140px] pointer-events-none z-[1]" />

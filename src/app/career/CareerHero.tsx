@@ -56,18 +56,6 @@ export default function CareerHero() {
           style={{ background: "radial-gradient(ellipse, rgba(61,174,255,0.06) 0%, transparent 70%)", filter: "blur(60px)" }} />
       </div>
 
-      {/* ── Fine dot grid ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.18]"
-        style={{
-          backgroundImage: "radial-gradient(rgba(61,174,255,0.35) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
-        }} />
-
-
-
-
       {/* ── Floating orbs ── */}
       {[
         { size: 6, top: "15%", left: "8%", dur: "8s", del: "0s", opacity: 0.3 },
