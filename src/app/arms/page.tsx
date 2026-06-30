@@ -14,7 +14,7 @@ import PartnerSection from "@/components/PartnerSection";
 export const metadata: Metadata = {
   title: "ARMS Modular Systems — USDC | Enterprise-Scale AI Infrastructure",
   description:
-    "Discover ARMS Modular Systems - LiquidPowerX's premier modular datacenter platform delivering up to 600 µW of computation power with Tier III redundancy and rapid deployment.",
+    "Discover ARMS Modular Systems - USDC's premier modular datacenter platform delivering up to 600 kW of critical IT load with Tier III redundancy and rapid deployment.",
 };
 
 export default function ArmsPage() {

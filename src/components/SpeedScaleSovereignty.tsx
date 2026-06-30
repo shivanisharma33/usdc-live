@@ -7,7 +7,7 @@ type TabType = "speed" | "scale" | "sovereignty";
 
 export default function SpeedScaleSovereignty() {
   const [activeTab, setActiveTab] = useState<TabType>("speed");
-  const [sliderVal, setSliderVal] = useState<number>(52.6768); // Yields exactly 1.16 Megawatts initially
+  const [sliderVal, setSliderVal] = useState<number>(50); // Yields exactly 55 Megawatts initially
   const [tabTransition, setTabTransition] = useState(false);
 
   // Trigger entrance animation on tab change
@@ -21,7 +21,7 @@ export default function SpeedScaleSovereignty() {
   useEffect(() => {
     if (activeTab === "scale") {
       setSliderVal(0);
-      const targetVal = 52.6768;
+      const targetVal = 50; // Correspond to 55 MW (50% on slider)
       const duration = 1000; // 1 second animation duration
       const startTime = performance.now();
       let frameId: number;
@@ -79,25 +79,25 @@ export default function SpeedScaleSovereignty() {
     },
   };
 
-  // Logarithmic-like piecewise mapping for the slider:
-  // 0%   -> 300 W (0.3 kW)
-  // 25%  -> 1 kW
-  // 50%  -> 100 kW
-  // 75%  -> 10 MW (10000 kW)
-  // 100% -> 50 MW (50000 kW)
+  // Piecewise mapping for sliderVal (0 to 100):
+  // 0%   -> 600 kW (0.6 MW) - 1 ARMS 200 Module
+  // 25%  -> 10 MW (10,000 kW)
+  // 50%  -> 55 MW (55,000 kW) - Current capacity in development
+  // 75%  -> 200 MW (200,000 kW) - Substations/Plant level
+  // 100% -> 400 MW (400,000 kW) - Total portfolio capacity
   const getPowerKw = (val: number): number => {
     if (val <= 25) {
       const pct = val / 25;
-      return 0.3 + pct * (1.0 - 0.3);
+      return 600 + pct * (10000 - 600);
     } else if (val <= 50) {
       const pct = (val - 25) / 25;
-      return 1.0 + pct * (100.0 - 1.0);
+      return 10000 + pct * (55000 - 10000);
     } else if (val <= 75) {
       const pct = (val - 50) / 25;
-      return 100.0 + pct * (10000.0 - 100.0);
+      return 55000 + pct * (200000 - 55000);
     } else {
       const pct = (val - 75) / 25;
-      return 10000.0 + pct * (50000.0 - 10000.0);
+      return 200000 + pct * (400000 - 200000);
     }
   };
 
@@ -105,21 +105,21 @@ export default function SpeedScaleSovereignty() {
 
   // Formatting output power values
   const getFormattedPower = (kW: number) => {
-    if (kW < 1) {
-      return { value: (kW * 1000).toFixed(0), unit: "Watts" };
-    } else if (kW < 1000) {
-      return { value: kW.toFixed(0), unit: "Kilowatts" };
+    if (kW < 1000) {
+      return { value: Math.round(kW).toString(), unit: "Kilowatts" };
     } else {
-      return { value: (kW / 1000).toFixed(2), unit: "Megawatts" };
+      const mw = kW / 1000;
+      const valStr = parseFloat(mw.toFixed(2)).toString();
+      return { value: valStr, unit: "Megawatts" };
     }
   };
 
   const formattedPower = getFormattedPower(powerKw);
 
   // Dynamic configuration metrics
-  const cruiserCount = Math.round(powerKw / 60);
-  const tritonCount = Math.round(powerKw / 90);
-  const leviathanCount = Math.round(powerKw / 1000);
+  const armsPodsCount = Math.round(powerKw / 600); // 600 kW per pod
+  const blackwellRacksCount = Math.round(powerKw / 120); // 120 kW per rack
+  const b200GpusCount = blackwellRacksCount * 72; // 72 GPUs per NVL72 rack
 
   // Ordering of cubes to activate as capacity increases (center outwards)
   const nodeOrder = [
@@ -431,11 +431,11 @@ export default function SpeedScaleSovereignty() {
 
                       {/* Tick Mark Labels */}
                       <div className="flex justify-between text-[11px] sm:text-[12px] font-bold text-white/40 tracking-wider mt-3.5 uppercase">
-                        <span>300 W</span>
-                        <span>1 kW</span>
-                        <span>100 kW</span>
+                        <span>600 kW</span>
                         <span>10 MW</span>
-                        <span>50 MW</span>
+                        <span>55 MW</span>
+                        <span>200 MW</span>
+                        <span>400 MW</span>
                       </div>
                     </div>
 
@@ -443,26 +443,26 @@ export default function SpeedScaleSovereignty() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-white/[0.06] pt-6 mb-4">
                       <div>
                         <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                          Configuration 1
+                          ARMS 200 Pods
                         </span>
                         <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                          {cruiserCount > 0 ? `${cruiserCount} Cruisers` : "—"}
+                          {armsPodsCount > 0 ? armsPodsCount.toLocaleString() : "—"}
                         </span>
                       </div>
                       <div>
                         <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                          Configuration 2
+                          Blackwell Racks
                         </span>
                         <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                          {tritonCount > 0 ? `${tritonCount} Tritons` : "—"}
+                          {blackwellRacksCount > 0 ? blackwellRacksCount.toLocaleString() : "—"}
                         </span>
                       </div>
                       <div>
                         <span className="text-[12.5px] font-black text-white/35 tracking-widest uppercase block mb-2">
-                          Configuration 3
+                          B200 GPUs
                         </span>
                         <span className="text-[19px] sm:text-[22px] font-extrabold text-[#3daeff] block leading-none">
-                          {leviathanCount > 0 ? `${leviathanCount} Leviathan${leviathanCount > 1 ? "s" : ""}` : "—"}
+                          {b200GpusCount > 0 ? b200GpusCount.toLocaleString() : "—"}
                         </span>
                       </div>
                     </div>
