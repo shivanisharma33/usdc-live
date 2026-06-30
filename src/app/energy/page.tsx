@@ -10,6 +10,8 @@ import EnergyEconomicsAdvantage from "@/components/EnergyEconomicsAdvantage";
 import SuperiorEconomics from "@/components/SuperiorEconomics";
 import PartnerSection from "@/components/PartnerSection";
 
+import EnergyHeroModel from "@/components/EnergyHeroModel";
+
 export const metadata: Metadata = {
   title: "Energy Integration — USDC | Empowering High-Density AI Compute",
   description:
@@ -43,8 +45,13 @@ export default function EnergyPage() {
   return (
     <div className="relative min-h-screen bg-[#04070f] text-white flex flex-col font-sans overflow-x-hidden">
       {/* Navigation Header */}
-      <Navbar />      {/* ── HERO SECTION ── */}
+      <Navbar />
+
+      {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden select-none">
+        {/* Interactive 3D Isometric Energy Grid Model */}
+        <EnergyHeroModel />
+
         {/* Ambient Background Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#3daeff]/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />

@@ -18,12 +18,6 @@ const roles: Role[] = [
   { department: "Engineering", title: "Senior Infrastructure Engineer", location: "Miami, FL", type: "Full-time", level: "Senior", tag: "Hot" },
   { department: "Engineering", title: "AI Platform Engineer", location: "Remote (US)", type: "Full-time", level: "Senior", tag: "New" },
   { department: "Engineering", title: "Data Center Electrical Engineer", location: "Dallas, TX", type: "Full-time", level: "Mid–Senior" },
-  { department: "Engineering", title: "GPU Systems Architect", location: "Remote (US)", type: "Full-time", level: "Lead", tag: "New" },
-  { department: "Operations", title: "Data Center Operations Manager", location: "Houston, TX", type: "Full-time", level: "Manager" },
-  { department: "Operations", title: "Site Reliability Engineer (SRE)", location: "Remote (US)", type: "Full-time", level: "Senior" },
-  { department: "Business", title: "Head of Investor Relations", location: "New York, NY", type: "Full-time", level: "Director", tag: "Hot" },
-  { department: "Business", title: "Energy Asset Acquisitions Lead", location: "Miami, FL", type: "Full-time", level: "Senior" },
-  { department: "Product", title: "Product Manager — AI Infrastructure", location: "Remote (US)", type: "Full-time", level: "Senior", tag: "New" },
 ];
 
 const departments = ["All", "Engineering", "Operations", "Business", "Product"];
