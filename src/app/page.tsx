@@ -9,6 +9,7 @@ import NvidiaRoadmap from "@/components/NvidiaRoadmap";
 
 import LatestNews from "@/components/LatestNews";
 import PartnerSection from "@/components/PartnerSection";
+import DcimSection from "@/components/DcimSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* Partner with us CTA Section */}
       <PartnerSection />
+
+      {/* USDC DCIM software telemetry dashboard section */}
+      <DcimSection />
 
       {/* Footer / Info section */}
       <Footer />

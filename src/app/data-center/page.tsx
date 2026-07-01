@@ -8,7 +8,6 @@ import BuiltForAiSection from "@/components/BuiltForAiSection";
 import FacilitySpecification from "@/components/FacilitySpecification";
 import WhyUsdcSection from "@/components/WhyUsdcSection";
 import ArmsGallery from "@/components/ArmsGallery";
-import DcimSection from "@/components/DcimSection";
 import PartnerSection from "@/components/PartnerSection";
 
 
@@ -157,9 +156,6 @@ export default function DataCenterPage() {
 
       {/* ── FACILITY SPECIFICATION SECTION ── */}
       <FacilitySpecification />
-
-      {/* USDC DCIM software telemetry dashboard section */}
-      <DcimSection />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
       <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">

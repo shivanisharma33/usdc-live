@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Cpu, Zap, Shield } from "lucide-react";
 
 export default function TeamHero() {
   const [inView, setInView] = useState(false);
@@ -91,43 +90,10 @@ export default function TeamHero() {
         {/* Subtitle description */}
         <p
           style={enterStyle(340)}
-          className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px] mb-12"
+          className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px]"
         >
           Meet the experienced executives driving USDC's vision of revolutionizing AI infrastructure and sustainable data center operations.
         </p>
-
-        {/* HUD Stats telemetry */}
-        <div
-          style={enterStyle(460)}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mt-2"
-        >
-          {[
-            { icon: <Cpu className="w-4 h-4 text-cyan-400" />, title: "DEPLOYED SYSTEM CAPACITY", val: "120MW+" },
-            { icon: <Zap className="w-4 h-4 text-blue-400" />, title: "GRID INTERCONNECTION", val: "≤12 Months" },
-            { icon: <Shield className="w-4 h-4 text-indigo-400" />, title: "HARDWARE STANDARDS", val: "Blackwell Ready" },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              className="relative p-[1px] rounded-xl overflow-hidden bg-gradient-to-b from-white/[0.08] to-transparent group"
-            >
-              <div className="relative z-10 w-full h-full bg-[#02050c]/80 backdrop-blur-md rounded-[11px] p-5 flex flex-col items-center justify-center border border-white/[0.02]">
-                <div className="flex items-center gap-2 mb-2">
-                  {item.icon}
-                  <span className="text-[8px] font-mono tracking-widest text-white/40 uppercase">
-                    {item.title}
-                  </span>
-                </div>
-                <span className="text-[20px] font-extrabold text-white tracking-tight">
-                  {item.val}
-                </span>
-                
-                {/* Tech Corners */}
-                <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/20 rounded-tl-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
-                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-white/20 rounded-br-[11px] pointer-events-none group-hover:border-cyan-400/40 transition-colors" />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

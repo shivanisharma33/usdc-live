@@ -120,34 +120,10 @@ export default function PressReleaseHero() {
         {/* Subtitle */}
         <p
           style={enter(360)}
-          className="text-[14px] md:text-[16px] text-white/40 leading-[1.85] max-w-[520px] font-light mb-12"
+          className="text-[14px] md:text-[16px] text-white/40 leading-[1.85] max-w-[520px] font-light"
         >
           Stay informed with the latest announcements, partnerships, and milestones shaping the future of AI infrastructure.
         </p>
-
-        {/* Stat pills */}
-        <div
-          style={enter(460)}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          {[
-            { value: "50+", label: "Press Releases" },
-            { value: "200+", label: "Media Mentions" },
-            { value: "30+", label: "Publications" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/[0.02] border border-white/[0.06] backdrop-blur-sm hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-500"
-            >
-              <span className="text-[18px] font-bold text-white tracking-tight">
-                {stat.value}
-              </span>
-              <span className="text-[9px] font-semibold text-white/30 tracking-[0.12em] uppercase">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

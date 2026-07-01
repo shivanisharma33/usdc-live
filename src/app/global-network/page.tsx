@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import { Server, Compass, Zap, Activity, Network, ShieldCheck, Cpu } from "lucide-react";
 import Link from "next/link";
 import PartnerSection from "@/components/PartnerSection";
+import CubeGridNetwork3DWrapper from "@/components/CubeGridNetwork3DWrapper";
+import UnifiedOpsHub3DWrapper from "@/components/UnifiedOpsHub3DWrapper";
+import GlobalNetworkHeroVisual3DWrapper from "@/components/GlobalNetworkHeroVisual3DWrapper";
+import EnergyHeroCanvasWrapper from "@/components/EnergyHeroCanvasWrapper";
 
 export const metadata: Metadata = {
   title: "Global Network — USDC | Multi-region US Footprint",
@@ -109,9 +113,13 @@ export default function GlobalNetworkPage() {
           <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
             {/* Card 1 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
+              {/* Interactive 3D Model Visual */}
+              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
+                <GlobalNetworkHeroVisual3DWrapper />
+              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
-              
+
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
                 <Compass className="w-5 h-5 text-[#3daeff]" />
               </div>
@@ -122,7 +130,7 @@ export default function GlobalNetworkPage() {
               <p className="text-white/50 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Owned nodes spread across distinct ISO regions and grid operators — so a fault in one market never propagates into customer capacity in another.
               </p>
-              
+
               <ul className="space-y-3 mb-7 relative z-10 w-full">
                 {[
                   "Sites across NY, AL, and NC anchor the active footprint",
@@ -156,10 +164,15 @@ export default function GlobalNetworkPage() {
             </div>
 
             {/* Card 2 */}
+
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
+              {/* Interactive 3D Model Visual */}
+              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
+                <CubeGridNetwork3DWrapper />
+              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
-              
+
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
                 <Network className="w-5 h-5 text-[#3daeff]" />
               </div>
@@ -170,7 +183,7 @@ export default function GlobalNetworkPage() {
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 A managed backbone stitches every node into one operating fabric — replication, failover, and consistent posture across regions without leased-line gaps.
               </p>
-              
+
               <ul className="space-y-3 mb-7 relative z-10 w-full">
                 {[
                   "Diverse-path fiber between every region",
@@ -205,9 +218,13 @@ export default function GlobalNetworkPage() {
 
             {/* Card 3 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
+              {/* Interactive 3D Model Visual */}
+              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
+                <EnergyHeroCanvasWrapper />
+              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
-              
+
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
                 <Cpu className="w-5 h-5 text-[#3daeff]" />
               </div>
@@ -218,7 +235,7 @@ export default function GlobalNetworkPage() {
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Routes, optics, and switching are tuned to a strict latency budget — training clusters stay tightly coupled, inference stays close to the user.
               </p>
-              
+
               <ul className="space-y-3 mb-7 relative z-10 w-full">
                 {[
                   "Latency-budgeted routes for distributed training",
@@ -253,9 +270,13 @@ export default function GlobalNetworkPage() {
 
             {/* Card 4 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
+              {/* Interactive 3D Model Visual */}
+              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
+                <UnifiedOpsHub3DWrapper />
+              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
-              
+
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
                 <Activity className="w-5 h-5 text-[#3daeff]" />
               </div>
@@ -266,7 +287,7 @@ export default function GlobalNetworkPage() {
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Network, power, and compute are observed and controlled as one — customers get a single contract, single NOC, single point of accountability.
               </p>
-              
+
               <ul className="space-y-3 mb-7 relative z-10 w-full">
                 {[
                   "24/7 multi-region NOC coverage",

@@ -1,45 +1,45 @@
 "use client";
 
 import React from "react";
-import { Zap, Leaf, CheckCircle2 } from "lucide-react";
+import { Zap, Shield, Flag, Cpu, Leaf, Rocket } from "lucide-react";
 
 export default function CoreValuesSection() {
   const coreValues = [
     {
       id: 1,
-      title: "HIGH PERFORMANCE",
-      description: "Delivering cutting-edge GPU/HPC infrastructure for demanding HPC workloads.",
+      title: "POWER FIRST",
+      description: "We own and operate the energy stack—including generation, substations, and high-density facilities—to ensure customers do not have to wait on the grid.",
       icon: Zap,
     },
     {
       id: 2,
-      title: "SUSTAINABILITY",
-      description: "Integrating renewable energy and efficient cooling systems.",
-      icon: Leaf,
+      title: "SOVEREIGN COMPUTE",
+      description: "We provide dedicated, single-tenant infrastructure with no virtualization tax or \"noisy neighbors,\" allowing customers full control over their models and hardware.",
+      icon: Shield,
     },
     {
       id: 3,
-      title: "RELIABILITY",
-      description: "Tier III redundancy standards with 99.99% uptime guarantee.",
-      icon: CheckCircle2,
+      title: "BUILT IN THE U.S.",
+      description: "We focus on a domestic supply chain and U.S.-sited facilities, with a 400MW+ development pipeline to keep AI workloads on American soil.",
+      icon: Flag,
     },
     {
       id: 4,
-      title: "HIGH PERFORMANCE",
-      description: "Delivering cutting-edge GPU/HPC infrastructure for demanding HPC workloads.",
-      icon: Zap,
+      title: "ENGINEERED FOR SUPERINTELLIGENCE",
+      description: "We utilize liquid-cooled racks, 400 Gb/s fabric, and modular factory builds designed specifically for the next generation of frontier AI models.",
+      icon: Cpu,
     },
     {
       id: 5,
-      title: "SUSTAINABILITY",
-      description: "Integrating renewable energy and efficient cooling systems.",
+      title: "DYNAMIC GRID BALANCING",
+      description: "We balance regional grids by operating dynamically to support utility networks while preserving compute consistency.",
       icon: Leaf,
     },
     {
       id: 6,
-      title: "RELIABILITY",
-      description: "Tier III redundancy standards with 99.99% uptime guarantee.",
-      icon: CheckCircle2,
+      title: "ACCELERATED DEPLOYMENT",
+      description: "We compress development timelines from years to less than 12 months, converting underutilized energy assets into Tier III GPU capacity.",
+      icon: Rocket,
     },
   ];
 

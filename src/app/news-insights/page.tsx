@@ -23,7 +23,6 @@ import {
   Activity
 } from "lucide-react";
 import Link from "next/link";
-import Orb from "@/components/Orb";
 
 interface Article {
   id: string;
@@ -222,18 +221,7 @@ export default function NewsInsightsPage() {
       </div>
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden flex flex-col items-center border-b border-white/5">
-        
-        {/* Background WebGL Orb Animation */}
-        <div className="absolute inset-0 z-0 opacity-100">
-          <Orb
-            hoverIntensity={0.5}
-            rotateOnHover={true}
-            hue={0}
-            forceHoverState={false}
-            backgroundColor="#04070f"
-          />
-        </div>
+      <section className="relative w-full pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden flex flex-col items-center border-b border-white/5 animate-fade-in">
 
         {/* Content Wrapper */}
         <div className="relative z-10 w-full max-w-[1280px] px-6 md:px-12 lg:px-16 flex flex-col items-center">
