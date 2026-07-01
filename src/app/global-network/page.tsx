@@ -5,10 +5,7 @@ import Footer from "@/components/Footer";
 import { Server, Compass, Zap, Activity, Network, ShieldCheck, Cpu } from "lucide-react";
 import Link from "next/link";
 import PartnerSection from "@/components/PartnerSection";
-import CubeGridNetwork3DWrapper from "@/components/CubeGridNetwork3DWrapper";
-import UnifiedOpsHub3DWrapper from "@/components/UnifiedOpsHub3DWrapper";
-import GlobalNetworkHeroVisual3DWrapper from "@/components/GlobalNetworkHeroVisual3DWrapper";
-import EnergyHeroCanvasWrapper from "@/components/EnergyHeroCanvasWrapper";
+
 
 export const metadata: Metadata = {
   title: "Global Network — USDC | Multi-region US Footprint",
@@ -113,10 +110,6 @@ export default function GlobalNetworkPage() {
           <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
             {/* Card 1 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
-              {/* Interactive 3D Model Visual */}
-              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
-                <GlobalNetworkHeroVisual3DWrapper />
-              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
@@ -164,12 +157,7 @@ export default function GlobalNetworkPage() {
             </div>
 
             {/* Card 2 */}
-
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
-              {/* Interactive 3D Model Visual */}
-              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
-                <CubeGridNetwork3DWrapper />
-              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
@@ -218,10 +206,6 @@ export default function GlobalNetworkPage() {
 
             {/* Card 3 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
-              {/* Interactive 3D Model Visual */}
-              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
-                <EnergyHeroCanvasWrapper />
-              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
@@ -270,10 +254,6 @@ export default function GlobalNetworkPage() {
 
             {/* Card 4 */}
             <div className="group relative bg-gradient-to-br from-[#070c1a] to-[#02050c] rounded-3xl p-6 md:p-10 border border-white/[0.06] hover:border-[#3daeff]/35 shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(61,174,255,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden hover:-translate-y-1">
-              {/* Interactive 3D Model Visual */}
-              <div className="w-full h-[220px] rounded-xl overflow-hidden mb-7 bg-[#04070f]/50 border border-white/[0.06] relative z-10">
-                <UnifiedOpsHub3DWrapper />
-              </div>
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/app/about/AboutHero";
 import AboutJourneySection from "@/components/AboutJourneySection";
-import BuildingFutureSection from "@/components/BuildingFutureSection";
+
 import MissionVisionSection from "@/app/about/MissionVisionSection";
 import CoreValuesSection from "@/app/about/CoreValuesSection";
 import AboutByNumbers from "@/components/AboutByNumbers";
@@ -29,8 +29,7 @@ export default function AboutPage() {
       {/* Interactive scroll-linked milestone journey timeline */}
       <AboutJourneySection />
 
-      {/* Building the Future from Day One Section */}
-      <BuildingFutureSection />
+
 
       {/* Mission Vision Section */}
       <MissionVisionSection />

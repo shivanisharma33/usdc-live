@@ -107,39 +107,76 @@ export default function EnergyPage() {
       <SuperiorEconomics />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="text-center max-w-[1000px] mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans uppercase">
-              Core Grid <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">Capabilities</span>
-            </h2>
-            <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] font-sans">
-              Our energy infrastructure provides robust and concurrently maintainable capabilities, engineered specifically for high-capacity GPU nodes and long-term scaling.
-            </p>
-          </div>
+      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28 overflow-hidden">
+        {/* Background ambient lighting */}
+        <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {energyFeatures.map((feat, idx) => {
-              const Icon = feat.Icon;
-              return (
-                <div
-                  key={idx}
-                  className="group relative flex items-start gap-5 p-6 rounded-2xl border border-white/[0.06] bg-[#02050c]/30 hover:bg-[#02050c]/60 hover:border-[#0091ff]/30 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.03] group-hover:bg-[#3daeff]/10 border border-white/10 group-hover:border-[#3daeff]/30 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
-                    <Icon className="w-5 h-5 text-white/60 group-hover:text-[#3daeff] transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-white mb-2 transition-colors duration-300 group-hover:text-[#3daeff] font-sans">
-                      {feat.title}
-                    </h3>
-                    <p className="text-xs text-white/45 leading-[1.65] font-sans">
-                      {feat.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Headers + Feature Grid */}
+            <div className="lg:col-span-6 flex flex-col items-start text-left">
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-[#02050c]/60 mb-6 shadow-sm">
+                <span className="w-6.5 h-[1.5px] bg-[#3daeff] rounded-full" />
+                <span className="text-[10px] font-semibold tracking-[0.25em] text-white/90 uppercase font-sans">
+                  CORE GRID CAPABILITIES
+                </span>
+              </div>
+
+              {/* Title */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase">
+                Core Grid <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">Capabilities</span>
+              </h2>
+
+              {/* Description */}
+              <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] font-sans mb-10 max-w-[620px]">
+                Our energy infrastructure provides robust and concurrently maintainable capabilities, engineered specifically for high-capacity GPU nodes and long-term scaling.
+              </p>
+
+              {/* Feature Grid */}
+              <div className="grid grid-cols-1 gap-5 w-full">
+                {energyFeatures.map((feat, idx) => {
+                  const Icon = feat.Icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="group relative flex items-start gap-4 p-5 rounded-2xl border border-white/[0.06] bg-[#02050c]/30 hover:bg-[#02050c]/60 hover:border-[#0091ff]/30 transition-all duration-300"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-white/[0.03] group-hover:bg-[#3daeff]/10 border border-white/10 group-hover:border-[#3daeff]/30 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                        <Icon className="w-4.5 h-4.5 text-white/60 group-hover:text-[#3daeff] transition-colors" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-white mb-1.5 transition-colors duration-300 group-hover:text-[#3daeff] font-sans">
+                          {feat.title}
+                        </h3>
+                        <p className="text-[11px] text-white/45 leading-[1.6] font-sans">
+                          {feat.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Visual Model */}
+            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
+              <div className="relative w-full aspect-square max-w-[480px] rounded-2xl overflow-hidden bg-[#02050c]/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex items-center justify-center">
+                <iframe
+                  src="/magnetic-grid.html"
+                  title="Core Grid Capabilities Visualization"
+                  className="w-full h-full border-0"
+                  style={{
+                    borderRadius: 'inherit',
+                    pointerEvents: 'auto',
+                  }}
+                  allow="autoplay"
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

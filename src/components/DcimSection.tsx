@@ -34,7 +34,7 @@ export default function DcimSection() {
 
   const tabContent = {
     cooling: {
-      src: "/dcim_chiller.png",
+      src: "/image.webp",
       alt: "USDC DCIM Cooling Loop Telemetry Dashboard",
       title: "Closed-Loop Cooling Telemetry",
       badge: "LIQUID COOLING MANIFOLD",
@@ -46,7 +46,7 @@ export default function DcimSection() {
       ]
     },
     power: {
-      src: "/dcim_layout.png",
+      src: "/image (1).webp",
       alt: "USDC DCIM Cabinet and Power Telemetry Dashboard",
       title: "Grid & Cabinet Load Telemetry",
       badge: "ELECTRICAL LOAD BALANCING",

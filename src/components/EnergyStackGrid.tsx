@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /* ──────────────────────────────────────────────────────────────────────────
    Shared colours & helpers
@@ -96,17 +97,17 @@ function GenerationCanvas() {
 
           {/* Tower spine paths for energy particles */}
           <path id="towerPathLeft"
-                d="M 380,720 L 400,560 L 420,420 L 440,290 L 460,200 L 470,150" fill="none" />
+            d="M 380,720 L 400,560 L 420,420 L 440,290 L 460,200 L 470,150" fill="none" />
           <path id="towerPathRight"
-                d="M 560,720 L 540,560 L 520,420 L 500,290 L 480,200 L 470,150" fill="none" />
+            d="M 560,720 L 540,560 L 520,420 L 500,290 L 480,200 L 470,150" fill="none" />
           <path id="towerPathCenter"
-                d="M 470,720 L 470,150" fill="none" />
+            d="M 470,720 L 470,150" fill="none" />
 
           {/* Sub-X energy paths (zig-zag through new diagonal bracing) */}
           <path id="towerZigLeft"
-                d="M 348,677 L 392,591 L 369,548 L 391,419 L 405,333 L 470,200" fill="none" />
+            d="M 348,677 L 392,591 L 369,548 L 391,419 L 405,333 L 470,200" fill="none" />
           <path id="towerZigRight"
-                d="M 592,677 L 548,591 L 571,548 L 549,419 L 535,333 L 470,200" fill="none" />
+            d="M 592,677 L 548,591 L 571,548 L 549,419 L 535,333 L 470,200" fill="none" />
 
           {/* Shimmer paths along the cross arms */}
           <path id="lowerCrossPath" d="M 320,290 L 620,290" fill="none" />
@@ -114,7 +115,7 @@ function GenerationCanvas() {
 
           {/* Cable path */}
           <path id="cablePath"
-                d="M 645,738 L 870,738 L 870,720 L 935,720" fill="none" />
+            d="M 645,738 L 870,738 L 870,720 L 935,720" fill="none" />
         </defs>
 
         <style dangerouslySetInnerHTML={{
@@ -225,7 +226,7 @@ function GenerationCanvas() {
 
         {/* Ground line */}
         <line x1="120" y1="752" x2="1380" y2="752"
-              stroke="#3a7fc8" strokeWidth="1" opacity="0.6" />
+          stroke="#3a7fc8" strokeWidth="1" opacity="0.6" />
 
         <g className="illustration_t">
           {/* Outer glow rails */}
@@ -242,7 +243,7 @@ function GenerationCanvas() {
 
           {/* PRIMARY STRUCTURE */}
           <g stroke="#7fc7ff" strokeWidth="1.4" fill="none"
-             strokeLinecap="round" strokeLinejoin="round">
+            strokeLinecap="round" strokeLinejoin="round">
             <path d="M 460,170 L 470,150 L 480,170 Z" />
             <line x1="470" y1="170" x2="470" y2="188" />
             <line x1="458" y1="156" x2="482" y2="156" strokeWidth="1" opacity="0.85" />
@@ -312,7 +313,7 @@ function GenerationCanvas() {
 
           {/* Sub-bracing details */}
           <g stroke="#5ab0ff" strokeWidth="0.9" fill="none" opacity="0.85"
-             strokeLinecap="round" strokeLinejoin="round">
+            strokeLinecap="round" strokeLinejoin="round">
             <line x1="405" y1="333" x2="535" y2="333" />
             <line x1="412" y1="290" x2="535" y2="333" />
             <line x1="528" y1="290" x2="405" y2="333" />
@@ -476,30 +477,30 @@ function GenerationCanvas() {
           {/* Cable */}
           <g>
             <path d="M 620,738 L 870,738 L 870,720 L 935,720"
-                  stroke="#7fc7ff" strokeWidth="1.5" fill="none"
-                  strokeLinecap="round" strokeLinejoin="round" />
+              stroke="#7fc7ff" strokeWidth="1.5" fill="none"
+              strokeLinecap="round" strokeLinejoin="round" />
             <path className="cable-dash_t"
-                  d="M 620,738 L 870,738 L 870,720 L 935,720"
-                  stroke="#b8e6ff" strokeWidth="1.2" fill="none"
-                  strokeLinecap="round" opacity="0.85" />
+              d="M 620,738 L 870,738 L 870,720 L 935,720"
+              stroke="#b8e6ff" strokeWidth="1.2" fill="none"
+              strokeLinecap="round" opacity="0.85" />
             <rect x="930" y="712" width="14" height="16" rx="2"
-                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.2" />
+              fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.2" />
           </g>
 
           {/* Cabinet */}
           <g className="cabinet_t">
             <path d="M 1180,470 L 1198,460 L 1198,738 L 1180,748 Z"
-                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.4" />
+              fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.4" />
             <line x1="1188" y1="475" x2="1188" y2="730"
-                  stroke="#5ab0ff" strokeWidth="0.8" opacity="0.7" />
+              stroke="#5ab0ff" strokeWidth="0.8" opacity="0.7" />
             <rect x="940" y="470" width="240" height="278" rx="8"
-                  fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.6" />
+              fill="url(#navyFill_t)" stroke="#7fc7ff" strokeWidth="1.6" />
             <rect x="966" y="496" width="188" height="226" rx="5"
-                  fill="#030f33" stroke="#5ab0ff" strokeWidth="1.2" />
+              fill="#030f33" stroke="#5ab0ff" strokeWidth="1.2" />
             <path className="bolt_t"
-                  d="M 1078,520 L 1030,610 L 1058,610 L 1042,690 L 1098,592 L 1066,592 L 1086,520 Z"
-                  fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.1"
-                  strokeLinejoin="round" />
+              d="M 1078,520 L 1030,610 L 1058,610 L 1042,690 L 1098,592 L 1066,592 L 1086,520 Z"
+              fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.1"
+              strokeLinejoin="round" />
           </g>
         </g>
 
@@ -561,19 +562,19 @@ function GenerationCanvas() {
             <animateMotion dur="3.4s" repeatCount="indefinite" begin="0s">
               <mpath href="#lowerCrossPath" /></animateMotion>
             <animate attributeName="opacity" values="0;1;1;0"
-                     keyTimes="0;0.1;0.9;1" dur="3.4s" repeatCount="indefinite" />
+              keyTimes="0;0.1;0.9;1" dur="3.4s" repeatCount="indefinite" />
           </circle>
           <circle className="shimmer-dot_t" r="2.2">
             <animateMotion dur="3.4s" repeatCount="indefinite" begin="-1.7s">
               <mpath href="#lowerCrossPath" /></animateMotion>
             <animate attributeName="opacity" values="0;1;1;0"
-                     keyTimes="0;0.1;0.9;1" dur="3.4s" begin="-1.7s" repeatCount="indefinite" />
+              keyTimes="0;0.1;0.9;1" dur="3.4s" begin="-1.7s" repeatCount="indefinite" />
           </circle>
           <circle className="shimmer-dot_t" r="1.8">
             <animateMotion dur="3s" repeatCount="indefinite" begin="-0.8s">
               <mpath href="#upperCrossPath" /></animateMotion>
             <animate attributeName="opacity" values="0;1;1;0"
-                     keyTimes="0;0.1;0.9;1" dur="3s" begin="-0.8s" repeatCount="indefinite" />
+              keyTimes="0;0.1;0.9;1" dur="3s" begin="-0.8s" repeatCount="indefinite" />
           </circle>
         </g>
 
@@ -673,8 +674,8 @@ function TransformationCanvas() {
 
           {/* Path the energy particles will travel along (power module -> cooling unit) */}
           <path id="flowPath"
-                d="M 1075,580 L 1175,580 L 1175,300 L 870,300 L 870,420 L 840,420"
-                fill="none" />
+            d="M 1075,580 L 1175,580 L 1175,300 L 870,300 L 870,420 L 840,420"
+            fill="none" />
         </defs>
 
         <style dangerouslySetInnerHTML={{
@@ -786,7 +787,7 @@ function TransformationCanvas() {
 
         {/* ===== Ground line ===== */}
         <line x1="120" y1="780" x2="1380" y2="780"
-              stroke="#1e4a8a" strokeWidth="1" opacity="0.55" />
+          stroke="#1e4a8a" strokeWidth="1" opacity="0.55" />
 
         {/* ===== Ground reflection (soft mirrored glow under units) ===== */}
         <g className="ground-reflect">
@@ -800,21 +801,21 @@ function TransformationCanvas() {
         <g className="cooling-unit">
           {/* Top handles */}
           <rect x="260" y="245" width="60" height="22" rx="4"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
           <rect x="740" y="245" width="60" height="22" rx="4"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
 
           {/* Rear shadow body (slight offset to suggest depth) */}
           <rect x="232" y="278" width="822" height="402" rx="14"
-                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.7" />
+            fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.7" />
 
           {/* Main body */}
           <rect x="220" y="270" width="820" height="400" rx="14"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
 
           {/* Inner recessed panel */}
           <rect x="252" y="306" width="756" height="328" rx="10"
-                fill="#030f33" stroke="#5ab0ff" strokeWidth="1.6" />
+            fill="#030f33" stroke="#5ab0ff" strokeWidth="1.6" />
 
           {/* ====== Left Fan ====== */}
           <g transform="translate(440,470)">
@@ -832,7 +833,7 @@ function TransformationCanvas() {
               </g>
               {/* Hub */}
               <circle r="16" fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="1.8" />
-              <circle r="6"  fill="#7fc7ff" />
+              <circle r="6" fill="#7fc7ff" />
             </g>
           </g>
 
@@ -848,15 +849,15 @@ function TransformationCanvas() {
                 <path d="M 0,0 C -30,-20 -60,-60 -55,-95 C -30,-70 -10,-35 0,0 Z" />
               </g>
               <circle r="16" fill="#0b1f5c" stroke="#7fc7ff" strokeWidth="1.8" />
-              <circle r="6"  fill="#7fc7ff" />
+              <circle r="6" fill="#7fc7ff" />
             </g>
           </g>
 
           {/* Feet */}
           <rect x="278" y="670" width="40" height="36" rx="3"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
           <rect x="942" y="670" width="40" height="36" rx="3"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.6" />
         </g>
 
         {/* =====================================================
@@ -865,23 +866,23 @@ function TransformationCanvas() {
         <g>
           {/* Bottom horizontal segment (enters cooling unit at right side, low) */}
           <path className="connector"
-                d="M 1040,580 L 1175,580"
-                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95" />
+            d="M 1040,580 L 1175,580"
+            stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95" />
           {/* Vertical segment up */}
           <path className="connector"
-                d="M 1175,580 L 1175,300"
-                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
-                style={{ animationDelay: "-0.6s" }} />
+            d="M 1175,580 L 1175,300"
+            stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+            style={{ animationDelay: "-0.6s" }} />
           {/* Top horizontal segment (over) */}
           <path className="connector"
-                d="M 1175,300 L 870,300"
-                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
-                style={{ animationDelay: "-1.2s" }} />
+            d="M 1175,300 L 870,300"
+            stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+            style={{ animationDelay: "-1.2s" }} />
           {/* Drop down into top of cooling unit */}
           <path className="connector"
-                d="M 870,300 L 870,272"
-                stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
-                style={{ animationDelay: "-1.8s" }} />
+            d="M 870,300 L 870,272"
+            stroke="#7fc7ff" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.95"
+            style={{ animationDelay: "-1.8s" }} />
         </g>
 
         {/* ===== Energy particles riding the connector ===== */}
@@ -924,34 +925,34 @@ function TransformationCanvas() {
         <g className="power-module-outer">
           {/* Rear stacked layers (suggest depth) */}
           <rect x="1228" y="498" width="148" height="148" rx="8"
-                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.55" />
+            fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.55" />
           <rect x="1218" y="490" width="148" height="148" rx="8"
-                fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.75" />
+            fill="#020a26" stroke="#2a6bbf" strokeWidth="1.2" opacity="0.75" />
 
           {/* Side handles */}
           <rect x="1196" y="540" width="14" height="36" rx="3"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
           <rect x="1356" y="540" width="14" height="36" rx="3"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.4" />
 
           {/* Main module body */}
           <rect x="1208" y="482" width="148" height="148" rx="8"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="2.2" />
 
           {/* Inner recessed panel */}
           <rect x="1224" y="498" width="116" height="116" rx="5"
-                fill="#030f33" stroke="#5ab0ff" strokeWidth="1.4" />
+            fill="#030f33" stroke="#5ab0ff" strokeWidth="1.4" />
 
           {/* Lightning bolt */}
           <path className="bolt"
-                d="M 1290,510 L 1262,562 L 1280,562 L 1272,602 L 1304,548 L 1284,548 L 1294,510 Z"
-                fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.2" strokeLinejoin="round" />
+            d="M 1290,510 L 1262,562 L 1280,562 L 1272,602 L 1304,548 L 1284,548 L 1294,510 Z"
+            fill="#4ab8ff" stroke="#b8e6ff" strokeWidth="1.2" strokeLinejoin="round" />
 
           {/* Feet */}
           <rect x="1226" y="630" width="14" height="14" rx="2"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
           <rect x="1324" y="630" width="14" height="14" rx="2"
-                fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+            fill="url(#navyFill)" stroke="#7fc7ff" strokeWidth="1.2" />
         </g>
       </svg>
     </div>
@@ -1141,15 +1142,15 @@ function ComputeDeliveryCanvas() {
 
         {/* Ground reflection band */}
         <g className="ground-reflect_s">
-          <ellipse cx="480"  cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
-          <ellipse cx="750"  cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
+          <ellipse cx="480" cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
+          <ellipse cx="750" cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
           <ellipse cx="1020" cy="775" rx="120" ry="4" fill="#2a7fd6" opacity="0.45" />
-          <ellipse cx="750"  cy="778" rx="450" ry="2" fill="#2a7fd6" opacity="0.25" />
+          <ellipse cx="750" cy="778" rx="450" ry="2" fill="#2a7fd6" opacity="0.25" />
         </g>
 
         {/* Ground line */}
         <line x1="200" y1="772" x2="1300" y2="772"
-              stroke="#3a7fc8" strokeWidth="1" opacity="0.55" />
+          stroke="#3a7fc8" strokeWidth="1" opacity="0.55" />
 
         <g className="illustration_s">
           {/* Outer halo layer */}
@@ -1165,29 +1166,29 @@ function ComputeDeliveryCanvas() {
               <g key={rackIdx} className={rack.cls}>
                 {/* Rear depth layer */}
                 <rect x={rack.x + 4} y="204" width="200" height="540" rx="10"
-                      fill="#020824" stroke="#2a6bbf" strokeWidth="0.9" opacity="0.55" />
+                  fill="#020824" stroke="#2a6bbf" strokeWidth="0.9" opacity="0.55" />
 
                 {/* Main cabinet body */}
                 <rect x={rack.x} y="200" width="200" height="540" rx="10"
-                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.8" />
+                  fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.8" />
 
                 {/* Inner highlight outline */}
                 <rect x={rack.x + 4} y="204" width="192" height="532" rx="8"
-                      fill="none" stroke="#9fd8ff" strokeWidth="0.5" opacity="0.6" />
+                  fill="none" stroke="#9fd8ff" strokeWidth="0.5" opacity="0.6" />
 
                 {/* Corner mounting rail markers */}
                 <g fill="#9fd8ff">
-                  <circle cx={rack.x + 8}  cy="208" r="0.9" />
+                  <circle cx={rack.x + 8} cy="208" r="0.9" />
                   <circle cx={rack.x + 192} cy="208" r="0.9" />
-                  <circle cx={rack.x + 8}  cy="732" r="0.9" />
+                  <circle cx={rack.x + 8} cy="732" r="0.9" />
                   <circle cx={rack.x + 192} cy="732" r="0.9" />
                 </g>
 
                 {/* Feet */}
-                <rect x={rack.x + 18}  y="740" width="22" height="14" rx="2"
-                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+                <rect x={rack.x + 18} y="740" width="22" height="14" rx="2"
+                  fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
                 <rect x={rack.x + 160} y="740" width="22" height="14" rx="2"
-                      fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
+                  fill="url(#cabinetFill)" stroke="#7fc7ff" strokeWidth="1.2" />
 
                 {/* PSU / Bottom panel */}
                 {(() => {
@@ -1195,20 +1196,20 @@ function ComputeDeliveryCanvas() {
                   return (
                     <g>
                       <rect x={psuX} y={PSU_TOP} width={MOD_W} height={PSU_BOTTOM - PSU_TOP} rx="3"
-                            fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
+                        fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
                       <rect x={psuX + 3} y={PSU_TOP + 3} width={MOD_W - 6} height={PSU_BOTTOM - PSU_TOP - 6} rx="2"
-                            fill="none" stroke="#7fc7ff" strokeWidth="0.5" opacity="0.6" />
+                        fill="none" stroke="#7fc7ff" strokeWidth="0.5" opacity="0.6" />
                       {[0, 1, 2, 3, 4, 5].map(i => (
-                        <line key={i} x1={psuX + 30} y1={PSU_TOP + 22 + i*10}
-                              x2={psuX + MOD_W - 30} y2={PSU_TOP + 22 + i*10}
-                              stroke="#3a7fc8" strokeWidth="0.7" opacity="0.7" />
+                        <line key={i} x1={psuX + 30} y1={PSU_TOP + 22 + i * 10}
+                          x2={psuX + MOD_W - 30} y2={PSU_TOP + 22 + i * 10}
+                          stroke="#3a7fc8" strokeWidth="0.7" opacity="0.7" />
                       ))}
                       <rect x={psuX + 10} y={PSU_TOP + 30} width="6" height="32" rx="1"
-                            fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
+                        fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
                       <rect x={psuX + MOD_W - 16} y={PSU_TOP + 30} width="6" height="32" rx="1"
-                            fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
+                        fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
                       <circle cx={psuX + 14} cy={PSU_TOP + 12} r="1.1"
-                              fill="#5cc4ff" className={`blink-${["a","b","c","d"][rackIdx % 4]}`} opacity="0.85" />
+                        fill="#5cc4ff" className={`blink-${["a", "b", "c", "d"][rackIdx % 4]}`} opacity="0.85" />
                       <g fill="#7fc7ff">
                         <circle cx={psuX + 4} cy={PSU_TOP + 4} r="0.7" />
                         <circle cx={psuX + MOD_W - 4} cy={PSU_TOP + 4} r="0.7" />
@@ -1236,23 +1237,23 @@ function ComputeDeliveryCanvas() {
                   return (
                     <g key={slotIdx} transform={`translate(${mx}, ${my})`}>
                       <rect x="0" y="0" width={MOD_W} height={MOD_H} rx="3"
-                            fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
+                        fill="url(#moduleFill)" stroke="#5ab0ff" strokeWidth="1.1" />
                       <rect x="2.5" y="2.5" width={MOD_W - 5} height={MOD_H - 5} rx="2"
-                            fill="none" stroke="#7fc7ff" strokeWidth="0.45" opacity="0.55" />
+                        fill="none" stroke="#7fc7ff" strokeWidth="0.45" opacity="0.55" />
 
                       <g>
                         <rect x="7" y="8" width="34" height="20" rx="1.5"
-                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                          fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
                         <circle cx="12" cy="18" r="1.3" fill="#5cc4ff" className={blinkA} />
                         <line x1="17" y1="18" x2="37" y2="18" stroke="#3a7fc8" strokeWidth="0.5" />
 
                         <rect x="7" y="33" width="34" height="20" rx="1.5"
-                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                          fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
                         <circle cx="12" cy="43" r="1.3" fill="#5cc4ff" className={blinkB} />
                         <line x1="17" y1="43" x2="37" y2="43" stroke="#3a7fc8" strokeWidth="0.5" />
 
                         <rect x="7" y="58" width="34" height="20" rx="1.5"
-                              fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
+                          fill="#020a26" stroke="#7fc7ff" strokeWidth="0.6" />
                         <circle cx="12" cy="68" r="1.3" fill="#5cc4ff" className={blinkC} />
                         <line x1="17" y1="68" x2="37" y2="68" stroke="#3a7fc8" strokeWidth="0.5" />
                       </g>
@@ -1260,23 +1261,23 @@ function ComputeDeliveryCanvas() {
                       <g>
                         <circle cx="55" cy="43" r="4.6" fill="#020a26" stroke="#5ab0ff" strokeWidth="0.6" />
                         <circle cx="55" cy="43" r="3.8" fill="#3a8fdc" className="main-led"
-                                style={{ animationDelay: `${mainDelay}s` }} />
+                          style={{ animationDelay: `${mainDelay}s` }} />
                         <circle cx="55" cy="43" r="1.6" fill="#cce8ff" opacity="0.95" />
 
                         <line x1="63" y1="43" x2="145" y2="43"
-                              stroke="#284e85" strokeWidth="1.6" strokeLinecap="round" />
+                          stroke="#284e85" strokeWidth="1.6" strokeLinecap="round" />
                         <line x1="63" y1="43" x2="145" y2="43"
-                              stroke="#7fc7ff" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
+                          stroke="#7fc7ff" strokeWidth="1.4" strokeLinecap="round" opacity="0.85" />
                         <line x1="63" y1="43" x2="145" y2="43"
-                              stroke="#e8f6ff" strokeWidth="1.5" strokeLinecap="round"
-                              className="activity-flow"
-                              style={{
-                                strokeDasharray: "14 76",
-                                animation: `activityFlow_s ${actDur}s linear ${actDelay}s infinite`
-                              }} />
+                          stroke="#e8f6ff" strokeWidth="1.5" strokeLinecap="round"
+                          className="activity-flow"
+                          style={{
+                            strokeDasharray: "14 76",
+                            animation: `activityFlow_s ${actDur}s linear ${actDelay}s infinite`
+                          }} />
 
                         <g stroke="#5ab0ff" strokeWidth="0.5" opacity="0.55">
-                          <line x1="80"  y1="40" x2="80"  y2="46" />
+                          <line x1="80" y1="40" x2="80" y2="46" />
                           <line x1="100" y1="40" x2="100" y2="46" />
                           <line x1="120" y1="40" x2="120" y2="46" />
                           <line x1="140" y1="40" x2="140" y2="46" />
@@ -1296,19 +1297,19 @@ function ComputeDeliveryCanvas() {
                         </g>
 
                         <rect x="150" y="58" width="6" height="3.5" rx="0.5"
-                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
                         <rect x="158" y="58" width="6" height="3.5" rx="0.5"
-                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
                         <rect x="150" y="64" width="6" height="3.5" rx="0.5"
-                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
                         <rect x="158" y="64" width="6" height="3.5" rx="0.5"
-                              fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.4" />
 
                         <circle cx="153" cy="74" r="1.8"
-                                fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
                         <circle cx="153" cy="74" r="0.7" fill="#5cc4ff" className={blinkD} />
                         <circle cx="161" cy="74" r="1.8"
-                                fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
+                          fill="#020a26" stroke="#5ab0ff" strokeWidth="0.5" />
                         <circle cx="161" cy="74" r="0.7" fill="#5cc4ff" className={blinkB} />
 
                         <circle cx="50" cy="9" r="0.9" fill="#5cc4ff" className={blinkA} />
@@ -1339,20 +1340,20 @@ function ComputeDeliveryCanvas() {
                   return (
                     <g>
                       <circle cx={pulseX} cy="690" r="1.6" fill="#b8e6ff"
-                              filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
+                        filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
                         <animate attributeName="cy" from="690" to="210"
-                                 dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
+                          dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
                         <animate attributeName="opacity"
-                                 values="0;0.95;0.95;0" keyTimes="0;0.15;0.85;1"
-                                 dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
+                          values="0;0.95;0.95;0" keyTimes="0;0.15;0.85;1"
+                          dur="5s" begin={`${-rackIdx * 1.6}s`} repeatCount="indefinite" />
                       </circle>
                       <circle cx={pulseX + 6} cy="690" r="1.2" fill="#b8e6ff"
-                              filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
+                        filter="drop-shadow(0 0 3px #6cc8ff)" opacity="0">
                         <animate attributeName="cy" from="690" to="210"
-                                 dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
+                          dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
                         <animate attributeName="opacity"
-                                 values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1"
-                                 dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
+                          values="0;0.8;0.8;0" keyTimes="0;0.15;0.85;1"
+                          dur="5s" begin={`${-rackIdx * 1.6 - 2.5}s`} repeatCount="indefinite" />
                       </circle>
                     </g>
                   );
@@ -1375,7 +1376,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 1",
       title: "GENERATION ASSETS",
-      CanvasComponent: GenerationCanvas,
+      image: "/22436f29-6646-4d55-b640-19acab77a480.png",
       desc: "Owned power generation secures our foundation, shielding operations from market volatility and eliminating utility-queue bottlenecks.",
       bullets: [
         "Natural gas & renewable integration",
@@ -1387,7 +1388,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 2",
       title: "TRANSFORMATION",
-      CanvasComponent: TransformationCanvas,
+      image: "/57048f4a-139a-4c81-9e0e-14b22ead6b8f.png",
       desc: "Strategic substation control provides the high-voltage gateway necessary for rapid, large-scale data center deployment.",
       bullets: [
         "Direct high-voltage grid interconnection",
@@ -1399,7 +1400,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 3",
       title: "COMPUTE DELIVERY",
-      CanvasComponent: ComputeDeliveryCanvas,
+      image: "/0e6cdac0-a098-4935-8894-58c66ebff51a.png",
       desc: "We convert raw energy into the highest-margin output: compute-ready capacity optimized for intensive AI workloads.",
       bullets: [
         "High-density rack power architecture",
@@ -1438,34 +1439,41 @@ export default function EnergyStackGrid() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-[1160px] mx-auto">
           {columns.map((col) => {
-            const Canvas = col.CanvasComponent;
             return (
               <div
                 key={col.title}
                 className="relative group overflow-hidden h-[480px] flex flex-col justify-between border border-white/[0.08] hover:border-[#0091ff]/30 rounded-2xl bg-[#02050c]/25 backdrop-blur-md transition-all duration-500 hover:shadow-[0_4px_30px_rgba(0,145,255,0.06)]"
               >
-                {/* Upper Half: Header & Canvas */}
+                {/* Upper Half: Header & Image */}
                 <div className="flex flex-col justify-between h-[370px] w-full">
                   <div className="p-8 pb-3 flex flex-col">
                     <h3 className="text-lg md:text-xl font-bold tracking-tight text-[#0091ff] mb-3 group-hover:opacity-0 transition-opacity duration-300">
                       {col.title}
                     </h3>
                   </div>
-                  <div className="w-full flex-1 flex items-center justify-center relative transition-all duration-[850ms] ease-out group-hover:scale-[0.88] group-hover:-translate-y-8">
+                  <div className="w-full flex-1 flex items-center justify-center relative transition-all duration-[4000ms] ease-out group-hover:scale-[0.88] group-hover:-translate-y-8 px-8 pb-8">
                     <div className="absolute w-[60%] h-[60%] rounded-full bg-blue-500/[0.02] blur-[40px] pointer-events-none" />
-                    <Canvas />
+                    <div className="relative w-full h-[260px] rounded-lg overflow-hidden bg-[#02050c]/40">
+                      <Image
+                        src={col.image}
+                        alt={col.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* Sliding Drawer */}
-                <div className="absolute inset-0 w-full h-full pt-5 pb-8 px-8 md:px-10 bg-[#02050c]/98 backdrop-blur-md border-t border-white/[0.08] transition-all duration-[850ms] ease-out translate-y-[calc(100%-110px)] group-hover:translate-y-0 z-20 flex flex-col justify-start">
-                  <div className="absolute top-8 left-8 md:left-10 right-8 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-[850ms] ease-out">
+                <div className="absolute inset-0 w-full h-full pt-5 pb-8 px-8 md:px-10 bg-[#02050c]/98 backdrop-blur-md border-t border-white/[0.08] transition-all duration-[4000ms] ease-out translate-y-[calc(100%-110px)] group-hover:translate-y-0 z-20 flex flex-col justify-start">
+                  <div className="absolute top-8 left-8 md:left-10 right-8 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-[4000ms] ease-out">
                     <h3 className="text-lg md:text-xl font-bold tracking-tight text-[#0091ff]">{col.title}</h3>
                   </div>
-                  <div className="w-8 h-[2px] bg-white/10 rounded-full mx-auto mb-4 group-hover:bg-[#3daeff]/40 transition-colors duration-[850ms] ease-out flex-shrink-0" />
-                  <div className="relative overflow-y-auto max-h-[300px] mt-0 group-hover:mt-16 transition-all duration-[850ms] ease-out pr-1">
+                  <div className="w-8 h-[2px] bg-white/10 rounded-full mx-auto mb-4 group-hover:bg-[#3daeff]/40 transition-colors duration-[4000ms] ease-out flex-shrink-0" />
+                  <div className="relative overflow-y-auto max-h-[300px] mt-0 group-hover:mt-16 transition-all duration-[4000ms] ease-out pr-1">
                     <p className="text-[13px] md:text-sm text-white/50 leading-[1.65] font-normal group-hover:text-white/80 transition-colors duration-300 mb-6">{col.desc}</p>
-                    <ul className="space-y-3.5 text-xs text-white/45 font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-[850ms] ease-out delay-100">
+                    <ul className="space-y-3.5 text-xs text-white/45 font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-[4000ms] ease-out delay-100">
                       {col.bullets.map((bullet, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
                           <span className="text-[#3daeff] mt-0.5">•</span>
