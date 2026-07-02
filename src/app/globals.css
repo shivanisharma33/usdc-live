@@ -256,3 +256,10 @@ body {
   animation: shimmerSlide 3.5s ease-in-out infinite;
   pointer-events: none;
 }
+
+/* ═══════════════════════ Network Flow glow animation ═══════════════════════ */
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}

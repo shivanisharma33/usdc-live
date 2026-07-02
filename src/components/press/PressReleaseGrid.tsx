@@ -35,6 +35,8 @@ interface PressRelease {
   icon: React.ElementType;
   featured?: boolean;
   readTime?: string;
+  content?: string;
+  author?: string;
 }
 
 const pressReleases: PressRelease[] = [
@@ -139,12 +141,71 @@ const categoryMeshes: Record<string, string> = {
   CORPORATE: "radial-gradient(ellipse at 15% 80%, rgba(138,180,248,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(138,180,248,0.08) 0%, transparent 45%)",
 };
 
+function getCategoryAndTag(title: string): { category: string; tag: string; icon: React.ElementType } {
+  const t = title.toLowerCase();
+  if (t.includes("financial") || t.includes("results") || t.includes("revenue") || t.includes("quarter") || t.includes("q1") || t.includes("offering") || t.includes("clarification")) {
+    return {
+      category: "CORPORATE",
+      tag: t.includes("results") || t.includes("financial") ? "Financial" : t.includes("clarification") ? "Corporate" : "Stock Update",
+      icon: TrendingUp,
+    };
+  }
+  if (t.includes("agreement") || t.includes("contract") || t.includes("partner") || t.includes("signs") || t.includes("secures")) {
+    return {
+      category: "PARTNERSHIP",
+      tag: t.includes("colocation") ? "Colocation" : t.includes("sales") ? "Sales" : "Partnership",
+      icon: t.includes("colocation") ? Server : Cpu,
+    };
+  }
+  if (t.includes("nvidia") || t.includes("rubin") || t.includes("cooling") || t.includes("platform") || t.includes("ai")) {
+    return {
+      category: "TECHNOLOGY",
+      tag: t.includes("nvidia") ? "NVIDIA" : "HPC Tech",
+      icon: Cpu,
+    };
+  }
+  return {
+    category: "EXPANSION",
+    tag: "Expansion",
+    icon: Globe2,
+  };
+}
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return dateStr;
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function getExcerpt(content: string, shortDesc: string | null): string {
+  if (shortDesc) return shortDesc;
+  if (!content) return "";
+  const stripped = content.replace(/<[^>]*>/g, ""); // strip HTML tags
+  if (stripped.length <= 180) return stripped;
+  return stripped.substring(0, 180).trim() + "...";
+}
+
+function getReadTime(content: string): string {
+  if (!content) return "3 min read";
+  const words = content.replace(/<[^>]*>/g, "").split(/\s+/).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
+
 
 export default function PressReleaseGrid() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(8);
   const [inView, setInView] = useState(false);
+  const [articles, setArticles] = useState<PressRelease[]>(pressReleases);
+  const [loading, setLoading] = useState(true);
+  const [selectedArticle, setSelectedArticle] = useState<PressRelease | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -158,7 +219,40 @@ export default function PressReleaseGrid() {
     return () => observer.disconnect();
   }, []);
 
-  const filtered = pressReleases.filter((pr) => {
+  useEffect(() => {
+    async function loadArticles() {
+      try {
+        const res = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/news-articles");
+        const json = await res.json();
+        if (json && Array.isArray(json.data)) {
+          const mapped = json.data.map((item: any) => {
+            const { category, tag, icon } = getCategoryAndTag(item.title);
+            return {
+              id: item.id,
+              category,
+              date: formatDate(item.publishedDate),
+              title: item.title,
+              excerpt: getExcerpt(item.content, item.shortDescription),
+              tag,
+              icon,
+              featured: item.featured === true || item.trending === true,
+              readTime: getReadTime(item.content),
+              content: item.content,
+              author: item.author || "Digi Power X Inc.",
+            };
+          });
+          setArticles(mapped);
+        }
+      } catch (err) {
+        console.error("Failed to fetch news articles, using static fallback:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadArticles();
+  }, []);
+
+  const filtered = articles.filter((pr) => {
     const mc = activeCategory === "ALL" || pr.category === activeCategory;
     const ms = searchQuery === "" || pr.title.toLowerCase().includes(searchQuery.toLowerCase()) || pr.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return mc && ms;
@@ -183,6 +277,7 @@ export default function PressReleaseGrid() {
       <article
         key={pr.id}
         style={fadeUp(140 + idx * 70)}
+        onClick={() => setSelectedArticle(pr)}
         className={`group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${
           isFeatured ? "min-h-[380px]" : "min-h-[300px]"
         }`}
@@ -462,6 +557,94 @@ export default function PressReleaseGrid() {
           </div>
         )}
       </div>
+      {/* ── Premium Article Reader Modal ── */}
+      {selectedArticle && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 animate-fade-in">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/75 backdrop-blur-xl transition-opacity duration-300"
+            onClick={() => setSelectedArticle(null)}
+          />
+          
+          {/* Modal Container */}
+          <div className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0a1424] to-[#04070f] shadow-[0_24px_60px_rgba(0,0,0,0.8),_0_0_80px_rgba(61,174,255,0.08)] flex flex-col z-10">
+            {/* Ambient inner glow */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3daeff]/40 to-transparent" />
+            
+            {/* Header */}
+            <div className="p-6 md:p-8 border-b border-white/[0.06] flex items-start justify-between gap-6">
+              <div>
+                <span 
+                  className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full w-fit mb-4"
+                  style={{
+                    color: categoryColors[selectedArticle.category] || "#3daeff",
+                    background: `${categoryColors[selectedArticle.category] || "#3daeff"}0c`,
+                    border: `1px solid ${categoryColors[selectedArticle.category] || "#3daeff"}15`,
+                  }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: categoryColors[selectedArticle.category] || "#3daeff" }} />
+                  {selectedArticle.category}
+                </span>
+                
+                <h2 className="text-[20px] md:text-[24px] font-bold text-white leading-tight">
+                  {selectedArticle.title}
+                </h2>
+                
+                <div className="flex items-center gap-3 text-[11px] text-white/40 mt-3">
+                  <span>{selectedArticle.date}</span>
+                  <span className="w-1 h-1 rounded-full bg-white/10" />
+                  <span>By {selectedArticle.author || "Digi Power X Inc."}</span>
+                  <span className="w-1 h-1 rounded-full bg-white/10" />
+                  <span>{selectedArticle.readTime}</span>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setSelectedArticle(null)}
+                className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-white/[0.08] bg-white/[0.02] text-white/40 hover:text-white hover:bg-white/[0.05] transition-all cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+            
+            {/* Scrollable Content */}
+            <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
+              <div 
+                className="text-white/70 text-[13px] md:text-[14px] leading-[1.8] space-y-4 article-content"
+                dangerouslySetInnerHTML={{ __html: selectedArticle.content || "" }}
+              />
+            </div>
+          </div>
+          
+          {/* Styles for article content override */}
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              .article-content * {
+                color: rgba(255, 255, 255, 0.7) !important;
+                background-color: transparent !important;
+                font-family: inherit !important;
+              }
+              .article-content strong, .article-content h1, .article-content h2, .article-content h3, .article-content h4 {
+                color: #ffffff !important;
+              }
+              .article-content a {
+                color: #3daeff !important;
+                text-decoration: underline !important;
+              }
+              .article-content ul {
+                list-style-type: disc !important;
+                padding-left: 1.5rem !important;
+                margin-bottom: 1rem !important;
+              }
+              .article-content li {
+                margin-bottom: 0.5rem !important;
+                left: 0 !important;
+                padding: 0 !important;
+              }
+            `
+          }} />
+        </div>
+      )}
     </section>
   );
 }

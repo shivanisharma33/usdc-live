@@ -81,7 +81,7 @@ export default function ContactHero() {
               <span className="animate-slide-up-inner [animation-delay:160ms]">The&nbsp;</span>
             </span>
             <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Future</span>
+              <span className="animate-slide-up-inner [animation-delay:240ms] text-[#3daeff] select-none">Future</span>
             </span>{" "}
             <span className="animate-slide-up-mask">
               <span className="animate-slide-up-inner [animation-delay:320ms]">Together</span>

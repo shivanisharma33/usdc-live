@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ContactHero from "@/components/contact/ContactHero";
 import SmartContactCards from "@/components/contact/SmartContactCards";
 import ContactPortal from "@/components/contact/ContactPortal";
-import GlobalPresence from "@/components/contact/GlobalPresence";
+
 import ContactCTA from "@/components/contact/ContactCTA";
 import PartnerSection from "@/components/PartnerSection";
 
@@ -29,8 +29,7 @@ export default function ContactPage() {
       {/* Immersive communication portal (the form) */}
       <ContactPortal />
 
-      {/* Global network presence map */}
-      <GlobalPresence />
+
 
       {/* Closing call-to-action */}
       <ContactCTA />

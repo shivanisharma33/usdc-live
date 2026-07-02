@@ -334,7 +334,7 @@ export default function NvidiaRoadmap() {
             style={fadeUp(80)}
           >
             <span className="text-white block">BUILT FOR</span>
-            <span className="text-white block">NVIDIA&apos;S ROADMAP</span>
+            <span className="text-white block">NVIDIA&apos;S AI ROADMAP</span>
           </h2>
 
           {/* Description */}

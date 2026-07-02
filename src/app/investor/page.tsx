@@ -292,7 +292,7 @@ export default function InvestorPage() {
                   <span className="animate-slide-up-inner [animation-delay:0ms]">Investor&nbsp;</span>
                 </span>
                 <span className="animate-slide-up-mask">
-                  <span className="animate-slide-up-inner [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Center</span>
+                  <span className="animate-slide-up-inner [animation-delay:80ms] text-[#3daeff] select-none">Center</span>
                 </span>
               </h1>
 

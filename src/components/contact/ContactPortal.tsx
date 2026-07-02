@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import React, { useRef, useState } from "react";
 import {
   User,
@@ -13,15 +13,15 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { useReveal } from "@/components/contact/useReveal";
-
+ 
 /* ═══════════════════════ Contact Portal ═══════════════════════
    An immersive "communication portal" instead of a plain form.
    Floating glass panel with a rotating holographic border glow,
    embedded glass input containers, and real-time focus highlights.
    ═══════════════════════════════════════════════════════════════ */
-
+ 
 type FieldKey = "name" | "email" | "company" | "phone" | "service" | "message";
-
+ 
 const SERVICES = [
   "AI Compute Clusters",
   "Colocation",
@@ -31,7 +31,7 @@ const SERVICES = [
   "Managed Services",
   "Other / Not sure yet",
 ];
-
+ 
 /* Glass input wrapper with holographic focus highlight.
    Defined at module scope (NOT inside ContactPortal) so it keeps a stable
    identity across re-renders — otherwise inputs would lose focus on each
@@ -94,10 +94,10 @@ function Field({
     </div>
   );
 }
-
+ 
 const inputCls =
   "w-full bg-transparent py-3.5 text-[13px] text-white font-medium placeholder:text-white/30 outline-none";
-
+ 
 export default function ContactPortal() {
   const sectionRef = useReveal<HTMLDivElement>(110);
   const [focus, setFocus] = useState<FieldKey | "">("");
@@ -110,16 +110,63 @@ export default function ContactPortal() {
     message: "",
   });
   const [sent, setSent] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+ 
   const set = (k: FieldKey, v: string) =>
     setValues((s) => ({ ...s, [k]: v }));
-
-  const handleSubmit = (e: React.FormEvent) => {
+ 
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    window.setTimeout(() => setSent(false), 3200);
+    setIsSubmitting(true);
+    setError(null);
+ 
+    try {
+      const res = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            fullName: values.name,
+            email: values.email,
+            companyName: values.company || undefined,
+            phoneNumber: values.phone || undefined,
+            serviceInterested: values.service || undefined,
+            message: values.message,
+          },
+        }),
+      });
+ 
+      if (!res.ok) {
+        let errDetail = "";
+        try {
+          const errJson = await res.json();
+          console.error("Strapi error response:", JSON.stringify(errJson, null, 2));
+          errDetail = errJson?.error?.message || errJson?.error?.details?.errors?.map((e: any) => e.message).join(", ") || "";
+        } catch {}
+        throw new Error(`Transmission failed (${res.status})${errDetail ? ": " + errDetail : ". Please check your network or try again."}`);
+      }
+ 
+      setSent(true);
+      setValues({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+      window.setTimeout(() => setSent(false), 5000);
+    } catch (err: any) {
+      console.error("Error submitting contact form:", err);
+      setError(err.message || "Failed to transmit message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
+ 
   const fieldProps = (k: FieldKey) => ({
     fieldKey: k,
     focus,
@@ -127,7 +174,7 @@ export default function ContactPortal() {
     onFocus: () => setFocus(k),
     onBlur: () => setFocus(""),
   });
-
+ 
   return (
     <section
       id="contact-portal"
@@ -136,7 +183,7 @@ export default function ContactPortal() {
       {/* Ambient glows */}
       <div className="absolute top-[10%] left-[-8%] w-[460px] h-[460px] bg-blue-500/[0.05] rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[0%] right-[-8%] w-[440px] h-[440px] bg-cyan-400/[0.04] rounded-full blur-[140px] pointer-events-none" />
-
+ 
       <div
         ref={sectionRef}
         className="relative z-10 w-full max-w-[1180px] mx-auto px-6 md:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
@@ -149,7 +196,7 @@ export default function ContactPortal() {
               Communication Portal
             </span>
           </div>
-
+ 
           <h2 className="cx-reveal text-[34px] sm:text-[42px] font-bold tracking-tight leading-[1.08] text-white mb-5">
             Transmit your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff]">
@@ -157,13 +204,13 @@ export default function ContactPortal() {
             </span>{" "}
             to our engineers
           </h2>
-
+ 
           <p className="cx-reveal text-[14px] text-white/55 leading-[1.8] mb-8 max-w-[420px]">
             Tell us about your workload, capacity targets and timeline. Every
             submission is routed directly to a solutions architect — no
             gatekeepers, no bots.
           </p>
-
+ 
           {/* Trust points */}
           <ul className="space-y-3.5">
             {[
@@ -181,7 +228,7 @@ export default function ContactPortal() {
             ))}
           </ul>
         </div>
-
+ 
         {/* ── RIGHT: glass portal panel ── */}
         <div className="lg:col-span-7 relative cx-reveal" data-delay="200">
           {/* Rotating holographic border glow */}
@@ -194,7 +241,7 @@ export default function ContactPortal() {
               }}
             />
           </div>
-
+ 
           {/* Panel body */}
           <div className="relative rounded-[25px] bg-[#070b16]/80 backdrop-blur-2xl border border-white/[0.08] p-6 sm:p-9 shadow-[0_30px_80px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.05)]">
             {/* corner accents */}
@@ -202,7 +249,7 @@ export default function ContactPortal() {
             <span className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[#3daeff]/40 rounded-tr-lg" />
             <span className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[#3daeff]/40 rounded-bl-lg" />
             <span className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[#3daeff]/40 rounded-br-lg" />
-
+ 
             <form
               onSubmit={handleSubmit}
               className="grid grid-cols-1 sm:grid-cols-2 gap-5"
@@ -220,7 +267,7 @@ export default function ContactPortal() {
                   required
                 />
               </Field>
-
+ 
               <Field
                 {...fieldProps("email")}
                 label="Email Address"
@@ -235,7 +282,7 @@ export default function ContactPortal() {
                   required
                 />
               </Field>
-
+ 
               <Field
                 {...fieldProps("company")}
                 label="Company Name"
@@ -248,7 +295,7 @@ export default function ContactPortal() {
                   onChange={(e) => set("company", e.target.value)}
                 />
               </Field>
-
+ 
               <Field
                 {...fieldProps("phone")}
                 label="Phone Number"
@@ -262,7 +309,7 @@ export default function ContactPortal() {
                   onChange={(e) => set("phone", e.target.value)}
                 />
               </Field>
-
+ 
               <Field
                 {...fieldProps("service")}
                 label="Service Interested In"
@@ -286,7 +333,7 @@ export default function ContactPortal() {
                 </select>
                 <ChevronDown className="w-4 h-4 text-white/35 flex-shrink-0 pointer-events-none" />
               </Field>
-
+ 
               <Field
                 {...fieldProps("message")}
                 label="Message"
@@ -304,10 +351,15 @@ export default function ContactPortal() {
                   required
                 />
               </Field>
-
+ 
               {/* Submit — magnetic + glow */}
               <div className="sm:col-span-2 mt-1 cx-reveal">
-                <MagneticSubmit sent={sent} />
+                {error && (
+                  <div className="mb-4 text-center text-xs font-semibold tracking-wider text-red-400 bg-red-950/20 border border-red-500/35 rounded-xl py-3 px-4">
+                    {error}
+                  </div>
+                )}
+                <MagneticSubmit sent={sent} isSubmitting={isSubmitting} />
                 <p className="text-[11px] text-white/35 text-center mt-3.5">
                   By transmitting, you agree to our privacy policy. We respond
                   within two business hours.
@@ -320,13 +372,14 @@ export default function ContactPortal() {
     </section>
   );
 }
-
+ 
 /* Magnetic, glowing submit button */
-function MagneticSubmit({ sent }: { sent: boolean }) {
+function MagneticSubmit({ sent, isSubmitting }: { sent: boolean; isSubmitting: boolean }) {
   const ref = useRef<HTMLButtonElement | null>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-
+ 
   const onMove = (e: React.MouseEvent) => {
+    if (isSubmitting) return;
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
@@ -335,15 +388,16 @@ function MagneticSubmit({ sent }: { sent: boolean }) {
       y: (e.clientY - (r.top + r.height / 2)) * 0.35,
     });
   };
-
+ 
   return (
     <button
       ref={ref}
       type="submit"
+      disabled={isSubmitting || sent}
       onMouseMove={onMove}
       onMouseLeave={() => setOffset({ x: 0, y: 0 })}
       style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-      className="group relative w-full py-4 rounded-xl overflow-hidden text-white text-[12.5px] font-bold tracking-[0.12em] uppercase flex items-center justify-center gap-2.5 transition-transform duration-200 active:scale-[0.99]"
+      className="group relative w-full py-4 rounded-xl overflow-hidden text-white text-[12.5px] font-bold tracking-[0.12em] uppercase flex items-center justify-center gap-2.5 transition-transform duration-200 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {/* Animated gradient base */}
       <span className="absolute inset-0 bg-gradient-to-r from-[#0082f3] via-[#3daeff] to-[#0082f3] cx-gradient-flow" />
@@ -356,6 +410,11 @@ function MagneticSubmit({ sent }: { sent: boolean }) {
           <>
             <CheckCircle2 className="w-4 h-4" />
             Signal Transmitted
+          </>
+        ) : isSubmitting ? (
+          <>
+            <span className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+            Transmitting...
           </>
         ) : (
           <>

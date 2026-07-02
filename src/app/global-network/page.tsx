@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Server, Compass, Zap, Activity, Network, ShieldCheck, Cpu } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import PartnerSection from "@/components/PartnerSection";
 
 
@@ -24,8 +25,8 @@ export default function GlobalNetworkPage() {
         {/* Ambient Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/Generated%20image_%20Neon%20Earth%20in%20deep%20space.png')" }}
+            className="absolute inset-0 bg-cover bg-center opacity-50"
+            style={{ backgroundImage: "url('/global-hero-globe.png')" }}
           />
           {/* Realistic space-globe vignette (radial and linear dark gradients) */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#04070f_75%)]" />
@@ -53,7 +54,7 @@ export default function GlobalNetworkPage() {
               <span className="animate-slide-up-inner [animation-delay:0ms]">Global&nbsp;</span>
             </span>
             <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Network</span>
+              <span className="animate-slide-up-inner [animation-delay:80ms] text-[#3daeff] select-none">Network</span>
             </span>
           </h1>
 
@@ -129,13 +130,19 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
-                <Compass className="w-5 h-5 text-[#3daeff]" />
+<div className="relative z-10 flex justify-center my-4 w-full">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite' }} />
+                  <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.5s' }} />
+                  <Image src="/network-diverse-sites.png" alt="Diverse server sites" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                </div>
               </div>
-
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
                 Diverse sites, independent power profiles
               </h3>
+
+              
+
               <p className="text-white/50 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Owned nodes spread across distinct ISO regions and grid operators — so a fault in one market never propagates into customer capacity in another.
               </p>
@@ -177,13 +184,19 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
-                <Network className="w-5 h-5 text-[#3daeff]" />
+<div className="relative z-10 flex justify-center my-4 w-full">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.3s' }} />
+                  <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.8s' }} />
+                  <Image src="/network-server-rack.png" alt="Network backbone" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                </div>
               </div>
-
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
                 Inter-site fabric for replication & failover
               </h3>
+
+              
+
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 A managed backbone stitches every node into one operating fabric — replication, failover, and consistent posture across regions without leased-line gaps.
               </p>
@@ -225,13 +238,18 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
-                <Cpu className="w-5 h-5 text-[#3daeff]" />
+              <div className="relative z-10 flex justify-center my-4 w-full">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.6s' }} />
+                  <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 1.1s' }} />
+                  <Image src="/network-server-cube.png" alt="AI compute infrastructure" width={350} height={350} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                </div>
               </div>
 
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
                 Latency budget engineered for AI workloads
               </h3>
+
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Routes, optics, and switching are tuned to a strict latency budget — training clusters stay tightly coupled, inference stays close to the user.
               </p>
@@ -273,13 +291,18 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 mb-6 group-hover:border-[#3daeff]/40 group-hover:bg-[#3daeff]/15 transition-all duration-300">
-                <Activity className="w-5 h-5 text-[#3daeff]" />
+              <div className="relative z-10 flex justify-center my-4 w-full">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.9s' }} />
+                  <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 1.4s' }} />
+                  <Image src="/network-ops-dashboard.png" alt="Operations dashboard" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                </div>
               </div>
 
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
                 One ops team across the full footprint
               </h3>
+
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Network, power, and compute are observed and controlled as one — customers get a single contract, single NOC, single point of accountability.
               </p>

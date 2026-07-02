@@ -150,33 +150,33 @@ export default function DataCenterArchitecture() {
           </div>
 
           {/* ══════ RIGHT COLUMN: Animated 3D concentric model ══════ */}
-          <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-              <div className="relative w-full aspect-[680/600] max-w-[550px] md:max-w-[580px] bg-transparent">
+          <div className="lg:col-span-6 w-full flex justify-center lg:justify-end pt-10 lg:pt-14">
+              <div className="relative w-full aspect-[760/600] max-w-[620px] bg-transparent">
               
               {/* SVG concentric orbits & lines */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 680 600"
+                viewBox="0 0 760 600"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* ── Orbits & concentric rings (centered at 340, 300) ── */}
+                {/* ── Orbits & concentric rings (centered at 380, 300) ── */}
                 
                 {/* Dotted Inner Ring */}
                 <circle
-                  cx="340"
+                  cx="380"
                   cy="300"
                   r="105"
-                  className="animate-spin-ccw origin-[340px_300px]"
+                  className="animate-spin-ccw origin-[380px_300px]"
                   stroke="rgba(255, 255, 255, 0.95)"
                   strokeWidth="1.2"
                   strokeDasharray="4 6"
-                  style={{ transformOrigin: "340px 300px" }}
+                  style={{ transformOrigin: "380px 300px" }}
                 />
 
                 {/* Solid Middle Ring */}
                 <circle
-                  cx="340"
+                  cx="380"
                   cy="300"
                   r="175"
                   stroke="rgba(255, 255, 255, 0.45)"
@@ -185,19 +185,19 @@ export default function DataCenterArchitecture() {
 
                 {/* Dotted Outer Ring */}
                 <circle
-                  cx="340"
+                  cx="380"
                   cy="300"
                   r="225"
-                  className="animate-spin-cw origin-[340px_300px]"
+                  className="animate-spin-cw origin-[380px_300px]"
                   stroke="rgba(255, 255, 255, 0.95)"
                   strokeWidth="1.5"
                   strokeDasharray="5 8"
-                  style={{ transformOrigin: "340px 300px" }}
+                  style={{ transformOrigin: "380px 300px" }}
                 />
 
                 {/* Concentric glow halo */}
                 <circle
-                  cx="340"
+                  cx="380"
                   cy="300"
                   r="175"
                   className="animate-pulse-glow"
@@ -209,58 +209,58 @@ export default function DataCenterArchitecture() {
                 
                 {/* Top Line */}
                 <line
-                  x1="340"
+                  x1="380"
                   y1="300"
-                  x2="340"
+                  x2="380"
                   y2="120"
                   stroke={activeNode === 0 ? "rgba(255,255,255,1.0)" : "rgba(255,255,255,0.4)"}
                   strokeWidth="1.5"
                   className="transition-colors duration-300"
                 />
-                <circle cx="340" cy="300" r="2" fill="#ffffff">
+                <circle cx="380" cy="300" r="2" fill="#ffffff">
                   <animate attributeName="cy" from="300" to="120" dur="2.2s" repeatCount="indefinite" />
                 </circle>
 
                 {/* Right Line */}
                 <line
-                  x1="340"
+                  x1="380"
                   y1="300"
-                  x2="520"
+                  x2="560"
                   y2="300"
                   stroke={activeNode === 1 ? "rgba(255,255,255,1.0)" : "rgba(255,255,255,0.4)"}
                   strokeWidth="1.5"
                   className="transition-colors duration-300"
                 />
-                <circle cx="340" cy="300" r="2" fill="#ffffff">
-                  <animate attributeName="cx" from="340" to="520" dur="2.2s" repeatCount="indefinite" />
+                <circle cx="380" cy="300" r="2" fill="#ffffff">
+                  <animate attributeName="cx" from="380" to="560" dur="2.2s" repeatCount="indefinite" />
                 </circle>
 
                 {/* Bottom Line */}
                 <line
-                  x1="340"
+                  x1="380"
                   y1="300"
-                  x2="340"
+                  x2="380"
                   y2="480"
                   stroke={activeNode === 2 ? "rgba(255,255,255,1.0)" : "rgba(255,255,255,0.4)"}
                   strokeWidth="1.5"
                   className="transition-colors duration-300"
                 />
-                <circle cx="340" cy="300" r="2" fill="#ffffff">
+                <circle cx="380" cy="300" r="2" fill="#ffffff">
                   <animate attributeName="cy" from="300" to="480" dur="2.2s" repeatCount="indefinite" />
                 </circle>
 
                 {/* Left Line */}
                 <line
-                  x1="340"
+                  x1="380"
                   y1="300"
-                  x2="160"
+                  x2="200"
                   y2="300"
                   stroke={activeNode === 3 ? "rgba(255,255,255,1.0)" : "rgba(255,255,255,0.4)"}
                   strokeWidth="1.5"
                   className="transition-colors duration-300"
                 />
-                <circle cx="340" cy="300" r="2" fill="#ffffff">
-                  <animate attributeName="cx" from="340" to="160" dur="2.2s" repeatCount="indefinite" />
+                <circle cx="380" cy="300" r="2" fill="#ffffff">
+                  <animate attributeName="cx" from="380" to="200" dur="2.2s" repeatCount="indefinite" />
                 </circle>
 
 
@@ -268,30 +268,30 @@ export default function DataCenterArchitecture() {
 
                 {/* Top Node Text (POWER PATH) */}
                 <g className="transition-all duration-300" style={{ opacity: activeNode === null || activeNode === 0 ? 1 : 0.45 }}>
-                  <text x="340" y="45" textAnchor="middle" className="font-sans font-black text-[10px] tracking-wider uppercase" fill="#ffffff">POWER PATH</text>
-                  <text x="340" y="60" textAnchor="middle" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">High-capacity power</text>
-                  <text x="340" y="73" textAnchor="middle" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">delivery</text>
+                  <text x="380" y="22" textAnchor="middle" className="font-sans font-black text-[16px] tracking-wider uppercase" fill="#ffffff">POWER PATH</text>
+                  <text x="380" y="41" textAnchor="middle" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">High-capacity power</text>
+                  <text x="380" y="57" textAnchor="middle" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">delivery</text>
                 </g>
 
                 {/* Right Node Text (MONITORING) */}
                 <g className="transition-all duration-300" style={{ opacity: activeNode === null || activeNode === 1 ? 1 : 0.45 }}>
-                  <text x="565" y="285" textAnchor="start" className="font-sans font-black text-[10px] tracking-wider uppercase" fill="#ffffff">MONITORING</text>
-                  <text x="565" y="300" textAnchor="start" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">Real-time monitoring</text>
-                  <text x="565" y="313" textAnchor="start" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">& intelligent control</text>
+                  <text x="630" y="275" textAnchor="start" className="font-sans font-black text-[16px] tracking-wider uppercase" fill="#ffffff">MONITORING</text>
+                  <text x="630" y="297" textAnchor="start" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">Real-time monitoring</text>
+                  <text x="630" y="317" textAnchor="start" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">& intelligent control</text>
                 </g>
 
                 {/* Bottom Node Text (COMPUTE LAYER) */}
                 <g className="transition-all duration-300" style={{ opacity: activeNode === null || activeNode === 2 ? 1 : 0.45 }}>
-                  <text x="340" y="535" textAnchor="middle" className="font-sans font-black text-[10px] tracking-wider uppercase" fill="#ffffff">COMPUTE LAYER</text>
-                  <text x="340" y="550" textAnchor="middle" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">AI-ready compute</text>
-                  <text x="340" y="563" textAnchor="middle" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">infrastructure</text>
+                  <text x="380" y="545" textAnchor="middle" className="font-sans font-black text-[16px] tracking-wider uppercase" fill="#ffffff">COMPUTE LAYER</text>
+                  <text x="380" y="566" textAnchor="middle" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">AI-ready compute</text>
+                  <text x="380" y="584" textAnchor="middle" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">infrastructure</text>
                 </g>
 
                 {/* Left Node Text (HIGH DENSITY) */}
                 <g className="transition-all duration-300" style={{ opacity: activeNode === null || activeNode === 3 ? 1 : 0.45 }}>
-                  <text x="115" y="285" textAnchor="end" className="font-sans font-black text-[10px] tracking-wider uppercase" fill="#ffffff">HIGH DENSITY</text>
-                  <text x="115" y="300" textAnchor="end" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">120kW+ per-rack</text>
-                  <text x="115" y="313" textAnchor="end" className="font-sans font-normal text-[9.5px]" fill="rgba(255,255,255,0.45)">GPU power density</text>
+                  <text x="130" y="275" textAnchor="end" className="font-sans font-black text-[16px] tracking-wider uppercase" fill="#ffffff">HIGH DENSITY</text>
+                  <text x="130" y="297" textAnchor="end" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">120kW+ per-rack</text>
+                  <text x="130" y="317" textAnchor="end" className="font-sans font-normal text-[14px]" fill="rgba(255,255,255,0.45)">GPU power density</text>
                 </g>
 
               </svg>
@@ -323,8 +323,8 @@ export default function DataCenterArchitecture() {
                 </div>
 
                 {/* Central Title */}
-                <span className="text-white font-sans text-base font-black tracking-wide leading-none uppercase">USDC</span>
-                <span className="text-white/65 font-sans text-[7.5px] font-black tracking-wider uppercase leading-none mt-1">
+                <span className="text-white font-sans text-lg font-black tracking-wide leading-none uppercase">USDC</span>
+                <span className="text-white/65 font-sans text-[10px] font-black tracking-wider uppercase leading-none mt-1">
                   AI INFRASTRUCTURE
                 </span>
               </div>
@@ -333,7 +333,7 @@ export default function DataCenterArchitecture() {
 
               {/* Top Node (Power Path) */}
               <div 
-                className={`absolute w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
                   activeNode === 0 
                     ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
@@ -342,26 +342,26 @@ export default function DataCenterArchitecture() {
                 onMouseEnter={() => setActiveNode(0)}
                 onMouseLeave={() => setActiveNode(null)}
               >
-                <Zap className="w-5 h-5" strokeWidth={1.5} />
+                <Zap className="w-6 h-6" strokeWidth={1.5} />
               </div>
 
               {/* Right Node (Monitoring) */}
               <div 
-                className={`absolute w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
                   activeNode === 1 
                     ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
                 }`}
-                style={{ left: "76.47%", top: "50%", transform: "translate(-50%, -50%)" }}
+                style={{ left: "73.68%", top: "50%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(1)}
                 onMouseLeave={() => setActiveNode(null)}
               >
-                <Activity className="w-5 h-5" strokeWidth={1.5} />
+                <Activity className="w-6 h-6" strokeWidth={1.5} />
               </div>
 
               {/* Bottom Node (Compute Layer) */}
               <div 
-                className={`absolute w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
                   activeNode === 2 
                     ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
@@ -370,21 +370,21 @@ export default function DataCenterArchitecture() {
                 onMouseEnter={() => setActiveNode(2)}
                 onMouseLeave={() => setActiveNode(null)}
               >
-                <Cpu className="w-5 h-5" strokeWidth={1.5} />
+                <Cpu className="w-6 h-6" strokeWidth={1.5} />
               </div>
 
               {/* Left Node (High Density) */}
               <div 
-                className={`absolute w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
                   activeNode === 3 
                     ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
                 }`}
-                style={{ left: "23.53%", top: "50%", transform: "translate(-50%, -50%)" }}
+                style={{ left: "26.32%", top: "50%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(3)}
                 onMouseLeave={() => setActiveNode(null)}
               >
-                <Server className="w-5 h-5" strokeWidth={1.5} />
+                <Server className="w-6 h-6" strokeWidth={1.5} />
               </div>
 
             </div>

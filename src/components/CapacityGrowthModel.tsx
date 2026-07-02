@@ -378,7 +378,7 @@ export default function CapacityGrowthModel() {
       root.add(dot);
 
       const markerWorld = new THREE.Vector3(d.x, topCubeY + indLen, fz);
-      const yrWorld = new THREE.Vector3(d.x + 2.2, -0.7, 4.6);
+      const yrWorld = new THREE.Vector3(d.x, -1.6, fz);
 
       const valEl = mkLabel("val", d.val);
       const yrEl = mkLabel("yr", d.year);
