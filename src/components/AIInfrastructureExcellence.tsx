@@ -1116,7 +1116,7 @@ export default function AIInfrastructureExcellence() {
                 </div>
 
                 {/* Comparison bars column */}
-                <div className="w-full xl:w-[240px] flex flex-col justify-center gap-4 flex-shrink-0">
+                <div className="w-full xl:w-[240px] flex flex-col justify-start gap-4 flex-shrink-0 xl:mt-[48px]">
                   {/* Traditional */}
                   <div>
                     <div className="flex justify-between items-center text-[10px] font-bold text-white/50 tracking-wider mb-2 uppercase">
@@ -1150,14 +1150,14 @@ export default function AIInfrastructureExcellence() {
           <div className="grid grid-cols-1 lg:grid-cols-[3.5fr_3fr_3.5fr] gap-3 md:gap-4">
             {/* Card 3: ADVANCED COOLING */}
             <div
-              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)]"
               style={{
                 ...fadeUp(260),
               }}
             >
               <div className="relative z-10 flex flex-col justify-between h-full min-h-[190px]">
                 <div>
-                  <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                  <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                     3.
                   </span>
                   <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
@@ -1175,15 +1175,15 @@ export default function AIInfrastructureExcellence() {
 
             {/* Card 4: AI OPTIMIZED */}
             <div
-              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
               style={{
                 ...fadeUp(320),
               }}
             >
               <div className="relative z-10 max-w-[55%]">
-                <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   4.
-                </span>
+                  </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
                   AI OPTIMIZED
                 </h3>
@@ -1198,13 +1198,13 @@ export default function AIInfrastructureExcellence() {
 
             {/* Card 5: ENTERPRISE GRADE */}
             <div
-              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
+              className="relative rounded-[16px] border border-white/[0.08] bg-[#060b18]/60 backdrop-blur-md p-5 md:p-7 overflow-hidden group transition-all duration-500 hover:border-[#3daeff]/35 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.55),0_0_20px_rgba(61,174,255,0.08)] min-h-[200px]"
               style={{
                 ...fadeUp(380),
               }}
             >
               <div className="relative z-10 max-w-[60%] sm:max-w-[55%]">
-                <span className="text-3xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   5.
                 </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">

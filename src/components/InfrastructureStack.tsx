@@ -33,19 +33,31 @@ export default function InfrastructureStack() {
   const features = [
     {
       title: "Power Infrastructure",
-      desc: "Grid-Connected Energy Assets Designed For Large-Scale AI Growth.",
+      desc: (
+        <>Grid-Connected Energy Assets Designed For Large-Scale AI Growth.</>
+      ),
     },
     {
       title: "Cooling & Network",
-      desc: "Direct-To-Chip Cooling And High-Speed Networking For Dense Workloads.",
+      desc: (
+        <>
+          Direct-To-Chip Cooling And High-Speed Networking For <br /> Dense Workloads.
+        </>
+      ),
     },
     {
       title: "GPU Compute",
-      desc: "NVIDIA-Ready Environments Optimized For Training And Inference.",
+      desc: (
+        <>NVIDIA-Ready Environments Optimized For Training And Inference.</>
+      ),
     },
     {
       title: "AI Applications",
-      desc: "Enterprise AI, Cloud Services, Inference Platforms, And Advanced Research.",
+      desc: (
+        <>
+          Enterprise AI, Cloud Services, Inference Platforms, And <br /> Advanced Research.
+        </>
+      ),
     },
   ];
 
@@ -101,7 +113,7 @@ export default function InfrastructureStack() {
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/40 max-w-[500px] leading-[1.6] font-normal font-sans">
-            USDC delivers the complete infrastructure stack required for next-generation AI deployment.
+            USDC delivers the complete infrastructure stack required for <br /> next-generation AI deployment.
           </p>
         </div>
 

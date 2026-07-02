@@ -307,12 +307,12 @@ export default function CapacityGrowthModel() {
       e.className = "lbl " + cls;
       e.textContent = txt;
       e.style.position = "absolute";
-      e.style.color = "#fff";
+      e.style.color = cls === "yr" ? "#3daeff" : "#fff";
       e.style.fontFamily = "Arial, Helvetica, sans-serif";
       e.style.pointerEvents = "none";
       e.style.whiteSpace = "nowrap";
       e.style.transform = "translate(-50%, -50%)";
-      e.style.textShadow = "0 0 8px rgba(255, 255, 255, 0.35)";
+      e.style.textShadow = cls === "yr" ? "0 0 12px rgba(61, 174, 255, 0.65)" : "0 0 8px rgba(255, 255, 255, 0.35)";
       e.style.opacity = "0";
       e.style.transition = "opacity .6s ease";
       if (cls === "val") {
@@ -321,7 +321,7 @@ export default function CapacityGrowthModel() {
         e.style.letterSpacing = "1px";
       } else if (cls === "yr") {
         e.style.fontSize = "24px";
-        e.style.fontWeight = "400";
+        e.style.fontWeight = "bold";
         e.style.letterSpacing = "2px";
       }
       labelsContainer.appendChild(e);
@@ -378,7 +378,7 @@ export default function CapacityGrowthModel() {
       root.add(dot);
 
       const markerWorld = new THREE.Vector3(d.x, topCubeY + indLen, fz);
-      const yrWorld = new THREE.Vector3(d.x - 1.6, -0.7, 4.6);
+      const yrWorld = new THREE.Vector3(d.x + 2.2, -0.7, 4.6);
 
       const valEl = mkLabel("val", d.val);
       const yrEl = mkLabel("yr", d.year);

@@ -293,9 +293,9 @@ export default function NvidiaRoadmap() {
 
   const stats = [
     { value: "120KW", label: "PER RACK" },
-    { value: "DLC", label: "LIQUID\nCOOLING" },
-    { value: "100%", label: "AI\nREADY" },
-    { value: "4 Weeks", label: "DEPLOYM\nENT" },
+    { value: "DLC", label: "LIQUID COOLING" },
+    { value: "100%", label: "AI READY" },
+    { value: "4 Weeks", label: "DEPLOYMENT" },
   ];
 
   return (
@@ -467,7 +467,7 @@ export default function NvidiaRoadmap() {
               <span className="text-[20px] md:text-[22px] font-black text-white tracking-tight leading-none mb-2 text-center group-hover:text-[#3daeff] group-hover:drop-shadow-[0_0_8px_rgba(61,174,255,0.4)] transition-all duration-300">
                 {stat.value}
               </span>
-              <span className="text-[8px] font-bold text-white/30 tracking-[0.2em] uppercase whitespace-pre-line leading-[1.4] text-center group-hover:text-white/50 transition-colors duration-300">
+              <span className="text-[8px] font-bold text-white/30 tracking-[0.2em] uppercase whitespace-nowrap leading-[1.4] text-center group-hover:text-white/50 transition-colors duration-300">
                 {stat.label}
               </span>
             </div>

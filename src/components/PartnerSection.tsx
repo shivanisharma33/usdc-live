@@ -40,9 +40,9 @@ export default function PartnerSection() {
 
             {/* Subtext */}
             <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[500px] mt-6 font-sans">
-              Whether you need co-location, a turnkey data center build, or bare-metal
-              GPU compute - USDC provides the infrastructure, the scale, and the team
-              to deliver.
+              Whether you need co-location, a turnkey data center build, or bare-metal <br className="hidden sm:inline" />
+              GPU compute - USDC provides the infrastructure, the scale <br className="hidden sm:inline" />
+              and the team to deliver.
             </p>
           </div>
 
@@ -87,7 +87,7 @@ export default function PartnerSection() {
                       PERFORMANCE WITHOUT COMPROMISE
                     </span>
                     <span className="text-[12px] text-white/50 leading-relaxed font-normal">
-                      High-density power, advanced cooling, and elite connectivity for AI at scale.
+                      High-density power, advanced cooling, and elite connectivity for <br className="hidden sm:inline" /> AI at scale.
                     </span>
                   </div>
                 </div>

@@ -41,7 +41,7 @@ const articlesData: Article[] = [
   {
     id: "blackwell-expansion",
     title: "The Blackwell Expansion: Scaling to 120MW Capacity",
-    excerpt: "An in-depth look at USDC's latest grid-scale integration, enabling rapid deployment of liquid-cooled Blackwell architectures within a 12-month timeline.",
+    excerpt: "An in-depth look at USDC's latest grid-scale integration, enabling rapid deployment of liquid-cooled Blackwell architectures within\na 12-month timeline.",
     category: "Infrastructure",
     image: "/news_ai_chip.png",
     readTime: "6 Min Read",
@@ -329,8 +329,8 @@ export default function NewsInsightsPage() {
                 </h2>
 
                 {/* Excerpt */}
-                <p className="text-[14px] md:text-[16px] text-white/50 leading-relaxed font-normal max-w-xl">
-                  {featuredStory.excerpt}
+                <p className="text-[14px] md:text-[16px] text-white/50 leading-relaxed font-normal max-w-xl whitespace-pre-line">
+                  {featuredStory.excerpt.replace(/\s+(\S+)$/, '\u00a0$1')}
                 </p>
               </div>
 
@@ -581,7 +581,7 @@ export default function NewsInsightsPage() {
               <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tight leading-none">
                 Subscribe to USDC insights
               </h2>
-              <p className="text-sm text-white/50 max-w-sm mx-auto leading-relaxed">
+              <p className="text-sm text-white/50 max-w-3xl mx-auto leading-relaxed">
                 Receive modular server updates, clean energy grid analytics, and computing infrastructure breakthroughs directly to your terminal.
               </p>
             </div>

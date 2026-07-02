@@ -113,7 +113,7 @@ export default function Hero() {
 
         {/* Metric 1 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Zap className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
+          <Zap className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             1-50MW+
           </span>
@@ -127,7 +127,7 @@ export default function Hero() {
 
         {/* Metric 2 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Clock className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
+          <Clock className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             4 Months
           </span>
@@ -141,7 +141,7 @@ export default function Hero() {
 
         {/* Metric 3 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Shield className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
+          <Shield className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             TIER III
           </span>
@@ -155,7 +155,7 @@ export default function Hero() {
 
         {/* Metric 4 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Cpu className="w-5 h-5 text-[#3daeff] opacity-90 metric-icon" />
+          <Cpu className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
           <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             100%
           </span>

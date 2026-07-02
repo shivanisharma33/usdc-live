@@ -75,12 +75,12 @@ function Arms300Visual() {
    ────────────────────────────────────────────────────────────────────────── */
 function SupermicroLogo() {
   return (
-    <div className="flex items-center justify-center bg-black/40 px-3 py-2 rounded-xl border border-white/[0.04] w-28 h-12 relative overflow-hidden">
+    <div className="flex items-center justify-center bg-black/40 px-2 py-1 rounded-xl border border-white/[0.04] w-40 h-14 relative overflow-hidden">
       <Image
         src="/supermicro_logo.png"
         alt="Supermicro Logo"
-        width={96}
-        height={24}
+        width={140}
+        height={40}
         className="object-contain w-full h-full"
       />
     </div>
@@ -89,12 +89,26 @@ function SupermicroLogo() {
 
 function NvidiaLogo() {
   return (
-    <div className="flex items-center justify-center bg-black/40 px-3 py-2 rounded-xl border border-white/[0.04] w-28 h-12 relative overflow-hidden">
+    <div className="flex items-center justify-center bg-black/40 px-2 py-1 rounded-xl border border-white/[0.04] w-40 h-14 relative overflow-hidden">
       <Image
         src="/nvidia_logo.png"
         alt="NVIDIA Logo"
-        width={96}
-        height={24}
+        width={140}
+        height={40}
+        className="object-contain w-full h-full"
+      />
+    </div>
+  );
+}
+
+function DigipowerxLogo() {
+  return (
+    <div className="flex items-center justify-center bg-black/40 px-2 py-1 rounded-xl border border-white/[0.04] w-40 h-14 relative overflow-hidden">
+      <Image
+        src="/Digipowerx.webp"
+        alt="DigiPowerX Logo"
+        width={140}
+        height={40}
         className="object-contain w-full h-full"
       />
     </div>
@@ -292,7 +306,7 @@ export default function ArmsTechnicalSpecs() {
               {/* Partner Badges */}
               <div className="w-full flex flex-col gap-4">
                 {/* Partner 1: Super Micro */}
-                <div className="flex items-center justify-between p-4 rounded-xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.02] transition-colors duration-300">
+                <div className="flex items-center justify-between py-3 px-4 rounded-xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.02] transition-colors duration-300">
                   <div className="flex flex-col items-start text-left">
                     <span className="text-xs md:text-sm font-bold text-white tracking-wide">
                       Super Micro Computer
@@ -305,7 +319,7 @@ export default function ArmsTechnicalSpecs() {
                 </div>
 
                 {/* Partner 2: NVIDIA */}
-                <div className="flex items-center justify-between p-4 rounded-xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.02] transition-colors duration-300">
+                <div className="flex items-center justify-between py-3 px-4 rounded-xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.02] transition-colors duration-300">
                   <div className="flex flex-col items-start text-left">
                     <span className="text-xs md:text-sm font-bold text-white tracking-wide">
                       NVIDIA
@@ -315,6 +329,19 @@ export default function ArmsTechnicalSpecs() {
                     </span>
                   </div>
                   <NvidiaLogo />
+                </div>
+
+                {/* Partner 3: DigiPowerX */}
+                <div className="flex items-center justify-between py-3 px-4 rounded-xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.02] transition-colors duration-300">
+                  <div className="flex flex-col items-start text-left">
+                    <span className="text-xs md:text-sm font-bold text-white tracking-wide">
+                      DigiPowerX
+                    </span>
+                    <span className="text-[10px] text-white/40 mt-1">
+                      Energy Infrastructure & Compute Platforms
+                    </span>
+                  </div>
+                  <DigipowerxLogo />
                 </div>
               </div>
             </div>

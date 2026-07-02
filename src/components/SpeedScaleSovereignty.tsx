@@ -335,13 +335,12 @@ export default function SpeedScaleSovereignty() {
             {/* ═══ Right Column: Dynamic View Panels ═══ */}
             <div className="w-full flex items-center justify-center">
 
-              {/* ── SPEED TAB VIEW ── */}
               {activeTab === "speed" && (
                 <div className="tab-content-enter w-full">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0 w-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
 
                     {/* Stat 1: 10x */}
-                    <div className="speed-card flex flex-col items-start pb-6 border-b border-white/[0.08] sm:border-b-0 sm:pb-0 sm:pr-6 md:pr-8 sm:border-r sm:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                    <div className="speed-card flex flex-col items-start w-full rounded-2xl p-6 md:p-8 border border-white/[0.08] bg-[#02050c]/25 hover:border-[#3daeff]/35 hover:bg-white/[0.02] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <Gauge className="w-5 h-5" />
                       </div>
@@ -357,7 +356,7 @@ export default function SpeedScaleSovereignty() {
                     </div>
 
                     {/* Stat 2: N+1 */}
-                    <div className="speed-card flex flex-col items-start py-6 border-b border-white/[0.08] sm:py-0 sm:border-b-0 sm:px-6 md:px-8 sm:border-r sm:border-white/[0.08] rounded-xl p-4 lg:p-3 xl:p-4">
+                    <div className="speed-card flex flex-col items-start w-full rounded-2xl p-6 md:p-8 border border-white/[0.08] bg-[#02050c]/25 hover:border-[#3daeff]/35 hover:bg-white/[0.02] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <ShieldCheck className="w-5 h-5" />
                       </div>
@@ -373,7 +372,7 @@ export default function SpeedScaleSovereignty() {
                     </div>
 
                     {/* Stat 3: 50MW+ */}
-                    <div className="speed-card flex flex-col items-start pt-6 sm:pt-0 sm:pl-6 md:pl-8 rounded-xl p-4 lg:p-3 xl:p-4">
+                    <div className="speed-card flex flex-col items-start w-full rounded-2xl p-6 md:p-8 border border-white/[0.08] bg-[#02050c]/25 hover:border-[#3daeff]/35 hover:bg-white/[0.02] shadow-[0_12px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-300">
                       <div className="speed-icon w-[44px] h-[44px] rounded-full border border-[#3daeff]/35 flex items-center justify-center mb-4 text-[#3daeff] transition-all duration-300">
                         <BarChart3 className="w-5 h-5" />
                       </div>
