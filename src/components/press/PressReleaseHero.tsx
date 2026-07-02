@@ -25,7 +25,7 @@ export default function PressReleaseHero() {
     <section
       ref={heroRef}
       className="relative w-full min-h-[100vh] overflow-hidden flex flex-col items-center justify-center"
-      style={{ background: "#030810" }}
+      style={{ background: "#04070f" }}
     >
       {/* ── Custom keyframes ── */}
       <style
@@ -67,28 +67,28 @@ export default function PressReleaseHero() {
         className="absolute top-0 left-0 w-full pointer-events-none z-[5]"
         style={{
           height: "30%",
-          background: "linear-gradient(to bottom, #030810 0%, transparent 100%)",
+          background: "linear-gradient(to bottom, #04070f 0%, transparent 100%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-full pointer-events-none z-[5]"
         style={{
           height: "35%",
-          background: "linear-gradient(to top, #030810 0%, transparent 100%)",
+          background: "linear-gradient(to top, #04070f 0%, transparent 100%)",
         }}
       />
       <div
         className="absolute top-0 left-0 h-full pointer-events-none z-[5]"
         style={{
           width: "20%",
-          background: "linear-gradient(to right, #030810 0%, transparent 100%)",
+          background: "linear-gradient(to right, #04070f 0%, transparent 100%)",
         }}
       />
       <div
         className="absolute top-0 right-0 h-full pointer-events-none z-[5]"
         style={{
           width: "20%",
-          background: "linear-gradient(to left, #030810 0%, transparent 100%)",
+          background: "linear-gradient(to left, #04070f 0%, transparent 100%)",
         }}
       />
 

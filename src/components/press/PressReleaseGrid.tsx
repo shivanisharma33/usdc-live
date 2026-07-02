@@ -126,17 +126,17 @@ const categories = ["ALL", "PARTNERSHIP", "EXPANSION", "TECHNOLOGY", "CORPORATE"
 
 const categoryColors: Record<string, string> = {
   PARTNERSHIP: "#3daeff",
-  EXPANSION: "#10b981",
-  TECHNOLOGY: "#a855f7",
-  CORPORATE: "#f59e0b",
+  EXPANSION: "#0091ff",
+  TECHNOLOGY: "#58c4ff",
+  CORPORATE: "#8ab4f8",
 };
 
 /* Mesh gradient background per category */
 const categoryMeshes: Record<string, string> = {
   PARTNERSHIP: "radial-gradient(ellipse at 15% 80%, rgba(61,174,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(61,174,255,0.08) 0%, transparent 45%)",
-  EXPANSION: "radial-gradient(ellipse at 15% 80%, rgba(16,185,129,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(16,185,129,0.08) 0%, transparent 45%)",
-  TECHNOLOGY: "radial-gradient(ellipse at 15% 80%, rgba(168,85,247,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(168,85,247,0.08) 0%, transparent 45%)",
-  CORPORATE: "radial-gradient(ellipse at 15% 80%, rgba(245,158,11,0.10) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(245,158,11,0.07) 0%, transparent 45%)",
+  EXPANSION: "radial-gradient(ellipse at 15% 80%, rgba(0,145,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(0,145,255,0.08) 0%, transparent 45%)",
+  TECHNOLOGY: "radial-gradient(ellipse at 15% 80%, rgba(88,196,255,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(88,196,255,0.08) 0%, transparent 45%)",
+  CORPORATE: "radial-gradient(ellipse at 15% 80%, rgba(138,180,248,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(138,180,248,0.08) 0%, transparent 45%)",
 };
 
 
@@ -247,9 +247,9 @@ export default function PressReleaseGrid() {
                 {pr.category}
               </span>
 
-              <div className="flex items-center gap-3 text-[10px] text-white/25 font-medium">
+              <div className="flex items-center gap-3 text-[10px] text-white/45 font-medium">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3 opacity-50" />
+                  <Calendar className="w-3 h-3 opacity-60" />
                   {pr.date}
                 </span>
                 {pr.readTime && (
@@ -293,7 +293,7 @@ export default function PressReleaseGrid() {
             </h3>
 
             <p
-              className={`text-white/28 leading-[1.7] group-hover:text-white/38 transition-colors duration-300 ${
+              className={`text-white/50 leading-[1.7] group-hover:text-white/70 transition-colors duration-300 ${
                 isFeatured
                   ? "text-[13px] line-clamp-3"
                   : "text-[12px] line-clamp-2"
@@ -305,7 +305,7 @@ export default function PressReleaseGrid() {
 
           {/* Footer */}
           <div className="flex items-center justify-between mt-6 pt-5 border-t border-white/[0.04]">
-            <span className="text-[9px] font-bold text-white/18 tracking-[0.18em] uppercase">
+            <span className="text-[9px] font-bold text-white/40 tracking-[0.18em] uppercase">
               {pr.tag}
             </span>
 
@@ -329,7 +329,7 @@ export default function PressReleaseGrid() {
     <section
       ref={sectionRef}
       className="relative w-full py-20 md:py-28 overflow-hidden"
-      style={{ background: "#030810" }}
+      style={{ background: "#04070f" }}
     >
       {/* ── Ambient glow ── */}
       <div
@@ -360,7 +360,7 @@ export default function PressReleaseGrid() {
             className="text-[32px] sm:text-[42px] md:text-[50px] font-extralight tracking-[-0.02em] leading-[1.08] text-white mb-4"
           >
             Articles{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec8ff] via-[#3daeff] to-[#a78bfa]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec8ff] via-[#3daeff] to-[#0091ff]">
               for you
             </span>
           </h2>
