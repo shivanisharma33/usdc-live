@@ -21,6 +21,18 @@ export default function GlobalNetworkPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-12 px-4 md:pt-28 md:pb-16 md:px-6 overflow-hidden">
+        {/* Ambient Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/Generated%20image_%20Neon%20Earth%20in%20deep%20space.png')" }}
+          />
+          {/* Realistic space-globe vignette (radial and linear dark gradients) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#04070f_75%)]" />
+          <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#04070f] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#04070f] to-transparent" />
+        </div>
+
         {/* Top Center Massive Ambient Blue Glow behind Navbar & Hero */}
         <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-500/[0.08] rounded-full blur-[130px] pointer-events-none" />
 
@@ -37,8 +49,12 @@ export default function GlobalNetworkPage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 text-center uppercase">
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Global&nbsp;</span>
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Network</span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:0ms]">Global&nbsp;</span>
+            </span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Network</span>
+            </span>
           </h1>
 
           <p className="text-white/60 text-sm md:text-[16px] max-w-xl mb-10 leading-relaxed font-medium tracking-wide text-center">

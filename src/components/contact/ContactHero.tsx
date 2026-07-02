@@ -71,11 +71,21 @@ export default function ContactHero() {
           <h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10"
           >
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Let&apos;s&nbsp;</span>
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms]">Build&nbsp;</span>
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms]">The&nbsp;</span>
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Future</span>{" "}
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms]">Together</span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:0ms]">Let&apos;s&nbsp;</span>
+            </span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:80ms]">Build&nbsp;</span>
+            </span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:160ms]">The&nbsp;</span>
+            </span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:240ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Future</span>
+            </span>{" "}
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:320ms]">Together</span>
+            </span>
           </h1>
 
           {/* Supporting copy */}

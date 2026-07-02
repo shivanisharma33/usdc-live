@@ -51,6 +51,15 @@ body {
   }
 }
 
+@keyframes slideUpMask {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 @keyframes float {
 
   0%,
@@ -69,6 +78,20 @@ body {
 
 .animate-slide-up {
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up-mask {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.animate-slide-up-inner {
+  display: inline-block;
+  transform: translateY(115%);
+  animation: slideUpMask 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-float {
@@ -232,4 +255,4 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(61,174,255,0.06) 50%, transparent 100%);
   animation: shimmerSlide 3.5s ease-in-out infinite;
   pointer-events: none;
-}
+}

@@ -64,10 +64,16 @@ export default function EnergyPage() {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-wide max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Grid-Scale&nbsp;</span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:0ms]">Grid-Scale&nbsp;</span>
+            </span>
             <br />
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Energy&nbsp;</span>
-            <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Energy&nbsp;</span>
+            </span>
+            <span className="animate-slide-up-mask">
+              <span className="animate-slide-up-inner [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
+            </span>
           </h1>
 
           {/* Description */}

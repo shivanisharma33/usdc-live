@@ -37,14 +37,28 @@ export default function Hero() {
 
       {/* Hero Title */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10">
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:0ms]">Deploy&nbsp;</span>
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:0ms]">Deploy&nbsp;</span>
+        </span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:80ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">AI&nbsp;</span>
+        </span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:160ms] text-transparent bg-clip-text bg-gradient-to-r from-[#58c4ff] to-[#0091ff] drop-shadow-[0_4px_18px_rgba(61,174,255,0.25)] select-none">Infrastructure</span>
+        </span>
         <br />
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:240ms]">in&nbsp;</span>
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:320ms]">Months&nbsp;</span>
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:400ms]">Not&nbsp;</span>
-        <span className="inline-block animate-slide-up [animation-fill-mode:both] [animation-delay:480ms]">Years</span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:240ms]">in&nbsp;</span>
+        </span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:320ms]">Months&nbsp;</span>
+        </span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:400ms]">Not&nbsp;</span>
+        </span>
+        <span className="animate-slide-up-mask">
+          <span className="animate-slide-up-inner [animation-delay:480ms]">Years</span>
+        </span>
       </h1>
 
       {/* Hero Description */}
