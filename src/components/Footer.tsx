@@ -82,11 +82,11 @@ export default function Footer() {
           <div className="lg:col-span-6 flex flex-col items-start">
             <Link href="/" className="hover:opacity-80 transition-opacity duration-200">
               <Image
-                src="/USDC_3 1.png"
+                src="/USDC 2.png"
                 alt="USDC Logo"
-                width={140}
-                height={50}
-                className="h-[46px] w-auto"
+                width={180}
+                height={60}
+                className="h-[52px] w-auto"
                 priority
               />
             </Link>
