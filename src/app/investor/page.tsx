@@ -314,10 +314,10 @@ export default function InvestorPage() {
                   <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
                 </Link>
                 <Link
-                  href="/sec-filings"
+                  href="/news-insights"
                   className="group inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-7 py-4 rounded-xl text-white text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white/[0.06] hover:border-white/20 transition-all backdrop-blur-sm"
                 >
-                  <span>SEC Filings</span>
+                  <span>News & Insights</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
               </div>

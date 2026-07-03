@@ -172,6 +172,7 @@ export default function ArmsTechnicalSpecs() {
 
   return (
     <section
+      id="arms-specs"
       ref={containerRef}
       className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 border-t border-white/[0.03]"
     >
@@ -282,8 +283,12 @@ export default function ArmsTechnicalSpecs() {
                 </p>
               </div>
               {/* Graphic */}
-              <div className="flex-shrink-0 relative overflow-hidden rounded-xl border border-white/[0.03] bg-black/20 p-2 group-hover:border-[#3daeff]/20 transition-all duration-300">
-                <Arms300Visual />
+              <div className="flex-shrink-0 relative overflow-hidden rounded-xl p-2 transition-all duration-300">
+                <img
+                  src="/Arms 300.webp"
+                  alt="ARMS 300 Model"
+                  className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] object-contain transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
             </div>
 

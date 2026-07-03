@@ -15,31 +15,36 @@ const timelineData: TimelineItem[] = [
     year: "2023",
     title: "SITE ACQUISITION",
     desc: "Identified key energy assets with long-term power potential and strategic infrastructure reach.",
-    imagePath: "/332de600-677f-4fdb-8e72-664e8eec1de9.png"
+   
+     imagePath: "/013e20fe-e810-4412-abe2-7ea19eafdfd7.webp"
   },
   {
     year: "2024",
     title: "INFRASTRUCTURE DESIGN",
     desc: "Designed utility infrastructure and integrated Tier III standard architecture.",
-    imagePath: "/308ee32e-a4cb-4251-9965-4a9d008c1261.png"
+     imagePath: "/dac65ca0-3720-4961-b0a0-4e8c0717606e.webp"
+    
   },
   {
     year: "2025",
     title: "AI EXPANSION",
+   
     desc: "Deployed ARMS 200 platform and enabled GPU-ready compute environments.",
-    imagePath: "/04c730bd-49ee-4c91-9bf1-10a294e20032.png"
+    imagePath: "/4c1111db-a838-4990-998d-8313badaf9bc.webp"
+     
+
   },
   {
     year: "2026",
     title: "OPERATIONAL DEPLOYMENT",
     desc: "Scaled infrastructure capacity and onboarded enterprise AI workloads.",
-    imagePath: "/0f1f4fcb-e002-4ef6-b681-20c540ef8203.png"
+    imagePath: "/6cf1770a-3599-4397-b86b-84cc9e139d6d.webp"
   },
   {
     year: "+2030",
     title: "400MW+ POTENTIAL CAPACITY",
     desc: "Expanding multi-site infrastructure network to support next-wave AI growth.",
-    imagePath: "/c97f7fe4-94cf-4ff1-8ee2-87d5fd86e2c1.png"
+       imagePath: "/c639f2e7-d601-41bb-b53d-732956c33826.webp"
   }
 ];
 

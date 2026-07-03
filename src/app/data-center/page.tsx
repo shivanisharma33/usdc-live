@@ -48,10 +48,20 @@ export default function DataCenterPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden select-none">
-        {/* Ambient Background Glows */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/90 via-[#04070f]/20 to-transparent pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.08] rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          style={{ filter: "brightness(0.4)" }}
+        >
+          <source src="/0703(1).mp4" type="video/mp4" />
+        </video>
+
+        {/* Ambient Blue Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.08] rounded-full blur-[140px] pointer-events-none z-[2]" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="flex flex-col items-center text-center max-w-5xl mx-auto animate-fade-in">
@@ -78,28 +88,15 @@ export default function DataCenterPage() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto mx-auto">
+            <div className="flex justify-center w-full relative z-10">
               <a
                 href="#facilities"
-                className="group flex-1 flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap"
               >
                 <span>EXPLORE FACILITIES</span>
                 <svg className="w-5 h-5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
                   <path d="M6.5 10H13.5M13.5 10L10.5 7M13.5 10L10.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-
-              <a
-                href="/brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex-1 flex items-center justify-center gap-3 px-6 py-3.5 border border-white/20 hover:border-white/50 bg-transparent text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap"
-              >
-                <span>DOWNLOAD BROCHURE</span>
-                <svg className="w-5 h-5 text-white/90 transition-transform duration-200 group-hover:translate-y-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M10 6.5V13.5M10 13.5L7 10.5M10 13.5L13 10.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
             </div>

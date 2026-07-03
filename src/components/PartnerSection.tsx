@@ -111,7 +111,7 @@ export default function PartnerSection() {
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center gap-2.5 px-5 py-3.5 border border-white/15 hover:border-white/40 bg-transparent text-white text-[11px] font-black tracking-wider uppercase rounded-lg transition-all duration-200"
                 >
-                  <span>CAPABILITY DECK</span>
+                  <span>VIEW DECK</span>
                   <div className="flex items-center justify-center w-4 h-4 rounded-full border border-white/25 text-white transition-transform group-hover:translate-x-0.5">
                     <ArrowRight className="w-2.5 h-2.5" strokeWidth={3} />
                   </div>

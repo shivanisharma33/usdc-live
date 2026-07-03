@@ -87,7 +87,7 @@ export default function TeamGrid() {
     {
       id: "hans-vestberg",
       name: "Hans Vestberg",
-      role: "Senior Advisor",
+      role: "Co-Founder",
       image: "/images/97.jpg",
       bio: "Cybersecurity strategist safeguarding DigiPowerX's high-performance compute networks, physical assets, and data sovereignty."
     }

@@ -77,9 +77,9 @@ export default function Hero() {
           </div>
         </Link>
 
-        {/* Download PDF */}
+        {/* Latest Presentation */}
         <Link href="/contact" className="w-full sm:w-auto px-6 py-3.5 border border-white/12 hover:border-[#3daeff]/30 hover:bg-white/[0.02] text-white/90 hover:text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all duration-200 cursor-pointer">
-          <span>Download PDF</span>
+          <span>Latest Presentation</span>
           <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/20">
             <ArrowDown className="w-3 h-3 text-white/70" />
           </div>

@@ -58,33 +58,16 @@ export default function AboutHero() {
             infrastructure designed for next-generation compute and AI deployment.
           </p>
 
-          {/* ── Capsule Joined Button Group ── */}
-          <div className="inline-flex items-center border border-white/12 rounded-lg bg-[#02050c]/50 p-[1.5px] overflow-hidden backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-
-            {/* Left Button: Download Overview (Filled blue with white text) */}
-            <a
-              href="/docs/overview.pdf"
-              download
-              className="group flex items-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-l-[6.5px] transition-all duration-200 cursor-pointer"
-            >
-              <span>Download Overview</span>
-              <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40 group-hover:border-white/70 transition-colors">
-                <ArrowRight className="w-2.5 h-2.5 text-white transition-transform duration-200 group-hover:translate-x-0.5" />
-              </div>
-            </a>
-
-            {/* Right Button: Get in Touch (Transparent background) */}
-            <Link
-              href="/contact"
-              className="group flex items-center gap-2 px-6 py-3 text-white/80 hover:text-white text-[13px] font-bold transition-all duration-200 cursor-pointer"
-            >
-              <span>Get in Touch</span>
-              <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/20 group-hover:border-white/45 transition-colors">
-                <ArrowRight className="w-2.5 h-2.5 text-white/80 transition-transform duration-200 group-hover:translate-x-0.5" />
-              </div>
-            </Link>
-
-          </div>
+          {/* Get in Touch Button */}
+          <Link
+            href="/contact"
+            className="group flex items-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-lg transition-all duration-200 cursor-pointer shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_24px_rgba(61,174,255,0.4)]"
+          >
+            <span>Get in Touch</span>
+            <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40 group-hover:border-white/70 transition-colors">
+              <ArrowRight className="w-2.5 h-2.5 text-white transition-transform duration-200 group-hover:translate-x-0.5" />
+            </div>
+          </Link>
 
         </div>
 

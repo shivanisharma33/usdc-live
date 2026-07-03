@@ -304,7 +304,7 @@ export default function NewsInsightsPage() {
                 </div>
 
                 <div className="flex items-center gap-2 bg-[#3daeff] text-black px-6 py-3 rounded-xl font-bold text-[11px] uppercase tracking-widest shadow-md hover:bg-white hover:text-black transition-all duration-300">
-                  <span>Open Dossier</span>
+                  <span>View</span>
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
               </div>
@@ -417,7 +417,7 @@ export default function NewsInsightsPage() {
               {/* Bottom footer bar */}
               <div className="px-6 md:px-8 pb-8 pt-4 flex justify-between items-center border-t border-white/5">
                 <span className="text-[10px] font-mono tracking-widest text-[#3daeff]/60 font-semibold group-hover:text-[#3daeff] transition-colors">
-                  VIEW DOSSIER
+                  VIEW
                 </span>
                 <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/[0.01] group-hover:bg-[#3daeff] group-hover:text-black group-hover:border-[#3daeff] transition-all duration-300">
                   <ArrowUpRight className="w-4.5 h-4.5 stroke-[2]" />
