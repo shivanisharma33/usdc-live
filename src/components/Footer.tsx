@@ -195,15 +195,15 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-white/30 font-bold font-sans text-center sm:text-left">
           <span>© 2026 USDC. All rights reserved.</span>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2">
-            <a href="#" className="hover:text-white transition-colors duration-200">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white transition-colors duration-200">
+            </Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors duration-200">
               Terms of Service
-            </a>
-            <a href="#" className="hover:text-white transition-colors duration-200">
+            </Link>
+            <Link href="/privacy-policy#cookies" className="hover:text-white transition-colors duration-200">
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
 

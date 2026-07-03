@@ -284,77 +284,7 @@ export default function CommunicationHub3D() {
     const particles = new THREE.Points(partGeo, partMat);
     world.add(particles);
 
-    /* ════════════════ FLOATING HOLOGRAPHIC SIGNAL PANELS ════════════════ */
-    function signalPanel(label: string, value: string) {
-      const cv = document.createElement("canvas");
-      cv.width = 320;
-      cv.height = 150;
-      const ctx = cv.getContext("2d")!;
-      // glass body
-      const grad = ctx.createLinearGradient(0, 0, 320, 150);
-      grad.addColorStop(0, "rgba(40,110,200,0.20)");
-      grad.addColorStop(1, "rgba(10,30,60,0.10)");
-      ctx.fillStyle = grad;
-      roundRect(ctx, 6, 6, 308, 138, 16);
-      ctx.fill();
-      ctx.strokeStyle = "rgba(120,200,255,0.55)";
-      ctx.lineWidth = 2;
-      roundRect(ctx, 6, 6, 308, 138, 16);
-      ctx.stroke();
-      // accent dot
-      ctx.fillStyle = "#6cf0ff";
-      ctx.beginPath();
-      ctx.arc(34, 40, 7, 0, Math.PI * 2);
-      ctx.fill();
-      // label
-      ctx.fillStyle = "rgba(180,215,255,0.75)";
-      ctx.font = "600 19px Helvetica,Arial,sans-serif";
-      ctx.fillText(label, 54, 47);
-      // value
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "700 40px Helvetica,Arial,sans-serif";
-      ctx.fillText(value, 30, 108);
-      const tex = new THREE.CanvasTexture(cv);
-      tex.anisotropy = 8;
-      const mat = new THREE.MeshBasicMaterial({
-        map: tex,
-        transparent: true,
-        depthWrite: false,
-        side: THREE.DoubleSide,
-        opacity: 0.92,
-      });
-      const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 0.8), mat);
-      return mesh;
-    }
-    function roundRect(
-      ctx: CanvasRenderingContext2D,
-      x: number,
-      y: number,
-      w: number,
-      h: number,
-      r: number
-    ) {
-      ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.arcTo(x + w, y, x + w, y + h, r);
-      ctx.arcTo(x + w, y + h, x, y + h, r);
-      ctx.arcTo(x, y + h, x, y, r);
-      ctx.arcTo(x, y, x + w, y, r);
-      ctx.closePath();
-    }
 
-    const panels: { mesh: THREE.Mesh; base: THREE.Vector3; ph: number }[] = [];
-    const panelData = [
-      { l: "UPLINK", v: "99.99%", pos: new THREE.Vector3(-3.7, 2.0, 0.5) },
-      { l: "LATENCY", v: "0.8 ms", pos: new THREE.Vector3(3.8, -1.7, 0.2) },
-      { l: "NODES", v: "1,240", pos: new THREE.Vector3(3.4, 2.2, -0.4) },
-    ];
-    panelData.forEach((p, i) => {
-      const m = signalPanel(p.l, p.v);
-      m.position.copy(p.pos);
-      world.add(m);
-      panels.push({ mesh: m, base: p.pos.clone(), ph: i * 2.1 });
-    });
 
     /* ════════════════ INTERACTION + ANIMATION ════════════════ */
     const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -460,13 +390,7 @@ export default function CommunicationHub3D() {
       // Particles
       partMat.uniforms.uTime.value = reduceMotion ? 0 : t;
 
-      // Floating panels bob + always face camera-ish (billboarded via lookAt)
-      panels.forEach((p) => {
-        p.mesh.position.y =
-          p.base.y + (reduceMotion ? 0 : Math.sin(t * 0.9 + p.ph) * 0.18);
-        p.mesh.lookAt(camera.position);
-        (p.mesh.material as THREE.MeshBasicMaterial).opacity = 0.92 * ei;
-      });
+
 
       renderer.render(scene, camera);
     };

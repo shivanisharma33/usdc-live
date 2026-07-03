@@ -1,37 +1,19 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, MapPin, Clock, Briefcase, Search } from "lucide-react";
+import { jobs } from "@/data/careersData";
 
 /* ═══════════════════════ Open Roles — Premium ═══════════════════════ */
 
-type Role = {
-  department: string;
-  title: string;
-  location: string;
-  type: string;
-  level: string;
-  tag?: string;
-};
-
-const roles: Role[] = [
-  { department: "Engineering", title: "Senior Infrastructure Engineer", location: "Miami, FL", type: "Full-time", level: "Senior", tag: "Hot" },
-  { department: "Engineering", title: "AI Platform Engineer", location: "Remote (US)", type: "Full-time", level: "Senior", tag: "New" },
-  { department: "Engineering", title: "Data Center Electrical Engineer", location: "Dallas, TX", type: "Full-time", level: "Mid–Senior" },
-];
-
-const departments = ["All", "Engineering", "Operations", "Business", "Product"];
+const departments = ["All", ...Array.from(new Set(jobs.map((j) => j.department)))];
 
 const deptConfig: Record<string, { color: string; bg: string }> = {
   Engineering: { color: "#3daeff", bg: "rgba(61,174,255,0.1)" },
   Operations:  { color: "#a78bfa", bg: "rgba(167,139,250,0.1)" },
   Business:    { color: "#34d399", bg: "rgba(52,211,153,0.1)" },
   Product:     { color: "#fb923c", bg: "rgba(251,146,60,0.1)" },
-};
-
-const tagConfig: Record<string, { label: string; dot: string; text: string; border: string; bg: string }> = {
-  Hot: { label: "HOT", dot: "#f87171", text: "#f87171", border: "rgba(248,113,113,0.25)", bg: "rgba(248,113,113,0.07)" },
-  New: { label: "NEW", dot: "#34d399", text: "#34d399", border: "rgba(52,211,153,0.25)", bg: "rgba(52,211,153,0.07)" },
 };
 
 export default function CareerOpenRoles() {
@@ -57,7 +39,7 @@ export default function CareerOpenRoles() {
     transition: `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${d}ms, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${d}ms`,
   });
 
-  const filtered = active === "All" ? roles : roles.filter((r) => r.department === active);
+  const filtered = active === "All" ? jobs : jobs.filter((r) => r.department === active);
   const dept = deptConfig;
 
   return (
@@ -99,7 +81,7 @@ export default function CareerOpenRoles() {
             <span className="w-2 h-2 rounded-full bg-[#34d399] shadow-[0_0_8px_rgba(52,211,153,0.6)]"
               style={{ animation: "glowPulse 2.5s ease-in-out infinite" }} />
             <span className="text-[12px] font-bold text-white/70">
-              <span className="text-white">{roles.length}</span> positions open now
+              <span className="text-white">{jobs.length}</span> positions open now
             </span>
           </div>
         </div>
@@ -127,7 +109,7 @@ export default function CareerOpenRoles() {
                 {d}
                 {d !== "All" && (
                   <span className="ml-1.5 text-[9px] opacity-60">
-                    {roles.filter((r) => r.department === d).length}
+                    {jobs.filter((r) => r.department === d).length}
                   </span>
                 )}
               </button>
@@ -139,111 +121,105 @@ export default function CareerOpenRoles() {
         <div className="flex flex-col gap-2.5" style={fadeUp(220)}>
           {filtered.map((role, i) => {
             const cfg = dept[role.department] ?? { color: "#3daeff", bg: "rgba(61,174,255,0.08)" };
-            const tag = role.tag ? tagConfig[role.tag] : null;
             const isHov = hovered === i;
 
             return (
-              <div key={`${role.title}-${i}`}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-                className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-5 px-6 py-5 rounded-2xl cursor-pointer overflow-hidden transition-all duration-300"
-                style={{
-                  background: isHov
-                    ? "linear-gradient(135deg, rgba(12,20,40,0.95), rgba(8,13,26,0.98))"
-                    : "rgba(8,13,26,0.6)",
-                  border: isHov
-                    ? `1px solid ${cfg.color}30`
-                    : "1px solid rgba(255,255,255,0.05)",
-                  boxShadow: isHov
-                    ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${cfg.color}15`
-                    : "0 2px 12px rgba(0,0,0,0.15)",
-                  transform: isHov ? "translateX(4px)" : "translateX(0)",
-                }}>
-
-                {/* Left edge accent */}
-                <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-all duration-300"
+              <Link href={`/career/${role.slug}`} key={`${role.slug}-${i}`}>
+                <div
+                  onMouseEnter={() => setHovered(i)}
+                  onMouseLeave={() => setHovered(null)}
+                  className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-5 px-6 py-5 rounded-2xl cursor-pointer overflow-hidden transition-all duration-300"
                   style={{
-                    background: `linear-gradient(180deg, ${cfg.color}, ${cfg.color}50)`,
-                    opacity: isHov ? 1 : 0.3,
-                    boxShadow: isHov ? `0 0 8px ${cfg.color}60` : "none",
-                  }} />
+                    background: isHov
+                      ? "linear-gradient(135deg, rgba(12,20,40,0.95), rgba(8,13,26,0.98))"
+                      : "rgba(8,13,26,0.6)",
+                    border: isHov
+                      ? `1px solid ${cfg.color}30`
+                      : "1px solid rgba(255,255,255,0.05)",
+                    boxShadow: isHov
+                      ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${cfg.color}15`
+                      : "0 2px 12px rgba(0,0,0,0.15)",
+                    transform: isHov ? "translateX(4px)" : "translateX(0)",
+                  }}>
 
-                {/* Shimmer */}
-                <div className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-                  style={{
-                    background: `linear-gradient(90deg, transparent, ${cfg.color}06, transparent)`,
-                    opacity: isHov ? 1 : 0,
-                  }} />
-
-                {/* Left: title + meta */}
-                <div className="flex items-start sm:items-center gap-5 pl-3">
-                  {/* Dept dot */}
-                  <div className="w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-300"
+                  {/* Left edge accent */}
+                  <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full transition-all duration-300"
                     style={{
-                      background: isHov ? cfg.bg : "rgba(255,255,255,0.03)",
-                      border: isHov ? `1px solid ${cfg.color}40` : "1px solid rgba(255,255,255,0.06)",
-                    }}>
-                    <div className="w-2 h-2 rounded-full" style={{ background: cfg.color, opacity: isHov ? 1 : 0.5 }} />
-                  </div>
+                      background: `linear-gradient(180deg, ${cfg.color}, ${cfg.color}50)`,
+                      opacity: isHov ? 1 : 0.3,
+                      boxShadow: isHov ? `0 0 8px ${cfg.color}60` : "none",
+                    }} />
 
-                  <div>
-                    {/* Title row */}
-                    <div className="flex items-center gap-3 flex-wrap mb-2">
-                      <h3 className="text-[14.5px] font-bold tracking-tight transition-colors duration-200"
-                        style={{ color: isHov ? "#fff" : "rgba(255,255,255,0.85)" }}>
-                        {role.title}
-                      </h3>
-                      {tag && (
-                        <span className="flex items-center gap-1.5 text-[8.5px] font-bold tracking-[0.2em] px-2.5 py-1 rounded-full"
-                          style={{ color: tag.text, background: tag.bg, border: `1px solid ${tag.border}` }}>
-                          <span className="w-1 h-1 rounded-full" style={{ background: tag.dot }} />
-                          {tag.label}
+                  {/* Shimmer */}
+                  <div className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+                    style={{
+                      background: `linear-gradient(90deg, transparent, ${cfg.color}06, transparent)`,
+                      opacity: isHov ? 1 : 0,
+                    }} />
+
+                  {/* Left: title + meta */}
+                  <div className="flex items-start sm:items-center gap-5 pl-3">
+                    {/* Dept dot */}
+                    <div className="w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center transition-all duration-300"
+                      style={{
+                        background: isHov ? cfg.bg : "rgba(255,255,255,0.03)",
+                        border: isHov ? `1px solid ${cfg.color}40` : "1px solid rgba(255,255,255,0.06)",
+                      }}>
+                      <div className="w-2 h-2 rounded-full" style={{ background: cfg.color, opacity: isHov ? 1 : 0.5 }} />
+                    </div>
+
+                    <div>
+                      {/* Title row */}
+                      <div className="flex items-center gap-3 flex-wrap mb-2">
+                        <h3 className="text-[14.5px] font-bold tracking-tight transition-colors duration-200"
+                          style={{ color: isHov ? "#fff" : "rgba(255,255,255,0.85)" }}>
+                          {role.title}
+                        </h3>
+                      </div>
+
+                      {/* Meta row */}
+                      <div className="flex items-center flex-wrap gap-4 text-[10.5px] font-medium"
+                        style={{ color: "rgba(255,255,255,0.3)" }}>
+                        <span className="flex items-center gap-1.5">
+                          <MapPin className="w-3 h-3" />
+                          {role.location}
                         </span>
-                      )}
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-3 h-3" />
+                          {role.type}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Briefcase className="w-3 h-3" />
+                          <span style={{ color: cfg.color, fontWeight: 600 }}>{role.department}</span>
+                        </span>
+                      </div>
                     </div>
+                  </div>
 
-                    {/* Meta row */}
-                    <div className="flex items-center flex-wrap gap-4 text-[10.5px] font-medium"
-                      style={{ color: "rgba(255,255,255,0.3)" }}>
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="w-3 h-3" />
-                        {role.location}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Clock className="w-3 h-3" />
-                        {role.type}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Briefcase className="w-3 h-3" />
-                        <span style={{ color: cfg.color, fontWeight: 600 }}>{role.level}</span>
-                      </span>
+                  {/* Right: dept + arrow */}
+                  <div className="flex items-center gap-5 sm:ml-auto pl-11 sm:pl-0">
+                    <span className="hidden lg:block text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-1 rounded-lg"
+                      style={{
+                        color: isHov ? cfg.color : "rgba(255,255,255,0.2)",
+                        background: isHov ? cfg.bg : "transparent",
+                        border: isHov ? `1px solid ${cfg.color}30` : "1px solid transparent",
+                        transition: "all 0.3s",
+                      }}>
+                      {role.department}
+                    </span>
+
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                      style={{
+                        background: isHov ? cfg.color : "rgba(255,255,255,0.03)",
+                        border: isHov ? `1px solid ${cfg.color}` : "1px solid rgba(255,255,255,0.08)",
+                        boxShadow: isHov ? `0 0 16px ${cfg.color}40` : "none",
+                      }}>
+                      <ArrowUpRight className="w-4 h-4 transition-colors duration-300"
+                        style={{ color: isHov ? "#fff" : "rgba(255,255,255,0.3)" }} />
                     </div>
                   </div>
                 </div>
-
-                {/* Right: dept + arrow */}
-                <div className="flex items-center gap-5 sm:ml-auto pl-11 sm:pl-0">
-                  <span className="hidden lg:block text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-1 rounded-lg"
-                    style={{
-                      color: isHov ? cfg.color : "rgba(255,255,255,0.2)",
-                      background: isHov ? cfg.bg : "transparent",
-                      border: isHov ? `1px solid ${cfg.color}30` : "1px solid transparent",
-                      transition: "all 0.3s",
-                    }}>
-                    {role.department}
-                  </span>
-
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
-                    style={{
-                      background: isHov ? cfg.color : "rgba(255,255,255,0.03)",
-                      border: isHov ? `1px solid ${cfg.color}` : "1px solid rgba(255,255,255,0.08)",
-                      boxShadow: isHov ? `0 0 16px ${cfg.color}40` : "none",
-                    }}>
-                    <ArrowUpRight className="w-4 h-4 transition-colors duration-300"
-                      style={{ color: isHov ? "#fff" : "rgba(255,255,255,0.3)" }} />
-                  </div>
-                </div>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -272,16 +248,16 @@ export default function CareerOpenRoles() {
             </div>
           </div>
 
-          <a href="mailto:careers@usdc.com"
-            className="flex-shrink-0 group flex items-center gap-2.5 px-6 py-3 rounded-xl font-bold text-[12px] transition-all duration-300 cursor-pointer whitespace-nowrap"
+          <Link href="/career/apply"
+            className="flex-shrink-0 group flex items-center gap-2.5 px-6 py-3 rounded-xl font-bold text-[12px] transition-all duration-300 cursor-pointer whitespace-nowrap no-underline"
             style={{
               background: "rgba(61,174,255,0.08)",
               border: "1px solid rgba(61,174,255,0.25)",
               color: "#3daeff",
             }}>
-            Send Your Resume
+            General Application
             <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

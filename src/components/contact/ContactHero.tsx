@@ -147,36 +147,11 @@ export default function ContactHero() {
           </div>
         </div>
 
-        {/* ── RIGHT: 3D Communication Hub in glass stage ── */}
+        {/* ── RIGHT: 3D Communication Hub ── */}
         <div className={`relative ${enter(260)}`}>
           <div className="relative aspect-square w-full max-w-[560px] mx-auto cx-floatY">
-            {/* Glass stage backdrop */}
-            <div className="absolute inset-[6%] rounded-[32px] bg-white/[0.018] backdrop-blur-[2px]" />
-            {/* Rotating holographic conic ring */}
-            <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none opacity-60">
-              <div
-                className="absolute inset-[12%] rounded-full cx-spin-slow"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, transparent 0deg, rgba(61,174,255,0.25) 60deg, transparent 140deg, rgba(140,224,255,0.2) 220deg, transparent 300deg)",
-                  maskImage:
-                    "radial-gradient(circle, transparent 60%, black 61%, black 63%, transparent 64%)",
-                  WebkitMaskImage:
-                    "radial-gradient(circle, transparent 60%, black 61%, black 63%, transparent 64%)",
-                }}
-              />
-            </div>
-
             {/* The Three.js hub */}
             <CommunicationHub3D />
-
-            {/* Caption chip */}
-            <div className="absolute bottom-[7%] left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#02050c]/70 backdrop-blur-md flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] cx-pulse" />
-              <span className="text-[9.5px] font-semibold text-white/70 tracking-[0.2em] uppercase">
-                AI Communication Hub
-              </span>
-            </div>
           </div>
         </div>
       </div>

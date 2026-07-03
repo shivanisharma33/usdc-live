@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /* ──────────────────────────────────────────────────────────────────────────
    1. ENERGY INFRASTRUCTURE CANVAS (Power Grid)
@@ -664,21 +665,22 @@ export default function ArmsInfrastructureGrid() {
     {
       badge: "POWER",
       title: "ENERGY INFRASTRUCTURE",
-      CanvasComponent: EnergyInfrastructureCanvas,
+        image: "/1216311d-2201-43f6-86b2-d733b61991d8.webp",
+   
       desc: "Owned power generation assets and substation access create a structural cost and speed advantage that competitors building on leased utility power cannot replicate. The North Tonawanda plant produces at approximately $0.04/kWh. The facility is backed by a 200MW grid-connected substation with redundant feeders, securing hydro-power for long-term pricing stability.",
       specs: ["200MW Capacity", "Grid Feeder", "$0.04/kWh"],
     },
     {
       badge: "DATA CENTERS",
       title: "AI-READY FACILITIES",
-      CanvasComponent: FacilitiesCanvas,
+       image: "/973b34f2-3a74-4c31-b056-5cefa758fb6a.webp",
       desc: "The company converts owned power assets into high-density, AI-ready data center capacity — targeting Tier III classification, direct liquid cooling, and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.",
       specs: ["Tier III Design", "Direct Liquid", "80kW+ Density"],
     },
     {
       badge: "COMPUTE",
       title: "GPU COMPUTE PLATFORM",
-      CanvasComponent: ComputeCanvas,
+      image: "/ac665e79-d1c6-40c8-994b-f62eea6394a7.webp",
       desc: "NeoCloudz is the compute layer on top of the DigiPowerX infrastructure stack — providing bare-metal GPU access, 400G InfiniBand fabric, and enterprise-grade telemetry for AI training, inference, and HPC workloads. Interconnects are optimized with RDMA support to allow seamless scaling of multi-node model execution.",
       specs: ["NVIDIA H100/H200", "400G Fabric", "Bare-Metal RDMA"],
     },
@@ -695,7 +697,6 @@ export default function ArmsInfrastructureGrid() {
             }`}
         >
           {columns.map((col) => {
-            const Canvas = col.CanvasComponent;
             return (
               <div
                 key={col.title}
@@ -728,10 +729,18 @@ export default function ArmsInfrastructureGrid() {
                   </div>
 
                   {/* 2. 3D Model Section */}
-                  <div className="w-full flex-1 flex items-center justify-center relative transition-all duration-[850ms] ease-out group-hover:scale-[0.88] group-hover:-translate-y-8">
+                  <div className="w-full flex-1 flex items-center justify-center relative transition-all duration-[850ms] ease-out group-hover:scale-[0.88] group-hover:-translate-y-8 px-6">
                     {/* Radial glow backdrop */}
                     <div className="absolute w-[60%] h-[60%] rounded-full bg-blue-500/[0.02] blur-[40px] pointer-events-none" />
-                    <Canvas />
+                    <div className="relative w-full h-[200px]">
+                      <Image
+                        src={col.image}
+                        alt={col.title}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                      />
+                    </div>
                   </div>
                 </div>
 
