@@ -198,7 +198,18 @@ export default function CareerHero() {
         style={{ background: "linear-gradient(to top, #04070f, transparent)" }} />
     </section>
   );
+
+
+  
 }
+
+
+
+
+
+
+
+
 
 
 
