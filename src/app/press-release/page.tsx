@@ -32,5 +32,10 @@ export default function PressReleasePage() {
 
       <Footer />
     </div>
+
+
+
+
+
   );
 }
