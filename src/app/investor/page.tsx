@@ -272,7 +272,7 @@ export default function InvestorPage() {
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div 
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/Group 334.webp')" }}
+              style={{ backgroundImage: "url('/USDC%20website/Group%20334.png')" }}
             />
           </div>
 

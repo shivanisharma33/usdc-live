@@ -97,7 +97,6 @@ export default function CareerHero() {
           <span className="animate-slide-up-mask">
             <span className="animate-slide-up-inner [animation-delay:80ms]">looking&nbsp;</span>
           </span>
-          <br />
           <span className="animate-slide-up-mask">
             <span className="animate-slide-up-inner [animation-delay:160ms] text-[#3daeff] select-none">for&nbsp;</span>
           </span>

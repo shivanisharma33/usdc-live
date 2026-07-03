@@ -8,11 +8,11 @@ export default function ArmsHero() {
   return (
     <section className="relative w-full min-h-screen bg-[#04070f] text-white flex items-center pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden select-none">
 
-      {/* ── Ambient Background Image ── */}
+      {/* ── Hero Background Image ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Group 341.webp')" }}
+          style={{ backgroundImage: "url('/Group 341.png')" }}
         />
       </div>
 

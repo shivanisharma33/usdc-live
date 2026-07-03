@@ -13,7 +13,7 @@ export default function Arms200Advantages() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Grid Layout - Left Content, Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-18 lg:gap-28 items-center">
 
           {/* Left Column - Content */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">

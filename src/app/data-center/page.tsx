@@ -52,7 +52,7 @@ export default function DataCenterPage() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-40"
-            style={{ backgroundImage: "url('/datacenter-hero-bg.png')" }}
+            style={{ backgroundImage: "url('/USDC%20website/Group%20327.png')" }}
           />
           {/* Vignette gradients to blend into the layout */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#04070f_80%)]" />

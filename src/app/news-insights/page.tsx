@@ -226,7 +226,7 @@ export default function NewsInsightsPage() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/Group 335.webp')" }}
+            style={{ backgroundImage: "url('/USDC%20website/Group%20335.png')" }}
           />
         </div>
 

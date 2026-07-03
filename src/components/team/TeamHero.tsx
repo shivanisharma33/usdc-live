@@ -24,7 +24,7 @@ export default function TeamHero() {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-70"
-          style={{ backgroundImage: "url('/Group 339.webp')" }}
+          style={{ backgroundImage: "url('/USDC%20website/Group%20339.png')" }}
         />
         {/* Vignette gradients to blend into the layout */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#030810_75%)]" />
