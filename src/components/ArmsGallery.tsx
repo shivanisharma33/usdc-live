@@ -48,18 +48,18 @@ export default function ArmsGallery() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 border-t border-white/[0.03] select-none"
+      className="w-full relative overflow-hidden bg-[#04070f] pt-6 pb-14 md:pt-8 md:pb-20 border-t border-white/[0.03] select-none"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[550px] h-[550px] bg-cyan-500/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-16">
+        <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-10">
           {/* Pill Badge */}
-          <div 
+          <div
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
             style={fadeUp(0)}
           >
@@ -69,14 +69,14 @@ export default function ArmsGallery() {
             </span>
           </div>
 
-          <h2 
+          <h2
             className="text-[32px] sm:text-[40px] md:text-[48px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase"
             style={fadeUp(100)}
           >
             Physical <span className="text-[#3daeff]">Infrastructure</span> Reality
           </h2>
-          
-          <p 
+
+          <p
             className="text-sm text-white/45 max-w-[580px] leading-relaxed font-sans"
             style={fadeUp(180)}
           >
@@ -102,7 +102,7 @@ export default function ArmsGallery() {
                   className="object-cover transition-transform duration-[800ms] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                
+
                 {/* Ambient dark gradient overlay to ensure text visibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none" />
 

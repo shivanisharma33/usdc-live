@@ -1040,7 +1040,7 @@ export default function AIInfrastructureExcellence() {
     <section
       id="ai-infrastructure-excellence"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28"
+      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16"
     >
       {/* ── Ambient Background Glows ── */}
       <div className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[140px] pointer-events-none" />

@@ -123,7 +123,7 @@ export default function ArmsModelShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-24 md:py-36 bg-[#04070f] text-white overflow-hidden select-none"
+      className="relative w-full pt-6 pb-20 md:pt-8 md:pb-28 bg-[#04070f] text-white overflow-hidden select-none"
     >
       {/* ── Ambient Glows ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-blue-600/[0.04] rounded-full blur-[160px] pointer-events-none z-0" />

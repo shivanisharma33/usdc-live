@@ -6,7 +6,15 @@ import Link from "next/link";
 
 export default function ArmsHero() {
   return (
-    <section className="relative w-full min-h-screen bg-[#04070f] text-white flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden select-none">
+    <section className="relative w-full min-h-screen bg-[#04070f] text-white flex items-center pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden select-none">
+
+      {/* ── Ambient Background Image ── */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Group 341.webp')" }}
+        />
+      </div>
 
       {/* ── Ambient Background Glows ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-blue-600/[0.07] rounded-full blur-[140px] pointer-events-none z-0" />
@@ -35,12 +43,10 @@ export default function ArmsHero() {
           </span>
         </h1>
 
-        {/* Description */}
-        <p className="text-[14px] md:text-[15px] text-white/65 font-normal leading-[1.8] max-w-[580px] mb-10 font-sans">
-          Each ARMS 200 unit delivers up to 600 µW of computation power in a compact,
-          rapidly deployable package. The ARMS 200 is LiquidPowerX&apos;s premier modular
-          datacenter platform, each module capable of supporting up to 600 kW of critical
-          IT load and is designed for Tier III redundancy (concurrent maintainability).
+        <p className="text-[14px] md:text-[15px] text-white/65 font-normal leading-[1.8] max-w-[620px] mb-10 font-sans line-clamp-3">
+          Each ARMS 200 unit delivers up to 600 kW of critical IT load in a compact,
+          rapidly deployable package — designed for Tier III redundancy
+          and concurrent maintainability.
         </p>
 
         {/* CTA */}

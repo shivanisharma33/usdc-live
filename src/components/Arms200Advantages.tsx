@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Arms200Advantages() {
   return (
-    <section className="relative w-full py-20 md:py-32 bg-[#04070f] text-white overflow-hidden select-none">
+    <section className="relative w-full pt-6 pb-20 md:pt-8 md:pb-28 bg-[#04070f] text-white overflow-hidden select-none">
 
       {/* Background Ambient Glows */}
       <div className="absolute top-[-20%] right-[-15%] w-[800px] h-[800px] bg-blue-600/[0.04] rounded-full blur-[150px] pointer-events-none z-0" />
@@ -13,7 +13,7 @@ export default function Arms200Advantages() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Grid Layout - Left Content, Right Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-center">
 
           {/* Left Column - Content */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">

@@ -11,7 +11,7 @@ export default function MissionVisionSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-24 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-14 border-t border-white/[0.03] select-none">
       
       {/* Ambient backgrounds */}
       <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />

@@ -30,7 +30,7 @@ export default function DataCenterArchitecture() {
   ];
 
   return (
-    <section className="w-full relative bg-[#04070f] py-20 md:py-28 overflow-hidden select-none border-t border-white/[0.03]">
+    <section className="w-full relative bg-[#04070f] py-14 md:py-20 overflow-hidden select-none border-t border-white/[0.03]">
       {/* Dynamic Keyframes Injection */}
       <style>{`
         @keyframes spinCube {

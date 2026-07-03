@@ -62,7 +62,7 @@ export default function DcimSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-32 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03]"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />

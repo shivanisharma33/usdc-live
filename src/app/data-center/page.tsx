@@ -47,7 +47,7 @@ export default function DataCenterPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full min-h-[80vh] flex items-center pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden select-none">
+      <section className="relative w-full flex items-center pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden select-none">
         {/* Ambient Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <div
@@ -74,8 +74,7 @@ export default function DataCenterPage() {
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-2 relative z-10 uppercase">
               <span className="animate-slide-up-mask">
                 <span className="animate-slide-up-inner [animation-delay:0ms]">Data&nbsp;</span>
               </span>
@@ -85,7 +84,7 @@ export default function DataCenterPage() {
             </h1>
 
             {/* Description */}
-            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[480px] mx-auto mt-8 mb-10 font-sans">
+            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[480px] mx-auto mt-2 mb-2 font-sans">
               Purpose-built AI-ready facilities engineered for high-density GPU infrastructure, advanced cooling, and rapid deployment.
             </p>
 
@@ -120,7 +119,7 @@ export default function DataCenterPage() {
       </section>
 
       {/* ── METRICS BANNER SECTION ── */}
-      <section className="w-full bg-[#04070f] pb-16 md:pb-24 select-none relative z-10">
+      <section className="w-full bg-[#04070f] pb-10 md:pb-14 select-none relative z-10">
         <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.01] backdrop-blur-sm py-8 px-6 md:px-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0 items-center text-center">
@@ -174,7 +173,7 @@ export default function DataCenterPage() {
       <FacilitySpecification />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28">
+      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-14 md:py-20">
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="text-center max-w-[700px] mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 font-sans">

@@ -56,7 +56,7 @@ export default function LatestNews() {
     <section
       id="latest-news"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28"
+      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16"
     >
       {/* ── Ambient Glows ── */}
       <div className="absolute top-[20%] left-[-10%] w-[450px] h-[450px] bg-blue-500/[0.03] rounded-full blur-[130px] pointer-events-none" />

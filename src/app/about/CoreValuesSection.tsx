@@ -44,7 +44,7 @@ export default function CoreValuesSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-24 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-14 border-t border-white/[0.03] select-none">
       
       {/* Ambient backgrounds */}
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
@@ -53,7 +53,7 @@ export default function CoreValuesSection() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         
         {/* ── Header Section ── */}
-        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
           
           {/* Main Heading */}
           <h2 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white leading-tight mb-6 font-sans">

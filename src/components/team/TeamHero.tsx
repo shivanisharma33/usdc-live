@@ -20,12 +20,16 @@ export default function TeamHero() {
       className="relative w-full min-h-[90vh] overflow-hidden flex flex-col items-center justify-center pt-28 pb-16"
       style={{ background: "#030810" }}
     >
-      {/* Ambient Background Image */}
+      {/* Ambient Background Image with gradient overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Group 337.webp')" }}
+          className="absolute inset-0 bg-cover bg-center opacity-70"
+          style={{ backgroundImage: "url('/Group 339.webp')" }}
         />
+        {/* Vignette gradients to blend into the layout */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#030810_75%)]" />
+        <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-[#030810] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#030810] to-transparent" />
       </div>
       {styleTag}
 

@@ -46,7 +46,7 @@ export default function EnergyPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full min-h-[85vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden select-none">
+      <section className="relative w-full flex items-center pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden select-none">
 
         {/* Ambient Background Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />
@@ -113,7 +113,7 @@ export default function EnergyPage() {
       <SuperiorEconomics />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-20 md:py-28 overflow-hidden">
+      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-14 md:py-20 overflow-hidden">
         {/* Background ambient lighting */}
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
         <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />

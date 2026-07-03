@@ -84,7 +84,7 @@ export default function AboutJourneySection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-[#04070f] py-24 md:py-36 text-white select-none relative overflow-hidden border-t border-white/[0.03]">
+    <section ref={containerRef} className="w-full bg-[#04070f] py-14 md:py-20 text-white select-none relative overflow-hidden border-t border-white/[0.03]">
       {/* Dynamic Keyframe Animations for Blueprint Icons */}
       <style dangerouslySetInnerHTML={{
         __html: `

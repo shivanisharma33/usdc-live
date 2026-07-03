@@ -47,14 +47,14 @@ export default function Home() {
       {/* Render the NVIDIA Roadmap section */}
       <NvidiaRoadmap />
 
+      {/* USDC DCIM software telemetry dashboard section */}
+      <DcimSection />
+
       {/* Render the Latest News section */}
       <LatestNews />
 
       {/* Partner with us CTA Section */}
       <PartnerSection />
-
-      {/* USDC DCIM software telemetry dashboard section */}
-      <DcimSection />
 
       {/* Footer / Info section */}
       <Footer />

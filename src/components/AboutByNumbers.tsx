@@ -51,15 +51,15 @@ export default function AboutByNumbers() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative bg-[#04070f] py-24 md:py-32 overflow-hidden select-none border-t border-white/[0.03]"
+      className="w-full relative bg-[#04070f] py-14 md:py-20 overflow-hidden select-none border-t border-white/[0.03]"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-blue-600/[0.04] rounded-full blur-[140px] pointer-events-none z-0" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center">
-        
+
         {/* Heading */}
-        <div 
+        <div
           className="text-center mb-16 transition-all duration-1000 transform"
           style={{
             opacity: inView ? 1 : 0,
@@ -132,7 +132,7 @@ export default function AboutByNumbers() {
               >
                 {/* Outer glowing pulsing ring */}
                 <span className="absolute flex h-7 w-7">
-                  <span 
+                  <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3daeff]/35 opacity-75"
                     style={{ animationDelay: pin.delay }}
                   ></span>
@@ -142,10 +142,7 @@ export default function AboutByNumbers() {
                 {/* Invisible hover trigger area */}
                 <div className="w-8 h-8 rounded-full bg-transparent z-10" />
 
-                {/* Hover tooltip */}
-                <div className="absolute bottom-[130%] mb-1 bg-[#02050c]/90 border border-white/10 text-white text-[9px] font-bold tracking-wider uppercase px-2.5 py-1.5 rounded shadow-[0_4px_12px_rgba(0,0,0,0.5)] opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-20">
-                  {pin.label}
-                </div>
+
               </div>
             ))}
           </div>

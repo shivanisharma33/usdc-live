@@ -32,7 +32,7 @@ export default function SuperiorEconomics() {
   ];
 
   return (
-    <section className="w-full bg-[#04070f] py-16 md:py-24 border-t border-white/[0.03] select-none">
+    <section className="w-full bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03] select-none">
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-start">
         
         {/* Left-Aligned Heading */}

@@ -36,7 +36,7 @@ export default function WhyUsdcSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#010412] py-20 md:py-32 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#010412] py-14 md:py-20 border-t border-white/[0.03] select-none">
       {/* Background ambient glows */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />

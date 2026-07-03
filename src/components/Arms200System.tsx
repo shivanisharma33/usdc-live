@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Zap, Snowflake, Cpu, Layers } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────────────────────
    CUSTOM CONTEXT-SPECIFIC ANIMATED SVG ICONS (Sized down to 32x32)
@@ -159,22 +160,22 @@ export default function Arms200System() {
     {
       title: "POWER",
       desc: "High-density power infrastructure built for AI workloads.",
-      IconComponent: PowerIcon,
+      Icon: Zap,
     },
     {
       title: "COOLING",
       desc: "Direct-to-chip liquid cooling for maximum efficiency.",
-      IconComponent: CoolingIcon,
+      Icon: Snowflake,
     },
     {
       title: "COMPUTE",
       desc: "GPU-ready architecture optimized for next-generation AI.",
-      IconComponent: ComputeIcon,
+      Icon: Cpu,
     },
     {
       title: "SCALABILITY",
       desc: "Modular design enabling rapid capacity expansion.",
-      IconComponent: ScalabilityIcon,
+      Icon: Layers,
     },
   ];
 
@@ -182,7 +183,7 @@ export default function Arms200System() {
     <section
       id="arms200-system"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] pt-6 pb-14 md:pt-8 md:pb-20 border-t border-white/[0.03]"
     >
       {/* Inline styles for custom feature icon animations */}
       <style
@@ -272,37 +273,30 @@ export default function Arms200System() {
               </p>
             </div>
 
-            {/* 2x2 Feature Grid with Centered Quadrants and subtle divider lines (Reduced margins/paddings) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 w-full mt-8 relative">
-              {/* Vertical divider line (Desktop only) */}
-              <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.08]" />
-
-              {/* Horizontal divider line (Desktop only) */}
-              <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-px bg-white/[0.08]" />
-
-              {features.map((feat, index) => {
-                const Icon = feat.IconComponent;
-                // Mobile divider logic
-                const isLastMobile = index === 3;
-                const mobileBorderClass = isLastMobile ? "" : "border-b border-white/[0.08] sm:border-b-0";
-
+            {/* 2x2 Feature Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full mt-8">
+              {features.map((feat) => {
+                const Icon = feat.Icon;
                 return (
                   <div
                     key={feat.title}
-                    className={`py-8 px-6 md:p-8 flex flex-col items-center text-center ${mobileBorderClass}`}
+                    className="group/card relative p-6 rounded-2xl border border-white/[0.06] bg-[#02050c]/30 backdrop-blur-md transition-all duration-300 hover:border-[#3daeff]/35 hover:bg-[#02050c]/60 flex flex-col items-center text-center overflow-hidden"
                   >
-                    {/* Context Specific Animated Icon */}
-                    <div className="mb-3 flex items-center justify-center">
-                      <Icon />
+                    {/* Hover glow effect background */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#3daeff]/[0.02] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    
+                    {/* Icon container */}
+                    <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover/card:bg-[#3daeff]/20 group-hover/card:border-[#3daeff]/40 transition-all duration-300 mb-4 relative z-10">
+                      <Icon className="w-5 h-5 text-[#3daeff] transition-transform duration-300 group-hover/card:scale-110" />
                     </div>
+                    
                     {/* Title */}
-                    <h4 className="text-[11px] md:text-xs font-bold text-white tracking-[0.25em] uppercase mb-1.5 font-sans">
+                    <h4 className="text-[11px] md:text-xs font-bold text-white tracking-[0.25em] uppercase mb-2 font-sans relative z-10">
                       {feat.title}
                     </h4>
-                    {/* Horizontal Line under Title */}
-                    <div className="w-8 h-px bg-white/20 mb-3.5" />
+                    
                     {/* Description */}
-                    <p className="text-[12px] md:text-[13px] text-white/50 leading-[1.6] max-w-[220px]">
+                    <p className="text-[12px] md:text-[13px] text-white/50 leading-[1.6] max-w-[220px] relative z-10">
                       {feat.desc}
                     </p>
                   </div>

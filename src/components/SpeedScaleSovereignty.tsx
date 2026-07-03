@@ -480,7 +480,7 @@ export default function SpeedScaleSovereignty() {
                 <div className="tab-content-enter flex justify-center w-full items-center py-4">
 
                   {/* 3D Network Hub Visualization (Three.js) */}
-                  <div className="relative w-full aspect-[4/3] max-w-[550px] mx-auto rounded-xl overflow-hidden">
+                  <div className="relative w-full h-[280px] lg:h-[320px] max-w-[550px] mx-auto rounded-xl overflow-hidden">
                     <iframe
                       src="/network-hub.html"
                       title="Network Hub Visualization"
