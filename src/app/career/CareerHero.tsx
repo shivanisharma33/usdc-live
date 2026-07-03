@@ -42,7 +42,14 @@ export default function CareerHero() {
   });
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 pb-20 overflow-hidden bg-[#04070f] select-none">
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 pb-20 overflow-hidden bg-[#04070f] select-none"
+      style={{
+        backgroundImage: "url('/Group 346.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
 
       {/* ── Deep layered glows ── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -192,3 +199,9 @@ export default function CareerHero() {
     </section>
   );
 }
+
+
+
+
+
+

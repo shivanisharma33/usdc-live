@@ -47,17 +47,18 @@ export default function DataCenterPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full flex items-center pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden select-none">
-        {/* Ambient Background Image */}
+      <section className="relative w-full min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-16 overflow-hidden select-none">
+        {/* Ambient Background Video */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-40"
-            style={{ backgroundImage: "url('/USDC%20website/Group%20327.png')" }}
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/hr%20usdc.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
           />
-          {/* Vignette gradients to blend into the layout */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#04070f_80%)]" />
-          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#04070f] to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#04070f] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/90 via-[#04070f]/20 to-transparent" />
         </div>
 
         {/* Ambient Background Glows */}

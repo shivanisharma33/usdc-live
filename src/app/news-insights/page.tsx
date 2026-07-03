@@ -34,105 +34,54 @@ interface Article {
   date: string;
   featured?: boolean;
   trending?: boolean;
+  url?: string;
   content: string;
 }
 
 const articlesData: Article[] = [
   {
     id: "blackwell-expansion",
-    title: "The Blackwell Expansion: Scaling to 120MW Capacity",
-    excerpt: "An in-depth look at USDC's latest grid-scale integration, enabling rapid deployment of liquid-cooled Blackwell architectures within\na 12-month timeline.",
+    title: "Microsoft Expects to Spend $80 Bn on Ai-enabled data centers in fiscal 2025",
+    excerpt: "An in-depth look at USDC's latest grid-scale integration, enabling rapid deployment of liquid-cooled Blackwell architectures within\na 12-month timeline. Microsoft Expects to Spend $80 Bn on Ai-enabled data centers in fiscal 2025.",
     category: "Infrastructure",
     image: "/news_ai_chip.png",
     readTime: "6 Min Read",
     date: "June 18, 2026",
     featured: true,
+    url: "https://blogs.microsoft.com/on-the-issues/2025/01/03/the-golden-opportunity-for-american-ai/",
     content: "USDC has officially finalized the grid-interconnection agreements for its newest AI-dedicated datacenter campus. This facility is engineered specifically to house ultra-high-density Blackwell compute clusters. By integrating dedicated 115kV high-voltage substations directly on-site, the deployment accelerates the infrastructure timeline from the industry-average 3 years down to just 12 months. Powering these systems requires extreme heat rejection. Our proprietary liquid-to-air cooling loops run directly to the rack level, maintaining thermal equilibrium even during massive parallel training runs. As demand for compute grows exponentially, scaling with modular containment structures will remain the cornerstone of USDC's deployment strategies."
   },
   {
     id: "liquid-cooling-air-death",
-    title: "Liquid Cooling: The Death of Air-Cooled Facilities",
+    title: "McKinsey & Co on AI power: Expanding data center capacity to meet growing demand",
     excerpt: "Analyzing the thermodynamic limits of standard air systems and why modular liquid-to-air cooling loops are critical for the next wave of gigawatt clusters.",
     category: "Technology",
     image: "/arms200_server.png",
     readTime: "5 Min Read",
     date: "June 12, 2026",
     trending: true,
+    url: "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/ai-power-expanding-data-center-capacity-to-meet-growing-demand",
     content: "Traditional air-cooled servers are rapidly approaching their physical heat dissipation limits. As modern GPUs exceed 700W to 1000W thermal design power (TDP), pushing cold air through server racks is no longer economically or physically viable. USDC is transitioning all high-density nodes to direct-to-chip liquid cooling systems. By bringing water/glycol loops directly into contact with copper cold plates mounted on the processing silicon, heat transfer efficiency is increased by over 40x. This architectural pivot reduces the Power Usage Effectiveness (PUE) to an exceptional 1.12, saving millions of kilowatt-hours annually and paving the path for next-generation compute density."
   },
   {
     id: "microgrid-clean-energy",
-    title: "Microgrid Integration: Powering AI with Clean Energy",
+    title: "AI Power: Expanding data center capacity to meet growing demand",
     excerpt: "USDC pioneers multi-source energy orchestration, combining grid connection with dedicated onsite solar and battery storage systems.",
     category: "Data Centers",
     image: "/about_globe_full.png",
     readTime: "4 Min Read",
     date: "June 05, 2026",
     trending: true,
+    url: "https://www.usdatacenters.ai/news/revolutionizing-data-center-efficiency-the-rise-of-liquid-cooling-systems-ntr54-wfnkl",
     content: "Grid bottlenecks are currently the largest constraint for high-performance computing deployment. To combat this, USDC's engineering team is rolling out localized microgrid designs. These microgrids dynamically switch and blend power sources between traditional grid interconnections, utility-scale onsite solar PV systems, and battery energy storage systems (BESS). An AI-driven energy orchestration engine forecasts real-time grid prices and solar output, charging batteries during off-peak hours and discharging them during peak stress times. This ensures 99.999% uptime while maximizing the utilization of clean, renewable energy."
-  },
-  {
-    id: "ai-infrastructure-bottlenecks",
-    title: "AI Infrastructure at Scale: Challenges and Breakthroughs",
-    excerpt: "Exploring the physical layer bottlenecks of modern training clusters: from high-voltage step-down transformers to InfiniBand networking.",
-    category: "AI",
-    image: "/news_ai_network.png",
-    readTime: "7 Min Read",
-    date: "May 28, 2026",
-    content: "Building an AI supercomputer is not just about accumulating GPUs; it is a complex systems engineering problem. At the physical layer, high-voltage power lines must be stepped down multiple times before reaching the servers, requiring custom, fast-tracked transformer manufacturing. Inside the datacenters, high-speed networking fabrics like InfiniBand and RoCE v2 require meticulous cable management and active optical transceivers to avoid data packet loss. Even microsecond delays in packet transfer can stall a distributed training run of a trillion-parameter LLM. USDC's pre-configured rack integration model solves these hurdles prior to shipping, offering plug-and-play scaling."
-  },
-  {
-    id: "arms200-cabinet-inside",
-    title: "Next-Generation Compute Enclosures: Inside the ARMS200",
-    excerpt: "A breakdown of the mechanical engineering and structural design behind USDC's proprietary ARMS200 modular cabinet system.",
-    category: "Infrastructure",
-    image: "/arms200_cabinet.jpg",
-    readTime: "5 Min Read",
-    date: "May 19, 2026",
-    content: "USDC's proprietary ARMS200 Cabinet represents a paradigm shift in server enclosures. Built from structural aircraft-grade aluminum, the rack is structurally rated to support up to 4,500 lbs of dense computing equipment. Integration features include vertical high-voltage busbars, blind-mate liquid cooling manifolds, and integrated fiber-optic trays. By standardizing physical rack architecture, USDC is able to swap modular cooling cards and power distributors on the fly, reducing active technician intervention by 80% and ensuring rapid cluster reconfigurations."
-  },
-  {
-    id: "future-sustainable-parks",
-    title: "The Future of Sustainable High-Density Data Center Parks",
-    excerpt: "How modular deployment models are reducing standard build times from 3 years down to just 9-12 months, reshaping the digital landscape.",
-    category: "Cloud",
-    image: "/arms200_container.png",
-    readTime: "6 Min Read",
-    date: "May 10, 2026",
-    trending: true,
-    content: "Hyperscale datacenters have historically taken 36 to 48 months to build, design, and commission. In the fast-moving AI landscape, that delay is unacceptable. USDC's modular construction model splits the datacenter into prefabricated physical components: power units, cooling units, and compute containers. These modules are assembled in parallel in quality-controlled manufacturing plants, shipped via rail or flatbed, and connected together on-site like Lego blocks. This modular orchestration slashes total setup time to under a year, allowing cloud providers to spin up clusters precisely when and where they need capacity."
-  },
-  {
-    id: "silicon-grid-software",
-    title: "Silicon-to-Grid Optimization: Intelligent Loading",
-    excerpt: "How intelligent load balancing and thermal forecasting software can save data center operators up to 18% on annual power overhead.",
-    category: "Innovation",
-    image: "/gpu_board_1.png",
-    readTime: "4 Min Read",
-    date: "April 29, 2026",
-    content: "Electricity accounts for the vast majority of ongoing operational expenses in high-density computing. USDC's custom telemetry software monitors PUE, server temperature, and ambient humidity in real-time. By applying machine learning models to workload distribution, we shift computational tasks to colder parts of the datacenter or schedule heavy batches when ambient external temperatures drop. This software-driven silicon-to-grid synchronization shaves up to 18% off total grid draw, reducing carbon impact and operating overhead simultaneously."
-  },
-  {
-    id: "decentralized-sovereign-clouds",
-    title: "Decentralized Compute Nodes and the Rise of Sovereign Clouds",
-    excerpt: "As data privacy regulations tighten globally, regional high-performance computing zones are becoming critical infrastructure for enterprises.",
-    category: "Industry Insights",
-    image: "/gpu_board_2.png",
-    readTime: "8 Min Read",
-    date: "April 15, 2026",
-    content: "Global compliance mandates and national security concerns are prompting a dramatic shift from centralized megacity clouds to local, sovereign computing zones. Organizations require their data to reside physically within specific regional borders, processed on isolated clusters. USDC is answering this call by deploying modular AI datacenters across localized nodes in secondary markets. This provides enterprise clients with dedicated, low-latency, sovereign cloud capacities that strictly comply with local legislation, without sacrificing processing power."
   }
 ];
 
 const categories = [
   "All",
-  "AI",
-  "Technology",
-  "Cloud",
-  "Data Centers",
   "Infrastructure",
-  "Industry Insights",
-  "Innovation"
+  "Technology",
+  "Data Centers"
 ];
 
 export default function NewsInsightsPage() {
@@ -319,7 +268,7 @@ export default function NewsInsightsPage() {
 
           {/* Glassmorphism Featured Card */}
           <div
-            onClick={() => setSelectedArticle(featuredStory)}
+            onClick={() => featuredStory.url && window.open(featuredStory.url, "_blank")}
             className="group relative w-full rounded-[32px] overflow-hidden border border-white/[0.06] bg-white/[0.01] hover:border-[#3daeff]/30 transition-all duration-500 shadow-[0_30px_60px_rgba(0,0,0,0.65)] hover:shadow-[0_30px_70px_rgba(61,174,255,0.08)] cursor-pointer grid grid-cols-1 lg:grid-cols-12 overflow-hidden"
           >
             {/* Left Content column (7 cols) */}
@@ -368,8 +317,6 @@ export default function NewsInsightsPage() {
                 alt={featuredStory.title}
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-[1.04] group-hover:opacity-100 transition-all duration-750"
               />
-              {/* Scanline laser layer */}
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-[#3daeff]/50 shadow-[0_0_10px_#3daeff] pointer-events-none animate-[scanline_4s_ease-in-out_infinite]" />
               {/* Dark left/bottom masks */}
               <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#04070f] via-transparent to-transparent opacity-90 z-5" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#04070f] via-transparent to-transparent lg:hidden opacity-95 z-5" />
@@ -421,7 +368,7 @@ export default function NewsInsightsPage() {
           {filteredArticles.map((article) => (
             <div
               key={article.id}
-              onClick={() => setSelectedArticle(article)}
+              onClick={() => article.url && window.open(article.url, "_blank")}
               className="group relative flex flex-col justify-between rounded-[24px] overflow-hidden border border-white/[0.06] bg-white/[0.01] hover:border-[#3daeff]/30 hover:bg-white/[0.02] transition-all duration-500 shadow-[0_20px_40px_rgba(0,0,0,0.55)] hover:shadow-[0_25px_50px_rgba(61,174,255,0.06)] hover:scale-[1.02] cursor-pointer"
             >
               <div>
@@ -528,7 +475,7 @@ export default function NewsInsightsPage() {
               {trendingArticles.map((article) => (
                 <div
                   key={article.id}
-                  onClick={() => setSelectedArticle(article)}
+                  onClick={() => article.url && window.open(article.url, "_blank")}
                   className="w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.33%-22px)] flex-shrink-0 group relative p-[1px] rounded-3xl overflow-hidden bg-gradient-to-b from-white/[0.08] to-transparent hover:from-[#3daeff]/30 cursor-pointer transition-all duration-500 shadow-[0_20px_45px_rgba(0,0,0,0.6)]"
                 >
                   <div className="w-full h-full bg-[#03060c] rounded-[23px] p-6 md:p-8 flex flex-col justify-between items-start text-left border border-white/[0.02] space-y-6">

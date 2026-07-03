@@ -37,7 +37,7 @@ const timelineData: TimelineItem[] = [
   },
   {
     year: "+2030",
-    title: "300MW+ POTENTIAL CAPACITY",
+    title: "400MW+ POTENTIAL CAPACITY",
     desc: "Expanding multi-site infrastructure network to support next-wave AI growth.",
     imagePath: "/c97f7fe4-94cf-4ff1-8ee2-87d5fd86e2c1.png"
   }
