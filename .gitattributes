@@ -1,9 +1,9 @@
-public/hr filter=lfs diff=lfs merge=lfs -text
 public/usdc filter=lfs diff=lfs merge=lfs -text
-public/Group filter=lfs diff=lfs merge=lfs -text
 public/data filter=lfs diff=lfs merge=lfs -text
-public/image filter=lfs diff=lfs merge=lfs -text
 public/images/* filter=lfs diff=lfs merge=lfs -text
+public/hr filter=lfs diff=lfs merge=lfs -text
+public/Group filter=lfs diff=lfs merge=lfs -text
+public/image filter=lfs diff=lfs merge=lfs -text
 public/USDC filter=lfs diff=lfs merge=lfs -text
 public/Generated filter=lfs diff=lfs merge=lfs -text
 public/ChatGPT filter=lfs diff=lfs merge=lfs -text
