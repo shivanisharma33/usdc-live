@@ -39,21 +39,21 @@ export default function TeamGrid() {
       id: "jagan-jeyapal",
       name: "Jagan Jeyapal",
       role: "Chief Technology Officer",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_34%20PM.png",
+      image: "/images/jagan_jeyapal_cto.png",
       bio: "Technical visionary driving the architecture of DigiPowerX's high-performance computing platforms and sustainable infrastructure solutions."
     },
     {
       id: "paul-ciullo",
       name: "Paul Ciullo",
       role: "Chief Financial Officer",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_37%20PM.png",
+      image: "/images/paul_ciullo_cfo.png",
       bio: "Financial strategist overseeing the company's fiscal health and capital allocation for massive infrastructure scaling."
     },
     {
       id: "daniel-rotunno",
       name: "Daniel Rotunno",
       role: "VP of Operations",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_39%20PM.png",
+      image: "/images/daniel_rotunno_vp.png",
       bio: "Operations expert managing the complex logistics and site deployments for modular data centers."
     },
     {
