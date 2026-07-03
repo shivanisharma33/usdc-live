@@ -58,6 +58,13 @@ export default function Home() {
 
       {/* Footer / Info section */}
       <Footer />
+
+
+
+
+
+
+      
     </div>
   );
 }
