@@ -222,6 +222,13 @@ export default function NewsInsightsPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative w-full pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden flex flex-col items-center border-b border-white/5 animate-fade-in">
+        {/* Ambient Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/Group 335.webp')" }}
+          />
+        </div>
 
         {/* Content Wrapper */}
         <div className="relative z-10 w-full max-w-[1280px] px-6 md:px-12 lg:px-16 flex flex-col items-center">

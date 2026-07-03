@@ -27,6 +27,13 @@ export default function PressReleaseHero() {
       className="relative w-full min-h-[100vh] overflow-hidden flex flex-col items-center justify-center"
       style={{ background: "#04070f" }}
     >
+      {/* Ambient Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Group 336.webp')" }}
+        />
+      </div>
       {/* ── Custom keyframes ── */}
       <style
         dangerouslySetInnerHTML={{
@@ -52,45 +59,6 @@ export default function PressReleaseHero() {
         }}
       />
 
-      {/* ── Travelling scan bar ── */}
-      <div
-        className="absolute left-0 w-full h-[1px] pointer-events-none z-[4] opacity-[0.12]"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 10%, rgba(61,174,255,0.6) 50%, transparent 90%)",
-          animation: "heroScanline 8s linear infinite",
-        }}
-      />
-
-      {/* ── Dark vignettes ── */}
-      <div
-        className="absolute top-0 left-0 w-full pointer-events-none z-[5]"
-        style={{
-          height: "30%",
-          background: "linear-gradient(to bottom, #04070f 0%, transparent 100%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-full pointer-events-none z-[5]"
-        style={{
-          height: "35%",
-          background: "linear-gradient(to top, #04070f 0%, transparent 100%)",
-        }}
-      />
-      <div
-        className="absolute top-0 left-0 h-full pointer-events-none z-[5]"
-        style={{
-          width: "20%",
-          background: "linear-gradient(to right, #04070f 0%, transparent 100%)",
-        }}
-      />
-      <div
-        className="absolute top-0 right-0 h-full pointer-events-none z-[5]"
-        style={{
-          width: "20%",
-          background: "linear-gradient(to left, #04070f 0%, transparent 100%)",
-        }}
-      />
 
       {/* ═══ TEXT CONTENT ═══ */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">

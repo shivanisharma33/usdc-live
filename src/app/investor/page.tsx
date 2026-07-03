@@ -268,10 +268,12 @@ export default function InvestorPage() {
         <section 
           className="relative min-h-[560px] md:min-h-[680px] flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-36 border-b border-white/5 overflow-hidden"
         >
-          {/* Background Ambient Glows */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-[#3daeff]/[0.06] blur-[120px]" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[#3daeff]/[0.04] blur-[140px]" />
+          {/* Ambient Background Image */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: "url('/Group 334.webp')" }}
+            />
           </div>
 
           <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">

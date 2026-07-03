@@ -20,23 +20,16 @@ export default function TeamHero() {
       className="relative w-full min-h-[90vh] overflow-hidden flex flex-col items-center justify-center pt-28 pb-16"
       style={{ background: "#030810" }}
     >
+      {/* Ambient Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/Group 337.webp')" }}
+        />
+      </div>
       {styleTag}
 
-      {/* MULTI-LAYERED AURORA GLOWS */}
-      {/* Outer ambient blur */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          top: "40%",
-          left: "50%",
-          width: "1200px",
-          height: "800px",
-          animation: "auroraShift 22s ease-in-out infinite",
-          background:
-            "radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.06) 40%, transparent 70%)",
-          filter: "blur(90px)",
-        }}
-      />
+
 
 
 
@@ -49,19 +42,6 @@ export default function TeamHero() {
         }}
       />
 
-      {/* Floating telemetry lines */}
-      <div
-        className="absolute left-0 w-full h-[1px] pointer-events-none z-[4] opacity-[0.08]"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 15%, rgba(6, 182, 212, 0.5) 50%, transparent 85%)",
-          animation: "heroScanline 9s linear infinite",
-        }}
-      />
-
-      {/* Vignette fadeouts */}
-      <div className="absolute top-0 left-0 w-full h-[25%] bg-gradient-to-b from-[#04070f] to-transparent pointer-events-none z-[5]" />
-      <div className="absolute bottom-0 left-0 w-full h-[30%] bg-gradient-to-t from-[#04070f] to-transparent pointer-events-none z-[5]" />
 
       {/* MAIN TEXT SECTION */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center select-none">

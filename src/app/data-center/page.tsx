@@ -48,8 +48,20 @@ export default function DataCenterPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-[80vh] flex items-center pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden select-none">
+        {/* Ambient Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-40"
+            style={{ backgroundImage: "url('/datacenter-hero-bg.png')" }}
+          />
+          {/* Vignette gradients to blend into the layout */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#04070f_80%)]" />
+          <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#04070f] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#04070f] to-transparent" />
+        </div>
+
         {/* Ambient Background Glows */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.08] rounded-full blur-[140px] pointer-events-none z-0" />
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
@@ -112,7 +124,7 @@ export default function DataCenterPage() {
         <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.01] backdrop-blur-sm py-8 px-6 md:px-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0 items-center text-center">
-              
+
               {/* Metric 1 */}
               <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
                 <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">120KW+</div>

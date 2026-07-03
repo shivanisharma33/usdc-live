@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { slugify } from "@/utils/slugify";
 import {
   Calendar,
   ArrowUpRight,
@@ -37,6 +38,7 @@ interface PressRelease {
   readTime?: string;
   content?: string;
   author?: string;
+  pdfUrl?: string;
 }
 
 const pressReleases: PressRelease[] = [
@@ -203,7 +205,9 @@ export default function PressReleaseGrid() {
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(8);
   const [inView, setInView] = useState(false);
-  const [articles, setArticles] = useState<PressRelease[]>(pressReleases);
+  const [articles, setArticles] = useState<PressRelease[]>(() =>
+    pressReleases.map((pr) => ({ ...pr, pdfUrl: "/brochure.pdf" }))
+  );
   const [loading, setLoading] = useState(true);
   const [selectedArticle, setSelectedArticle] = useState<PressRelease | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -222,7 +226,7 @@ export default function PressReleaseGrid() {
   useEffect(() => {
     async function loadArticles() {
       try {
-        const res = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/news-articles");
+        const res = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/news-articles?populate=*");
         const json = await res.json();
         if (json && Array.isArray(json.data)) {
           const mapped = json.data.map((item: any) => {
@@ -239,6 +243,7 @@ export default function PressReleaseGrid() {
               readTime: getReadTime(item.content),
               content: item.content,
               author: item.author || "Digi Power X Inc.",
+              pdfUrl: item.pdfFile?.url || "/brochure.pdf",
             };
           });
           setArticles(mapped);
@@ -277,7 +282,10 @@ export default function PressReleaseGrid() {
       <article
         key={pr.id}
         style={fadeUp(140 + idx * 70)}
-        onClick={() => setSelectedArticle(pr)}
+        onClick={() => {
+          const slug = slugify(pr.title);
+          window.open(`/press-release/${slug}`, "_blank");
+        }}
         className={`group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${
           isFeatured ? "min-h-[380px]" : "min-h-[300px]"
         }`}
