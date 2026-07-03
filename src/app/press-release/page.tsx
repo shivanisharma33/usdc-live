@@ -30,6 +30,10 @@ export default function PressReleasePage() {
       {/* Partner Section */}
       <PartnerSection />
 
+
+
+
+
       <Footer />
     </div>
 
