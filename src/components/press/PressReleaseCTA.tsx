@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Mail, ArrowRight, Bell, FileText, Rss } from "lucide-react";
+import { Mail, ArrowRight, Bell, FileText, Rss, User, CheckCircle2 } from "lucide-react";
 
 /* ═══════════════════════════ Press Release CTA ═══════════════════════════
    Newsletter subscription + media contact CTA with futuristic styling.
@@ -10,6 +10,45 @@ import { Mail, ArrowRight, Bell, FileText, Rss } from "lucide-react";
 export default function PressReleaseCTA() {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email) return;
+    setSubmitting(true);
+    try {
+      const response = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/subcribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            fullName: name,
+            email: email,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Subscription failed");
+      }
+
+      setSubmitting(false);
+      setSuccess(true);
+      setEmail("");
+      setName("");
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -110,23 +149,49 @@ export default function PressReleaseCTA() {
                 breakthroughs.
               </p>
 
-              {/* Email input */}
-              <div
-                style={fadeUp(260)}
-                className="flex flex-col sm:flex-row gap-3 max-w-[440px]"
-              >
-                <div className="relative flex-grow">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 text-[12px] placeholder:text-white/20 focus:outline-none focus:border-[#3daeff]/30 focus:bg-white/[0.06] transition-all duration-300"
-                  />
-                </div>
-                <button className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[11px] font-bold tracking-[0.08em] uppercase shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_6px_25px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer whitespace-nowrap">
-                  Subscribe
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+              {/* Subscription form */}
+              <div style={fadeUp(260)}>
+                {success ? (
+                  <div className="p-4 rounded-xl border border-emerald-500/20 bg-emerald-950/20 text-emerald-400 flex items-center gap-3 w-fit animate-[fadeIn_0.5s_ease-out]">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span className="text-sm font-medium">Successfully subscribed!</span>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex flex-col gap-3 max-w-[440px]">
+                    <div className="relative">
+                      <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                      <input
+                        type="text"
+                        placeholder="Enter your name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 text-[12px] placeholder:text-white/20 focus:outline-none focus:border-[#3daeff]/30 focus:bg-white/[0.06] transition-all duration-300"
+                      />
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="relative flex-grow">
+                        <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                        <input
+                          type="email"
+                          placeholder="Enter your email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/80 text-[12px] placeholder:text-white/20 focus:outline-none focus:border-[#3daeff]/30 focus:bg-white/[0.06] transition-all duration-300"
+                        />
+                      </div>
+                      <button 
+                        type="submit"
+                        disabled={submitting}
+                        className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[11px] font-bold tracking-[0.08em] uppercase shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_6px_25px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer whitespace-nowrap disabled:opacity-50"
+                      >
+                        {submitting ? "Subscribing..." : "Subscribe"}
+                        {!submitting && <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />}
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
             </div>
 

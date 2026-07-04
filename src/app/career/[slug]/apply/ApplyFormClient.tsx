@@ -98,23 +98,8 @@ export default function ApplyFormClient({
       console.log("Submitting application for:", jobTitle, fields);
  
       let resumeMediaId: number | null = null;
-      let jobPositionId: number | null = null;
- 
-      try {
-        const jobRes = await fetch(
-          `https://peaceful-power-64c420fe0a.strapiapp.com/api/job-positions?filters[Title][$eq]=${encodeURIComponent(jobTitle)}`
-        );
-        if (jobRes.ok) {
-          const jobData = await jobRes.json();
-          jobPositionId = jobData?.data?.[0]?.id ?? null;
-          console.log("Found job position ID:", jobPositionId);
-        }
-      } catch (err) {
-        console.warn("Could not fetch job position ID", err);
-      }
- 
-      if (jobPositionId) {
-        fields.job_positions = [jobPositionId];
+      if (jobTitle) {
+        fields.job_positions = jobTitle;
       }
  
       // Step 1: If a resume file exists, upload it first via /api/upload

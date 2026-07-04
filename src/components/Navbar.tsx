@@ -101,18 +101,24 @@ function NavbarStockTicker() {
 
         const symbol = 'DGXX';
         const today = new Date().toISOString().split('T')[0];
-        const [snapshotRes, dailyRes] = await Promise.all([
+        const [snapshotRes, quoteRes, tradeRes, dailyRes] = await Promise.all([
           fetch(`https://api.massive.com/v2/snapshot/locale/us/markets/stocks/tickers/${symbol}?apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v3/quotes/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
+          fetch(`https://api.massive.com/v3/trades/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
           fetch(`https://api.massive.com/v1/open-close/${symbol}/${today}?adjusted=true&apiKey=${apiKey}`).catch(() => null),
         ]);
 
         const snapshotData = snapshotRes?.ok ? await snapshotRes.json() : null;
+        const quoteData = quoteRes?.ok ? await quoteRes.json() : null;
+        const tradeData = tradeRes?.ok ? await tradeRes.json() : null;
         const dailyData = dailyRes?.ok ? await dailyRes.json() : null;
 
         const snapshot = snapshotData?.ticker;
+        const quote = quoteData?.results?.[0];
+        const trade = tradeData?.results?.[0];
         const daily = dailyData;
 
-        const livePrice = Number(snapshot?.day?.c) || Number(daily?.close) || 0;
+        const livePrice = Number(quote?.ask_price) || Number(trade?.price) || Number(snapshot?.day?.c) || Number(daily?.close) || 0;
         const openPrice = Number(snapshot?.day?.o) || Number(daily?.open) || livePrice;
 
         if (!livePrice) return;

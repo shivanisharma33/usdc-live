@@ -112,17 +112,38 @@ export default function NewsInsightsPage() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newsEmail) return;
+    if (!newsEmail || !newsName) return;
     setSubmitting(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/subcribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            fullName: newsName,
+            email: newsEmail,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Subscription failed");
+      }
+
       setSubmitting(false);
       setSuccess(true);
       setNewsEmail("");
       setNewsName("");
       setTimeout(() => setSuccess(false), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      setSubmitting(false);
+    }
   };
 
   const handlePrevSlide = () => {
