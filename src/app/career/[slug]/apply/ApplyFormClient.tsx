@@ -98,13 +98,29 @@ export default function ApplyFormClient({
       console.log("Submitting application for:", jobTitle, fields);
  
       let resumeMediaId: number | null = null;
+      let jobPositionId: number | null = null;
+ 
+      try {
+        const jobRes = await fetch(
+          `https://peaceful-power-64c420fe0a.strapiapp.com/api/job-positions?filters[Title][$eq]=${encodeURIComponent(jobTitle)}`
+        );
+        if (jobRes.ok) {
+          const jobData = await jobRes.json();
+          jobPositionId = jobData?.data?.[0]?.id ?? null;
+          console.log("Found job position ID:", jobPositionId);
+        }
+      } catch (err) {
+        console.warn("Could not fetch job position ID", err);
+      }
+ 
+      if (jobPositionId) {
+        fields.job_positions = [jobPositionId];
+      }
  
       // Step 1: If a resume file exists, upload it first via /api/upload
       if (resumeFile) {
         const uploadForm = new FormData();
         uploadForm.append("files", resumeFile, resumeFile.name);
-        uploadForm.append("ref", "api::job-application.job-application");
-        uploadForm.append("field", "Resume");
  
         const uploadRes = await fetch(
           "https://peaceful-power-64c420fe0a.strapiapp.com/api/upload",
@@ -128,7 +144,7 @@ export default function ApplyFormClient({
  
       // Step 2: Create the job application entry via JSON
       if (resumeMediaId) {
-        fields.Resume = resumeMediaId;
+        fields.Resume = [resumeMediaId];
       }
  
       const response = await fetch(
