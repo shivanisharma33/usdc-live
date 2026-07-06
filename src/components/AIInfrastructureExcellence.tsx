@@ -1054,8 +1054,9 @@ export default function AIInfrastructureExcellence() {
         <div className="text-center mb-5" style={fadeUp(0)}>
           <h2 className="text-[28px] sm:text-[34px] md:text-[42px] lg:text-[48px] font-extrabold tracking-[-0.02em] leading-[1.1]">
             <span className="text-white">BUILT FOR </span>
-            <span className="text-[#3daeff]">AI INFRASTRUCTURE </span>
-            <span className="text-white">EXCELLENCE</span>
+            <br className="block md:hidden" />
+            <span className="text-[#3daeff] block md:inline">AI INFRASTRUCTURE</span>
+            <span className="text-white"> EXCELLENCE</span>
           </h2>
         </div>
 
