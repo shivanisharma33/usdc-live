@@ -42,9 +42,9 @@ export default function GlobalNetworkPage() {
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="flex-1 relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center lg:pt-12 py-2 md:py-10 animate-fade-in">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#3daeff]/35 bg-[#3daeff]/5 backdrop-blur-sm mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] shadow-[0_0_8px_#3daeff]"></span>
-            <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-[#3daeff]">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
               Live Network · US Footprint
             </span>
           </div>
@@ -78,24 +78,19 @@ export default function GlobalNetworkPage() {
           </div>
         </div>
 
-        {/* ── 4 Stats Grid ── */}
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 md:mt-12">
+        {/* ── Hero-style Metrics Capsule (matches main Hero design) ── */}
+        <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] hero-capsule-glow mt-6 md:mt-12">
           {[
             { value: "4", label: "Active Sites Across the US Footprint" },
             { value: "400MW+", label: "Pipeline Capacity in Development" },
             { value: "24/7", label: "Multi-region Network Operations" },
             { value: "<10ms", label: "Inter-site Backbone Latency Target" },
           ].map((stat, idx) => (
-            <div
-              key={idx}
-              className="p-8 bg-[#070c1a]/60 border border-white/10 rounded-2xl relative overflow-hidden group hover:border-[#3daeff]/40 hover:bg-[#070c1a]/90 shadow-2xl hover:shadow-[0_15px_30px_rgba(61,174,255,0.06)] transition-all duration-500 ease-out flex flex-col items-center justify-center text-center"
-            >
-              <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#3daeff] to-[#58c4ff] group-hover:w-full transition-all duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3daeff]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#58c4ff] font-mono text-4xl md:text-5xl font-extrabold mb-3 tracking-tighter group-hover:brightness-110 transition-all duration-300">
+            <div key={idx} className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#58c4ff] text-4xl md:text-5xl font-extrabold mb-2 tracking-tight metric-value">
                 {stat.value}
               </span>
-              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[180px] group-hover:text-white transition-colors duration-300">
+              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[220px] group-hover:text-white transition-colors duration-300">
                 {stat.label}
               </span>
             </div>

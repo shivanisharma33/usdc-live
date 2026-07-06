@@ -91,7 +91,7 @@ export default function DcimSection() {
           </h2>
           
           <p 
-            className="text-sm text-white/45 max-w-[580px] leading-relaxed font-sans"
+            className="text-sm text-white/45 max-w-[780px] leading-relaxed font-sans"
             style={fadeUp(160)}
           >
             Datacenters operate at sub-millisecond precision. Our proprietary Data Center Infrastructure Management (DCIM) dashboard coordinates thermal loads, chiller configurations, and server rack power levels dynamically to prevent anomalies and maximize compute density.
@@ -133,12 +133,12 @@ export default function DcimSection() {
           <div className="w-full bg-[#02050c]/90 backdrop-blur-xl rounded-2xl p-6 md:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Column: Visual Dashboard Screenshot */}
-            <div className="lg:col-span-8 relative w-full aspect-[2.75/1] min-h-[240px] rounded-xl overflow-hidden border border-white/[0.08] bg-[#04070f] group">
+            <div className="lg:col-span-8 relative w-full aspect-[3/2] sm:aspect-[2.75/1] min-h-[280px] rounded-xl overflow-hidden border border-white/[0.08] bg-[#04070f] group">
               <Image
                 src={tabContent[activeTab].src}
                 alt={tabContent[activeTab].alt}
                 fill
-                className="object-cover transition-transform duration-[1000ms] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-[1.01]"
+                className="object-contain sm:object-cover transition-transform duration-[1000ms] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-[1.01]"
                 sizes="(max-width: 1024px) 100vw, 66vw"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />

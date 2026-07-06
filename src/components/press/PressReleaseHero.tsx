@@ -65,10 +65,10 @@ export default function PressReleaseHero() {
         {/* Pill Badge */}
         <div
           style={enter(100)}
-          className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-[#3daeff]/20 bg-white/[0.03] backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(61,174,255,0.06)]"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
         >
-
-          <span className="text-[10px] font-bold text-white/70 tracking-[0.2em] uppercase">
+          <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+          <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
             Press &amp; Media Center
           </span>
         </div>

@@ -52,13 +52,10 @@ export default function TeamHero() {
         {/* Futuristic Status Badge */}
         <div
           style={enterStyle(100)}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/20 bg-white/[0.02] backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(6,182,212,0.08)]"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-          </span>
-          <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
+          <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+          <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
             Governance
           </span>
         </div>

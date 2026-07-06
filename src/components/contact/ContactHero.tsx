@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowRight, Sparkles, Globe2, Cpu } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Globe2, Cpu } from "lucide-react";
 
 import CommunicationHub3D from "@/components/contact/CommunicationHub3D";
 
@@ -59,10 +59,10 @@ export default function ContactHero() {
         <div className="relative">
           {/* Badge */}
           <div
-            className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.1] bg-[#02050c]/70 backdrop-blur-md mb-7 shadow-[0_4px_18px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.06)] ${enter(80)}`}
+            className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-7 shadow-[0_4px_12px_rgba(0,0,0,0.5)] ${enter(80)}`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#3daeff]" />
-            <span className="text-[10px] font-semibold text-white/80 tracking-[0.22em] uppercase">
+            <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
               Enterprise AI Infrastructure
             </span>
           </div>
@@ -93,7 +93,7 @@ export default function ContactHero() {
             className={`text-sm md:text-[15px] text-white/60 leading-[1.75] max-w-[520px] mb-9 ${enter(240)}`}
           >
             Connect with the team architecting the next generation of{" "}
-            <span className="text-white/80">data centers</span>,{" "}
+            <span className="text-white/80">data centers</span>,<br />
             <span className="text-white/80">AI compute</span>,{" "}
             <span className="text-white/80">colocation</span> and{" "}
             <span className="text-white/80">cloud infrastructure</span>. From
@@ -117,7 +117,7 @@ export default function ContactHero() {
               href="#global-presence"
               className="px-6 py-3.5 rounded-[10px] border border-white/12 hover:border-white/25 hover:bg-white/[0.03] text-white/90 hover:text-white text-[13px] font-semibold flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all backdrop-blur-sm"
             >
-              <Globe2 className="w-4 h-4 text-[#3daeff]" />
+              <ArrowUpRight className="w-4 h-4 text-[#3daeff]" />
               <span>View Global Network</span>
             </a>
           </div>

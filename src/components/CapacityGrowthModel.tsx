@@ -464,16 +464,17 @@ export default function CapacityGrowthModel() {
     function projectLabels() {
       const w = container!.clientWidth;
       const h = container!.clientHeight;
-      stacks.forEach((s) => {
+      stacks.forEach((s, idx) => {
+        const xAdjustment = idx === 1 ? -18 : idx === 2 ? 18 : 0;
+
         // Project Value Label
         const v = s.markerWorld.clone().project(camera);
-        // Add a slight offset upward in pixels
-        s.valEl.style.left = (v.x * 0.5 + 0.5) * w + "px";
+        s.valEl.style.left = (v.x * 0.5 + 0.5) * w + xAdjustment + "px";
         s.valEl.style.top = (-v.y * 0.5 + 0.5) * h - 26 + "px";
 
         // Project Year Label
         const vy = s.yrWorld.clone().project(camera);
-        s.yrEl.style.left = (vy.x * 0.5 + 0.5) * w + "px";
+        s.yrEl.style.left = (vy.x * 0.5 + 0.5) * w + xAdjustment + "px";
         s.yrEl.style.top = (-vy.y * 0.5 + 0.5) * h + "px";
       });
     }
@@ -613,8 +614,9 @@ export default function CapacityGrowthModel() {
       renderer.setSize(w, h);
       curAspect = w / h;
       if (curAspect < 1) {
-        camera.left = -rig.d;
-        camera.right = rig.d;
+        const horizontalMargin = rig.d * 1.25;
+        camera.left = -horizontalMargin;
+        camera.right = horizontalMargin;
         camera.top = rig.d / curAspect;
         camera.bottom = -rig.d / curAspect;
       } else {

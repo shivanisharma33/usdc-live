@@ -82,8 +82,9 @@ export default function LatestNews() {
               NEWS <span className="text-[#3daeff]">& INSIGHT</span>
             </h2>
             {/* Description */}
-            <p className="text-[12px] md:text-[13px] text-white/45 max-w-[480px] leading-[1.8] mt-4 font-normal">
-              Stay ahead of the curve with the latest developments from USDC - your trusted partner in digital infrastructure.
+            <p className="text-[12px] md:text-[13px] text-white/45 max-w-[780px] leading-[1.8] mt-4 font-normal">
+              Stay ahead of the curve with the latest developments from USDC -
+              your trusted partner in digital infrastructure.
             </p>
           </div>
 

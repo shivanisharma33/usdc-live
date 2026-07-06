@@ -203,8 +203,8 @@ export default function NewsInsightsPage() {
         {/* Content Wrapper */}
         <div className="relative z-10 w-full max-w-[1280px] px-6 md:px-12 lg:px-16 flex flex-col items-center">
           {/* Animated telemetric badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-white/[0.02] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(61,174,255,0.06)] animate-[fadeIn_1s_ease-out]">
-            <Sparkles className="w-3.5 h-3.5 text-[#3daeff] animate-[spin_4s_linear_infinite]" />
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-blue-500/20 bg-white/[0.02] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(61,174,255,0.06)] animate-[fadeIn_1s_ease-out]">
+            <div className="w-6 h-0.5 rounded-full bg-[#3daeff]" />
             <span className="text-[10px] font-bold text-white/70 tracking-[0.25em] uppercase font-mono">
               USDC Intelligence Hub
             </span>
@@ -229,17 +229,17 @@ export default function NewsInsightsPage() {
           </p>
 
           {/* Glassmorphism Search & Filters Block */}
-          <div className="w-full max-w-[850px] p-1.5 rounded-[22px] bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0px_rgba(255,255,255,0.05)] flex flex-col gap-4">
+          <div className="w-full max-w-full p-1.5 rounded-[22px] bg-white/[0.02] border border-white/[0.08] backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0px_rgba(255,255,255,0.05)] flex flex-col gap-4">
 
             {/* Futuristic Search bar input */}
-            <div className="relative flex items-center w-full px-5 py-3.5 rounded-[16px] bg-black/40 border border-white/5 focus-within:border-[#3daeff]/40 transition-colors duration-300 group">
+            <div className="relative flex items-center w-full min-w-0 px-5 py-3.5 rounded-[16px] bg-black/40 border border-white/5 focus-within:border-[#3daeff]/40 transition-colors duration-300 group">
               <Search className="w-5 h-5 text-white/40 group-focus-within:text-[#3daeff] transition-colors" />
               <input
                 type="text"
                 placeholder="Search databases, innovations, whitepapers..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent border-none outline-none text-white text-[15px] pl-4 placeholder-white/20 font-sans"
+                className="min-w-0 w-full bg-transparent border-none outline-none text-white text-[15px] pl-4 placeholder-white/20 font-sans"
               />
               {searchQuery && (
                 <button
@@ -255,7 +255,7 @@ export default function NewsInsightsPage() {
             </div>
 
             {/* Scrolling category filters */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1.5 px-2 scrollbar-none">
+            <div className="flex flex-wrap items-center gap-2 overflow-x-auto pb-1.5 px-2 scrollbar-none">
               {categories.map((category) => {
                 const isActive = selectedCategory === category;
                 return (

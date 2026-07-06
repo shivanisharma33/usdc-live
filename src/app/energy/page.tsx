@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Zap, ShieldCheck, RefreshCw, Cpu } from "lucide-react";
+import { Zap, ShieldCheck, RefreshCw, Cpu, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import PowerToComputeDiagram from "@/components/PowerToComputeDiagram";
 import EnergyStackGrid from "@/components/EnergyStackGrid";
@@ -89,19 +89,22 @@ export default function EnergyPage() {
             Securing utility substation access, optimizing grid connection pipelines, and integrating clean generation sources to power enterprise GPU compute.
           </p>
 
-          {/* Capsule Joined Button Group */}
-          <div className="inline-flex items-center border border-white/12 rounded-lg bg-[#02050c]/50 p-[1.5px] overflow-hidden backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-            <Link
-              href="/data-center"
-              className="group flex items-center justify-center gap-2 px-6 py-3 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[13px] font-bold rounded-l-[6.5px] transition-all duration-200 cursor-pointer"
-            >
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 relative z-10 animate-slide-up [animation-delay:250ms]">
+            {/* Explore Infrastructure */}
+            <Link href="/data-center" className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_24px_rgba(61,174,255,0.4)] active:scale-[0.98] transition-all duration-200 cursor-pointer">
               <span>Explore Infrastructure</span>
+              <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40">
+                <ArrowRight className="w-3 h-3 text-white animate-pulse" />
+              </div>
             </Link>
-            <Link
-              href="/arms"
-              className="group flex items-center justify-center gap-2 px-6 py-3 text-white/80 hover:text-white text-[13px] font-bold transition-all duration-200 cursor-pointer"
-            >
+
+            {/* View ARMS 200 */}
+            <Link href="/arms" className="w-full sm:w-auto px-6 py-3.5 border border-white/12 hover:border-[#3daeff]/30 hover:bg-white/[0.02] text-white/90 hover:text-white text-[13px] font-semibold rounded-[8px] flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all duration-200 cursor-pointer">
               <span>View ARMS 200</span>
+              <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/20">
+                <ArrowRight className="w-3 h-3 text-white/70" />
+              </div>
             </Link>
           </div>
 

@@ -1372,6 +1372,7 @@ function ComputeDeliveryCanvas() {
    MAIN WRAPPER
    ══════════════════════════════════════════════════════════════════════════ */
 export default function EnergyStackGrid() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const columns = [
     {
       badge: "LAYER 1",
@@ -1433,16 +1434,22 @@ export default function EnergyStackGrid() {
 
         {/* Muted Subdescription */}
         <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[780px] text-center mb-16 font-sans">
-          In the high-density computing era, energy is the ultimate currency. We don&apos;t just secure power – we generate it, transform it, and deliver it to the rack with unmatched efficiency and scale.
+          In the high-density computing era, energy is the ultimate currency. We don&apos;t just secure power,<br />
+          we generate it, transform it, and deliver it to the rack with unmatched efficiency and scale.
         </p>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-[1160px] mx-auto">
-          {columns.map((col) => {
+          {columns.map((col, i) => {
             return (
               <div
                 key={col.title}
-                className="relative group overflow-hidden h-[480px] flex flex-col justify-between border border-white/[0.08] hover:border-[#0091ff]/30 rounded-2xl bg-[#02050c]/25 backdrop-blur-md transition-all duration-500 hover:shadow-[0_4px_30px_rgba(0,145,255,0.06)]"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.innerWidth < 768) {
+                    setActiveIndex(activeIndex === i ? null : i);
+                  }
+                }}
+                className={`relative group overflow-hidden h-[480px] flex flex-col justify-between border border-white/[0.08] hover:border-[#0091ff]/30 rounded-2xl bg-[#02050c]/25 backdrop-blur-md transition-all duration-500 hover:shadow-[0_4px_30px_rgba(0,145,255,0.06)] ${activeIndex === i ? 'shadow-[0_8px_40px_rgba(61,174,255,0.06)]' : ''}`}
               >
                 {/* Upper Half: Header & Image */}
                 <div className="flex flex-col justify-between h-[370px] w-full">
@@ -1465,15 +1472,27 @@ export default function EnergyStackGrid() {
                   </div>
                 </div>
 
+                {/* Mobile toggle button: visible only on small screens */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveIndex(activeIndex === i ? null : i);
+                  }}
+                  aria-expanded={activeIndex === i}
+                  className={`md:hidden absolute bottom-4 right-4 z-30 px-3 py-2 bg-white/[0.03] border border-white/[0.06] rounded-full text-[12px] font-bold text-white/80 hover:bg-[#3daeff]/8 transition-colors ${activeIndex === i ? 'hidden' : ''}`}
+                >
+                  {activeIndex === i ? "Close" : "Details"}
+                </button>
+
                 {/* Sliding Drawer */}
-                <div className="absolute inset-0 w-full h-full pt-5 pb-8 px-8 md:px-10 bg-[#02050c]/98 backdrop-blur-md border-t border-white/[0.08] transition-all duration-[4000ms] ease-out translate-y-[calc(100%-110px)] group-hover:translate-y-0 z-20 flex flex-col justify-start">
-                  <div className="absolute top-8 left-8 md:left-10 right-8 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-[4000ms] ease-out">
+                <div className={`absolute inset-0 w-full h-full pt-5 ${activeIndex === i ? 'pb-20' : 'pb-8'} px-8 md:px-10 bg-[#02050c]/98 backdrop-blur-md border-t border-white/[0.08] transition-all duration-[4000ms] ease-out ${activeIndex === i ? 'translate-y-0' : 'translate-y-[calc(100%-110px)]'} group-hover:translate-y-0 z-20 flex flex-col justify-start`}>
+                  <div className={`absolute top-8 left-8 md:left-10 right-8 ${activeIndex === i ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-[4000ms] ease-out`}>
                     <h3 className="text-lg md:text-xl font-bold tracking-tight text-[#0091ff]">{col.title}</h3>
                   </div>
-                  <div className="w-8 h-[2px] bg-white/10 rounded-full mx-auto mb-4 group-hover:bg-[#3daeff]/40 transition-colors duration-[4000ms] ease-out flex-shrink-0" />
-                  <div className="relative overflow-y-auto max-h-[300px] mt-0 group-hover:mt-16 transition-all duration-[4000ms] ease-out pr-1">
-                    <p className="text-[13px] md:text-sm text-white/50 leading-[1.65] font-normal group-hover:text-white/80 transition-colors duration-300 mb-6">{col.desc}</p>
-                    <ul className="space-y-3.5 text-xs text-white/45 font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-[4000ms] ease-out delay-100">
+                  <div className={`w-8 h-[2px] bg-white/10 rounded-full mx-auto mb-4 transition-colors duration-[4000ms] ease-out flex-shrink-0 ${activeIndex === i ? 'bg-[#3daeff]/40' : 'group-hover:bg-[#3daeff]/40'}`} />
+                  <div className={`relative overflow-y-auto max-h-[300px] mt-0 ${activeIndex === i ? 'mt-16 pb-6' : ''} group-hover:mt-16 transition-all duration-[4000ms] ease-out pr-1`}>
+                    <p className={`text-[13px] md:text-sm text-white/50 leading-[1.65] font-normal transition-colors duration-300 mb-6 ${activeIndex === i ? 'text-white/80' : 'group-hover:text-white/80'}`}>{col.desc}</p>
+                    <ul className={`space-y-3.5 text-xs text-white/45 font-sans ${activeIndex === i ? 'opacity-100' : 'opacity-0'} group-hover:opacity-100 transition-opacity duration-[4000ms] ease-out delay-100`}>
                       {col.bullets.map((bullet, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
                           <span className="text-[#3daeff] mt-0.5">•</span>

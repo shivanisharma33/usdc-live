@@ -68,10 +68,10 @@ export default function AIDemand() {
   });
 
   const stats = [
-    { value: "219", unit: "GW", label: "PROJECTED DEMAND\nBY 2030", icon: "power" as const },
-    { value: "+22", unit: "%", label: "ANNUAL GROWTH\n(CAGR)", icon: "growth" as const },
-    { value: "4", unit: "x", label: "INCREASE IN\nAI WORKLOADS", icon: "workload" as const },
-    { value: "≤ 12", unit: " MONTHS", label: "USDC\nDEPLOYMENT", icon: "deploy" as const },
+    { value: "219", unit: "GW", label: "PROJECTED DEMAND BY 2030", icon: "power" as const },
+    { value: "+22", unit: "%", label: "ANNUAL GROWTH (CAGR)", icon: "growth" as const },
+    { value: "4", unit: "x", label: "INCREASE IN AI WORKLOADS", icon: "workload" as const },
+    { value: "≤ 12", unit: " MONTHS", label: "USDC DEPLOYMENT", icon: "deploy" as const },
   ];
 
   return (

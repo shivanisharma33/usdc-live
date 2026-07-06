@@ -270,7 +270,13 @@ export default function AboutJourneySection() {
                         {item.title}
                       </h3>
                       <p className="text-[11.5px] md:text-[12.5px] text-white/45 leading-[1.65] font-sans font-normal">
-                        {item.desc}
+                        {item.year === "2026" ? (
+                          <>Scaled infrastructure capacity and onboarded enterprise<br />AI workloads.</>
+                        ) : item.year === "+2030" ? (
+                          <>Expanding multi-site infrastructure network to support<br /> next-wave AI growth.</>
+                        ) : (
+                          item.desc
+                        )}
                       </p>
                     </div>
                   </div>

@@ -92,9 +92,9 @@ export default function SmartContactCards() {
       <div ref={ref} className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         {/* Heading */}
         <div className="text-center mb-14 max-w-2xl mx-auto">
-          <div className="cx-reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.1] bg-white/[0.03] backdrop-blur-md mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] cx-pulse" />
-            <span className="text-[9.5px] font-bold tracking-[0.24em] uppercase text-white/70">
+          <div className="cx-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-5 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
               Direct Channels
             </span>
           </div>

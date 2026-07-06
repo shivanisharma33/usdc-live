@@ -28,9 +28,8 @@ export default function Hero() {
 
       {/* Decorative Badge */}
       <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-md mb-8 animate-fade-in shadow-[0_4px_12px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.05),0_0_15px_rgba(61,174,255,0.06)] relative z-10">
-        <span className="w-2 h-2 bg-[#3daeff] rounded-full animate-ping absolute left-4" />
-        <span className="w-2 h-2 bg-[#3daeff] rounded-full relative z-10" />
-        <span className="text-[10px] font-semibold text-white/85 tracking-[0.2em] uppercase font-sans pl-1">
+        <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+        <span className="text-[10px] font-semibold text-white/85 tracking-[0.2em] uppercase font-sans">
           Premium Data Center Solutions
         </span>
       </div>
@@ -63,7 +62,7 @@ export default function Hero() {
 
       {/* Hero Description */}
       <p className="text-sm md:text-base text-white/60 max-w-[640px] font-normal leading-[1.65] mb-10 animate-slide-up [animation-delay:150ms] relative z-10">
-        We specialize in building and managing state-of-the-art data centers, providing
+        We specialize in building and managing state-of-the-art data centers,<br className="hidden sm:inline" /> providing
         infrastructure solutions tailored for the evolving needs of the digital economy.
       </p>
 
@@ -123,7 +122,7 @@ export default function Hero() {
       }} />
 
       {/* Metrics Capsule Dashboard */}
-      <div className="w-full max-w-5xl bg-[#02050c]/55 backdrop-blur-xl border border-white/[0.08] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.02)] animate-slide-up [animation-delay:350ms] hero-capsule-glow">
+      <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] animate-slide-up [animation-delay:350ms] hero-capsule-glow">
 
         {/* Metric 1 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
@@ -137,7 +136,7 @@ export default function Hero() {
         </div>
 
         {/* Divider */}
-        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-white/0 via-white/[0.1] to-white/0 flex-shrink-0" />
+        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 2 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
@@ -151,7 +150,7 @@ export default function Hero() {
         </div>
 
         {/* Divider */}
-        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-white/0 via-white/[0.1] to-white/0 flex-shrink-0" />
+        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 3 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
@@ -165,7 +164,7 @@ export default function Hero() {
         </div>
 
         {/* Divider */}
-        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-white/0 via-white/[0.1] to-white/0 flex-shrink-0" />
+        <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 4 */}
         <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">

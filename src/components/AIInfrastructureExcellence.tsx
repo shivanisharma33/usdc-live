@@ -1061,11 +1061,11 @@ export default function AIInfrastructureExcellence() {
 
         {/* ── Section Subtitle ── */}
         <p
-          className="text-center text-[12px] md:text-[13px] text-white/40 max-w-[520px] mx-auto leading-[1.8] font-normal mb-14 md:mb-16"
+          className="text-center text-[12px] md:text-[13px] text-white/40 max-w-[720px] mx-auto leading-[1.8] font-normal mb-14 md:mb-16"
           style={fadeUp(80)}
         >
-          Stay ahead of the curve with the latest developments from USDC - your trusted
-          partner in digital infrastructure.
+          Stay ahead of the curve with the latest developments from USDC - your trusted partner in digital infrastructure.
+        
         </p>
 
         {/* ═══════════════ Bento Grid ═══════════════ */}
@@ -1188,7 +1188,8 @@ export default function AIInfrastructureExcellence() {
                   AI OPTIMIZED
                 </h3>
                 <p className="text-[11px] md:text-[12px] text-white/40 group-hover:text-white/60 leading-[1.8] font-normal transition-colors duration-300">
-                  Built for Blackwell, Vera Rubin and future GPUs.
+                  Built for Blackwell, <br />
+                  Vera Rubin and <br />future GPUs.
                 </p>
               </div>
               <div className="absolute bottom-[-10px] right-[-10px] w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] pointer-events-none group-hover:scale-105 transition-transform duration-500">

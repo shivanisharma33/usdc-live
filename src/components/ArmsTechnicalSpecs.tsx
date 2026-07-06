@@ -81,7 +81,7 @@ function SupermicroLogo() {
         alt="Supermicro Logo"
         width={140}
         height={40}
-        className="object-contain w-full h-full"
+        className="object-contain w-full h-full transform scale-110 md:scale-125"
       />
     </div>
   );
@@ -95,7 +95,7 @@ function NvidiaLogo() {
         alt="NVIDIA Logo"
         width={140}
         height={40}
-        className="object-contain w-full h-full"
+        className="object-contain w-full h-full transform scale-110 md:scale-125"
       />
     </div>
   );
@@ -109,7 +109,7 @@ function DigipowerxLogo() {
         alt="DigiPowerX Logo"
         width={140}
         height={40}
-        className="object-contain w-full h-full"
+        className="object-contain w-full h-full transform scale-110 md:scale-125"
       />
     </div>
   );
