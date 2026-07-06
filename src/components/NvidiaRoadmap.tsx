@@ -48,7 +48,7 @@ function FeatureLabel({
         }
       `}} />
 
-      <div 
+      <div
         className="flex items-center gap-2 px-3.5 py-[7px] rounded-full bg-[#080e1e]/90 border border-white/[0.08] backdrop-blur-md animate-label-premium"
         style={{
           // Apply staggered animation delay for a wavy floating effect
@@ -87,11 +87,10 @@ function TimelineDot({ active }: { active?: boolean }) {
 
       {/* Main Core Dot */}
       <div
-        className={`rounded-full transition-all duration-500 ease-out flex items-center justify-center ${
-          active 
-            ? "w-[10px] h-[10px] bg-[#3daeff]" 
+        className={`rounded-full transition-all duration-500 ease-out flex items-center justify-center ${active
+            ? "w-[10px] h-[10px] bg-[#3daeff]"
             : "w-[6px] h-[6px] bg-white/20 group-hover:bg-[#3daeff]/40"
-        }`}
+          }`}
         style={{
           boxShadow: active
             ? "0 0 12px rgba(61,174,255,0.6), 0 0 24px rgba(61,174,255,0.3)"
@@ -433,19 +432,16 @@ export default function NvidiaRoadmap() {
                   }}
                 >
                   <TimelineDot active={isActive} />
-                  <span className={`text-[11px] font-semibold tracking-[0.18em] block mb-2 transition-all duration-300 ${
-                    isActive ? "text-[#3daeff]" : "text-white/20"
-                  }`}>
+                  <span className={`text-[11px] font-semibold tracking-[0.18em] block mb-2 transition-all duration-300 ${isActive ? "text-[#3daeff]" : "text-white/20"
+                    }`}>
                     {item.num}
                   </span>
-                  <h3 className={`text-[15px] md:text-[16px] font-bold tracking-[0.06em] mb-2.5 uppercase transition-all duration-300 ${
-                    isActive ? "text-[#3daeff]" : "text-white/35 group-hover:text-white/60"
-                  }`}>
+                  <h3 className={`text-[15px] md:text-[16px] font-bold tracking-[0.06em] mb-2.5 uppercase transition-all duration-300 ${isActive ? "text-[#3daeff]" : "text-white/35 group-hover:text-white/60"
+                    }`}>
                     {item.title}
                   </h3>
-                  <p className={`text-[11px] md:text-[12px] leading-[1.75] max-w-[260px] font-normal transition-all duration-300 ${
-                    isActive ? "text-white/70" : "text-white/20"
-                  }`}>
+                  <p className={`text-[11px] md:text-[12px] leading-[1.75] max-w-[260px] font-normal transition-all duration-300 ${isActive ? "text-white/70" : "text-white/20"
+                    }`}>
                     {item.desc}
                   </p>
                 </div>

@@ -464,18 +464,44 @@ export default function CapacityGrowthModel() {
     function projectLabels() {
       const w = container!.clientWidth;
       const h = container!.clientHeight;
+      const isMobile = w < 640 || curAspect < 1;
+
       stacks.forEach((s, idx) => {
-        const xAdjustment = idx === 1 ? -18 : idx === 2 ? 18 : 0;
+        // Adjust horizontal pixel shift based on viewport width
+        const xAdjustment = isMobile
+          ? (idx === 1 ? -6 : idx === 2 ? 6 : 0)
+          : (idx === 1 ? -18 : idx === 2 ? 18 : 0);
+
+        // Responsive typography for mobile legibility without horizontal crowding
+        if (isMobile) {
+          s.valEl.style.fontSize = "17px";
+          s.valEl.style.letterSpacing = "0.5px";
+          s.yrEl.style.fontSize = "15px";
+          s.yrEl.style.letterSpacing = "1px";
+        } else {
+          s.valEl.style.fontSize = "26px";
+          s.valEl.style.letterSpacing = "1px";
+          s.yrEl.style.fontSize = "24px";
+          s.yrEl.style.letterSpacing = "2px";
+        }
 
         // Project Value Label
         const v = s.markerWorld.clone().project(camera);
         s.valEl.style.left = (v.x * 0.5 + 0.5) * w + xAdjustment + "px";
-        s.valEl.style.top = (-v.y * 0.5 + 0.5) * h - 26 + "px";
+        const valTopOffset = isMobile ? -18 : -26;
+        s.valEl.style.top = (-v.y * 0.5 + 0.5) * h + valTopOffset + "px";
 
         // Project Year Label
-        const vy = s.yrWorld.clone().project(camera);
+        // On mobile view (curAspect < 1), orthographic camera vertical bounds are expanded.
+        // We use a lower 3D Y position and centered Z offset on mobile so year labels sit cleanly below the pedestals.
+        const yrWorldPos = isMobile
+          ? new THREE.Vector3(s.data.x, -2.8, 1.2)
+          : s.yrWorld;
+
+        const vy = yrWorldPos.project(camera);
         s.yrEl.style.left = (vy.x * 0.5 + 0.5) * w + xAdjustment + "px";
-        s.yrEl.style.top = (-vy.y * 0.5 + 0.5) * h + "px";
+        const yrTopOffset = isMobile ? 8 : 0;
+        s.yrEl.style.top = (-vy.y * 0.5 + 0.5) * h + yrTopOffset + "px";
       });
     }
 

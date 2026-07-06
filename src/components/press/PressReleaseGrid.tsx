@@ -286,9 +286,8 @@ export default function PressReleaseGrid() {
           const slug = slugify(pr.title);
           window.open(`/press-release/${slug}`, "_blank");
         }}
-        className={`group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${
-          isFeatured ? "min-h-[380px]" : "min-h-[300px]"
-        }`}
+        className={`group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${isFeatured ? "min-h-[380px]" : "min-h-[300px]"
+          }`}
       >
         {/* ── Card background ── */}
         <div
@@ -386,21 +385,19 @@ export default function PressReleaseGrid() {
           {/* Body: Title + Excerpt */}
           <div className="mt-6">
             <h3
-              className={`font-semibold text-white/90 leading-[1.35] mb-3 group-hover:text-white transition-colors duration-300 ${
-                isFeatured
+              className={`font-semibold text-white/90 leading-[1.35] mb-3 group-hover:text-white transition-colors duration-300 ${isFeatured
                   ? "text-[20px] sm:text-[22px] md:text-[24px]"
                   : "text-[16px] sm:text-[17px]"
-              }`}
+                }`}
             >
               {pr.title}
             </h3>
 
             <p
-              className={`text-white/50 leading-[1.7] group-hover:text-white/70 transition-colors duration-300 ${
-                isFeatured
+              className={`text-white/50 leading-[1.7] group-hover:text-white/70 transition-colors duration-300 ${isFeatured
                   ? "text-[13px] line-clamp-3"
                   : "text-[12px] line-clamp-2"
-              }`}
+                }`}
             >
               {pr.excerpt}
             </p>
@@ -483,11 +480,10 @@ export default function PressReleaseGrid() {
                 <button
                   key={cat}
                   onClick={() => { setActiveCategory(cat); setVisibleCount(8); }}
-                  className={`px-4 py-2 rounded-xl text-[10px] font-bold tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer border ${
-                    active
+                  className={`px-4 py-2 rounded-xl text-[10px] font-bold tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer border ${active
                       ? "bg-white/[0.06] shadow-[0_0_14px_rgba(61,174,255,0.05)]"
                       : "bg-transparent border-white/[0.05] text-white/28 hover:text-white/50 hover:border-white/10"
-                  }`}
+                    }`}
                   style={active ? { borderColor: `${c}30`, color: c } : undefined}
                 >
                   {cat === "ALL" ? (
@@ -569,20 +565,20 @@ export default function PressReleaseGrid() {
       {selectedArticle && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 animate-fade-in">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/75 backdrop-blur-xl transition-opacity duration-300"
             onClick={() => setSelectedArticle(null)}
           />
-          
+
           {/* Modal Container */}
           <div className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-[#0a1424] to-[#04070f] shadow-[0_24px_60px_rgba(0,0,0,0.8),_0_0_80px_rgba(61,174,255,0.08)] flex flex-col z-10">
             {/* Ambient inner glow */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#3daeff]/40 to-transparent" />
-            
+
             {/* Header */}
             <div className="p-6 md:p-8 border-b border-white/[0.06] flex items-start justify-between gap-6">
               <div>
-                <span 
+                <span
                   className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full w-fit mb-4"
                   style={{
                     color: categoryColors[selectedArticle.category] || "#3daeff",
@@ -593,11 +589,11 @@ export default function PressReleaseGrid() {
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: categoryColors[selectedArticle.category] || "#3daeff" }} />
                   {selectedArticle.category}
                 </span>
-                
+
                 <h2 className="text-[20px] md:text-[24px] font-bold text-white leading-tight">
                   {selectedArticle.title}
                 </h2>
-                
+
                 <div className="flex items-center gap-3 text-[11px] text-white/40 mt-3">
                   <span>{selectedArticle.date}</span>
                   <span className="w-1 h-1 rounded-full bg-white/10" />
@@ -606,24 +602,24 @@ export default function PressReleaseGrid() {
                   <span>{selectedArticle.readTime}</span>
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => setSelectedArticle(null)}
                 className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-white/[0.08] bg-white/[0.02] text-white/40 hover:text-white hover:bg-white/[0.05] transition-all cursor-pointer"
               >
                 ✕
               </button>
             </div>
-            
+
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar">
-              <div 
+              <div
                 className="text-white/70 text-[13px] md:text-[14px] leading-[1.8] space-y-4 article-content"
                 dangerouslySetInnerHTML={{ __html: selectedArticle.content || "" }}
               />
             </div>
           </div>
-          
+
           {/* Styles for article content override */}
           <style dangerouslySetInnerHTML={{
             __html: `

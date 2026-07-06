@@ -79,11 +79,10 @@ export default function UsdcByNumbers() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center justify-center text-center px-6 py-5 md:py-6 transition-all duration-500 hover:bg-[#02050c]/40 group cursor-default ${
-                  i < stats.length - 1
+                className={`flex flex-col items-center justify-center text-center px-6 py-5 md:py-6 transition-all duration-500 hover:bg-[#02050c]/40 group cursor-default ${i < stats.length - 1
                     ? "border-b md:border-b-0 md:border-r border-white/[0.06]"
                     : ""
-                }`}
+                  }`}
               >
                 {/* Large Number */}
                 <span

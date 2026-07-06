@@ -57,7 +57,7 @@ export default function TeamCTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-cyan-600/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* Main Card Container */}
         <div
           style={fadeUp(0)}
@@ -77,7 +77,7 @@ export default function TeamCTA() {
           <div className="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            
+
             {/* Left Column: Heading and action */}
             <div className="flex flex-col items-start text-left">
               <div

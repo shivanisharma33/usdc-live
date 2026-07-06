@@ -366,7 +366,8 @@ function IsometricCubeStack() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <style dangerouslySetInnerHTML={{ __html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             /* ─── Master Scene Float ─── */
             @keyframes aiSceneFloat {
               0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -547,10 +548,10 @@ function IsometricCubeStack() {
             }
 
             /* Diamond border */
-            const top    = { x: ox, y: oy - N * uy };
-            const right  = { x: ox + N * ux, y: oy };
+            const top = { x: ox, y: oy - N * uy };
+            const right = { x: ox + N * ux, y: oy };
             const bottom = { x: ox, y: oy + N * uy };
-            const left   = { x: ox - N * ux, y: oy };
+            const left = { x: ox - N * ux, y: oy };
             elems.push(
               <polygon key="gridborder"
                 points={`${top.x},${top.y} ${right.x},${right.y} ${bottom.x},${bottom.y} ${left.x},${left.y}`}
@@ -614,28 +615,28 @@ function IsometricCubeStack() {
 
                 {/* Vertical midlines on faces */}
                 <line x1={cx - hw / 2} y1={(BL[1] + BF[1]) / 2}
-                      x2={cx - hw / 2} y2={(TL[1] + TF[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.18" />
+                  x2={cx - hw / 2} y2={(TL[1] + TF[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.18" />
                 <line x1={cx + hw / 2} y1={(BR[1] + BF[1]) / 2}
-                      x2={cx + hw / 2} y2={(TR[1] + TF[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.18" />
+                  x2={cx + hw / 2} y2={(TR[1] + TF[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.18" />
                 <line x1={cx} y1={BB[1]}
-                      x2={cx} y2={TB[1]}
-                      strokeDasharray="3,3" strokeOpacity="0.18" />
+                  x2={cx} y2={TB[1]}
+                  strokeDasharray="3,3" strokeOpacity="0.18" />
 
                 {/* Horizontal midlines on left/right faces */}
                 <line x1={BL[0]} y1={(BL[1] + TL[1]) / 2}
-                      x2={BF[0]} y2={(BF[1] + TF[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.15" />
+                  x2={BF[0]} y2={(BF[1] + TF[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.15" />
                 <line x1={BR[0]} y1={(BR[1] + TR[1]) / 2}
-                      x2={BF[0]} y2={(BF[1] + TF[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.15" />
+                  x2={BF[0]} y2={(BF[1] + TF[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.15" />
                 <line x1={BL[0]} y1={(BL[1] + TL[1]) / 2}
-                      x2={BB[0]} y2={(BB[1] + TB[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.15" />
+                  x2={BB[0]} y2={(BB[1] + TB[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.15" />
                 <line x1={BR[0]} y1={(BR[1] + TR[1]) / 2}
-                      x2={BB[0]} y2={(BB[1] + TB[1]) / 2}
-                      strokeDasharray="3,3" strokeOpacity="0.15" />
+                  x2={BB[0]} y2={(BB[1] + TB[1]) / 2}
+                  strokeDasharray="3,3" strokeOpacity="0.15" />
               </g>
             );
           })()}
@@ -723,11 +724,11 @@ function IsometricCubeStack() {
 
                   {/* Vertical subdivision lines on faces */}
                   <line x1={cx - hw / 2} y1={(BL[1] + BF[1]) / 2}
-                        x2={cx - hw / 2} y2={(TL[1] + TF[1]) / 2}
-                        strokeDasharray="3,4" strokeOpacity="0.15" />
+                    x2={cx - hw / 2} y2={(TL[1] + TF[1]) / 2}
+                    strokeDasharray="3,4" strokeOpacity="0.15" />
                   <line x1={cx + hw / 2} y1={(BR[1] + BF[1]) / 2}
-                        x2={cx + hw / 2} y2={(TR[1] + TF[1]) / 2}
-                        strokeDasharray="3,4" strokeOpacity="0.15" />
+                    x2={cx + hw / 2} y2={(TR[1] + TF[1]) / 2}
+                    strokeDasharray="3,4" strokeOpacity="0.15" />
                 </g>
               );
             })()}
@@ -1066,7 +1067,7 @@ export default function AIInfrastructureExcellence() {
           style={fadeUp(80)}
         >
           Stay ahead of the curve with the latest developments from USDC - your trusted partner in digital infrastructure.
-        
+
         </p>
 
         {/* ═══════════════ Bento Grid ═══════════════ */}
@@ -1184,7 +1185,7 @@ export default function AIInfrastructureExcellence() {
               <div className="relative z-10 max-w-[55%]">
                 <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   4.
-                  </span>
+                </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
                   AI OPTIMIZED
                 </h3>

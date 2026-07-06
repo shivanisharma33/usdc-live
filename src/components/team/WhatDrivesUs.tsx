@@ -6,7 +6,7 @@ import { Zap, Shield, Sun } from "lucide-react";
 export default function WhatDrivesUs() {
   return (
     <section className="relative z-10 w-full bg-[#04070f] py-20 lg:py-24 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 text-center select-none">
-      
+
       {/* ── HEADER ── */}
       <div className="flex flex-col items-center mb-16 space-y-6">
         {/* Pill Badge */}
@@ -33,12 +33,12 @@ export default function WhatDrivesUs() {
 
       {/* ── THREE COLUMN CARD CONTAINER ── */}
       <div className="relative w-full rounded-[24px] border border-white/[0.08] bg-[#050915]/40 backdrop-blur-md shadow-2xl overflow-hidden">
-        
+
         {/* Ambient backing glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-blue-500/[0.015] blur-[80px] pointer-events-none" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/[0.08] relative z-10">
-          
+
           {/* Column 1: Speed to deployment */}
           <div className="p-8 md:p-12 lg:p-14 flex flex-col items-start text-left">
             {/* Icon box */}

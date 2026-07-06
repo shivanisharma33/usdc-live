@@ -69,11 +69,11 @@ export default function DcimSection() {
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-cyan-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-16">
           {/* Pill Badge */}
-          <div 
+          <div
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
             style={fadeUp(0)}
           >
@@ -83,14 +83,14 @@ export default function DcimSection() {
             </span>
           </div>
 
-          <h2 
+          <h2
             className="text-[32px] sm:text-[40px] md:text-[52px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase"
             style={fadeUp(80)}
           >
             USDC <span className="text-[#3daeff]">DCIM</span> Telemetry
           </h2>
-          
-          <p 
+
+          <p
             className="text-sm text-white/45 max-w-[780px] leading-relaxed font-sans"
             style={fadeUp(160)}
           >
@@ -98,27 +98,25 @@ export default function DcimSection() {
           </p>
 
           {/* Interactive Navigation Tabs */}
-          <div 
+          <div
             className="flex items-center justify-center p-1 rounded-xl bg-[#02050c]/80 border border-white/[0.06] mt-10 relative z-20 max-w-sm w-full"
             style={fadeUp(220)}
           >
             <button
               onClick={() => setActiveTab("cooling")}
-              className={`flex-1 py-2.5 px-4 text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-300 ${
-                activeTab === "cooling"
+              className={`flex-1 py-2.5 px-4 text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-300 ${activeTab === "cooling"
                   ? "bg-[#3daeff] text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)]"
                   : "text-white/40 hover:text-white/70"
-              }`}
+                }`}
             >
               Cooling Loop
             </button>
             <button
               onClick={() => setActiveTab("power")}
-              className={`flex-1 py-2.5 px-4 text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-300 ${
-                activeTab === "power"
+              className={`flex-1 py-2.5 px-4 text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-300 ${activeTab === "power"
                   ? "bg-[#3daeff] text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)]"
                   : "text-white/40 hover:text-white/70"
-              }`}
+                }`}
             >
               Power &amp; Layout
             </button>
@@ -126,12 +124,12 @@ export default function DcimSection() {
         </div>
 
         {/* Dashboard Display Card */}
-        <div 
+        <div
           className="relative rounded-2xl p-[1px] bg-gradient-to-b from-[#3daeff]/35 via-white/[0.05] to-[#3daeff]/5 shadow-[0_0_60px_rgba(61,174,255,0.05)] w-full overflow-hidden"
           style={fadeUp(280)}
         >
           <div className="w-full bg-[#02050c]/90 backdrop-blur-xl rounded-2xl p-6 md:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             {/* Left Column: Visual Dashboard Screenshot */}
             <div className="lg:col-span-8 relative w-full aspect-[3/2] sm:aspect-[2.75/1] min-h-[280px] rounded-xl overflow-hidden border border-white/[0.08] bg-[#04070f] group">
               <Image
@@ -142,7 +140,7 @@ export default function DcimSection() {
                 sizes="(max-width: 1024px) 100vw, 66vw"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
-              
+
               {/* Floating Status Indicator */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/30 bg-green-500/5 backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -159,11 +157,11 @@ export default function DcimSection() {
                   {tabContent[activeTab].badge}
                 </span>
               </div>
-              
+
               <h3 className="text-2xl font-bold text-white mb-4 font-sans">
                 {tabContent[activeTab].title}
               </h3>
-              
+
               <p className="text-xs sm:text-[13px] text-white/50 leading-relaxed font-sans font-normal mb-8">
                 {tabContent[activeTab].desc}
               </p>

@@ -66,7 +66,7 @@ export default function LatestNews() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* ── Heading Block ── */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 md:mb-16">
           <div className="flex flex-col items-start" style={fadeUp(0)}>
@@ -131,7 +131,7 @@ export default function LatestNews() {
 
               {/* Card Main Grid (Thumbnail Left, Text Right) */}
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-start">
-                
+
                 {/* Left Thumbnail Image */}
                 <div className="sm:col-span-5 w-full relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-xl bg-black/10 border border-black/[0.06]">
                   <img
@@ -165,7 +165,7 @@ export default function LatestNews() {
                   <div>
                     {/* Divider */}
                     <div className="w-full h-px bg-black/[0.08] my-3" />
-                    
+
                     <div className="flex items-center gap-2 text-[9px] font-bold text-black/50 uppercase">
                       <span className="w-1.5 h-1.5 rounded-full border border-black/20 bg-transparent" />
                       <span>{item.category}</span>
