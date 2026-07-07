@@ -88,8 +88,8 @@ function TimelineDot({ active }: { active?: boolean }) {
       {/* Main Core Dot */}
       <div
         className={`rounded-full transition-all duration-500 ease-out flex items-center justify-center ${active
-            ? "w-[10px] h-[10px] bg-[#3daeff]"
-            : "w-[6px] h-[6px] bg-white/20 group-hover:bg-[#3daeff]/40"
+          ? "w-[10px] h-[10px] bg-[#3daeff]"
+          : "w-[6px] h-[6px] bg-white/20 group-hover:bg-[#3daeff]/40"
           }`}
         style={{
           boxShadow: active

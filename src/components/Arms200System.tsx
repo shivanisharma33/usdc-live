@@ -284,17 +284,17 @@ export default function Arms200System() {
                   >
                     {/* Hover glow effect background */}
                     <div className="absolute inset-0 bg-gradient-to-b from-[#3daeff]/[0.02] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                    
+
                     {/* Icon container */}
                     <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover/card:bg-[#3daeff]/20 group-hover/card:border-[#3daeff]/40 transition-all duration-300 mb-4 relative z-10">
                       <Icon className="w-5 h-5 text-[#3daeff] transition-transform duration-300 group-hover/card:scale-110" />
                     </div>
-                    
+
                     {/* Title */}
                     <h4 className="text-[11px] md:text-xs font-bold text-white tracking-[0.25em] uppercase mb-2 font-sans relative z-10">
                       {feat.title}
                     </h4>
-                    
+
                     {/* Description */}
                     <p className="text-[12px] md:text-[13px] text-white/50 leading-[1.6] max-w-[220px] relative z-10">
                       {feat.desc}

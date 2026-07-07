@@ -16,14 +16,15 @@ export default function Hero() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
           <source src="/usdc%20%7B%7D%7B%7D.mov" type="video/quicktime" />
           <source src="/usdc%20%7B%7D%7B%7D.mov" type="video/mp4" />
+          <source src="/0703(1).mp4" type="video/mp4" />
         </video>
-        {/* Black gradient fade — top & bottom */}
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[#04070f]/90 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#04070f]/90 to-transparent" />
+        {/* Black gradient fade — top & bottom (softened to keep video and text visible together) */}
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#04070f]/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#04070f]/75 to-transparent" />
       </div>
 
       {/* Decorative Badge */}
