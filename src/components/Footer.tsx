@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -8,9 +8,47 @@ import { Mail, Phone, MapPin } from "lucide-react";
 /* ═══════════════════════ Footer Component ═══════════════════════ */
 
 export default function Footer() {
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Newsletter subscribe action
+    if (!name || !email) return;
+    setSubmitting(true);
+    setError(false);
+    try {
+      const response = await fetch("https://peaceful-power-64c420fe0a.strapiapp.com/api/subcribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            fullName: name,
+            email: email,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Subscription failed");
+      }
+
+      setSubmitting(false);
+      setSuccess(true);
+      setEmail("");
+      setName("");
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err) {
+      console.error("Error subscribing:", err);
+      setSubmitting(false);
+      setError(true);
+      setTimeout(() => setError(false), 5000);
+    }
   };
 
   const socialLinks = [
@@ -172,23 +210,55 @@ export default function Footer() {
             </p>
           </div>
           {/* Newsletter Form */}
-          <form
-            onSubmit={handleSubscribe}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-[520px]"
-          >
-            <input
-              type="email"
-              placeholder="Enter Your Email"
-              required
-              className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300"
-            />
-            <button
-              type="submit"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-black text-[13px] tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] hover:shadow-[0_4px_20px_rgba(61,174,255,0.35)] cursor-pointer text-center"
+          {success ? (
+            <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 w-full max-w-[620px] transition-all duration-300">
+              <svg className="w-5 h-5 flex-shrink-0 stroke-current text-emerald-400" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span className="text-[13.5px] font-bold tracking-wide">Thank you! You have successfully subscribed to our newsletter.</span>
+            </div>
+          ) : error ? (
+            <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-rose-500/20 bg-rose-500/5 text-rose-400 w-full max-w-[620px] transition-all duration-300">
+              <svg className="w-5 h-5 flex-shrink-0 stroke-current text-rose-400" viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span className="text-[13.5px] font-bold tracking-wide">Subscription failed. Please try again.</span>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full max-w-[620px]"
             >
-              SUBSCRIBE
-            </button>
-          </form>
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                required
+                disabled={submitting}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300 disabled:opacity-50"
+              />
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                required
+                disabled={submitting}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300 disabled:opacity-50"
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-black text-[13px] tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(61,174,255,0.15)] hover:shadow-[0_4px_20px_rgba(61,174,255,0.35)] cursor-pointer text-center whitespace-nowrap disabled:opacity-50"
+              >
+                {submitting ? "SUBSCRIBING..." : "SUBSCRIBE"}
+              </button>
+            </form>
+          )}
         </div>
 
         {/* ── Bottom Row (Copyright & Policy) ── */}

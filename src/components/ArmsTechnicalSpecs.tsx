@@ -140,7 +140,7 @@ export default function ArmsTechnicalSpecs() {
   const specsList = [
     {
       name: "Critical IT Load",
-      value: "Up To 600 KW Per Module",
+      value: "Up To 1.8 MW Per Module",
       Icon: Gauge,
     },
     {

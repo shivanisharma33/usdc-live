@@ -20,7 +20,7 @@ const ArmsDataCentreModel = dynamic(
 );
 
 /* ── Animated counter hook ── */
-function useCounter(end: number, duration = 2200, suffix = "") {
+function useCounter(end: number, duration = 2200, suffix = "", decimals = 0) {
   const [val, setVal] = useState("0");
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
@@ -36,7 +36,8 @@ function useCounter(end: number, duration = 2200, suffix = "") {
           const step = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            setVal(Math.round(eased * end).toString());
+            const currentVal = eased * end;
+            setVal(currentVal.toFixed(decimals));
             if (progress < 1) requestAnimationFrame(step);
           };
           requestAnimationFrame(step);
@@ -46,7 +47,7 @@ function useCounter(end: number, duration = 2200, suffix = "") {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [end, duration]);
+  }, [end, duration, decimals]);
 
   return { ref, val: val + suffix };
 }
@@ -56,7 +57,7 @@ const specs = [
   {
     icon: <Zap className="w-5 h-5" />,
     label: "IT Load Capacity",
-    value: "600 kW",
+    value: "1.8 MW",
     desc: "Per module critical IT power",
   },
   {
@@ -92,7 +93,7 @@ const specs = [
 ];
 
 const stats = [
-  { end: 600, suffix: " kW", label: "Per Module Power" },
+  { end: 1.8, suffix: " MW", label: "Per Module Power", decimals: 1 },
   { end: 90, suffix: " Days", label: "Rapid Deployment" },
   { end: 100, suffix: "%", label: "GPU Compatible" },
 ];
@@ -162,7 +163,7 @@ export default function ArmsModelShowcase() {
           style={enter(120)}
         >
           {stats.map((s, i) => (
-            <StatCard key={i} end={s.end} suffix={s.suffix} label={s.label} />
+            <StatCard key={i} end={s.end} suffix={s.suffix} label={s.label} decimals={s.decimals} />
           ))}
         </div>
 
@@ -285,12 +286,14 @@ function StatCard({
   end,
   suffix,
   label,
+  decimals = 0,
 }: {
   end: number;
   suffix: string;
   label: string;
+  decimals?: number;
 }) {
-  const { ref, val } = useCounter(end, 2200, suffix);
+  const { ref, val } = useCounter(end, 2200, suffix, decimals);
   return (
     <div
       ref={ref}

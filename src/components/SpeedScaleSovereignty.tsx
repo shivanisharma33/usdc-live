@@ -80,7 +80,7 @@ export default function SpeedScaleSovereignty() {
   };
 
   // Piecewise mapping for sliderVal (0 to 100):
-  // 0%   -> 600 kW (0.6 MW) - 1 ARMS 200 Module
+  // 0%   -> 1800 kW (1.8 MW) - 1 ARMS 200 Module
   // 25%  -> 10 MW (10,000 kW)
   // 50%  -> 55 MW (55,000 kW) - Current capacity in development
   // 75%  -> 200 MW (200,000 kW) - Substations/Plant level
@@ -88,7 +88,7 @@ export default function SpeedScaleSovereignty() {
   const getPowerKw = (val: number): number => {
     if (val <= 25) {
       const pct = val / 25;
-      return 600 + pct * (10000 - 600);
+      return 1800 + pct * (10000 - 1800);
     } else if (val <= 50) {
       const pct = (val - 25) / 25;
       return 10000 + pct * (55000 - 10000);
@@ -117,7 +117,7 @@ export default function SpeedScaleSovereignty() {
   const formattedPower = getFormattedPower(powerKw);
 
   // Dynamic configuration metrics
-  const armsPodsCount = Math.round(powerKw / 600); // 600 kW per pod
+  const armsPodsCount = Math.round(powerKw / 1800); // 1.8 MW (1800 kW) per pod
   const blackwellRacksCount = Math.round(powerKw / 120); // 120 kW per rack
   const b200GpusCount = blackwellRacksCount * 72; // 72 GPUs per NVL72 rack
 
@@ -430,7 +430,7 @@ export default function SpeedScaleSovereignty() {
 
                       {/* Tick Mark Labels */}
                       <div className="flex justify-between text-[11px] sm:text-[12px] font-bold text-white/40 tracking-wider mt-3.5 uppercase">
-                        <span>600 kW</span>
+                        <span>1.8 MW</span>
                         <span>10 MW</span>
                         <span>55 MW</span>
                         <span>200 MW</span>

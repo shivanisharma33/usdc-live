@@ -44,7 +44,7 @@ export default function ArmsHero() {
         </h1>
 
         <p className="text-[14px] md:text-[15px] text-white/65 font-normal leading-[1.8] max-w-[620px] mb-10 font-sans line-clamp-3">
-          Each ARMS 200 unit delivers up to 600 kW of critical IT load in a compact,
+          Each ARMS 200 unit delivers up to 1.8 MW of critical IT load in a compact,
           rapidly deployable package — designed for Tier III redundancy
           and concurrent maintainability.
         </p>
