@@ -36,7 +36,7 @@ export default function CapacityGrowthModel() {
     const ISO_DIST = 30;
     const rig = {
       target: new THREE.Vector3(0.0, 3.2, 0), // Shift camera target to the center (from 0.5) to slide model slightly right
-      d: 11.0, // Zoom out slightly (from 11.2) to give margin to the left and right edges
+      d: 12.2, // Zoom out slightly (from 11.2) to give margin to the left and right edges
     };
 
     let camera: THREE.OrthographicCamera;
@@ -315,12 +315,13 @@ export default function CapacityGrowthModel() {
       e.style.textShadow = cls === "yr" ? "0 0 12px rgba(61, 174, 255, 0.65)" : "0 0 8px rgba(255, 255, 255, 0.35)";
       e.style.opacity = "0";
       e.style.transition = "opacity .6s ease";
+      const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
       if (cls === "val") {
-        e.style.fontSize = "26px";
+        e.style.fontSize = isMobile ? "16px" : "26px";
         e.style.fontWeight = "400";
         e.style.letterSpacing = "1px";
       } else if (cls === "yr") {
-        e.style.fontSize = "24px";
+        e.style.fontSize = isMobile ? "15px" : "24px";
         e.style.fontWeight = "bold";
         e.style.letterSpacing = "2px";
       }
@@ -639,14 +640,20 @@ export default function CapacityGrowthModel() {
       const h = container.clientHeight;
       renderer.setSize(w, h);
       curAspect = w / h;
+
+      const isMobile = w < 640;
+      stacks.forEach((s) => {
+        if (s.valEl) s.valEl.style.fontSize = isMobile ? "16px" : "26px";
+        if (s.yrEl) s.yrEl.style.fontSize = isMobile ? "15px" : "24px";
+      });
+
       if (curAspect < 1) {
-        // Zoom in more on mobile (portrait) to reduce vertical empty space
-        const targetD = 8.6;
-        const horizontalMargin = targetD * 1.25;
+        // Use correct camera aspect ratio mapping to avoid distortion
+        const horizontalMargin = 13.5;
         camera.left = -horizontalMargin;
         camera.right = horizontalMargin;
-        camera.top = targetD / curAspect;
-        camera.bottom = -targetD / curAspect;
+        camera.top = horizontalMargin / curAspect;
+        camera.bottom = -horizontalMargin / curAspect;
       } else {
         camera.left = -rig.d * curAspect;
         camera.right = rig.d * curAspect;
@@ -681,7 +688,7 @@ export default function CapacityGrowthModel() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-[300px]">
+    <div ref={containerRef} className="relative w-full h-full min-h-[250px]">
       <canvas ref={canvasRef} className="block w-full h-full" />
       <div ref={labelsRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
     </div>
