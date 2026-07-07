@@ -52,7 +52,7 @@ export default function EnergyPage() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: "url('/Group 344 (1).png')" }}
+            style={{ backgroundImage: "url('/Group 344 (1).webp')" }}
           />
         </div>
 

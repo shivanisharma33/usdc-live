@@ -105,6 +105,7 @@ export default function WhyUsdcSection() {
           <img
             src="/why_usdc_schematic.png"
             alt="USDC Campus Site Schematic Layout"
+            loading="lazy"
             className="w-full h-auto object-contain filter drop-shadow-[0_0_40px_rgba(61,174,255,0.12)] opacity-90 mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,white_70%,transparent_100%)]"
           />
           {/* Absolute gradient overlays to blend the image boundaries seamlessly with the section background */}

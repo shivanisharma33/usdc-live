@@ -287,6 +287,7 @@ export default function ArmsTechnicalSpecs() {
                 <img
                   src="/Arms 300.webp"
                   alt="ARMS 300 Model"
+                  loading="lazy"
                   className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

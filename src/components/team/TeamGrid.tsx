@@ -123,6 +123,7 @@ export default function TeamGrid() {
                 <img
                   src={member.image}
                   alt={member.name}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                 />
 
@@ -182,6 +183,7 @@ export default function TeamGrid() {
                     <img
                       src={selectedMember.image}
                       alt={selectedMember.name}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                     {/* Scanning laser line animation */}

@@ -1,16 +1,18 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SpeedScaleSovereignty from "@/components/SpeedScaleSovereignty";
-import InfrastructureStack from "@/components/InfrastructureStack";
-import AIDemand from "@/components/AIDemand";
-import AIInfrastructureExcellence from "@/components/AIInfrastructureExcellence";
-import NvidiaRoadmap from "@/components/NvidiaRoadmap";
-
-import LatestNews from "@/components/LatestNews";
-import PartnerSection from "@/components/PartnerSection";
-import DcimSection from "@/components/DcimSection";
 import Footer from "@/components/Footer";
+
+// Lazy load below-the-fold components
+const SpeedScaleSovereignty = dynamic(() => import("@/components/SpeedScaleSovereignty"));
+const InfrastructureStack = dynamic(() => import("@/components/InfrastructureStack"));
+const AIDemand = dynamic(() => import("@/components/AIDemand"));
+const AIInfrastructureExcellence = dynamic(() => import("@/components/AIInfrastructureExcellence"));
+const NvidiaRoadmap = dynamic(() => import("@/components/NvidiaRoadmap"));
+const DcimSection = dynamic(() => import("@/components/DcimSection"));
+const LatestNews = dynamic(() => import("@/components/LatestNews"));
+const PartnerSection = dynamic(() => import("@/components/PartnerSection"));
 
 export default function Home() {
   return (

@@ -117,6 +117,7 @@ export default function AboutByNumbers() {
             <img
               src="/usa_sites_map.png"
               alt="USDC Operating and Development Sites Map"
+              loading="lazy"
               className="w-full h-full object-cover opacity-60 mix-blend-screen"
             />
 

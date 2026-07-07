@@ -12,7 +12,7 @@ export default function ArmsHero() {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Group 341.png')" }}
+          style={{ backgroundImage: "url('/Group 341.webp')" }}
         />
       </div>
 

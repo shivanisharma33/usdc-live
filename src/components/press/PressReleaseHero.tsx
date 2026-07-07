@@ -31,7 +31,7 @@ export default function PressReleaseHero() {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/USDC%20website/Group%20336.png')" }}
+          style={{ backgroundImage: "url('/USDC%20website/Group%20336.webp')" }}
         />
       </div>
       {/* ── Custom keyframes ── */}

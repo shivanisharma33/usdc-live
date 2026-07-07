@@ -1,14 +1,17 @@
 import React from "react";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ArmsHero from "@/components/ArmsHero";
-import Arms200Advantages from "@/components/Arms200Advantages";
-import ArmsModelShowcase from "@/components/ArmsModelShowcase";
-import ArmsInfrastructureGrid from "@/components/ArmsInfrastructureGrid";
-import Arms200System from "@/components/Arms200System";
-import ArmsTechnicalSpecs from "@/components/ArmsTechnicalSpecs";
-import PartnerSection from "@/components/PartnerSection";
+
+// Lazy load below-the-fold components
+const Arms200Advantages = dynamic(() => import("@/components/Arms200Advantages"));
+const ArmsModelShowcase = dynamic(() => import("@/components/ArmsModelShowcase"));
+const ArmsInfrastructureGrid = dynamic(() => import("@/components/ArmsInfrastructureGrid"));
+const Arms200System = dynamic(() => import("@/components/Arms200System"));
+const ArmsTechnicalSpecs = dynamic(() => import("@/components/ArmsTechnicalSpecs"));
+const PartnerSection = dynamic(() => import("@/components/PartnerSection"));
 
 export const metadata: Metadata = {
   title: "ARMS Modular Systems — USDC | Enterprise-Scale AI Infrastructure",

@@ -49,6 +49,7 @@ export default function Arms200Advantages() {
               <img
                 src="/USDC (5) 2.png"
                 alt="ARMS 200 3D Model"
+                loading="lazy"
                 className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(61,174,255,0.15)]"
               />
             </div>

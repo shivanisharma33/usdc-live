@@ -26,7 +26,7 @@ export default function GlobalNetworkPage() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <div 
             className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: "url('/global-hero-globe.png')" }}
+            style={{ backgroundImage: "url('/global-hero-globe.webp')" }}
           />
           {/* Realistic space-globe vignette (radial and linear dark gradients) */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#04070f_75%)]" />

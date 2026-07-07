@@ -196,7 +196,7 @@ export default function NewsInsightsPage() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/USDC%20website/Group%20335.png')" }}
+            style={{ backgroundImage: "url('/USDC%20website/Group%20335.webp')" }}
           />
         </div>
 
@@ -336,6 +336,7 @@ export default function NewsInsightsPage() {
               <img
                 src={featuredStory.image}
                 alt={featuredStory.title}
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-[1.04] group-hover:opacity-100 transition-all duration-750"
               />
               {/* Dark left/bottom masks */}
@@ -398,6 +399,7 @@ export default function NewsInsightsPage() {
                   <img
                     src={article.image}
                     alt={article.title}
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
                   />
                   {/* Category badge */}
@@ -668,6 +670,7 @@ export default function NewsInsightsPage() {
                     <img
                       src={selectedArticle.image}
                       alt={selectedArticle.title}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                     {/* Telemetry line */}
