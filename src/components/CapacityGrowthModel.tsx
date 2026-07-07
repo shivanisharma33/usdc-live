@@ -36,7 +36,7 @@ export default function CapacityGrowthModel() {
     const ISO_DIST = 30;
     const rig = {
       target: new THREE.Vector3(0.0, 3.2, 0), // Shift camera target to the center (from 0.5) to slide model slightly right
-      d: 12.2, // Zoom out slightly (from 11.2) to give margin to the left and right edges
+      d: 11.0, // Zoom out slightly (from 11.2) to give margin to the left and right edges
     };
 
     let camera: THREE.OrthographicCamera;
@@ -640,11 +640,13 @@ export default function CapacityGrowthModel() {
       renderer.setSize(w, h);
       curAspect = w / h;
       if (curAspect < 1) {
-        const horizontalMargin = rig.d * 1.25;
+        // Zoom in more on mobile (portrait) to reduce vertical empty space
+        const targetD = 8.6;
+        const horizontalMargin = targetD * 1.25;
         camera.left = -horizontalMargin;
         camera.right = horizontalMargin;
-        camera.top = rig.d / curAspect;
-        camera.bottom = -rig.d / curAspect;
+        camera.top = targetD / curAspect;
+        camera.bottom = -targetD / curAspect;
       } else {
         camera.left = -rig.d * curAspect;
         camera.right = rig.d * curAspect;
@@ -679,7 +681,7 @@ export default function CapacityGrowthModel() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-[420px]">
+    <div ref={containerRef} className="relative w-full h-full min-h-[300px]">
       <canvas ref={canvasRef} className="block w-full h-full" />
       <div ref={labelsRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
     </div>

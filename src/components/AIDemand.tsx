@@ -176,7 +176,7 @@ export default function AIDemand() {
 
           {/* ══════ RIGHT COLUMN — Capacity Growth ThreeD Model ══════ */}
           <div className="flex justify-center lg:justify-end items-center" style={fadeUp(240)}>
-            <div className="relative w-full max-w-[560px] h-[450px] md:h-[500px] overflow-hidden">
+            <div className="relative w-full max-w-[560px] h-[320px] sm:h-[380px] md:h-[450px] lg:h-[500px] overflow-hidden">
               <CapacityGrowthModel />
             </div>
           </div>

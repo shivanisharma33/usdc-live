@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 md:pt-28 pb-12 md:pb-16 relative min-h-screen select-none overflow-hidden">
+    <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 md:pt-28 pb-16 relative min-h-screen select-none overflow-hidden">
 
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
@@ -22,9 +22,9 @@ export default function Hero() {
           <source src="/usdc%20%7B%7D%7B%7D.mov" type="video/mp4" />
           <source src="/0703(1).mp4" type="video/mp4" />
         </video>
-        {/* Black gradient fade — top & bottom (softened to keep video and text visible together) */}
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-[#04070f]/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#04070f]/75 to-transparent" />
+        {/* Black gradient fade — top & bottom (increased contrast in the middle for maximum text & button readability) */}
+        <div className="absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-[#04070f]/85 via-[#04070f]/50 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-[#04070f]/90 via-[#04070f]/55 to-transparent" />
       </div>
 
       {/* Decorative Badge */}
@@ -123,15 +123,15 @@ export default function Hero() {
       }} />
 
       {/* Metrics Capsule Dashboard */}
-      <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] animate-slide-up [animation-delay:350ms] hero-capsule-glow">
+      <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-4 px-4 md:py-6 md:px-10 grid grid-cols-2 md:flex md:flex-row items-center justify-center text-center gap-3 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] animate-slide-up [animation-delay:350ms] hero-capsule-glow">
 
         {/* Metric 1 */}
-        <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Zap className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
-          <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
+        <div className="flex-1 flex flex-col items-center gap-1 md:gap-2 text-center w-full metric-card-hover p-2 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/[0.02] cursor-default group">
+          <Zap className="w-6 h-6 md:w-8 md:h-8 text-[#3daeff] opacity-90 metric-icon" />
+          <span className="text-lg sm:text-xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             1-50MW+
           </span>
-          <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
+          <span className="text-[8px] md:text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             Power Capacity
           </span>
         </div>
@@ -140,12 +140,12 @@ export default function Hero() {
         <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 2 */}
-        <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Clock className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
-          <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
+        <div className="flex-1 flex flex-col items-center gap-1 md:gap-2 text-center w-full metric-card-hover p-2 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/[0.02] cursor-default group">
+          <Clock className="w-6 h-6 md:w-8 md:h-8 text-[#3daeff] opacity-90 metric-icon" />
+          <span className="text-lg sm:text-xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             4 Months
           </span>
-          <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
+          <span className="text-[8px] md:text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             Deployment Timeline
           </span>
         </div>
@@ -154,12 +154,12 @@ export default function Hero() {
         <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 3 */}
-        <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Shield className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
-          <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
+        <div className="flex-1 flex flex-col items-center gap-1 md:gap-2 text-center w-full metric-card-hover p-2 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/[0.02] cursor-default group">
+          <Shield className="w-6 h-6 md:w-8 md:h-8 text-[#3daeff] opacity-90 metric-icon" />
+          <span className="text-lg sm:text-xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             TIER III
           </span>
-          <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
+          <span className="text-[8px] md:text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             Design Standard
           </span>
         </div>
@@ -168,12 +168,12 @@ export default function Hero() {
         <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
 
         {/* Metric 4 */}
-        <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-          <Cpu className="w-8 h-8 text-[#3daeff] opacity-90 metric-icon" />
-          <span className="text-2xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
+        <div className="flex-1 flex flex-col items-center gap-1 md:gap-2 text-center w-full metric-card-hover p-2 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/[0.02] cursor-default group">
+          <Cpu className="w-6 h-6 md:w-8 md:h-8 text-[#3daeff] opacity-90 metric-icon" />
+          <span className="text-lg sm:text-xl md:text-[28px] font-bold text-white/90 tracking-tight leading-none metric-value">
             100%
           </span>
-          <span className="text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
+          <span className="text-[8px] md:text-[9px] font-semibold text-white/40 tracking-[0.2em] uppercase mt-0.5 group-hover:text-white/60 transition-colors duration-300">
             AI Ready
           </span>
         </div>
