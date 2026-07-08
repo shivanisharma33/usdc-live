@@ -689,7 +689,7 @@ export default function ArmsInfrastructureGrid() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-[#04070f] py-16 md:py-24 border-t border-white/[0.03]"
+      className="w-full bg-[#04070f] py-10 md:py-24 border-t border-white/[0.03]"
     >
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         <div

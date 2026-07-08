@@ -174,7 +174,7 @@ export default function ArmsTechnicalSpecs() {
     <section
       id="arms-specs"
       ref={containerRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-20 md:py-28 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] py-10 md:py-20 lg:py-28 border-t border-white/[0.03]"
     >
       <style
         dangerouslySetInnerHTML={{

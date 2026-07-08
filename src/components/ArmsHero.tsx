@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function ArmsHero() {
   return (
-    <section className="relative w-full min-h-screen bg-[#04070f] text-white flex items-center pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden select-none">
+    <section className="relative w-full min-h-[60vh] md:min-h-screen bg-[#04070f] text-white flex items-center pt-24 pb-12 md:pt-36 md:pb-16 overflow-hidden select-none">
 
       {/* ── Hero Background Image ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

@@ -37,7 +37,7 @@ export default function WhyUsdcSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#010412] py-14 md:py-20 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#010412] py-10 md:py-20 border-t border-white/[0.03] select-none">
       {/* Background ambient glows */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />
@@ -83,12 +83,12 @@ export default function WhyUsdcSection() {
                       <Icon className="w-5 h-5 text-[#3daeff]" />
                     </div>
                     {/* Column Titles */}
-                    <h3 className="text-[13px] md:text-[14px] font-bold text-white tracking-[0.15em] uppercase font-sans mb-3 min-h-[40px] flex flex-col justify-center">
+                    <h3 className="text-[12px] sm:text-[13px] md:text-[14px] font-bold text-white tracking-[0.15em] uppercase font-sans mb-3 min-h-[40px] flex flex-col justify-center">
                       <span className="block">{card.titleLine1}</span>
                       <span className="block">{card.titleLine2}</span>
                     </h3>
                     {/* Description text */}
-                    <p className="text-[12px] md:text-[12.5px] text-white/45 leading-[1.65] font-sans font-normal">
+                    <p className="text-[11px] sm:text-xs md:text-[12.5px] text-white/45 leading-[1.65] font-sans font-normal">
                       {card.desc}
                     </p>
                   </div>

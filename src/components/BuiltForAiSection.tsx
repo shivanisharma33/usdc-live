@@ -4,7 +4,7 @@ import React from "react";
 
 export default function BuiltForAiSection() {
   return (
-    <section className="w-full bg-[#04070f] py-20 md:py-28 select-none relative overflow-hidden border-t border-white/[0.03]">
+    <section className="w-full bg-[#04070f] py-10 md:py-20 lg:py-28 select-none relative overflow-hidden border-t border-white/[0.03]">
       {/* Ambient background glows */}
       <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] bg-sky-500/[0.02] rounded-full blur-[130px] pointer-events-none" />
@@ -51,7 +51,7 @@ export default function BuiltForAiSection() {
       <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
         
         {/* ── HEADER ── */}
-        <div className="text-center max-w-[800px] mx-auto mb-16">
+        <div className="text-center max-w-[800px] mx-auto mb-10 md:mb-16">
           {/* Pill Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-[#02050c]/60 mb-6">
             <span className="w-6 h-[1.5px] bg-[#3daeff] rounded-full" />
@@ -223,35 +223,35 @@ export default function BuiltForAiSection() {
               </div>
 
               {/* Slide-Up Overlay View (Full height & width text overlay) */}
-              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
+              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-5 sm:p-8 md:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
                 <div className="w-full flex flex-col items-start">
                   <span className="text-[9px] font-black text-white/40 tracking-[0.18em] uppercase">LAYER 1</span>
                   <span className="text-[14px] font-bold text-white tracking-wider uppercase mt-1">GPU-DENSE ROW ARCHITECTURE</span>
                   
                   <div className="w-12 h-[2px] bg-[#3daeff] mt-4" />
                   
-                  <p className="text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-6">
+                  <p className="text-[11.5px] sm:text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-4 sm:mt-6">
                     Rack layouts are planned around accelerator power draw, heat removal path, cable routing, and structured service access — not legacy 1U server assumptions.
                   </p>
                 </div>
 
                 {/* Bullets list */}
-                <ul className="space-y-4 w-full mt-auto">
+                <ul className="space-y-2.5 sm:space-y-4 w-full mt-auto">
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">High-density GPU rack rows with per-cabinet PDU monitoring</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">High-density GPU rack rows with per-cabinet PDU monitoring</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Hot-aisle containment and cable tray infrastructure</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Hot-aisle containment and cable tray infrastructure</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Expansion-ready room layouts with conditioned floor space</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Expansion-ready room layouts with conditioned floor space</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Rack-level power metering and environmental sensing</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Rack-level power metering and environmental sensing</span>
                   </li>
                 </ul>
               </div>
@@ -318,31 +318,31 @@ export default function BuiltForAiSection() {
               </div>
 
               {/* Slide-Up Overlay View (Full height & width text overlay) */}
-              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
+              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-5 sm:p-8 md:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
                 <div className="w-full flex flex-col items-start">
                   <span className="text-[9px] font-black text-white/40 tracking-[0.18em] uppercase">LAYER 2</span>
                   <span className="text-[14px] font-bold text-white tracking-wider uppercase mt-1">COOLING READY</span>
                   
                   <div className="w-12 h-[2px] bg-[#3daeff] mt-4" />
                   
-                  <p className="text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-6">
+                  <p className="text-[11.5px] sm:text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-4 sm:mt-6">
                     Secondary loop cooling manifolds deliver high-flow treated water directly to GPU micro-channels, removing thermal limits.
                   </p>
                 </div>
 
                 {/* Bullets list */}
-                <ul className="space-y-4 w-full mt-auto">
+                <ul className="space-y-2.5 sm:space-y-4 w-full mt-auto">
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Direct liquid cooling</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Direct liquid cooling</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">High-density rack support</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">High-density rack support</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Optimized thermal efficiency</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Optimized thermal efficiency</span>
                   </li>
                 </ul>
               </div>
@@ -484,31 +484,31 @@ export default function BuiltForAiSection() {
               </div>
 
               {/* Slide-Up Overlay View (Full height & width text overlay) */}
-              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
+              <div className="absolute inset-0 bg-[#050b18]/98 backdrop-blur-md p-5 sm:p-8 md:p-10 flex flex-col justify-between items-start transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 border border-[#3daeff]/30 shadow-[inset_0_0_30px_rgba(61,174,255,0.06)]">
                 <div className="w-full flex flex-col items-start">
                   <span className="text-[9px] font-black text-white/40 tracking-[0.18em] uppercase">LAYER 3</span>
                   <span className="text-[14px] font-bold text-white tracking-wider uppercase mt-1">GPU READY</span>
                   
                   <div className="w-12 h-[2px] bg-[#3daeff] mt-4" />
                   
-                  <p className="text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-6">
+                  <p className="text-[11.5px] sm:text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-4 sm:mt-6">
                     High-bandwidth networking links and low-latency NVLink buses are structured to support massive synchronized model training.
                   </p>
                 </div>
 
                 {/* Bullets list */}
-                <ul className="space-y-4 w-full mt-auto">
+                <ul className="space-y-2.5 sm:space-y-4 w-full mt-auto">
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">NVIDIA roadmap ready</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">NVIDIA roadmap ready</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">AI optimized layouts</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">AI optimized layouts</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#3daeff] mt-2 flex-shrink-0" />
-                    <span className="text-[12.5px] font-medium text-white/80 leading-snug">Enterprise reliability</span>
+                    <span className="text-[11px] sm:text-[12.5px] font-medium text-white/80 leading-snug">Enterprise reliability</span>
                   </li>
                 </ul>
               </div>

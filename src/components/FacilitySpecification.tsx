@@ -37,7 +37,7 @@ export default function FacilitySpecification() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] py-14 md:py-20 border-t border-white/[0.03]">
+    <section className="w-full relative overflow-hidden bg-[#04070f] py-10 md:py-20 border-t border-white/[0.03]">
       {/* Deep ambient background glows matching the reference image */}
       <div className="absolute top-[15%] left-[10%] w-[600px] h-[600px] bg-blue-600/[0.04] rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="absolute top-[40%] right-[5%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />

@@ -428,7 +428,7 @@ export default function PressReleaseGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-20 md:py-28 overflow-hidden"
+      className="relative w-full py-10 md:py-20 lg:py-28 overflow-hidden"
       style={{ background: "#04070f" }}
     >
       {/* ── Ambient glow ── */}
@@ -444,7 +444,7 @@ export default function PressReleaseGrid() {
 
       <div className="relative z-10 w-full max-w-[1120px] mx-auto px-6 md:px-12 lg:px-16">
         {/* ── Section Header ── */}
-        <div className="flex flex-col items-center text-center mb-14">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
           <div
             style={fadeUp(0)}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#3daeff]/15 bg-[#3daeff]/[0.04] backdrop-blur-sm mb-6"

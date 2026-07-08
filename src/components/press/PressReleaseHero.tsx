@@ -24,7 +24,7 @@ export default function PressReleaseHero() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full min-h-[100vh] overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full min-h-[60vh] md:min-h-[100vh] overflow-hidden flex flex-col items-center justify-center pt-24 pb-12 md:pt-0 md:pb-0"
       style={{ background: "#04070f" }}
     >
       {/* Ambient Background Image */}

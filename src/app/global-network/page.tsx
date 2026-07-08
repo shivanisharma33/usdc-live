@@ -21,7 +21,7 @@ export default function GlobalNetworkPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-12 px-4 md:pt-28 md:pb-16 md:px-6 overflow-hidden">
+      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col justify-center pt-24 pb-12 px-4 md:pt-28 md:pb-16 md:px-6 overflow-hidden">
         {/* Ambient Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <Image
@@ -108,12 +108,12 @@ export default function GlobalNetworkPage() {
       </section>
 
       {/* ── SECTION 2: NETWORK FLOW (FROM REGION TO RACK) ── */}
-      <section className="bg-[#050914] py-20 lg:py-24 px-4 md:px-6 relative overflow-hidden border-t border-white/[0.04]">
+      <section className="bg-[#050914] py-10 md:py-20 lg:py-24 px-4 md:px-6 relative overflow-hidden border-t border-white/[0.04]">
         {/* Glow backdrop */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-500/[0.02] rounded-full blur-[130px] pointer-events-none z-0" />
 
         <div className="max-w-[1400px] mx-auto relative z-10">
-          <div className="flex flex-col items-center text-center mb-12 md:mb-20">
+          <div className="flex flex-col items-center text-center mb-10 md:mb-20">
             <div className="inline-flex items-center px-6 py-2.5 rounded-full border border-white/10 bg-white/[0.02] mb-8">
               <div className="w-10 h-[1.5px] bg-[#3daeff] mr-4" />
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white">
@@ -347,7 +347,7 @@ export default function GlobalNetworkPage() {
       </section>
 
       {/* ── SECTION 3: ONE PLATFORM. MANY REGIONS ── */}
-      <section className="bg-[#04070f] py-20 lg:py-24 px-4 md:px-6 border-y border-white/[0.04]">
+      <section className="bg-[#04070f] py-10 md:py-20 lg:py-24 px-4 md:px-6 border-y border-white/[0.04]">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col items-center text-center mb-10 md:mb-20">
             <div className="inline-flex items-center px-6 py-2 rounded-full border border-white/10 bg-white/5 mb-8">
@@ -435,7 +435,7 @@ export default function GlobalNetworkPage() {
       </section>
 
       {/* ── SECTION 4: REACH IS BUILT REGION BY REGION ── */}
-      <section className="bg-[#050914] py-20 lg:py-24 px-4 md:px-6 relative overflow-hidden">
+      <section className="bg-[#050914] py-10 md:py-20 lg:py-24 px-4 md:px-6 relative overflow-hidden">
         {/* Glow */}
         <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-blue-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
 

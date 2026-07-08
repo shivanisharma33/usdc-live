@@ -183,7 +183,7 @@ export default function Arms200System() {
     <section
       id="arms200-system"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] pt-6 pb-14 md:pt-8 md:pb-20 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] pt-6 pb-10 md:pt-8 md:pb-20 border-t border-white/[0.03]"
     >
       {/* Inline styles for custom feature icon animations */}
       <style

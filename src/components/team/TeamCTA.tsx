@@ -48,7 +48,7 @@ export default function TeamCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#04070f] py-20 md:py-28 overflow-hidden select-none"
+      className="relative w-full bg-[#04070f] py-10 md:py-20 lg:py-28 overflow-hidden select-none"
     >
       {/* Top decorative line */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
