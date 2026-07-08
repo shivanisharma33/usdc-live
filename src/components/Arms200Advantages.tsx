@@ -47,7 +47,7 @@ export default function Arms200Advantages() {
           <div className="lg:col-span-7 flex items-center justify-center relative">
             <div className="w-full max-w-[600px] flex items-center justify-center">
               <img
-                src="/USDC (5) 2.png"
+                src="/USDC (5) 2.avif"
                 alt="ARMS 200 3D Model"
                 loading="lazy"
                 className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(61,174,255,0.15)]"

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PartnerSection from "@/components/PartnerSection";
@@ -44,7 +45,7 @@ const articlesData: Article[] = [
     title: "Microsoft Expects to Spend $80 Bn on Ai-enabled data centers in fiscal 2025",
     excerpt: "An in-depth look at USDC's latest grid-scale integration, enabling rapid deployment of liquid-cooled Blackwell architectures within\na 12-month timeline. Microsoft Expects to Spend $80 Bn on Ai-enabled data centers in fiscal 2025.",
     category: "Infrastructure",
-    image: "/news_ai_chip.png",
+    image: "/news_ai_chip.avif",
     readTime: "6 Min Read",
     date: "June 18, 2026",
     featured: true,
@@ -56,7 +57,7 @@ const articlesData: Article[] = [
     title: "McKinsey & Co on AI power: Expanding data center capacity to meet growing demand",
     excerpt: "Analyzing the thermodynamic limits of standard air systems and why modular liquid-to-air cooling loops are critical for the next wave of gigawatt clusters.",
     category: "Technology",
-    image: "/arms200_server.png",
+    image: "/arms200_server.avif",
     readTime: "5 Min Read",
     date: "June 12, 2026",
     trending: true,
@@ -68,7 +69,7 @@ const articlesData: Article[] = [
     title: "AI Power: Expanding data center capacity to meet growing demand",
     excerpt: "USDC pioneers multi-source energy orchestration, combining grid connection with dedicated onsite solar and battery storage systems.",
     category: "Data Centers",
-    image: "/about_globe_full.png",
+    image: "/about_globe_full.avif",
     readTime: "4 Min Read",
     date: "June 05, 2026",
     trending: true,
@@ -333,11 +334,12 @@ export default function NewsInsightsPage() {
 
             {/* Right Image column (5 cols) */}
             <div className="lg:col-span-5 relative aspect-video lg:aspect-auto w-full h-full min-h-[300px] overflow-hidden">
-              <img
+              <Image
                 src={featuredStory.image}
                 alt={featuredStory.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-[1.04] group-hover:opacity-100 transition-all duration-750"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-[1.04] group-hover:opacity-100 transition-all duration-750"
               />
               {/* Dark left/bottom masks */}
               <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#04070f] via-transparent to-transparent opacity-90 z-5" />
@@ -396,11 +398,12 @@ export default function NewsInsightsPage() {
               <div>
                 {/* Thumbnail Image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#03060c] border-b border-white/5">
-                  <img
+                  <Image
                     src={article.image}
                     alt={article.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
                   />
                   {/* Category badge */}
                   <div className="absolute top-4 left-4 z-10">
@@ -667,11 +670,12 @@ export default function NewsInsightsPage() {
                 {/* Visual block */}
                 <div className="md:col-span-5 flex flex-col gap-4">
                   <div className="aspect-[4/5] rounded-2xl border border-white/10 relative overflow-hidden bg-[#03060c] shadow-lg">
-                    <img
+                    <Image
                       src={selectedArticle.image}
                       alt={selectedArticle.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                      className="object-cover"
                     />
                     {/* Telemetry line */}
                     <div className="absolute top-0 left-0 w-full h-[2px] bg-[#3daeff]/60 shadow-[0_0_10px_#3daeff] pointer-events-none animate-[scanline_3.5s_ease-in-out_infinite]" />

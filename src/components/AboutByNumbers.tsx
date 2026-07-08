@@ -115,7 +115,7 @@ export default function AboutByNumbers() {
           {/* North America Map Image */}
           <div className="w-full aspect-[4/3] max-h-[500px] flex items-center justify-center relative overflow-hidden rounded-2xl">
             <img
-              src="/usa_sites_map.png"
+              src="/usa_sites_map.avif"
               alt="USDC Operating and Development Sites Map"
               loading="lazy"
               className="w-full h-full object-cover opacity-60 mix-blend-screen"

@@ -319,7 +319,7 @@ export default function Arms200System() {
               <div className="absolute inset-0 bg-blue-500/[0.03] rounded-2xl blur-[40px] pointer-events-none" />
 
               <Image
-                src="/arms200_certificate.png"
+                src="/arms200_certificate.avif"
                 alt="EPI Certificate of Conformance ANSI/TIA-942 Rated-3"
                 width={350}
                 height={480}

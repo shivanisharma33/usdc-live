@@ -231,7 +231,7 @@ export default function Navbar() {
       <div className="flex-shrink-0 relative z-50">
         <Link href="/" className="hover:opacity-80 transition-opacity duration-200 block">
           <Image
-            src="/USDC_3 1.png"
+            src="/USDC_3 1.avif"
             alt="USDC Logo"
             width={130}
             height={46}
@@ -374,7 +374,7 @@ export default function Navbar() {
             <div className="absolute inset-0 rounded-[8px] bg-yellow-500/20 blur-md group-hover:bg-yellow-400/40 group-hover:blur-lg transition-all duration-500 opacity-80 group-hover:opacity-100" />
             <div className="relative rounded-[8px] border border-yellow-500/35 group-hover:border-yellow-400/60 overflow-hidden shadow-[0_0_12px_rgba(234,179,8,0.3)] group-hover:shadow-[0_0_20px_rgba(234,179,8,0.6)] transition-all duration-500">
               <Image
-                src="/digipowerx_logo.png"
+                src="/digipowerx_logo.avif"
                 alt="DigiPowerX Logo"
                 width={28}
                 height={28}
@@ -555,7 +555,7 @@ export default function Navbar() {
                     <div className="absolute inset-0 rounded-[6px] bg-yellow-500/25 blur-sm group-hover:bg-yellow-400/45 group-hover:blur-md transition-all duration-500 opacity-90" />
                     <div className="relative rounded-[6px] border border-yellow-500/40 overflow-hidden shadow-[0_0_8px_rgba(234,179,8,0.4)] transition-all duration-500">
                       <Image
-                        src="/digipowerx_logo.png"
+                        src="/digipowerx_logo.avif"
                         alt="DigiPowerX Logo"
                         width={22}
                         height={22}

@@ -77,7 +77,7 @@ function SupermicroLogo() {
   return (
     <div className="flex items-center justify-center bg-black/40 px-2 py-1 rounded-xl border border-white/[0.04] w-40 h-14 relative overflow-hidden">
       <Image
-        src="/supermicro_logo.png"
+        src="/supermicro_logo.avif"
         alt="Supermicro Logo"
         width={140}
         height={40}
@@ -91,7 +91,7 @@ function NvidiaLogo() {
   return (
     <div className="flex items-center justify-center bg-black/40 px-2 py-1 rounded-xl border border-white/[0.04] w-40 h-14 relative overflow-hidden">
       <Image
-        src="/nvidia_logo.png"
+        src="/nvidia_logo.avif"
         alt="NVIDIA Logo"
         width={140}
         height={40}

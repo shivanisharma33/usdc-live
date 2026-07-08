@@ -35,7 +35,7 @@ export default function LatestNews() {
   const newsItems = [
     {
       badge: "INDUSTRY NEWS",
-      image: "/news_ai_chip.png",
+      image: "/news_ai_chip.avif",
       date: "JANUARY 3, 2025",
       title: "Microsoft Expects to Spend $80 Bn on Ai-enabled data centers in fiscal 2025",
       excerpt: "Microsoft announces massive investment in AI-enabled data center infrastructure, signaling..",
@@ -44,7 +44,7 @@ export default function LatestNews() {
     },
     {
       badge: "INDUSTRY NEWS",
-      image: "/news_ai_network.png",
+      image: "/news_ai_network.avif",
       date: "DECEMBER 28, 2024",
       title: "AI Power: Expanding data center capacity to meet growing demand",
       excerpt: "Comprehensive overview of data center modernization strategies, capacity planning, and..",

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -9,9 +10,13 @@ export default function AboutHero() {
     >
       {/* ── Ambient Background Image ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/About%20hero%20bg.webp')" }}
+        <Image
+          src="/About hero bg.webp"
+          alt="About Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[900px] max-h-[900px] bg-blue-600/[0.06] rounded-full blur-[140px] pointer-events-none z-0" />

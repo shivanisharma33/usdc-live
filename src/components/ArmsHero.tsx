@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -10,9 +11,13 @@ export default function ArmsHero() {
 
       {/* ── Hero Background Image ── */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/Group 341.webp')" }}
+        <Image
+          src="/Group 341.avif"
+          alt="ARMS Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
       </div>
 

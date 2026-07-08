@@ -44,7 +44,7 @@ export default function PowerToComputeDiagram() {
 
         <div className="w-full relative overflow-hidden flex items-center justify-center">
           <Image
-            src="/image 51 (1).png"
+            src="/image 51 (1).avif"
             alt="From Power To GPU Compute Schematic"
             width={1920}
             height={1080}

@@ -39,49 +39,49 @@ export default function TeamGrid() {
       id: "jagan-jeyapal",
       name: "Jagan Jeyapal",
       role: "Chief Technology Officer",
-      image: "/images/jagan_jeyapal_cto.png",
+      image: "/images/jagan_jeyapal_cto.avif",
       bio: "Technical visionary driving the architecture of DigiPowerX's high-performance computing platforms and sustainable infrastructure solutions."
     },
     {
       id: "paul-ciullo",
       name: "Paul Ciullo",
       role: "Chief Financial Officer",
-      image: "/images/paul_ciullo_cfo.png",
+      image: "/images/paul_ciullo_cfo.avif",
       bio: "Financial strategist overseeing the company's fiscal health and capital allocation for massive infrastructure scaling."
     },
     {
       id: "daniel-rotunno",
       name: "Daniel Rotunno",
       role: "VP of Operations",
-      image: "/images/daniel_rotunno_vp.png",
+      image: "/images/daniel_rotunno_vp.avif",
       bio: "Operations expert managing the complex logistics and site deployments for modular data centers."
     },
     {
       id: "luke-marchiori",
       name: "Luke Marchiori",
       role: "Chief Renewable Energy Officer",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_40%20PM.png",
+      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_40%20PM.avif",
       bio: "Leading the integration of clean power sources with high-density compute facilities."
     },
     {
       id: "jim-mccabe",
       name: "Jim McCabe",
       role: "Advisor",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_42%20PM.png",
+      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_42%20PM.avif",
       bio: "Real estate and infrastructure development veteran with 15+ years of experience leading hyperscale site acquisitions and construction."
     },
     {
       id: "eddie-cloud",
       name: "Eddie Cloud",
       role: "Infrastructure and Development Lead",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_43%20PM.png",
+      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_43%20PM.avif",
       bio: "Specialist in thermal dynamics and structural engineering, pioneering innovative liquid cooling architectures for high-density AI clusters."
     },
     {
       id: "venkat-rangasamy",
       name: "Venkat Rangasamy",
       role: "VP of AI Infrastructure",
-      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_45%20PM.png",
+      image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_45%20PM.avif",
       bio: "Energy sector expert specializing in grid-scale renewable integration, microgrids, and high-voltage substation designs."
     },
     {

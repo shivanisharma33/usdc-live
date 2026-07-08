@@ -23,7 +23,7 @@ export default function BuildingFutureSection() {
 
             <div className="w-full max-w-[460px] aspect-square flex items-center justify-center overflow-hidden rounded-2xl relative">
               <Image
-                src="/image 6.png"
+                src="/image 6.avif"
                 alt="USDC ARMS 200 AI-Ready Modular Solution"
                 width={460}
                 height={460}

@@ -24,9 +24,13 @@ export default function GlobalNetworkPage() {
       <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-12 px-4 md:pt-28 md:pb-16 md:px-6 overflow-hidden">
         {/* Ambient Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-50"
-            style={{ backgroundImage: "url('/global-hero-globe.webp')" }}
+          <Image
+            src="/global-hero-globe.avif"
+            alt="Global Network Hero Background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-50"
           />
           {/* Realistic space-globe vignette (radial and linear dark gradients) */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#04070f_75%)]" />
@@ -129,7 +133,7 @@ export default function GlobalNetworkPage() {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.5s' }} />
-                  <Image src="/network-diverse-sites.png" alt="Diverse server sites" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                  <Image src="/network-diverse-sites.avif" alt="Diverse server sites" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
                 </div>
               </div>
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
@@ -183,7 +187,7 @@ export default function GlobalNetworkPage() {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.3s' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.8s' }} />
-                  <Image src="/network-server-rack.png" alt="Network backbone" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                  <Image src="/network-server-rack.avif" alt="Network backbone" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
                 </div>
               </div>
               <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3 relative z-10 group-hover:text-[#3daeff] transition-colors duration-500">
@@ -237,7 +241,7 @@ export default function GlobalNetworkPage() {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.6s' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 1.1s' }} />
-                  <Image src="/network-server-cube.png" alt="AI compute infrastructure" width={350} height={350} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                  <Image src="/network-server-cube.avif" alt="AI compute infrastructure" width={350} height={350} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
                 </div>
               </div>
 
@@ -290,7 +294,7 @@ export default function GlobalNetworkPage() {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.9s' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 1.4s' }} />
-                  <Image src="/network-ops-dashboard.png" alt="Operations dashboard" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
+                  <Image src="/network-ops-dashboard.avif" alt="Operations dashboard" width={380} height={340} className="relative z-10 drop-shadow-[0_0_30px_rgba(61,174,255,0.3)]" />
                 </div>
               </div>
 

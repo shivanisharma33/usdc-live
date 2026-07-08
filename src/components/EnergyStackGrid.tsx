@@ -1377,7 +1377,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 1",
       title: "GENERATION ASSETS",
-      image: "/22436f29-6646-4d55-b640-19acab77a480.png",
+      image: "/22436f29-6646-4d55-b640-19acab77a480.avif",
       desc: "Owned power generation secures our foundation, shielding operations from market volatility and eliminating utility-queue bottlenecks.",
       bullets: [
         "Natural gas & renewable integration",
@@ -1389,7 +1389,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 2",
       title: "TRANSFORMATION",
-      image: "/57048f4a-139a-4c81-9e0e-14b22ead6b8f.png",
+      image: "/57048f4a-139a-4c81-9e0e-14b22ead6b8f.avif",
       desc: "Strategic substation control provides the high-voltage gateway necessary for rapid, large-scale data center deployment.",
       bullets: [
         "Direct high-voltage grid interconnection",
@@ -1401,7 +1401,7 @@ export default function EnergyStackGrid() {
     {
       badge: "LAYER 3",
       title: "COMPUTE DELIVERY",
-      image: "/0e6cdac0-a098-4935-8894-58c66ebff51a.png",
+      image: "/0e6cdac0-a098-4935-8894-58c66ebff51a.avif",
       desc: "We convert raw energy into the highest-margin output: compute-ready capacity optimized for intensive AI workloads.",
       bullets: [
         "High-density rack power architecture",

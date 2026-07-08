@@ -104,7 +104,7 @@ export default function WhyUsdcSection() {
         <div className="relative w-full overflow-hidden">
 
           <Image
-            src="/why_usdc_schematic.png"
+            src="/why_usdc_schematic.avif"
             alt="USDC Campus Site Schematic Layout"
             width={1920}
             height={1080}
