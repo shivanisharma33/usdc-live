@@ -64,34 +64,30 @@ export default function PowerToComputeDiagram() {
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Owned Energy Assets
             </span>
-            <div className="w-10 h-[2px] bg-[#3daeff] mt-3.5 rounded-full" />
           </div>
 
           {/* Column 2 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-white/10 hidden md:block" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Substation Access
             </span>
-            <div className="w-10 h-[2px] bg-[#3daeff] mt-3.5 rounded-full" />
           </div>
 
           {/* Column 3 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-white/10 hidden md:block" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Rapid Deployment
             </span>
-            <div className="w-10 h-[2px] bg-[#3daeff] mt-3.5 rounded-full" />
           </div>
 
           {/* Column 4 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-8 bg-white/10 hidden md:block" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Integrated Infrastructure
             </span>
-            <div className="w-10 h-[2px] bg-[#3daeff] mt-3.5 rounded-full" />
           </div>
 
         </div>

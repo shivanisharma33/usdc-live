@@ -50,8 +50,6 @@ export default function SuperiorEconomics() {
 
         {/* Horizontal Divided Panel */}
         <div className="w-full max-w-[1160px] relative border border-white/[0.08] rounded-2xl bg-[#02050c]/40 backdrop-blur-md py-12 px-6 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-0 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
-          {/* Center vertical accent line (hidden on small screens) */}
-          <div className="hidden md:block absolute left-1/2 top-5 bottom-5 w-[1.5px] bg-gradient-to-b from-[#3daeff]/90 via-[#3daeff]/70 to-[#3daeff]/55 shadow-[0_0_24px_rgba(61,174,255,0.18)] pointer-events-none -translate-x-1/2" />
           {metrics.map((item, idx) => {
             const Icon = item.Icon;
             return (

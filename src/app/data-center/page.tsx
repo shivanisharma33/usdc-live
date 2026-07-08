@@ -107,32 +107,41 @@ export default function DataCenterPage() {
       {/* ── METRICS BANNER SECTION ── */}
       <section className="w-full bg-[#04070f] pb-10 md:pb-14 select-none relative z-10">
         <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.01] backdrop-blur-sm py-8 px-6 md:px-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 md:gap-y-0 items-center text-center">
+          <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.01] backdrop-blur-sm py-4 px-4 md:py-6 md:px-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center text-center gap-3 md:gap-2">
 
               {/* Metric 1 */}
-              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+              <div className="flex-1 flex flex-col items-center">
                 <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">120KW+</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RACK DENSITY</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
               </div>
 
+              {/* Divider */}
+              <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+
               {/* Metric 2 */}
-              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+              <div className="flex-1 flex flex-col items-center">
                 <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">1-50MW+</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">POWER CAPACITY</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
               </div>
 
+              {/* Divider */}
+              <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+
               {/* Metric 3 */}
-              <div className="flex flex-col items-center md:border-r md:border-[#3daeff]/25">
+              <div className="flex-1 flex flex-col items-center">
                 <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">4 MTHS</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RAPID DEPLOYMENT</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />
               </div>
 
+              {/* Divider */}
+              <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+
               {/* Metric 4 */}
-              <div className="flex flex-col items-center">
+              <div className="flex-1 flex flex-col items-center">
                 <div className="text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">TIER III</div>
                 <div className="text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RELIABILITY</div>
                 <div className="w-6 h-[1.5px] bg-[#3daeff] mt-2 rounded-full" />

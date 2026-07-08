@@ -83,21 +83,26 @@ export default function GlobalNetworkPage() {
         </div>
 
         {/* ── Hero-style Metrics Capsule (matches main Hero design) ── */}
-        <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-center text-center gap-4 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] hero-capsule-glow mt-6 md:mt-12">
+        <div className="w-full max-w-5xl mx-auto bg-[#010409]/75 backdrop-blur-xl border border-white/[0.10] rounded-[24px] py-4 px-4 md:py-6 md:px-10 grid grid-cols-2 md:flex md:flex-row items-center justify-center text-center gap-3 md:gap-2 relative z-10 shadow-[0_20px_55px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.03)] hero-capsule-glow mt-6 md:mt-12">
           {[
             { value: "4", label: "Active Sites Across the US Footprint" },
             { value: "400MW+", label: "Pipeline Capacity in Development" },
             { value: "24/7", label: "Multi-region Network Operations" },
             { value: "<10ms", label: "Inter-site Backbone Latency Target" },
-          ].map((stat, idx) => (
-            <div key={idx} className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-4 rounded-2xl hover:bg-white/[0.02] cursor-default group">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#58c4ff] text-4xl md:text-5xl font-extrabold mb-2 tracking-tight metric-value">
-                {stat.value}
-              </span>
-              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[220px] group-hover:text-white transition-colors duration-300">
-                {stat.label}
-              </span>
-            </div>
+          ].map((stat, idx, arr) => (
+            <React.Fragment key={idx}>
+              <div className="flex-1 flex flex-col items-center gap-2 text-center w-full metric-card-hover p-2 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/[0.02] cursor-default group">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#58c4ff] text-2xl sm:text-3xl md:text-[38px] font-extrabold mb-1 tracking-tight metric-value">
+                  {stat.value}
+                </span>
+                <span className="text-white/60 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[220px] group-hover:text-white transition-colors duration-300">
+                  {stat.label}
+                </span>
+              </div>
+              {idx < arr.length - 1 && (
+                <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+              )}
+            </React.Fragment>
           ))}
         </div>
       </section>

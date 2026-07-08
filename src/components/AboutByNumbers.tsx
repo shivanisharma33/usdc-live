@@ -82,24 +82,26 @@ export default function AboutByNumbers() {
             transform: inView ? "translateY(0)" : "translateY(30px)",
           }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 items-center">
-            {stats.map((stat, i) => (
-              <div
-                key={i}
-                className={`flex flex-col items-center justify-center text-center py-6 sm:py-9 px-2 sm:px-6 min-h-[120px] sm:min-h-[150px]
-                  ${i % 2 === 0 ? "border-r border-white/10" : "border-r-0"}
-                  ${i < 2 ? "border-b border-white/10" : "border-b-0"}
-                  md:border-b-0 md:border-r md:border-[#3daeff]/35 ${i === stats.length - 1 ? "md:border-r-0" : ""}`}
-              >
-                <span className="text-base sm:text-2xl md:text-[36px] font-bold text-white tracking-tight leading-none font-sans">
-                  {stat.value}
-                </span>
-                {/* Small centered blue line */}
-                <div className="w-4 sm:w-6 h-[2px] bg-[#3daeff] mt-2 sm:mt-3.5 mb-2 sm:mb-3" />
-                <span className="text-[7.5px] sm:text-[9px] font-bold text-white/50 tracking-[0.18em] uppercase leading-[1.5] max-w-[180px]">
-                  {stat.label}
-                </span>
-              </div>
+          <div className="grid grid-cols-2 md:flex md:flex-row items-center justify-center">
+            {stats.map((stat, i, arr) => (
+              <React.Fragment key={i}>
+                <div
+                  className={`flex-1 flex flex-col items-center justify-center text-center py-6 sm:py-9 px-2 sm:px-6 min-h-[120px] sm:min-h-[150px]
+                    ${i % 2 === 0 ? "border-r border-white/10" : "border-r-0"}
+                    ${i < 2 ? "border-b border-white/10" : "border-b-0"}
+                    md:border-b-0 md:border-r-0`}
+                >
+                  <span className="text-base sm:text-2xl md:text-[36px] font-bold text-white tracking-tight leading-none font-sans">
+                    {stat.value}
+                  </span>
+                  <span className="text-[7.5px] sm:text-[9px] font-bold text-white/50 tracking-[0.18em] uppercase leading-[1.5] max-w-[180px] mt-2 sm:mt-3 mb-2">
+                    {stat.label}
+                  </span>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="hidden md:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
