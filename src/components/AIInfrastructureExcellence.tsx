@@ -1082,7 +1082,7 @@ export default function AIInfrastructureExcellence() {
               }}
             >
               <div className="relative z-10 max-w-[60%] sm:max-w-[55%]">
-                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                <span className="text-4xl font-extrabold text-[#3daeff] group-hover:text-[#52b9ff] group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   1.
                 </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">
@@ -1106,7 +1106,7 @@ export default function AIInfrastructureExcellence() {
             >
               <div className="relative z-10 flex flex-col xl:flex-row justify-between items-stretch gap-4 h-full">
                 <div className="flex-1 min-w-[200px]">
-                  <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                  <span className="text-4xl font-extrabold text-[#3daeff] group-hover:text-[#52b9ff] group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                     2.
                   </span>
                   <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">
@@ -1159,7 +1159,7 @@ export default function AIInfrastructureExcellence() {
             >
               <div className="relative z-10 flex flex-col justify-between h-full min-h-[190px]">
                 <div>
-                  <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                  <span className="text-4xl font-extrabold text-[#3daeff] group-hover:text-[#52b9ff] group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                     3.
                   </span>
                   <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
@@ -1183,7 +1183,7 @@ export default function AIInfrastructureExcellence() {
               }}
             >
               <div className="relative z-10 max-w-[55%]">
-                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                <span className="text-4xl font-extrabold text-[#3daeff] group-hover:text-[#52b9ff] group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   4.
                 </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-2 font-sans transition-colors duration-300">
@@ -1207,7 +1207,7 @@ export default function AIInfrastructureExcellence() {
               }}
             >
               <div className="relative z-10 max-w-[60%] sm:max-w-[55%]">
-                <span className="text-4xl font-extrabold text-white/10 group-hover:text-[#3daeff]/30 group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
+                <span className="text-4xl font-extrabold text-[#3daeff] group-hover:text-[#52b9ff] group-hover:scale-105 transition-all duration-300 leading-none block mb-3 origin-left">
                   5.
                 </span>
                 <h3 className="text-[12px] font-extrabold text-white/80 group-hover:text-white tracking-[0.15em] uppercase mb-3 font-sans transition-colors duration-300">

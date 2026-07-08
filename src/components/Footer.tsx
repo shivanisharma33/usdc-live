@@ -239,7 +239,7 @@ export default function Footer() {
                 disabled={submitting}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300 disabled:opacity-50"
+                className="w-full sm:w-auto sm:flex-grow px-5 py-3 rounded-xl bg-[#080d1a]/60 border border-white/[0.08] text-[13.5px] text-white placeholder-white/30 outline-none focus:border-[#3daeff] focus:shadow-[0_0_12px_rgba(61,174,255,0.15)] transition-all duration-300 disabled:opacity-50 mb-2 sm:mb-0"
               />
               <input
                 type="email"

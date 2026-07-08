@@ -55,6 +55,7 @@ body {
   from {
     transform: translateY(115%);
   }
+
   to {
     transform: translateY(0);
   }
@@ -244,15 +245,20 @@ body {
 /* ───────────── Career page animations ───────────── */
 
 @keyframes shimmerSlide {
-  0% { transform: translateX(-100%) skewX(-12deg); }
-  100% { transform: translateX(200%) skewX(-12deg); }
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
 }
 
 .career-shimmer::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(61,174,255,0.06) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(61, 174, 255, 0.06) 50%, transparent 100%);
   animation: shimmerSlide 3.5s ease-in-out infinite;
   pointer-events: none;
 }
@@ -260,6 +266,15 @@ body {
 /* ═══════════════════════ Network Flow glow animation ═══════════════════════ */
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
 }
