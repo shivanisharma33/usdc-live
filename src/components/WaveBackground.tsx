@@ -10,6 +10,15 @@ export default function WaveBackground() {
     const container = containerRef.current;
     if (!container) return;
 
+    let isInView = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     let width = container.clientWidth || window.innerWidth;
     let height = container.clientHeight || window.innerHeight;
 
@@ -195,6 +204,7 @@ export default function WaveBackground() {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+      if (!isInView) return; // Skip updating/rendering if off-screen
       const elapsed = clock.getElapsedTime();
       uniforms.uTime.value = reduceMotion ? 0.0 : elapsed;
 
@@ -229,6 +239,7 @@ export default function WaveBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
       if (container.contains(renderer.domElement)) {

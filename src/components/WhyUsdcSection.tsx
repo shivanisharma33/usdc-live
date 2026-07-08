@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Zap, Rocket, TrendingDown, Server } from "lucide-react";
 
 export default function WhyUsdcSection() {
@@ -102,10 +103,11 @@ export default function WhyUsdcSection() {
       <div className="w-full relative z-10 flex justify-center mt-12">
         <div className="relative w-full overflow-hidden">
 
-          <img
+          <Image
             src="/why_usdc_schematic.png"
             alt="USDC Campus Site Schematic Layout"
-            loading="lazy"
+            width={1920}
+            height={1080}
             className="w-full h-auto object-contain filter drop-shadow-[0_0_40px_rgba(61,174,255,0.12)] opacity-90 mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,white_70%,transparent_100%)]"
           />
           {/* Absolute gradient overlays to blend the image boundaries seamlessly with the section background */}

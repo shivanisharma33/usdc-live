@@ -27,6 +27,15 @@ export default function ThreeDStack({ activePlate, onPlateChange }: ThreeDStackP
     const container = containerRef.current;
     if (!container) return;
 
+    let isInView = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     // Create canvas
     const canvas = document.createElement("canvas");
     canvas.style.display = "block";
@@ -703,6 +712,8 @@ export default function ThreeDStack({ activePlate, onPlateChange }: ThreeDStackP
 
     function animate() {
       animFrameRef.current = requestAnimationFrame(animate);
+      if (!isInView) return; // Skip updating/rendering if off-screen
+
       const t = clock.getElapsedTime();
       const built = t > buildEnd;
 
@@ -858,6 +869,7 @@ export default function ThreeDStack({ activePlate, onPlateChange }: ThreeDStackP
     // Cleanup
     return () => {
       cancelAnimationFrame(animFrameRef.current);
+      observer.disconnect();
       window.removeEventListener("resize", onResize);
       canvas.removeEventListener("click", clickHandler);
       canvas.removeEventListener("mousemove", hoverHandler);

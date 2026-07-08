@@ -16,6 +16,15 @@ export default function CapacityGrowthModel() {
     const labelsContainer = labelsRef.current;
     if (!container || !canvas || !labelsContainer) return;
 
+    let isInView = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     // Remove any existing labels just in case
     labelsContainer.innerHTML = "";
 
@@ -546,6 +555,7 @@ export default function CapacityGrowthModel() {
 
     function animate() {
       animId = requestAnimationFrame(animate);
+      if (!isInView) return; // Skip updating/rendering if off-screen
       const dt = Math.min(clock.getDelta(), 0.05);
       t += dt;
 
@@ -672,6 +682,7 @@ export default function CapacityGrowthModel() {
     return () => {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animId);
+      observer.disconnect();
       scene.clear();
       renderer.dispose();
       gridMat.dispose();

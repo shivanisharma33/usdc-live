@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Calendar, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 /* ═══════════════════════ LatestNews Component ═══════════════════════ */
 
@@ -134,11 +135,12 @@ export default function LatestNews() {
 
                 {/* Left Thumbnail Image */}
                 <div className="sm:col-span-5 w-full relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-xl bg-black/10 border border-black/[0.06]">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover"
                   />
                 </div>
 

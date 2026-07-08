@@ -1,12 +1,8 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
 
-// Dynamically import ThreeDStack to prevent SSR issues with WebGL/ThreeJS
-const ThreeDStack = dynamic(() => import("../../components/ThreeDStack"), {
-  ssr: false,
-});
+
 
 export default function AboutStory() {
   const timelineEvents = [
@@ -75,8 +71,7 @@ export default function AboutStory() {
           {/* Left Column: 3D Stack Graphic */}
           <div className="lg:col-span-5 flex items-center justify-center">
             <div className="relative w-full max-w-[480px] h-[420px] sm:h-[480px] md:h-[520px] overflow-hidden">
-              {/* Dynamic WebGL Stack */}
-              <ThreeDStack />
+           
             </div>
           </div>
 
