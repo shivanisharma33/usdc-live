@@ -89,9 +89,69 @@ const navLinks: NavLink[] = [
 
 /* ═══════════════════════════ Stock Ticker Component ═══════════════════════════ */
 
-function NavbarStockTicker() {
-  const [stock, setStock] = useState({ price: 0, changePercent: 0 });
-  const [loading, setLoading] = useState(true);
+interface StockState {
+  price: number;
+  changePercent: number;
+}
+
+function NavbarStockTicker({ stock, loading }: { stock: StockState; loading: boolean }) {
+  if (loading) return <div className="h-9 w-[110px] bg-white/5 animate-pulse rounded-[10px]" />;
+
+  const isPositive = stock.changePercent >= 0;
+
+  return (
+    <div className="hidden xl:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
+      <div className="flex flex-col justify-center px-3 py-1.5 h-[38px]">
+        <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
+        <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
+          {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
+          <TrendingUp className="w-2.5 h-2.5" style={{ transform: isPositive ? 'none' : 'scaleY(-1)' }} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════ Navbar Component ═══════════════════════════ */
+
+export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileAccordionOpen, setMobileAccordionOpen] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMobileMenuToggle = useCallback(() => {
+    setIsMobileMenuOpen((prev) => {
+      if (prev) {
+        setMobileAccordionOpen(null);
+      }
+      return !prev;
+    });
+  }, []);
+
+  /* Stock Ticker state lifted up */
+  const [stock, setStock] = useState<StockState>({ price: 0, changePercent: 0 });
+  const [isStockLoading, setIsStockLoading] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const fetchStock = async () => {
@@ -129,45 +189,12 @@ function NavbarStockTicker() {
       } catch (e) {
         console.error("Navbar ticker error:", e);
       } finally {
-        setLoading(false);
+        setIsStockLoading(false);
       }
     };
     fetchStock();
     const int = setInterval(fetchStock, 60000);
     return () => clearInterval(int);
-  }, []);
-
-  if (loading) return <div className="h-9 w-[110px] bg-white/5 animate-pulse rounded-[10px]" />;
-
-  const isPositive = stock.changePercent >= 0;
-
-  return (
-    <div className="hidden xl:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
-      <div className="flex flex-col justify-center px-3 py-1.5 h-[38px]">
-        <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
-        <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
-          {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
-          <TrendingUp className="w-2.5 h-2.5" style={{ transform: isPositive ? 'none' : 'scaleY(-1)' }} />
-        </span>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════ Navbar Component ═══════════════════════════ */
-
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   /* Delayed close so the dropdown doesn't vanish when moving cursor to it */
@@ -361,7 +388,7 @@ export default function Navbar() {
         <div className="w-[1px] h-5 bg-white/[0.12] hidden lg:block" />
 
         <div className="flex items-center gap-4 lg:gap-6">
-          <NavbarStockTicker />
+          <NavbarStockTicker stock={stock} loading={isStockLoading} />
 
           {/* Contact Us Button */}
           <Link
@@ -377,13 +404,17 @@ export default function Navbar() {
       {/* ═══ Mobile Menu Toggle ═══ */}
       <div className="flex lg:hidden items-center gap-4">
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-11 h-11 text-white hover:text-[#3daeff] transition-colors duration-200 cursor-pointer border border-white/[0.08] bg-white/[0.03]"
+          onClick={handleMobileMenuToggle}
+          className={`flex items-center justify-center w-11 h-11 text-white cursor-pointer border rounded-[10px] bg-white/[0.03] transition-all duration-300 ${
+            isMobileMenuOpen
+              ? "border-[#3daeff]/40 bg-[#3daeff]/[0.06] text-[#3daeff] shadow-[0_0_15px_rgba(61,174,255,0.15)]"
+              : "border-white/[0.08] hover:border-[#3daeff]/20 hover:bg-white/[0.06]"
+          }`}
           aria-expanded={isMobileMenuOpen}
           aria-label="Toggle Navigation Menu"
         >
           {isMobileMenuOpen ? (
-            <X className="w-5.5 h-5.5" />
+            <X className="w-5 h-5" />
           ) : (
             <Menu className="w-5.5 h-5.5" />
           )}
@@ -391,26 +422,109 @@ export default function Navbar() {
       </div>
 
       {/* ═══ Mobile Drawer ═══ */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#04070f]/95 border-b border-white/[0.08] backdrop-blur-xl flex flex-col py-6 px-8 gap-[18px] lg:hidden shadow-[0_10px_30px_rgba(0,0,0,0.65)] animate-in slide-in-from-top-3 duration-300">
-          {navLinks.map((link) => {
+      <div
+        className={`absolute top-full left-0 w-full bg-gradient-to-b from-[#04070f]/98 to-[#070c1a]/98 border-b border-white/[0.08] backdrop-blur-2xl flex flex-col py-6 px-8 gap-4 lg:hidden shadow-[0_15px_40px_rgba(0,0,0,0.85)] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] origin-top overflow-y-auto max-h-[calc(100vh-75px)] ${
+          isMobileMenuOpen
+            ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
+            : "opacity-0 -translate-y-4 scale-y-95 pointer-events-none"
+        }`}
+      >
+        {/* Telemetry Dashboard */}
+        <div
+          className="flex items-center justify-between pb-3.5 border-b border-white/[0.05]"
+          style={{
+            transitionDelay: isMobileMenuOpen ? "40ms" : "0ms",
+            opacity: isMobileMenuOpen ? 1 : 0,
+            transform: isMobileMenuOpen ? "translateY(0)" : "translateY(8px)",
+            transitionProperty: "opacity, transform",
+            transitionDuration: "400ms",
+            transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
+          {/* Status Dot */}
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00e878] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00e878]"></span>
+            </span>
+            <span className="text-[10px] font-bold text-white/50 tracking-[0.15em] uppercase font-mono">
+              SYS STATUS: ACTIVE
+            </span>
+          </div>
+
+          {/* DGXX Ticker Info */}
+          {!isStockLoading && stock.price > 0 && (
+            <div className="flex items-center gap-1.5 text-right font-mono">
+              <span className="text-[10px] font-bold text-white/40">DGXX:</span>
+              <span className="text-[10px] font-bold text-white">${stock.price.toFixed(2)}</span>
+              <span className={`text-[9px] font-bold ${stock.changePercent >= 0 ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
+                ({stock.changePercent >= 0 ? "+" : ""}{stock.changePercent.toFixed(2)}%)
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Main List */}
+        <div className="flex flex-col w-full">
+          {navLinks.map((link, index) => {
+            const delay = isMobileMenuOpen ? 80 + index * 30 : 0;
+            const transitionStyles = {
+              transitionDelay: `${delay}ms`,
+              opacity: isMobileMenuOpen ? 1 : 0,
+              transform: isMobileMenuOpen ? "translateY(0)" : "translateY(8px)",
+              transitionProperty: "opacity, transform",
+              transitionDuration: "400ms",
+              transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+            };
+
             if (link.dropdown) {
+              const isAccordionOpen = mobileAccordionOpen === link.label;
               return (
-                <div key={link.label} className="flex flex-col w-full border-b border-white/[0.03] pb-2">
-                  <div className="text-white/45 text-[11px] font-bold tracking-[0.15em] uppercase py-1.5 font-sans">
-                    {link.label}
-                  </div>
-                  <div className="flex flex-col pl-4 gap-2 mt-1">
-                    {link.dropdown.map((subLink) => (
-                      <Link
-                        key={subLink.label}
-                        href={subLink.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-white text-[15px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-1 font-sans"
-                      >
-                        {subLink.label}
-                      </Link>
-                    ))}
+                <div
+                  key={link.label}
+                  className="flex flex-col w-full border-b border-white/[0.05]"
+                  style={transitionStyles}
+                >
+                  <button
+                    onClick={() => setMobileAccordionOpen(isAccordionOpen ? null : link.label)}
+                    className="w-full flex items-center justify-between py-3.5 text-white text-[15px] font-semibold tracking-wide text-left cursor-pointer active:text-[#3daeff] transition-colors duration-200"
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight
+                      className={`w-4 h-4 text-white/30 transition-transform duration-300 ${
+                        isAccordionOpen ? "rotate-90 text-[#3daeff]" : ""
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`flex flex-col gap-1 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden pl-3 ${
+                      isAccordionOpen ? "max-h-[360px] opacity-100 pb-3.5" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    {link.dropdown.map((subLink) => {
+                      const SubIcon = subLink.icon;
+                      return (
+                        <Link
+                          key={subLink.label}
+                          href={subLink.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center gap-3 py-2 px-3 rounded-lg bg-white/[0.01] active:bg-white/[0.04] transition-colors"
+                        >
+                          <div className="flex items-center justify-center w-7 h-7 rounded-md bg-[#3daeff]/[0.05] border border-[#3daeff]/15 text-[#3daeff] flex-shrink-0">
+                            <SubIcon className="w-3.5 h-3.5" />
+                          </div>
+                          <div className="flex flex-col min-w-0">
+                            <span className="text-[13px] font-bold text-white/95 truncate">
+                              {subLink.label}
+                            </span>
+                            <span className="text-[9.5px] text-white/35 font-medium truncate mt-0.5">
+                              {subLink.description}
+                            </span>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -418,11 +532,15 @@ export default function Navbar() {
 
             if (link.label === "Career") {
               return (
-                <div key={link.label} className="flex items-center justify-between py-2 border-b border-white/[0.03] w-full">
+                <div
+                  key={link.label}
+                  className="flex items-center justify-between py-3.5 border-b border-white/[0.05]"
+                  style={transitionStyles}
+                >
                   <Link
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 font-sans"
+                    className="text-white text-[15px] font-semibold tracking-wide active:text-[#3daeff] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -432,15 +550,15 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group mr-2"
+                    className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group mr-1"
                   >
                     <div className="absolute inset-0 rounded-[6px] bg-yellow-500/25 blur-sm group-hover:bg-yellow-400/45 group-hover:blur-md transition-all duration-500 opacity-90" />
                     <div className="relative rounded-[6px] border border-yellow-500/40 overflow-hidden shadow-[0_0_8px_rgba(234,179,8,0.4)] transition-all duration-500">
                       <Image
                         src="/digipowerx_logo.png"
                         alt="DigiPowerX Logo"
-                        width={24}
-                        height={24}
+                        width={22}
+                        height={22}
                         className="object-contain"
                       />
                     </div>
@@ -454,25 +572,37 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-white text-[16px] font-[500] hover:text-[#3daeff] transition-colors duration-200 py-2 border-b border-white/[0.03] font-sans"
+                className="text-white text-[15px] font-semibold tracking-wide py-3.5 border-b border-white/[0.05] block active:text-[#3daeff] transition-colors duration-200"
+                style={transitionStyles}
               >
                 {link.label}
               </Link>
             );
           })}
-
-          <div className="flex items-center justify-center gap-4 mt-2 w-full">
-            <Link
-              href="/contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full h-[42px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] rounded-[10px] text-[12px] font-bold text-white hover:from-[#58c4ff] hover:to-[#0091ff] transition-all duration-200"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Contact Us</span>
-            </Link>
-          </div>
         </div>
-      )}
+
+        {/* Contact Us CTA */}
+        <div
+          className="flex items-center justify-center gap-4 mt-4 w-full"
+          style={{
+            transitionDelay: isMobileMenuOpen ? `${80 + navLinks.length * 30}ms` : "0ms",
+            opacity: isMobileMenuOpen ? 1 : 0,
+            transform: isMobileMenuOpen ? "translateY(0)" : "translateY(8px)",
+            transitionProperty: "opacity, transform",
+            transitionDuration: "400ms",
+            transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
+          <Link
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="flex items-center justify-center gap-2 w-full h-[44px] bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[12px] font-bold text-white shadow-[0_4px_16px_rgba(61,174,255,0.25)] active:scale-[0.98] transition-all duration-200"
+          >
+            <MessageSquare className="w-4 h-4" />
+            <span>Contact Us</span>
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
