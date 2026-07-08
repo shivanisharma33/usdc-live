@@ -37,15 +37,15 @@ export default function CookieBanner() {
 
       {/* Banner */}
       <div
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[999] w-[calc(100%-2rem)] max-w-[480px]"
+        className="fixed top-1/2 left-1/2 z-[999] w-[calc(100%-2rem)] max-w-[480px]"
         style={{
-          animation: "cookieSlideUp 0.45s cubic-bezier(0.16,1,0.3,1) both",
+          animation: "cookieFadeInScale 0.4s cubic-bezier(0.16,1,0.3,1) both",
         }}
       >
         <style>{`
-          @keyframes cookieSlideUp {
-            from { opacity: 0; transform: translate(-50%, 24px); }
-            to   { opacity: 1; transform: translate(-50%, 0); }
+          @keyframes cookieFadeInScale {
+            from { opacity: 0; transform: translate(-50%, -46%) scale(0.95); }
+            to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
           }
         `}</style>
 

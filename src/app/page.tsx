@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 // Lazy load below-the-fold components
 const SpeedScaleSovereignty = dynamic(() => import("@/components/SpeedScaleSovereignty"));
@@ -61,12 +62,7 @@ export default function Home() {
       {/* Footer / Info section */}
       <Footer />
 
-
-
-
-
-
-      
+      <CookieBanner />
     </div>
   );
 }
