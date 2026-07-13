@@ -467,7 +467,7 @@ export default function GlobalNetworkPage() {
             ].map((card, idx) => (
               <div
                 key={idx}
-                className="relative bg-[#070c1a]/80 p-8 rounded-[24px] flex flex-col items-start text-left border border-white/10 hover:border-[#3daeff]/40 transition-all duration-300 hover:shadow-[0_25px_50px_-12px_rgba(61,174,255,0.08)] hover:-translate-y-1 group cursor-pointer min-h-[300px] overflow-hidden"
+                className="relative bg-[#070c1a]/80 p-5 sm:p-8 rounded-[24px] flex flex-col items-start text-left border border-white/10 hover:border-[#3daeff]/40 transition-all duration-300 hover:shadow-[0_25px_50px_-12px_rgba(61,174,255,0.08)] hover:-translate-y-1 group cursor-pointer min-h-[220px] sm:min-h-[300px] overflow-hidden"
               >
                 <div className="flex items-center justify-between w-full mb-6 font-mono text-xs font-semibold text-white/35 tracking-wider">
                   {card.step}

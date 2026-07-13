@@ -41,13 +41,14 @@ export default function WhatDrivesUs() {
 
           {/* Column 1: Speed to deployment */}
           <div className="p-8 md:p-12 lg:p-14 flex flex-col items-start text-left">
-            {/* Icon box */}
-            <div className="w-12 h-12 rounded-xl border border-[#3daeff]/35 bg-[#3daeff]/5 flex items-center justify-center mb-6">
-              <Zap className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 rounded-xl border border-[#3daeff]/35 bg-[#3daeff]/5 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight uppercase font-sans">
+                Speed to deployment
+              </h3>
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 tracking-tight uppercase font-sans">
-              Speed to deployment
-            </h3>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Traditional builds take years. The USDC team converts existing energy assets into
               Tier III HPC capacity in under twelve months — operators who move at the pace
@@ -57,13 +58,14 @@ export default function WhatDrivesUs() {
 
           {/* Column 2: Operational rigor */}
           <div className="p-8 md:p-12 lg:p-14 flex flex-col items-start text-left">
-            {/* Icon box */}
-            <div className="w-12 h-12 rounded-xl border border-[#3daeff]/25 bg-[#3daeff]/5 flex items-center justify-center mb-6">
-              <Shield className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 rounded-xl border border-[#3daeff]/25 bg-[#3daeff]/5 flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight uppercase font-sans">
+                Operational rigor
+              </h3>
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 tracking-tight uppercase font-sans">
-              Operational rigor
-            </h3>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Tier III standards and 99.99% reliability maintained by a team with decades in
               mission-critical facility engineering, power systems, and concurrent maintainability.
@@ -72,13 +74,14 @@ export default function WhatDrivesUs() {
 
           {/* Column 3: Technical edge */}
           <div className="p-8 md:p-12 lg:p-14 flex flex-col items-start text-left">
-            {/* Icon box */}
-            <div className="w-12 h-12 rounded-xl border border-[#3daeff]/25 bg-[#3daeff]/5 flex items-center justify-center mb-6">
-              <Sun className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-12 h-12 rounded-xl border border-[#3daeff]/25 bg-[#3daeff]/5 flex items-center justify-center flex-shrink-0">
+                <Sun className="w-5 h-5 text-[#3daeff] stroke-[2.5]" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight uppercase font-sans">
+                Technical edge
+              </h3>
             </div>
-            <h3 className="text-xl font-bold text-white mb-4 tracking-tight uppercase font-sans">
-              Technical edge
-            </h3>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Pioneering direct-to-chip liquid cooling and the proprietary ARMS 200 modular
               platform — engineered for ultra-dense NVIDIA GPU clusters from day one.

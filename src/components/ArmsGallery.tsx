@@ -70,7 +70,7 @@ export default function ArmsGallery() {
           </div>
 
           <h2
-            className="text-[5.5vw] sm:text-[36px] md:text-[48px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase whitespace-nowrap"
+            className="text-3xl sm:text-[36px] md:text-[48px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase sm:whitespace-nowrap"
             style={fadeUp(100)}
           >
             Physical <span className="text-[#3daeff]">Infrastructure</span> Reality

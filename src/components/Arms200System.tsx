@@ -274,7 +274,7 @@ export default function Arms200System() {
             </div>
 
             {/* 2x2 Feature Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full mt-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 w-full mt-8">
               {features.map((feat) => {
                 const Icon = feat.Icon;
                 return (

@@ -259,13 +259,15 @@ export default function ArmsModelShowcase() {
               key={idx}
               className="group relative p-5 rounded-xl border border-white/[0.06] bg-white/[0.015] hover:bg-white/[0.03] transition-all duration-500 hover:border-[#3daeff]/15"
             >
-              {/* Icon */}
-              <div className="w-9 h-9 rounded-lg bg-[#3daeff]/10 flex items-center justify-center mb-3 group-hover:bg-[#3daeff]/15 transition-colors duration-300">
-                {item.icon}
+              {/* Icon + Title row */}
+              <div className="flex items-center gap-3 mb-2.5">
+                <div className="w-9 h-9 rounded-lg bg-[#3daeff]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#3daeff]/15 transition-colors duration-300">
+                  {item.icon}
+                </div>
+                <h4 className="text-[13px] font-bold text-white tracking-tight">
+                  {item.title}
+                </h4>
               </div>
-              <h4 className="text-[13px] font-bold text-white mb-1.5 tracking-tight">
-                {item.title}
-              </h4>
               <p className="text-[12px] text-white/40 leading-[1.7]">
                 {item.desc}
               </p>

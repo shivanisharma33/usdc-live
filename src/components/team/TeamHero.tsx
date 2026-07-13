@@ -17,7 +17,7 @@ export default function TeamHero() {
 
   return (
     <section
-      className="relative w-full min-h-[60vh] md:min-h-[90vh] overflow-hidden flex flex-col items-center justify-center pt-24 pb-12 md:pt-28 md:pb-16"
+      className="relative w-full min-h-[60vh] md:min-h-[90vh] overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 lg:px-16 pt-24 pb-12 md:pt-28 md:pb-16"
       style={{ background: "#030810" }}
     >
       {/* Ambient Background Image with gradient overlays */}
@@ -48,7 +48,7 @@ export default function TeamHero() {
 
 
       {/* MAIN TEXT SECTION */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center select-none">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center select-none">
         {/* Futuristic Status Badge */}
         <div
           style={enterStyle(100)}
