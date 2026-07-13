@@ -62,7 +62,7 @@ export default function DcimSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03]"
+      className="w-full relative overflow-hidden bg-[#04070f] py-6 md:py-16 border-t border-white/[0.03]"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
@@ -71,7 +71,7 @@ export default function DcimSection() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-16">
+        <div className="flex flex-col items-center text-center max-w-[800px] mx-auto mb-8 md:mb-16">
           {/* Pill Badge */}
           <div
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"

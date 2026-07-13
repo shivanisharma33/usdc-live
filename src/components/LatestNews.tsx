@@ -57,7 +57,7 @@ export default function LatestNews() {
     <section
       id="latest-news"
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] py-12 md:py-16"
+      className="w-full relative overflow-hidden bg-[#04070f] py-6 md:py-16"
     >
       {/* ── Ambient Glows ── */}
       <div className="absolute top-[20%] left-[-10%] w-[450px] h-[450px] bg-blue-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
@@ -69,7 +69,7 @@ export default function LatestNews() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
 
         {/* ── Heading Block ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-16">
           <div className="flex flex-col items-start" style={fadeUp(0)}>
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/[0.12] bg-[#02050c]/85 backdrop-blur-md mb-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]">

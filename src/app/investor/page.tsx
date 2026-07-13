@@ -331,7 +331,7 @@ export default function InvestorPage() {
         </section>
 
         {/* ── STOCK PERFORMANCE & CHART SECTION ── */}
-        <section className="py-20 lg:py-24 px-4 sm:px-6">
+        <section className="py-6 lg:py-24 px-4 sm:px-6">
           <div className="max-w-[1400px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
 
@@ -581,7 +581,7 @@ export default function InvestorPage() {
         </section>
 
         {/* ── INVESTOR RESOURCES SECTION ── */}
-        <section className="py-20 lg:py-24 px-4 sm:px-6 border-t border-white/5">
+        <section className="py-6 lg:py-24 px-4 sm:px-6 border-t border-white/5">
           <div className="max-w-[1400px] mx-auto">
 
             {/* Section Title */}

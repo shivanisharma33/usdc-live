@@ -235,7 +235,7 @@ export default function SpeedScaleSovereignty() {
   };
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] px-4 pt-16 pb-20 md:py-28">
+    <section className="w-full relative overflow-hidden bg-[#04070f] px-4 pt-6 pb-8 md:py-28">
 
       {/* ── Inline keyframes for border animation & floating orbs ── */}
       <style>{`

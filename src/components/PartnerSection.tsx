@@ -8,9 +8,9 @@ import WaveBackground from "@/components/WaveBackground";
 export default function PartnerSection() {
 
   return (
-    <section className="w-full bg-[#04070f] py-10 md:py-12 px-6 md:px-12 lg:px-16 select-none overflow-hidden">
+    <section className="w-full bg-[#04070f] py-6 md:py-12 px-6 md:px-12 lg:px-16 select-none overflow-hidden">
       {/* ── Centered Bordered Card Section Wrapper ── */}
-      <div className="relative w-full max-w-[1280px] mx-auto rounded-[24px] border border-[#3daeff]/40 bg-[#04070f] overflow-hidden p-5 sm:p-12 md:p-14 lg:p-16 min-h-[500px] shadow-[0_0_50px_rgba(61,174,255,0.06)]">
+      <div className="relative w-full max-w-[1280px] mx-auto rounded-[24px] border border-[#3daeff]/40 bg-[#04070f] overflow-hidden p-5 sm:p-12 md:p-14 lg:p-10 xl:p-16 min-h-[500px] shadow-[0_0_50px_rgba(61,174,255,0.06)]">
 
         {/* ── Ambient Background Glows inside the card ── */}
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
@@ -32,7 +32,7 @@ export default function PartnerSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[26px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
+            <h2 className="text-[26px] sm:text-[40px] md:text-[48px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
               <span className="block sm:whitespace-nowrap">READY TO OWN THE</span>
               <span className="text-[#3daeff] block sm:whitespace-nowrap">AI INFRASTRUCTURE</span>
               <span className="block">LAYER?</span>
@@ -40,15 +40,15 @@ export default function PartnerSection() {
 
             {/* Subtext */}
             <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[500px] mt-6 font-sans">
-              Whether you need co-location, a turnkey data center build, or bare-metal <br className="hidden sm:inline" />
-              GPU compute - USDC provides the infrastructure, the scale <br className="hidden sm:inline" />
+              Whether you need co-location, a turnkey data center build, or bare-metal <br className="hidden xl:inline" />
+              GPU compute - USDC provides the infrastructure, the scale <br className="hidden xl:inline" />
               and the team to deliver.
             </p>
           </div>
 
           {/* ══════ RIGHT COLUMN: Glassmorphic Details Card ══════ */}
           <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-            <div className="w-full max-w-[520px] rounded-[24px] border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm p-8 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+            <div className="w-full max-w-[520px] rounded-[24px] border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm p-6 sm:p-10 lg:p-8 xl:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
 
               {/* Header inside card */}
               <div className="border-b border-[#3daeff]/30 pb-6 mb-6">
@@ -87,14 +87,14 @@ export default function PartnerSection() {
                       PERFORMANCE WITHOUT COMPROMISE
                     </span>
                     <span className="text-[12px] text-white/50 leading-relaxed font-normal">
-                      High-density power, advanced cooling, and elite connectivity for <br className="hidden sm:inline" /> AI at scale.
+                      High-density power, advanced cooling, and elite connectivity for AI at scale.
                     </span>
                   </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3.5 sm:gap-4">
                 <Link
                   href="/contact"
                   className="group flex items-center justify-center gap-2.5 px-5 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-wider uppercase rounded-lg transition-all duration-200"

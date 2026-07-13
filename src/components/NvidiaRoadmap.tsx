@@ -313,9 +313,9 @@ export default function NvidiaRoadmap() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-6 md:py-16">
         {/* ═══ Header: Badge + Heading + Description ═══ */}
-        <div className="mb-14 md:mb-16">
+        <div className="mb-8 md:mb-16">
           {/* Pill Badge */}
           <div
             className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-md mb-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)]"

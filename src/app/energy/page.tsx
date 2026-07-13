@@ -124,7 +124,7 @@ export default function EnergyPage() {
       <SuperiorEconomics />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-14 md:py-20 overflow-hidden">
+      <section className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-6 md:py-20 overflow-hidden">
         {/* Background ambient lighting */}
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
         <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />

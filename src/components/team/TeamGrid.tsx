@@ -99,12 +99,12 @@ export default function TeamGrid() {
       {styleTag}
 
       {/* ── SECTION 1: EXECUTIVE COUNCIL ── */}
-      <section className="py-10 md:py-20 lg:py-24 bg-[#04070f] relative border-t border-white/5">
+      <section className="py-6 md:py-20 lg:py-24 bg-[#04070f] relative border-t border-white/5">
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff01_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40" />
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           {/* Header */}
-          <div className="flex flex-col items-start text-left border-b border-white/[0.06] pb-8 mb-10 md:mb-16">
+          <div className="flex flex-col items-start text-left border-b border-white/[0.06] pb-8 mb-6 md:mb-16">
 
             <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
               Executive Council

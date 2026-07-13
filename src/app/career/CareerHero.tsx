@@ -6,12 +6,10 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 /* ═══════════════════════ Career Hero ═══════════════════════ */
 
 const ROLES_TICKER = [
-  "Infrastructure Engineers",
-  "GPU Systems Architects",
-  "AI Platform Engineers",
-  "Data Center Operators",
-  "Energy Asset Specialists",
-  "Site Reliability Engineers",
+  "Chiller Operator",
+  "Mechanical Technician",
+  "Data Center MEP Engineer",
+  "MEP Manager",
 ];
 
 export default function CareerHero() {

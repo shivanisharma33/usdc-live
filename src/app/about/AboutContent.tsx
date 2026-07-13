@@ -49,16 +49,16 @@ export default function AboutContent() {
 
   return (
     <div className="relative w-full bg-[#04070f] text-white overflow-hidden py-24 select-none">
-      
+
       {/* Background ambient lighting */}
       <div className="absolute top-[20%] left-[-15%] w-[600px] h-[600px] bg-blue-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-15%] w-[600px] h-[600px] bg-sky-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        
+
         {/* ── Section 1: Visionary Mission Statement ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-32">
-          
+
           <div className="lg:col-span-6 flex flex-col items-start">
             <span className="text-[10px] font-extrabold text-[#3daeff] tracking-[0.25em] uppercase mb-4">
               OUR CORE PURPOSE
@@ -72,7 +72,7 @@ export default function AboutContent() {
             <p className="text-white/60 text-[14px] md:text-[15px] leading-relaxed mb-8 font-normal">
               By co-locating compute facilities with green power plants and stranded energy, we bypass grid transmission bottlenecks, dramatically reduce overhead, and deliver scalable AI clusters in fraction of the standard development timelines.
             </p>
-            
+
             {/* Quick Metrics Badge */}
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-3">
@@ -91,7 +91,7 @@ export default function AboutContent() {
           {/* Right side: High-Tech Glass Telemetry Card */}
           <div className="lg:col-span-6 flex items-center justify-center">
             <div className="relative w-full max-w-[500px] p-[1.5px] rounded-[24px] bg-gradient-to-br from-white/[0.08] via-transparent to-white/[0.04] shadow-[0_24px_50px_rgba(0,0,0,0.5)] overflow-hidden group">
-              
+
               {/* Internal Glass Card body */}
               <div className="relative z-10 w-full h-full bg-[#02050c]/85 rounded-[22.5px] p-8 md:p-10 backdrop-blur-xl">
                 {/* HUD Header */}
@@ -207,12 +207,15 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {values.map((val, idx) => (
               <div key={idx} className="flex flex-col items-start">
-                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-500/0 border border-white/[0.05] flex items-center justify-center mb-6">
-                  {val.icon}
+                {/* Header (Icon + Title) */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-500/0 border border-white/[0.05] flex items-center justify-center shrink-0">
+                    {val.icon}
+                  </div>
+                  <h3 className="text-[16px] font-black tracking-wide text-white">
+                    {val.title}
+                  </h3>
                 </div>
-                <h3 className="text-[16px] font-black tracking-wide text-white mb-3">
-                  {val.title}
-                </h3>
                 <p className="text-[12.5px] text-white/45 leading-relaxed font-normal">
                   {val.desc}
                 </p>
@@ -224,7 +227,7 @@ export default function AboutContent() {
         {/* ── Section 4: Premium Call-to-Action ── */}
         <div className="relative w-full rounded-[24px] overflow-hidden p-[1px] bg-gradient-to-r from-blue-500/20 via-transparent to-blue-500/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
           <div className="relative z-10 w-full bg-[#02050c]/85 rounded-[23px] px-8 py-12 md:py-16 md:px-12 text-center flex flex-col items-center justify-center backdrop-blur-xl">
-            
+
             {/* Background pattern inside CTA */}
             <div className="absolute inset-0 bg-[radial-gradient(#3daeff04_1.5px,transparent_1.5px)] bg-[size:24px_24px] pointer-events-none opacity-50 z-0" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-[#3daeff]/5 rounded-full blur-[80px] pointer-events-none z-0" />
@@ -232,11 +235,11 @@ export default function AboutContent() {
             <span className="relative z-10 text-[10px] font-extrabold text-[#3daeff] tracking-[0.25em] uppercase mb-4">
               COLLABORATION & SUPPORT
             </span>
-            
+
             <h2 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mb-6 max-w-2xl leading-tight">
               Ready to Accelerate Your Compute Deployment?
             </h2>
-            
+
             <p className="relative z-10 text-white/50 text-[13px] sm:text-[14px] leading-relaxed max-w-[560px] mb-8 font-normal">
               Whether you are looking for custom wholesale power/compute leases, strategic partnerships, or career opportunities, our teams are here to assist.
             </p>

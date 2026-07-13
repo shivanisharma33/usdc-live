@@ -279,11 +279,11 @@ export default function NewsInsightsPage() {
 
       {/* ── FEATURED STORY SECTION ── */}
       {!searchQuery && selectedCategory === "All" && (
-        <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pb-24">
+        <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-12 pb-10 md:pt-0 md:pb-24">
           {/* Section telemetry title */}
           <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4 mb-8">
-            <span className="text-[11px] font-mono tracking-widest text-[#3daeff] uppercase font-bold">
-              01 // FEATURED BLUEPRINT
+            <span className="text-[11px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
+              01 FEATURED BLUEPRINT
             </span>
             <div className="h-[1px] flex-grow bg-gradient-to-r from-white/[0.08] to-transparent" />
           </div>
@@ -354,12 +354,12 @@ export default function NewsInsightsPage() {
       )}
 
       {/* ── LATEST NEWS GRID SECTION ── */}
-      <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pb-24">
+      <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-12 pb-10 md:pt-0 md:pb-24">
         {/* Section title */}
         <div className="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-10">
           <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono tracking-widest text-[#3daeff] uppercase font-bold">
-              02 // LATEST NEWS ARCHIVES
+            <span className="text-[11px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
+              02 LATEST NEWS ARCHIVES
             </span>
           </div>
           <span className="text-[11px] font-mono text-white/30 uppercase tracking-widest hidden sm:block">
@@ -459,14 +459,14 @@ export default function NewsInsightsPage() {
       </section>
 
       {/* ── TRENDING INSIGHTS CAROUSEL ── */}
-      <section className="relative z-10 w-full bg-[#050811] border-t border-b border-white/5 py-24 overflow-hidden">
+      <section className="relative z-10 w-full bg-[#050811] border-t border-b border-white/5 pt-14 pb-10 md:py-24 overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 relative">
 
           {/* Header & slide controls */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/[0.06] pb-6 mb-12 text-left">
             <div>
-              <span className="text-[10px] font-mono tracking-widest text-[#3daeff] uppercase font-bold block mb-1">
-                03 // TRENDING SYSTEMS
+              <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase block mb-1">
+                03 TRENDING SYSTEMS
               </span>
               <h2 className="text-3xl font-black uppercase text-white tracking-tight">
                 Trending Insights
@@ -544,7 +544,7 @@ export default function NewsInsightsPage() {
       </section>
 
       {/* ── FUTURISTIC NEWSLETTER SECTION ── */}
-      <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 py-24">
+      <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-14 pb-10 md:py-24">
         {/* Holographic Container */}
         <div className="relative p-8 md:p-14 lg:p-16 rounded-[40px] border border-white/[0.08] bg-white/[0.01] overflow-hidden text-center max-w-[960px] mx-auto shadow-[0_30px_60px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.05)]">
           {/* Neon side bars */}
@@ -561,8 +561,8 @@ export default function NewsInsightsPage() {
             </div>
 
             <div className="space-y-3">
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#3daeff] font-bold">
-                04 // SECURE NEWSLETTER SYNC
+              <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
+                04 FEATURED NEWSLETTER SYNC
               </span>
               <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tight leading-none">
                 Subscribe to USDC insights

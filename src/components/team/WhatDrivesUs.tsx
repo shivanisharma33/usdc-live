@@ -5,10 +5,10 @@ import { Zap, Shield, Sun } from "lucide-react";
 
 export default function WhatDrivesUs() {
   return (
-    <section className="relative z-10 w-full bg-[#04070f] py-10 md:py-20 lg:py-24 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 text-center select-none">
+    <section className="relative z-10 w-full bg-[#04070f] py-6 md:py-20 lg:py-24 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 text-center select-none">
 
       {/* ── HEADER ── */}
-      <div className="flex flex-col items-center mb-10 md:mb-16 space-y-6">
+      <div className="flex flex-col items-center mb-6 md:mb-16 space-y-6">
         {/* Pill Badge */}
         <div className="inline-flex items-center px-5 py-2 rounded-full border border-blue-500/15 bg-blue-950/20 shadow-[0_0_15px_rgba(59,130,246,0.06)]">
           <span className="text-[10px] font-black text-[#3daeff] tracking-[0.3em] uppercase font-mono">

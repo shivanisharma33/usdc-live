@@ -242,8 +242,8 @@ export default function Navbar() {
       </div>
 
       {/* ═══ Desktop Navigation ═══ */}
-      <nav className="hidden lg:flex items-center gap-4 xl:gap-6 px-6 xl:px-8 py-2 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
-        <div className="flex items-center gap-4 lg:gap-6 xl:gap-[38px]">
+      <nav className="hidden lg:flex items-center gap-2.5 xl:gap-6 px-4 xl:px-8 py-2 bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-[10px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300">
+        <div className="flex items-center gap-3 lg:gap-3.5 xl:gap-[28px] 2xl:gap-[38px] flex-shrink-0">
           {navLinks.map((link) => {
             if (link.dropdown) {
               const isOpen = openDropdown === link.label;
@@ -256,12 +256,12 @@ export default function Navbar() {
                 >
                   {/* Dropdown trigger button */}
                   <button
-                    className={`flex items-center gap-1.5 text-[15px] font-medium transition-all duration-300 cursor-pointer font-sans ${isOpen ? "text-[#3daeff]" : "text-white/80 hover:text-[#3daeff]"
+                    className={`flex items-center gap-1 text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium transition-all duration-300 cursor-pointer font-sans whitespace-nowrap ${isOpen ? "text-[#3daeff]" : "text-white/80 hover:text-[#3daeff]"
                       }`}
                   >
                     <span>{link.label}</span>
                     <svg
-                      className={`w-3.5 h-3.5 transition-all duration-400 ${isOpen ? "rotate-180 text-[#3daeff]" : "text-white/50"
+                      className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-all duration-400 ${isOpen ? "rotate-180 text-[#3daeff]" : "text-white/50"
                         }`}
                       fill="none"
                       stroke="currentColor"
@@ -357,7 +357,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="relative text-white/80 text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans"
+                className="relative text-white/80 text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -369,7 +369,7 @@ export default function Navbar() {
             href="https://digipowerx.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group"
+            className="relative flex items-center justify-center transition-all duration-300 hover:scale-105 group flex-shrink-0"
           >
             <div className="absolute inset-0 rounded-[8px] bg-yellow-500/20 blur-md group-hover:bg-yellow-400/40 group-hover:blur-lg transition-all duration-500 opacity-80 group-hover:opacity-100" />
             <div className="relative rounded-[8px] border border-yellow-500/35 group-hover:border-yellow-400/60 overflow-hidden shadow-[0_0_12px_rgba(234,179,8,0.3)] group-hover:shadow-[0_0_20px_rgba(234,179,8,0.6)] transition-all duration-500">
@@ -387,15 +387,15 @@ export default function Navbar() {
         {/* Divider */}
         <div className="w-[1px] h-5 bg-white/[0.12] hidden lg:block" />
 
-        <div className="flex items-center gap-4 lg:gap-6">
+        <div className="flex items-center gap-3 lg:gap-4 xl:gap-6 flex-shrink-0">
           <NavbarStockTicker stock={stock} loading={isStockLoading} />
 
           {/* Contact Us Button */}
           <Link
             href="/contact"
-            className="hidden sm:flex items-center justify-center gap-2 h-[38px] px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer"
+            className="hidden sm:flex items-center justify-center gap-1.5 xl:gap-2 h-[34px] xl:h-[38px] px-3.5 xl:px-6 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] rounded-[10px] text-[10px] xl:text-[11px] font-bold text-white shadow-[0_4px_12px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_16px_rgba(61,174,255,0.35)] transition-all duration-300 cursor-pointer whitespace-nowrap"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <MessageSquare className="w-3 h-3 xl:w-3.5 xl:h-3.5" />
             <span>Contact Us</span>
           </Link>
         </div>
@@ -405,11 +405,10 @@ export default function Navbar() {
       <div className="flex lg:hidden items-center gap-4">
         <button
           onClick={handleMobileMenuToggle}
-          className={`flex items-center justify-center w-11 h-11 text-white cursor-pointer border rounded-[10px] bg-white/[0.03] transition-all duration-300 ${
-            isMobileMenuOpen
-              ? "border-[#3daeff]/40 bg-[#3daeff]/[0.06] text-[#3daeff] shadow-[0_0_15px_rgba(61,174,255,0.15)]"
-              : "border-white/[0.08] hover:border-[#3daeff]/20 hover:bg-white/[0.06]"
-          }`}
+          className={`flex items-center justify-center w-11 h-11 text-white cursor-pointer border rounded-[10px] bg-white/[0.03] transition-all duration-300 ${isMobileMenuOpen
+            ? "border-[#3daeff]/40 bg-[#3daeff]/[0.06] text-[#3daeff] shadow-[0_0_15px_rgba(61,174,255,0.15)]"
+            : "border-white/[0.08] hover:border-[#3daeff]/20 hover:bg-white/[0.06]"
+            }`}
           aria-expanded={isMobileMenuOpen}
           aria-label="Toggle Navigation Menu"
         >
@@ -423,11 +422,10 @@ export default function Navbar() {
 
       {/* ═══ Mobile Drawer ═══ */}
       <div
-        className={`absolute top-full left-0 w-full bg-gradient-to-b from-[#04070f]/98 to-[#070c1a]/98 border-b border-white/[0.08] backdrop-blur-2xl flex flex-col py-6 px-8 gap-4 lg:hidden shadow-[0_15px_40px_rgba(0,0,0,0.85)] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] origin-top overflow-y-auto max-h-[calc(100vh-75px)] ${
-          isMobileMenuOpen
-            ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
-            : "opacity-0 -translate-y-4 scale-y-95 pointer-events-none"
-        }`}
+        className={`absolute top-full left-0 w-full bg-gradient-to-b from-[#04070f]/98 to-[#070c1a]/98 border-b border-white/[0.08] backdrop-blur-2xl flex flex-col py-6 px-8 gap-4 lg:hidden shadow-[0_15px_40px_rgba(0,0,0,0.85)] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] origin-top overflow-y-auto max-h-[calc(100vh-75px)] ${isMobileMenuOpen
+          ? "opacity-100 translate-y-0 scale-y-100 pointer-events-auto"
+          : "opacity-0 -translate-y-4 scale-y-95 pointer-events-none"
+          }`}
       >
         {/* Telemetry Dashboard */}
         <div
@@ -491,16 +489,14 @@ export default function Navbar() {
                   >
                     <span>{link.label}</span>
                     <ChevronRight
-                      className={`w-4 h-4 text-white/30 transition-transform duration-300 ${
-                        isAccordionOpen ? "rotate-90 text-[#3daeff]" : ""
-                      }`}
+                      className={`w-4 h-4 text-white/30 transition-transform duration-300 ${isAccordionOpen ? "rotate-90 text-[#3daeff]" : ""
+                        }`}
                     />
                   </button>
 
                   <div
-                    className={`flex flex-col gap-1 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden pl-3 ${
-                      isAccordionOpen ? "max-h-[360px] opacity-100 pb-3.5" : "max-h-0 opacity-0 pointer-events-none"
-                    }`}
+                    className={`flex flex-col gap-1 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden pl-3 ${isAccordionOpen ? "max-h-[360px] opacity-100 pb-3.5" : "max-h-0 opacity-0 pointer-events-none"
+                      }`}
                   >
                     {link.dropdown.map((subLink) => {
                       const SubIcon = subLink.icon;

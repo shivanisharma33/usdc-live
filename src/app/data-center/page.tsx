@@ -164,7 +164,7 @@ export default function DataCenterPage() {
       <FacilitySpecification />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-14 md:py-20">
+      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-6 md:py-20">
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="text-center max-w-[700px] mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 font-sans">

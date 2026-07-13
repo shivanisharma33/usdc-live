@@ -89,7 +89,7 @@ export default function AboutJourneySection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full bg-[#04070f] py-14 md:py-20 text-white select-none relative overflow-hidden border-t border-white/[0.03]">
+    <section ref={containerRef} className="w-full bg-[#04070f] py-6 md:py-20 text-white select-none relative overflow-hidden border-t border-white/[0.03]">
       {/* Dynamic Keyframe Animations for Blueprint Icons */}
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -191,7 +191,7 @@ export default function AboutJourneySection() {
             />
           </div>
 
-          <div className="flex flex-col gap-12 relative z-10">
+          <div className="flex flex-col gap-6 md:gap-12 relative z-10">
             {timelineData.map((item, idx) => {
 
               // Only active card is highlighted

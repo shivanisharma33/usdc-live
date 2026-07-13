@@ -51,7 +51,7 @@ export default function AboutByNumbers() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative bg-[#04070f] py-14 md:py-20 overflow-hidden select-none border-t border-white/[0.03]"
+      className="w-full relative bg-[#04070f] py-6 md:py-20 overflow-hidden select-none border-t border-white/[0.03]"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[800px] max-h-[800px] bg-blue-600/[0.04] rounded-full blur-[140px] pointer-events-none z-0" />
@@ -60,7 +60,7 @@ export default function AboutByNumbers() {
 
         {/* Heading */}
         <div
-          className="text-center mb-16 transition-all duration-1000 transform"
+          className="text-center mb-8 md:mb-16 transition-all duration-1000 transform"
           style={{
             opacity: inView ? 1 : 0,
             transform: inView ? "translateY(0)" : "translateY(30px)",
@@ -76,7 +76,7 @@ export default function AboutByNumbers() {
 
         {/* Stats Card */}
         <div
-          className="w-full max-w-[1100px] border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-xl rounded-[16px] shadow-[0_24px_50px_rgba(0,0,0,0.55)] transition-all duration-1000 delay-200 transform mb-20"
+          className="w-full max-w-[1100px] border border-white/[0.08] bg-[#02050c]/80 backdrop-blur-xl rounded-[16px] shadow-[0_24px_50px_rgba(0,0,0,0.55)] transition-all duration-1000 delay-200 transform mb-10 md:mb-20"
           style={{
             opacity: inView ? 1 : 0,
             transform: inView ? "translateY(0)" : "translateY(30px)",

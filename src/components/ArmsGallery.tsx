@@ -48,7 +48,7 @@ export default function ArmsGallery() {
   return (
     <section
       ref={sectionRef}
-      className="w-full relative overflow-hidden bg-[#04070f] pt-6 pb-10 md:pt-8 md:pb-20 border-t border-white/[0.03] select-none"
+      className="w-full relative overflow-hidden bg-[#04070f] py-6 md:pt-8 md:pb-20 border-t border-white/[0.03] select-none"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />

@@ -44,7 +44,7 @@ export default function CoreValuesSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-14 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#04070f] text-white py-6 md:py-14 border-t border-white/[0.03] select-none">
       
       {/* Ambient backgrounds */}
       <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none" />
@@ -53,7 +53,7 @@ export default function CoreValuesSection() {
       <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
         
         {/* ── Header Section ── */}
-        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
+        <div className="flex flex-col items-center text-center mb-6 md:mb-14">
           
           {/* Main Heading */}
           <h2 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white leading-tight mb-6 font-sans">
@@ -75,15 +75,18 @@ export default function CoreValuesSection() {
                 key={value.id}
                 className="group relative p-8 rounded-[16px] bg-gradient-to-br from-[#0a0e1a]/50 to-[#051620]/30 border border-[#3daeff]/20 backdrop-blur-xl hover:border-[#3daeff]/50 transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.04),0_8px_32px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_48px_rgba(61,174,255,0.1)]"
               >
-                {/* Icon Container */}
-                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br from-[#3daeff]/20 to-[#3daeff]/5 border border-[#3daeff]/30 group-hover:border-[#3daeff]/60 group-hover:bg-[#3daeff]/30 transition-all duration-300">
-                  <IconComponent className="w-8 h-8 text-[#3daeff] group-hover:scale-110 transition-transform duration-300" />
-                </div>
+                {/* Header (Icon + Title) */}
+                <div className="flex items-center gap-4 mb-5">
+                  {/* Icon Container */}
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-[#3daeff]/20 to-[#3daeff]/5 border border-[#3daeff]/30 group-hover:border-[#3daeff]/60 group-hover:bg-[#3daeff]/30 transition-all duration-300 shrink-0">
+                    <IconComponent className="w-6 h-6 text-[#3daeff] group-hover:scale-110 transition-transform duration-300" />
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-[13px] md:text-[12px] font-black uppercase tracking-[0.16em] text-white/95 leading-snug mb-3 font-sans">
-                  {value.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-[13px] md:text-[12px] font-black uppercase tracking-[0.16em] text-white/95 leading-snug font-sans">
+                    {value.title}
+                  </h3>
+                </div>
 
                 {/* Description */}
                 <p className="text-[12.5px] text-white/50 leading-relaxed font-normal font-sans">
