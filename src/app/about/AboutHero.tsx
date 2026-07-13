@@ -37,23 +37,28 @@ export default function AboutHero() {
 
           {/* Main Cloned Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10">
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:0ms]">Building&nbsp;</span>
+            <span className="inline-block md:whitespace-nowrap">
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:0ms]">Building&nbsp;</span>
+              </span>
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:80ms]">The&nbsp;</span>
+              </span>
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:160ms]">Future&nbsp;</span>
+              </span>
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:240ms]">Of&nbsp;</span>
+              </span>
             </span>
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:80ms]">The&nbsp;</span>
-            </span>
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:160ms]">Future&nbsp;</span>
-            </span>
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:240ms]">Of&nbsp;</span>
-            </span>
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:320ms] text-[#3daeff] select-none">AI&nbsp;</span>
-            </span>
-            <span className="animate-slide-up-mask">
-              <span className="animate-slide-up-inner [animation-delay:400ms] text-[#3daeff] select-none">Infrastructure</span>
+            <br className="hidden md:inline" />
+            <span className="inline-block md:whitespace-nowrap">
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:320ms] text-[#3daeff] select-none">AI&nbsp;</span>
+              </span>
+              <span className="animate-slide-up-mask">
+                <span className="animate-slide-up-inner [animation-delay:400ms] text-[#3daeff] select-none">Infrastructure</span>
+              </span>
             </span>
           </h1>
 

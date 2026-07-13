@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { slugify } from "@/utils/slugify";
 import {
   Calendar,
@@ -69,7 +70,7 @@ const pressReleases: PressRelease[] = [
     category: "TECHNOLOGY",
     date: "May 15, 2025",
     title: "Revolutionary Liquid Cooling System Achieves 40% Energy Reduction in AI Workload Operations",
-    excerpt: "USDC's proprietary advanced cooling technology sets new industry benchmarks for sustainability in high-density compute environments.",
+    excerpt: "USDC's proprietary advanced cooling technology sets new industry benchmarks for sustainability in high-density compute environments, optimizing energy usage across all global facilities.",
     tag: "Innovation",
     icon: Zap,
     readTime: "3 min read",
@@ -79,7 +80,7 @@ const pressReleases: PressRelease[] = [
     category: "CORPORATE",
     date: "April 30, 2025",
     title: "USDC Achieves Tier IV Certification for All North American Data Center Facilities",
-    excerpt: "Industry-leading uptime guarantees and fault-tolerant infrastructure design receive highest certification from the Uptime Institute.",
+    excerpt: "Industry-leading uptime guarantees and fault-tolerant infrastructure design receive highest certification from the Uptime Institute, setting a new standard for reliability.",
     tag: "Certification",
     icon: Award,
     readTime: "3 min read",
@@ -89,7 +90,7 @@ const pressReleases: PressRelease[] = [
     category: "PARTNERSHIP",
     date: "April 18, 2025",
     title: "Oracle Cloud Infrastructure Selects USDC as Preferred Colocation Partner for Enterprise AI",
-    excerpt: "Multi-year agreement positions USDC as a key enabler of Oracle's distributed cloud strategy for enterprise AI workloads.",
+    excerpt: "Multi-year agreement positions USDC as a key enabler of Oracle's distributed cloud strategy for enterprise AI workloads, accelerating deployment speeds.",
     tag: "Cloud",
     icon: Server,
     readTime: "4 min read",
@@ -99,7 +100,7 @@ const pressReleases: PressRelease[] = [
     category: "EXPANSION",
     date: "March 25, 2025",
     title: "Groundbreaking Ceremony for USDC's 500MW Hyperscale Campus in Northern Virginia",
-    excerpt: "The largest single-phase data center development in the region will serve hyperscale cloud providers and AI-native enterprises.",
+    excerpt: "The largest single-phase data center development in the region will serve hyperscale cloud providers and AI-native enterprises, expanding digital capacity.",
     tag: "Construction",
     icon: Building2,
     readTime: "3 min read",
@@ -109,7 +110,7 @@ const pressReleases: PressRelease[] = [
     category: "TECHNOLOGY",
     date: "March 10, 2025",
     title: "USDC Launches AI-Powered Predictive Maintenance Platform for Data Center Operations",
-    excerpt: "Machine learning algorithms analyze thousands of sensor data points in real-time to predict and prevent hardware failures before they impact service.",
+    excerpt: "Machine learning algorithms analyze thousands of sensor data points in real-time to predict and prevent hardware failures before they impact service, maximizing uptime.",
     tag: "AI Operations",
     icon: Sparkles,
     readTime: "4 min read",
@@ -119,7 +120,7 @@ const pressReleases: PressRelease[] = [
     category: "CORPORATE",
     date: "February 22, 2025",
     title: "USDC Reports Record Q4 2024 Revenue, Driven by 300% Growth in AI Compute Demand",
-    excerpt: "Strong financial performance reflects surging enterprise demand for GPU-dense infrastructure and colocation services across all regions.",
+    excerpt: "Strong financial performance reflects surging enterprise demand for GPU-dense infrastructure and colocation services across all regions, driving profitability.",
     tag: "Financial",
     icon: TrendingUp,
     readTime: "5 min read",
@@ -286,12 +287,11 @@ export default function PressReleaseGrid() {
           const slug = slugify(pr.title);
           window.open(`/press-release/${slug}`, "_blank");
         }}
-        className={`group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${isFeatured ? "min-h-[380px]" : "min-h-[300px]"
-          }`}
+        className="group relative rounded-[20px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 h-full"
       >
         {/* ── Card background ── */}
         <div
-          className="absolute inset-0 z-0 transition-all duration-700"
+          className="absolute inset-0 z-0 transition-all duration-750 group-hover:scale-[1.03] group-hover:brightness-[1.05]"
           style={{
             background: `${mesh}, linear-gradient(160deg, rgba(8,15,32,0.96) 0%, rgba(4,8,20,0.99) 100%)`,
           }}
@@ -332,7 +332,7 @@ export default function PressReleaseGrid() {
         {/* ── Content ── */}
         <div className="relative z-[5] flex flex-col h-full p-7 sm:p-8">
           {/* Header: Category + Icon */}
-          <div className="flex items-start justify-between mb-auto">
+          <div className="flex items-start justify-between mb-5">
             <div className="flex flex-col gap-3">
               <span
                 className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.18em] uppercase px-3 py-1 rounded-full w-fit transition-all duration-300"
@@ -343,7 +343,7 @@ export default function PressReleaseGrid() {
                 }}
               >
                 <span
-                  className="w-[5px] h-[5px] rounded-full"
+                  className="w-[5px] h-[5px] rounded-full animate-pulse"
                   style={{ background: color, boxShadow: `0 0 6px ${color}` }}
                 />
                 {pr.category}
@@ -368,7 +368,7 @@ export default function PressReleaseGrid() {
 
             {/* Icon */}
             <div
-              className="flex items-center justify-center w-12 h-12 rounded-2xl border flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg"
+              className="flex items-center justify-center w-12 h-12 rounded-2xl border flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.15)]"
               style={{
                 borderColor: `${color}15`,
                 background: `linear-gradient(135deg, ${color}0c, ${color}04)`,
@@ -376,16 +376,16 @@ export default function PressReleaseGrid() {
               }}
             >
               <Icon
-                className="w-5 h-5 transition-all duration-500"
+                className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
                 style={{ color, filter: `drop-shadow(0 0 4px ${color}30)` }}
               />
             </div>
           </div>
 
           {/* Body: Title + Excerpt */}
-          <div className="mt-6">
+          <div className="mt-2 mb-5 flex-grow">
             <h3
-              className={`font-semibold text-white/90 leading-[1.35] mb-3 group-hover:text-white transition-colors duration-300 ${isFeatured
+              className={`font-semibold text-white/90 leading-[1.35] mb-3 group-hover:text-white transition-colors duration-300 line-clamp-3 ${isFeatured
                   ? "text-[20px] sm:text-[22px] md:text-[24px]"
                   : "text-[16px] sm:text-[17px]"
                 }`}
@@ -394,17 +394,17 @@ export default function PressReleaseGrid() {
             </h3>
 
             <p
-              className={`text-white/50 leading-[1.7] group-hover:text-white/70 transition-colors duration-300 ${isFeatured
-                  ? "text-[13px] line-clamp-3"
-                  : "text-[12px] line-clamp-2"
+              className={`text-white/50 leading-[1.7] group-hover:text-white/70 transition-colors duration-300 line-clamp-3 ${isFeatured
+                  ? "text-[13px]"
+                  : "text-[12px]"
                 }`}
             >
-              {pr.excerpt}
+              {pr.excerpt.length > 140 ? pr.excerpt.slice(0, 140).trim() + "..." : pr.excerpt}
             </p>
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between mt-6 pt-5 border-t border-white/[0.04]">
+          <div className="flex items-center justify-between mt-auto pt-5 border-t border-white/[0.04]">
             <span className="text-[9px] font-bold text-white/40 tracking-[0.18em] uppercase">
               {pr.tag}
             </span>
@@ -516,9 +516,25 @@ export default function PressReleaseGrid() {
               <div className="h-px flex-grow bg-gradient-to-r from-[#3daeff]/15 to-transparent" />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14">
-              {featured.map((pr, idx) => renderCard(pr, idx, true))}
-            </div>
+            <motion.div 
+              layout
+              className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14"
+            >
+              <AnimatePresence mode="popLayout">
+                {featured.map((pr, idx) => (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    key={pr.id}
+                  >
+                    {renderCard(pr, idx, true)}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </>
         )}
 
@@ -530,12 +546,29 @@ export default function PressReleaseGrid() {
           <div className="h-px flex-grow bg-gradient-to-r from-white/8 to-transparent" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {(activeCategory !== "ALL" || searchQuery !== ""
-            ? filtered.slice(0, visibleCount)
-            : regular
-          ).map((pr, idx) => renderCard(pr, idx + 2, false))}
-        </div>
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          <AnimatePresence mode="popLayout">
+            {(activeCategory !== "ALL" || searchQuery !== ""
+              ? filtered.slice(0, visibleCount)
+              : regular
+            ).map((pr, idx) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                key={pr.id}
+                className="h-full"
+              >
+                {renderCard(pr, idx + 2, false)}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* ── Load More ── */}
         {visibleCount < filtered.filter((p) => !p.featured).length && activeCategory === "ALL" && searchQuery === "" && (

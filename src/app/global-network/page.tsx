@@ -62,19 +62,19 @@ export default function GlobalNetworkPage() {
             </span>
           </h1>
 
-          <p className="text-white/60 text-sm md:text-[16px] max-w-xl mb-10 leading-relaxed font-medium tracking-wide text-center">
+          <p className="text-white/60 text-sm md:text-[16px] max-w-xl mb-10 leading-relaxed font-normal text-center font-sans">
             USDC connects owned generation, substation access, and compute capacity across a multi-site footprint — one resilient mesh from grid to GPU.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto justify-center mx-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center mx-auto relative z-10">
             <Link
-              className="px-10 py-4.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-lg transition-all duration-300 hover:brightness-110 active:scale-95 shadow-[0_10px_30px_rgba(61,174,255,0.25)] text-center w-full sm:w-auto cursor-pointer"
+              className="font-sans px-6 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-semibold text-[13px] rounded-[8px] transition-all duration-300 hover:brightness-110 active:scale-95 shadow-[0_4px_20px_rgba(61,174,255,0.25)] text-center w-full sm:w-auto cursor-pointer flex items-center justify-center gap-2"
               href="/contact"
             >
               Talk to Team
             </Link>
             <Link
-              className="px-10 py-4.5 border border-[#3daeff]/35 text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-lg bg-white/5 backdrop-blur-sm transition-all hover:bg-[#3daeff]/10 hover:border-[#3daeff]/60 text-center w-full sm:w-auto cursor-pointer"
+              className="font-sans px-6 py-3.5 border border-white/12 hover:border-[#3daeff]/30 hover:bg-white/[0.02] text-white/90 hover:text-white font-semibold text-[13px] rounded-[8px] transition-all duration-300 active:scale-95 text-center w-full sm:w-auto cursor-pointer flex items-center justify-center gap-2"
               href="/energy"
             >
               Power Infrastructure
@@ -120,8 +120,8 @@ export default function GlobalNetworkPage() {
                 Network Flow
               </span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase text-white mb-6">
-              From Region<br />to <span className="text-[#3daeff]">Rack.</span>
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight uppercase text-white mb-6">
+              From Region to <span className="text-[#3daeff]">Rack.</span>
             </h2>
             <p className="text-white/50 text-sm md:text-[16px] leading-[1.6] font-medium tracking-wide max-w-3xl">
               Multi-region sites linked by a redundant backbone and operated as one platform. Power, fiber, and compute provisioned together — without the gaps that slow leased-only competitors.
@@ -134,7 +134,7 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-<div className="relative z-10 flex justify-center my-4 w-full">
+              <div className="relative z-10 flex justify-center my-4 w-full">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.5s' }} />
@@ -145,7 +145,7 @@ export default function GlobalNetworkPage() {
                 Diverse sites, independent power profiles
               </h3>
 
-              
+
 
               <p className="text-white/50 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 Owned nodes spread across distinct ISO regions and grid operators — so a fault in one market never propagates into customer capacity in another.
@@ -188,7 +188,7 @@ export default function GlobalNetworkPage() {
               <div className="absolute inset-0 opacity-[0.025] pointer-events-none" style={{ backgroundImage: "radial-gradient(#3daeff 1px, transparent 0)", backgroundSize: "24px 24px" }} />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#3daeff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
-<div className="relative z-10 flex justify-center my-4 w-full">
+              <div className="relative z-10 flex justify-center my-4 w-full">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-[#3daeff]/15 blur-[50px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.3s' }} />
                   <div className="absolute -inset-8 bg-[#3daeff]/8 blur-[80px] rounded-full" style={{ animation: 'pulseGlow 3s ease-in-out infinite 0.8s' }} />
@@ -199,7 +199,7 @@ export default function GlobalNetworkPage() {
                 Inter-site fabric for replication & failover
               </h3>
 
-              
+
 
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
                 A managed backbone stitches every node into one operating fabric — replication, failover, and consistent posture across regions without leased-line gaps.
@@ -356,8 +356,8 @@ export default function GlobalNetworkPage() {
                 Network Layers
               </span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase text-white mb-6">
-              One Platform. <span className="text-[#3daeff]">Many Regions.</span>
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight uppercase text-white mb-6">
+              One Platform.<br /> <span className="text-[#3daeff]">Many Regions.</span>
             </h2>
             <p className="text-white/40 text-sm md:text-lg leading-relaxed font-medium max-w-3xl">
               Each site is engineered as a self-sufficient power-and-compute node, then federated into a single operating fabric — so customers get geographic diversity without operational fragmentation.

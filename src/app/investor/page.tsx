@@ -299,7 +299,7 @@ export default function InvestorPage() {
               </h1>
 
               {/* Description */}
-              <p className="text-base sm:text-lg text-white/50 leading-relaxed mb-10 max-w-xl">
+              <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] mb-10 max-w-xl font-sans">
                 Powering the future of enterprise-scale AI infrastructure. Access financial performance reports, corporate governance files, and the latest business developments from USDC Corporation.
               </p>
 
@@ -308,17 +308,21 @@ export default function InvestorPage() {
                 <Link
                   href="/usdc-deck.pdf"
                   target="_blank"
-                  className="group inline-flex items-center gap-3 bg-[#3daeff] px-7 py-4 rounded-xl text-black text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_0_40px_rgba(61,174,255,0.2)] hover:shadow-[0_0_50px_rgba(61,174,255,0.35)]"
+                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white text-[13px] font-semibold rounded-[8px] transition-all duration-200 cursor-pointer shadow-[0_4px_20px_rgba(61,174,255,0.25)] hover:shadow-[0_4px_24px_rgba(61,174,255,0.4)] active:scale-[0.98]"
                 >
                   <span>Latest Presentation</span>
-                  <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                  <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/40 group-hover:border-white transition-colors duration-200">
+                    <Download className="w-2.5 h-2.5 text-white" />
+                  </div>
                 </Link>
                 <Link
                   href="/news-insights"
-                  className="group inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-7 py-4 rounded-xl text-white text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white/[0.06] hover:border-white/20 transition-all backdrop-blur-sm"
+                  className="group inline-flex items-center gap-2.5 px-6 py-3.5 border border-white/12 hover:border-[#3daeff]/30 hover:bg-white/[0.02] text-white/90 hover:text-white text-[13px] font-semibold rounded-[8px] active:scale-[0.98] transition-all duration-200 cursor-pointer"
                 >
                   <span>News & Insights</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="flex items-center justify-center w-[18px] h-[18px] rounded-full border border-white/20 group-hover:border-[#3daeff]/30 transition-colors duration-200">
+                    <ArrowUpRight className="w-2.5 h-2.5 text-white/70 group-hover:text-white transition-colors duration-200" />
+                  </div>
                 </Link>
               </div>
 
@@ -520,7 +524,7 @@ export default function InvestorPage() {
 
                 {/* Latest Press Announcements Feed */}
                 <div className="bg-[#080808]/80 border border-white/5 rounded-[2.5rem] p-8 backdrop-blur-md">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-white/30 mb-6 pb-3 border-b border-white/5 text-center lg:text-left">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30 mb-6 pb-3 border-b border-white/5 text-center lg:text-left">
                     Latest Announcements
                   </h3>
 
@@ -562,7 +566,7 @@ export default function InvestorPage() {
                   <div className="mt-8 pt-6 border-t border-white/5 text-center">
                     <Link
                       href="/press-release"
-                      className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors flex items-center justify-center gap-2"
+                      className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors flex items-center justify-center gap-2"
                     >
                       <span>View All Announcements</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -594,19 +598,21 @@ export default function InvestorPage() {
               {/* Card 1: SEC Filings */}
               <Link
                 href="/sec-filings"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <FileText className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <FileText className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      SEC Filings
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    SEC Filings
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     Access financial statements, quarterly reports, and compliance files.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
@@ -616,19 +622,21 @@ export default function InvestorPage() {
               {/* Card 2: Events & Presentations */}
               <Link
                 href="/investor"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <Calendar className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <Calendar className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      Events &amp; Presentations
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    Events &amp; Presentations
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     View upcoming earnings webcasts and past investor presentations.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
@@ -638,19 +646,21 @@ export default function InvestorPage() {
               {/* Card 3: Stock Information */}
               <Link
                 href="/investor"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <TrendingUp className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <TrendingUp className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      Stock Information
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    Stock Information
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     Detailed historical performance and real-time market pricing metrics.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
@@ -660,19 +670,21 @@ export default function InvestorPage() {
               {/* Card 4: Press Releases */}
               <Link
                 href="/press-release"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <Newspaper className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <Newspaper className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      Press Releases
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    Press Releases
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     Read the latest press distributions and statements from USDC.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
@@ -682,19 +694,21 @@ export default function InvestorPage() {
               {/* Card 5: Governance */}
               <Link
                 href="/management-team"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <Shield className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <Shield className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      Governance
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    Governance
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     View documents and leadership structure behind corporate oversight.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
@@ -704,19 +718,21 @@ export default function InvestorPage() {
               {/* Card 6: Contact IR */}
               <Link
                 href="/contact"
-                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block text-center sm:text-left flex flex-col items-center sm:items-start backdrop-blur-sm"
+                className="group relative bg-[#0a0a0a]/60 border border-white/5 p-8 rounded-[2rem] overflow-hidden hover:border-[#3daeff]/35 transition-all duration-500 block backdrop-blur-sm"
               >
                 <div className="relative z-10 w-full">
-                  <div className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all mx-auto sm:mx-0 mb-6">
-                    <Mail className="w-5 h-5" />
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-center text-white/40 group-hover:text-[#3daeff] group-hover:bg-[#3daeff]/10 transition-all shrink-0">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white uppercase tracking-tight">
+                      Contact IR
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 uppercase tracking-tight">
-                    Contact IR
-                  </h3>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
                     Connect with our dedicated investor relations support channels.
                   </p>
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
+                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </div>
