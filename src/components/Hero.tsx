@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center text-center px-4 pt-24 md:pt-28 pb-16 relative min-h-screen select-none overflow-hidden">
+    <main className="flex-1 flex flex-col items-center justify-center text-center px-6 md:px-12 lg:px-16 pt-24 md:pt-28 pb-16 relative min-h-screen select-none overflow-hidden">
 
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">

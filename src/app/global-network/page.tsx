@@ -45,7 +45,7 @@ export default function GlobalNetworkPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-blue-600/[0.05] rounded-full blur-[140px] pointer-events-none z-0" />
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-sky-500/[0.02] rounded-full blur-[120px] pointer-events-none z-0" />
 
-        <div className="flex-1 relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center text-center lg:pt-12 py-2 md:py-10 animate-fade-in">
+        <div className="flex-1 relative z-10 w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center lg:pt-12 py-2 md:py-10 animate-fade-in">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
             <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">

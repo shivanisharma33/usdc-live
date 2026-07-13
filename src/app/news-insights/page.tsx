@@ -202,7 +202,7 @@ export default function NewsInsightsPage() {
         </div>
 
         {/* Content Wrapper */}
-        <div className="relative z-10 w-full max-w-[1280px] px-6 md:px-12 lg:px-16 flex flex-col items-center">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center">
           {/* Animated telemetric badge */}
           <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-blue-500/20 bg-white/[0.02] backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(61,174,255,0.06)] animate-[fadeIn_1s_ease-out]">
             <div className="w-6 h-0.5 rounded-full bg-[#3daeff]" />

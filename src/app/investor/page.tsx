@@ -266,7 +266,7 @@ export default function InvestorPage() {
 
         {/* ── HERO SECTION ── */}
         <section 
-          className="relative min-h-[560px] md:min-h-[680px] flex items-center px-4 sm:px-6 pt-28 pb-20 md:pt-36 border-b border-white/5 overflow-hidden"
+          className="relative min-h-[560px] md:min-h-[680px] flex items-center px-6 md:px-12 lg:px-16 pt-28 pb-20 md:pt-36 border-b border-white/5 overflow-hidden"
         >
           {/* Ambient Background Image */}
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

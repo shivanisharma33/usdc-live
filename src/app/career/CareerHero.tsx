@@ -41,7 +41,7 @@ export default function CareerHero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-28 pb-20 overflow-hidden bg-[#04070f] select-none"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 lg:px-16 pt-28 pb-20 overflow-hidden bg-[#04070f] select-none"
       style={{
         backgroundImage: "url('/Group 346.webp')",
         backgroundSize: 'cover',

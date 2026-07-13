@@ -54,7 +54,7 @@ export default function ContactHero() {
       <div className="absolute bottom-0 -right-24 w-[480px] h-[480px] bg-cyan-400/[0.05] rounded-full blur-[140px] pointer-events-none z-[1]" />
 
       {/* ── Content grid ── */}
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center">
         {/* ── LEFT: copy in floating glass panel ── */}
         <div className="relative">
           {/* Badge */}
