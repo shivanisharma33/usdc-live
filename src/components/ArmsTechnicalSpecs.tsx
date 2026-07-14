@@ -272,9 +272,6 @@ export default function ArmsTechnicalSpecs() {
                     <h3 className="text-base md:text-lg font-bold text-white tracking-wide">
                       ARMS 300
                     </h3>
-                    <span className="text-[8px] font-bold text-[#3daeff] tracking-[0.25em] uppercase font-sans">
-                      COMING SOON
-                    </span>
                   </div>
                 </div>
                 {/* Description */}

@@ -81,24 +81,24 @@ export default function PressReleaseHero() {
             <span className="animate-slide-up-inner [animation-delay:0ms]">Discover&nbsp;</span>
           </span>
           <span className="animate-slide-up-mask">
-            <span className="animate-slide-up-inner [animation-delay:80ms]">our&nbsp;</span>
+            <span className="animate-slide-up-inner [animation-delay:80ms]">Our&nbsp;</span>
           </span>
           <span className="animate-slide-up-mask">
-            <span className="animate-slide-up-inner [animation-delay:160ms] text-[#3daeff] select-none">latest</span>
+            <span className="animate-slide-up-inner [animation-delay:160ms] text-[#3daeff] select-none">Latest</span>
           </span>
           <br />
           <span className="animate-slide-up-mask">
-            <span className="animate-slide-up-inner [animation-delay:240ms]">press&nbsp;</span>
+            <span className="animate-slide-up-inner [animation-delay:240ms]">Press&nbsp;</span>
           </span>
           <span className="animate-slide-up-mask">
-            <span className="animate-slide-up-inner [animation-delay:320ms]">releases</span>
+            <span className="animate-slide-up-inner [animation-delay:320ms]">Releases</span>
           </span>
         </h1>
 
         {/* Subtitle */}
         <p
           style={enter(360)}
-          className="text-[14px] md:text-[16px] text-white/40 leading-[1.85] max-w-[520px] font-light"
+          className="text-[14px] md:text-[16px] text-white/70 leading-[1.85] max-w-[520px] font-light"
         >
           Stay informed with the latest announcements, partnerships, and milestones shaping the future of AI infrastructure.
         </p>

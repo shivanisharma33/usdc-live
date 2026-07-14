@@ -345,7 +345,7 @@ export default function InvestorPage() {
                       Stock Performance
                     </h2>
                     <p className="text-white/40 text-xs uppercase tracking-widest font-medium">
-                      Real-time market tracking (NASDAQ: USDC)
+                      Real-time market tracking
                     </p>
                   </div>
 
@@ -436,9 +436,6 @@ export default function InvestorPage() {
                   <div>
                     <div className="flex items-start justify-between">
                       <div>
-                        <div className="text-[12px] font-black uppercase tracking-[0.12em] text-white/30 mb-2">
-                          Nasdaq: USDC
-                        </div>
                         {/* Interactive price loader */}
                         <div className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-2 font-sans flex items-baseline gap-1">
                           {isLoadingStock ? (
