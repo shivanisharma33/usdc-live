@@ -6,9 +6,9 @@ import { Shield, Activity, Clock, TrendingUp } from "lucide-react";
 export default function EnergyEconomicsAdvantage() {
   return (
     <section className="w-full bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03] select-none">
-      <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-start">
+      <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
         
-        {/* Left-Aligned Pill Badge */}
+        {/* Center-Aligned Pill Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-6 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
           <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
           <span className="text-[10px] font-semibold text-white/90 tracking-[0.25em] uppercase font-sans">
@@ -16,16 +16,16 @@ export default function EnergyEconomicsAdvantage() {
           </span>
         </div>
 
-        {/* Left-Aligned Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px]">
+        {/* Center-Aligned Heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px] mx-auto">
           Built For Long-Term <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
             Economic Advantage.
           </span>
         </h2>
 
-        {/* Left-Aligned Description */}
-        <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[560px] mb-16 font-sans">
+        {/* Center-Aligned Description */}
+        <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[560px] mb-16 font-sans mx-auto">
           USDC transforms powered assets into AI-ready infrastructure by integrating energy, facilities, cooling, and compute into a scalable deployment platform.
         </p>
 

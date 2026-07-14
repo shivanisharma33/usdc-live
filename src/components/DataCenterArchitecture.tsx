@@ -30,7 +30,7 @@ export default function DataCenterArchitecture() {
   ];
 
   return (
-    <section className="w-full relative bg-[#04070f] py-10 md:py-20 overflow-hidden select-none border-t border-white/[0.03]">
+    <section className="w-full relative bg-[#04070f] pt-4 md:pt-6 pb-6 md:pb-12 overflow-hidden select-none border-t border-white/[0.03]">
       {/* Dynamic Keyframes Injection */}
       <style>{`
         @keyframes spinCube {
@@ -74,84 +74,82 @@ export default function DataCenterArchitecture() {
       <div className="absolute top-[20%] left-[-15%] w-[600px] h-[600px] bg-blue-600/[0.03] rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] right-[-15%] w-[600px] h-[600px] bg-cyan-500/[0.03] rounded-full blur-[140px] pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
+        {/* Pill Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-[#02050c]/60 mb-6">
+          <span className="w-6 h-[1.5px] bg-[#3daeff] rounded-full" />
+          <span className="text-[10px] font-black tracking-[0.25em] text-white/95 uppercase font-sans">
+            DATA CENTER ARCHITECTURE
+          </span>
+        </div>
+
+        {/* Title */}
+        <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-black tracking-tight leading-[1.08] text-white font-sans uppercase mb-6 mx-auto">
+          HEAT OUT. <br />
+          <span className="text-[#3daeff]">PERFORMANCE IN.</span>
+        </h2>
+
+        {/* Subtext */}
+        <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[720px] mb-12 font-sans mx-auto">
+          A multi-layer infrastructure architecture routes power, cooling, and compute
+          resources through dedicated processing layers, ensuring maximum efficiency,
+          thermal stability, and AI performance.
+        </p>
+
+        {/* Columns Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full mt-4 text-left">
           
           {/* ══════ LEFT COLUMN: Info Stack ══════ */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-[#02050c]/60 mb-6">
-              <span className="w-6 h-[1.5px] bg-[#3daeff] rounded-full" />
-              <span className="text-[10px] font-black tracking-[0.25em] text-white/95 uppercase font-sans">
-                DATA CENTER ARCHITECTURE
-              </span>
-            </div>
-
-            {/* Title */}
-            <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-black tracking-tight leading-[1.08] text-white font-sans uppercase">
-              HEAT OUT. <br />
-              <span className="text-[#3daeff]">PERFORMANCE IN.</span>
-            </h2>
-
-            {/* Subtext */}
-            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[500px] mt-6 mb-8 font-sans">
-              A multi-layer infrastructure architecture routes power, cooling, and compute
-              resources through dedicated processing layers, ensuring maximum efficiency,
-              thermal stability, and AI performance.
-            </p>
-
-            {/* Feature List */}
-            <div className="flex flex-col w-full max-w-[500px]">
-              {items.map((item, idx) => {
-                const isHovered = activeNode === idx;
-                return (
+          <div className="lg:col-span-6 flex flex-col w-full max-w-[500px] mx-auto lg:mx-0">
+            {items.map((item, idx) => {
+              const isHovered = activeNode === idx;
+              return (
+                <div
+                  key={idx}
+                  onMouseEnter={() => setActiveNode(idx)}
+                  onMouseLeave={() => setActiveNode(null)}
+                  className={`flex items-start gap-5 py-5 border-b border-white/[0.05] transition-all duration-300 cursor-pointer ${
+                    isHovered ? "border-t-transparent border-b-[#3daeff]/40" : ""
+                  }`}
+                >
+                  {/* Icon bubble */}
                   <div
-                    key={idx}
-                    onMouseEnter={() => setActiveNode(idx)}
-                    onMouseLeave={() => setActiveNode(null)}
-                    className={`flex items-start gap-5 py-5 border-b border-white/[0.05] transition-all duration-300 cursor-pointer ${
-                      isHovered ? "border-t-transparent border-b-[#3daeff]/40" : ""
+                    className={`flex items-center justify-center w-11 h-11 rounded-full border flex-shrink-0 transition-all duration-300 ${
+                      isHovered
+                        ? "border-[#3daeff] bg-[#3daeff]/10 text-white shadow-[0_0_15px_rgba(61,174,255,0.25)]"
+                        : "border-white/10 bg-white/[0.02] text-white/60"
                     }`}
                   >
-                    {/* Icon bubble */}
-                    <div
-                      className={`flex items-center justify-center w-11 h-11 rounded-full border flex-shrink-0 transition-all duration-300 ${
-                        isHovered
-                          ? "border-[#3daeff] bg-[#3daeff]/10 text-white shadow-[0_0_15px_rgba(61,174,255,0.25)]"
-                          : "border-white/10 bg-white/[0.02] text-white/60"
-                      }`}
-                    >
-                      {item.icon}
-                    </div>
-
-                    <div className="flex-1 flex flex-col">
-                      <div className="flex items-center justify-between">
-                        <span
-                          className={`text-xs font-black tracking-wider uppercase transition-colors duration-300 ${
-                            isHovered ? "text-[#3daeff]" : "text-white"
-                          }`}
-                        >
-                          {item.title}
-                        </span>
-                        <ArrowUpRight
-                          className={`w-3.5 h-3.5 transition-all duration-300 ${
-                            isHovered ? "text-[#3daeff] translate-x-0.5 -translate-y-0.5" : "text-white/40"
-                          }`}
-                        />
-                      </div>
-                      <span className="text-[12px] text-white/50 leading-relaxed font-normal mt-1.5">
-                        {item.desc}
-                      </span>
-                    </div>
+                    {item.icon}
                   </div>
-                );
-              })}
-            </div>
+
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={`text-xs font-black tracking-wider uppercase transition-colors duration-300 ${
+                          isHovered ? "text-[#3daeff]" : "text-white"
+                        }`}
+                      >
+                        {item.title}
+                      </span>
+                      <ArrowUpRight
+                        className={`w-3.5 h-3.5 transition-all duration-300 ${
+                          isHovered ? "text-[#3daeff] translate-x-0.5 -translate-y-0.5" : "text-white/40"
+                        }`}
+                      />
+                    </div>
+                    <span className="text-[12px] text-white/50 leading-relaxed font-normal mt-1.5">
+                      {item.desc}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* ══════ RIGHT COLUMN: Animated 3D concentric model ══════ */}
-          <div className="lg:col-span-6 w-full flex justify-center lg:justify-end pt-10 lg:pt-14">
-              <div className="relative w-full aspect-[760/600] max-w-[620px] bg-transparent">
+          <div className="lg:col-span-6 w-full flex justify-center lg:justify-end pt-10 lg:pt-0">
+            <div className="relative w-full aspect-[760/600] max-w-[620px] bg-transparent">
               
               {/* SVG concentric orbits & lines */}
               <svg

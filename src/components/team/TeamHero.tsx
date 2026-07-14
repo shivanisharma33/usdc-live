@@ -17,7 +17,7 @@ export default function TeamHero() {
 
   return (
     <section
-      className="relative w-full min-h-[60vh] md:min-h-[90vh] overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 lg:px-16 pt-24 pb-12 md:pt-28 md:pb-16"
+      className="relative w-full min-h-[60vh] md:min-h-screen overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 lg:px-16 pt-24 pb-12 md:pt-28 md:pb-16"
       style={{ background: "#030810" }}
     >
       {/* Ambient Background Image with gradient overlays */}

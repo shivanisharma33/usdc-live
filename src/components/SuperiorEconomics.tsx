@@ -33,18 +33,18 @@ export default function SuperiorEconomics() {
 
   return (
     <section className="w-full bg-[#04070f] py-12 md:py-16 border-t border-white/[0.03] select-none">
-      <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-start">
+      <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
 
-        {/* Left-Aligned Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px]">
+        {/* Center-Aligned Heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px] mx-auto">
           Superior Economics. <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500 text-[2.9rem] md:text-[3.8rem] lg:text-[4.5rem]">
             Sustainable Advantage.
           </span>
         </h2>
 
-        {/* Left-Aligned Description */}
-        <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[600px] mb-16 font-sans">
+        {/* Center-Aligned Description */}
+        <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[600px] mb-16 font-sans mx-auto">
           Our integrated energy model delivers structural cost advantages, operational efficiency, and scalable capacity for AI infrastructure.
         </p>
 

@@ -192,7 +192,7 @@ export default function NewsInsightsPage() {
       </div>
 
       {/* ── HERO SECTION ── */}
-      <section className="relative w-full pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden flex flex-col items-center border-b border-white/5 animate-fade-in">
+      <section className="relative w-full min-h-[60vh] md:min-h-screen flex flex-col items-center justify-center pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden border-b border-white/5 animate-fade-in select-none">
         {/* Ambient Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div 

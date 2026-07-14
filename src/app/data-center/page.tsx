@@ -164,10 +164,10 @@ export default function DataCenterPage() {
       <FacilitySpecification />
 
       {/* ── CORE CAPABILITIES SECTION ── */}
-      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] py-6 md:py-20">
+      <section id="facilities" className="w-full relative bg-[#04070f] border-t border-white/[0.03] pt-6 md:pt-12 pb-6 md:pb-20">
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="text-center max-w-[700px] mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 font-sans">
+          <div className="text-center max-w-[900px] mx-auto mb-16">
+            <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-bold tracking-tight text-white mb-6 font-sans uppercase sm:whitespace-nowrap">
               Designed for <span className="text-[#3daeff]">Dense Compute</span>
             </h2>
             <p className="text-sm text-white/40 leading-relaxed font-sans">

@@ -37,7 +37,7 @@ export default function WhyUsdcSection() {
   ];
 
   return (
-    <section className="w-full relative overflow-hidden bg-[#010412] py-10 md:py-20 border-t border-white/[0.03] select-none">
+    <section className="w-full relative overflow-hidden bg-[#010412] pt-10 md:pt-12 pb-10 md:pb-20 border-t border-white/[0.03] select-none">
       {/* Background ambient glows */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[130px] pointer-events-none z-0" />
@@ -45,7 +45,7 @@ export default function WhyUsdcSection() {
       {/* Ambient center glow */}
       <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[70%] h-[30%] bg-blue-500/[0.04] rounded-full blur-[110px] pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center text-center">
         {/* Pill Badge */}
         <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/10 bg-[#02050c]/80 mb-8">
           <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
@@ -55,16 +55,15 @@ export default function WhyUsdcSection() {
         </div>
 
         {/* Heading */}
-        <h2 className="text-[36px] sm:text-[48px] md:text-[68px] lg:text-[76px] font-black tracking-tight leading-[0.95] text-white uppercase font-sans mb-8">
+        <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-black tracking-tight leading-[0.95] text-white uppercase font-sans mb-8 mx-auto">
           THE ADVANTAGE IS <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#0091ff]">
-            INTEGRATED <br />
-            INFRASTRUCTURE.
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#0091ff] sm:whitespace-nowrap">
+            INTEGRATED INFRASTRUCTURE.
           </span>
         </h2>
 
         {/* Description */}
-        <p className="text-[14px] md:text-[15px] text-white/50 font-normal leading-[1.7] max-w-[660px] mb-14 font-sans">
+        <p className="text-[14px] md:text-[15px] text-white/50 font-normal leading-[1.7] max-w-[660px] mb-14 font-sans mx-auto">
           The strongest data center story is not only the room. It is the integration of power generation, site control, direct liquid cooling, network access, and deployment speed - owned at every layer.
         </p>
 
