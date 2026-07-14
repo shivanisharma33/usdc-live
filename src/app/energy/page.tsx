@@ -71,7 +71,7 @@ export default function EnergyPage() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-bold tracking-wide max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] lg:leading-[66px] font-bold tracking-tight max-w-5xl leading-[1.1] text-white mb-6 relative z-10 uppercase">
             <span className="animate-slide-up-mask">
               <span className="animate-slide-up-inner [animation-delay:0ms]">Grid-Scale&nbsp;</span>
             </span>

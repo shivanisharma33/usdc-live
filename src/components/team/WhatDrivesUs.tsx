@@ -10,15 +10,16 @@ export default function WhatDrivesUs() {
       {/* ── HEADER ── */}
       <div className="flex flex-col items-center mb-6 md:mb-16 space-y-6">
         {/* Pill Badge */}
-        <div className="inline-flex items-center px-5 py-2 rounded-full border border-blue-500/15 bg-blue-950/20 shadow-[0_0_15px_rgba(59,130,246,0.06)]">
-          <span className="text-[10px] font-black text-[#3daeff] tracking-[0.3em] uppercase font-mono">
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-8 shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+          <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+          <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
             What Drives Us
           </span>
         </div>
 
         {/* Headline */}
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl font-sans">
-          Leadership that turns{" "}
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl font-sans uppercase">
+          Leadership that turns <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#3daeff] font-extrabold">
             power into compute
           </span>

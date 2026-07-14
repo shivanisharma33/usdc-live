@@ -206,7 +206,7 @@ export default function ArmsTechnicalSpecs() {
             <div className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-1.5 uppercase font-sans">
               TECHNICAL
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#3daeff] uppercase mb-1 font-sans">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white uppercase mb-1 font-sans">
               SPECIFICATIONS
             </h2>
             <div className="w-12 h-[2px] bg-[#3daeff]/80 mt-2.5 mb-8" />
@@ -254,14 +254,14 @@ export default function ArmsTechnicalSpecs() {
               <div className="text-[10px] font-bold text-white/40 tracking-[0.2em] mb-1.5 uppercase font-sans">
                 FUTURE READY
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#3daeff] uppercase mb-1 font-sans">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white uppercase mb-1 font-sans">
                 PLATFORM
               </h2>
-              <div className="w-12 h-[2px] bg-[#3daeff]/80 mt-2.5 mb-8" />
+              <div className="w-12 h-[2px] bg-[#3daeff]/80 mt-2.5 mb-0" />
             </div>
 
             {/* Card 1: ARMS 300 Coming Soon */}
-            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 p-6 md:p-8 border border-white/[0.08] rounded-2xl bg-[#02050c]/25 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.5)] group hover:border-[#3daeff]/35 transition-all duration-300">
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 px-6 py-2.5 md:px-8 md:py-2.5 border border-white/[0.08] rounded-2xl bg-[#02050c]/25 shadow-[0_12px_40px_-10px_rgba(0,0,0,0.5)] group hover:border-[#3daeff]/35 transition-all duration-300">
               <div className="flex-1 flex flex-col items-start text-left">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-3">
@@ -280,12 +280,12 @@ export default function ArmsTechnicalSpecs() {
                 </p>
               </div>
               {/* Graphic */}
-              <div className="flex-shrink-0 relative overflow-hidden rounded-xl p-2 transition-all duration-300">
+              <div className="flex-shrink-0 relative overflow-hidden rounded-xl p-1 transition-all duration-300">
                 <img
                   src="/Arms 300.webp"
                   alt="ARMS 300 Model"
                   loading="lazy"
-                  className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>

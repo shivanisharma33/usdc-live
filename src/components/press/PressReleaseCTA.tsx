@@ -90,7 +90,7 @@ export default function PressReleaseCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#04070f] py-6 md:py-20 lg:py-28 overflow-hidden"
+      className="relative w-full bg-[#04070f] pt-6 pb-6 md:pt-12 md:pb-16 overflow-hidden"
     >
       {/* ── Top decorative line ── */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#3daeff]/15 to-transparent" />
@@ -214,32 +214,12 @@ export default function PressReleaseCTA() {
                       {ch.desc}
                     </p>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-white/15 group-hover:text-white/40 ml-auto mt-1 flex-shrink-0 transition-colors" />
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* ── Media Contact Bar ── */}
-        <div
-          style={fadeUp(400)}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center"
-        >
-          <span className="text-[11px] text-white/30 font-medium">
-            For media inquiries contact:
-          </span>
-          <a
-            href="mailto:press@usdc.com"
-            className="text-[12px] text-[#3daeff] font-bold hover:text-[#58c4ff] transition-colors"
-          >
-            press@usdc.com
-          </a>
-          <span className="hidden sm:inline text-white/10">|</span>
-          <span className="text-[11px] text-white/25">
-            +1 (800) USDC-PRESS
-          </span>
-        </div>
       </div>
     </section>
   );

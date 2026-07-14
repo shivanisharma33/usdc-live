@@ -146,31 +146,52 @@ const categoryMeshes: Record<string, string> = {
 
 function getCategoryAndTag(title: string): { category: string; tag: string; icon: React.ElementType } {
   const t = title.toLowerCase();
+
+  // Resolve distinct icons based on keyword matching
+  let icon: React.ElementType = Cpu;
+  if (t.includes("cooling") || t.includes("liquid") || t.includes("power") || t.includes("energy")) {
+    icon = Zap;
+  } else if (t.includes("predictive") || t.includes("ai-powered") || t.includes("launch") || t.includes("intelligence") || t.includes("smart")) {
+    icon = Sparkles;
+  } else if (t.includes("campus") || t.includes("construction") || t.includes("build") || t.includes("groundbreaking") || t.includes("substation")) {
+    icon = Building2;
+  } else if (t.includes("oracle") || t.includes("cloud") || t.includes("colocation") || t.includes("server")) {
+    icon = Server;
+  } else if (t.includes("nvidia") || t.includes("blackwell") || t.includes("gpu") || t.includes("compute") || t.includes("hpc")) {
+    icon = Cpu;
+  } else if (t.includes("tier iv") || t.includes("certification") || t.includes("award") || t.includes("standard")) {
+    icon = Award;
+  } else if (t.includes("revenue") || t.includes("growth") || t.includes("reports") || t.includes("q4") || t.includes("financial")) {
+    icon = TrendingUp;
+  } else if (t.includes("sovereign") || t.includes("global") || t.includes("network") || t.includes("expansion") || t.includes("region") || t.includes("southeast asia")) {
+    icon = Globe2;
+  }
+
   if (t.includes("financial") || t.includes("results") || t.includes("revenue") || t.includes("quarter") || t.includes("q1") || t.includes("offering") || t.includes("clarification")) {
     return {
       category: "CORPORATE",
       tag: t.includes("results") || t.includes("financial") ? "Financial" : t.includes("clarification") ? "Corporate" : "Stock Update",
-      icon: TrendingUp,
+      icon,
     };
   }
   if (t.includes("agreement") || t.includes("contract") || t.includes("partner") || t.includes("signs") || t.includes("secures")) {
     return {
       category: "PARTNERSHIP",
       tag: t.includes("colocation") ? "Colocation" : t.includes("sales") ? "Sales" : "Partnership",
-      icon: t.includes("colocation") ? Server : Cpu,
+      icon,
     };
   }
   if (t.includes("nvidia") || t.includes("rubin") || t.includes("cooling") || t.includes("platform") || t.includes("ai")) {
     return {
       category: "TECHNOLOGY",
       tag: t.includes("nvidia") ? "NVIDIA" : "HPC Tech",
-      icon: Cpu,
+      icon,
     };
   }
   return {
     category: "EXPANSION",
     tag: "Expansion",
-    icon: Globe2,
+    icon,
   };
 }
 
@@ -428,7 +449,7 @@ export default function PressReleaseGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-6 md:py-20 lg:py-28 overflow-hidden"
+      className="relative w-full pt-6 pb-6 md:pt-12 md:pb-12 overflow-hidden"
       style={{ background: "#04070f" }}
     >
       {/* ── Ambient glow ── */}
@@ -447,25 +468,25 @@ export default function PressReleaseGrid() {
         <div className="flex flex-col items-center text-center mb-6 md:mb-14">
           <div
             style={fadeUp(0)}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#3daeff]/15 bg-[#3daeff]/[0.04] backdrop-blur-sm mb-6"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/[0.08] bg-[#02050c]/70 backdrop-blur-md mb-6 shadow-[0_4px_12px_rgba(0,0,0,0.5)]"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#3daeff] shadow-[0_0_6px_rgba(61,174,255,0.6)]" />
-            <span className="text-[10px] font-bold text-[#3daeff]/80 tracking-[0.2em] uppercase">
+            <span className="w-5 h-[1.5px] bg-[#3daeff] rounded-full" />
+            <span className="text-[10px] font-semibold text-white/90 tracking-[0.2em] uppercase font-sans">
               Latest Updates
             </span>
           </div>
 
           <h2
             style={fadeUp(80)}
-            className="text-[32px] sm:text-[42px] md:text-[50px] font-extralight tracking-[-0.02em] leading-[1.08] text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] max-w-4xl font-sans uppercase mb-4"
           >
             Articles{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec8ff] via-[#3daeff] to-[#0091ff]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6ec8ff] via-[#3daeff] to-[#0091ff] font-extrabold">
               for you
             </span>
           </h2>
 
-          <p style={fadeUp(140)} className="text-[13px] text-white/30 leading-[1.7] max-w-[460px]">
+          <p style={fadeUp(140)} className="text-[14px] md:text-[16px] text-white/50 leading-relaxed max-w-3xl font-sans font-normal pt-2">
             Explore announcements, partnerships, and technology milestones driving the future of infrastructure.
           </p>
         </div>
@@ -540,10 +561,10 @@ export default function PressReleaseGrid() {
 
         {/* ═══════════════ ARCHIVE — 3-Column Grid ═══════════════ */}
         <div className="flex items-center gap-4 mb-6">
-          <span style={fadeUp(200)} className="text-[10px] font-bold text-white/20 tracking-[0.25em] uppercase">
+          <span style={fadeUp(200)} className="text-[10px] font-bold text-[#3daeff]/60 tracking-[0.25em] uppercase">
             {activeCategory === "ALL" && searchQuery === "" ? "All Releases" : "Results"}
           </span>
-          <div className="h-px flex-grow bg-gradient-to-r from-white/8 to-transparent" />
+          <div className="h-px flex-grow bg-gradient-to-r from-[#3daeff]/15 to-transparent" />
         </div>
 
         <motion.div 
