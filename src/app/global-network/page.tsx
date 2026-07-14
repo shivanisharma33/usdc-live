@@ -356,8 +356,8 @@ export default function GlobalNetworkPage() {
                 Network Layers
               </span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight uppercase text-white mb-6">
-              One Platform.<br /> <span className="text-[#3daeff]">Many Regions.</span>
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-normal uppercase text-white mb-6 sm:whitespace-nowrap">
+              One Platform. <span className="text-[#3daeff]">Many Regions.</span>
             </h2>
             <p className="text-white/40 text-sm md:text-lg leading-relaxed font-medium max-w-3xl">
               Each site is engineered as a self-sufficient power-and-compute node, then federated into a single operating fabric — so customers get geographic diversity without operational fragmentation.
@@ -435,24 +435,23 @@ export default function GlobalNetworkPage() {
       </section>
 
       {/* ── SECTION 4: REACH IS BUILT REGION BY REGION ── */}
-      <section className="bg-[#050914] py-6 md:py-20 lg:py-24 px-4 md:px-6 relative overflow-hidden">
+      <section className="bg-[#050914] pt-6 md:pt-12 pb-6 md:pb-20 lg:pb-24 px-4 md:px-6 relative overflow-hidden">
         {/* Glow */}
         <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-blue-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col items-center text-center mb-10 md:mb-20">
             <div className="inline-flex items-center px-6 py-2.5 rounded-full border border-white/10 bg-white/[0.02] mb-8">
+              <div className="w-12 h-[1px] bg-[#3daeff] mr-4" />
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">Network Pipeline</span>
             </div>
             <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase text-white mb-6">
               Reach is Built <span className="text-[#3daeff]">Region by Region.</span>
             </h2>
-            <div className="space-y-4 max-w-4xl">
+            <div className="max-w-4xl mx-auto">
               <p className="text-white/50 text-sm md:text-lg leading-relaxed font-medium">
-                The USDC network compounds as each new site comes online: more diversity, more capacity, lower customer latency, and more revenue per megawatt across the footprint.
-              </p>
-              <p className="text-white/40 text-xs md:text-sm leading-relaxed font-semibold">
-                Federated by design — every node is operationally independent and operationally consistent.
+                The USDC network compounds as each new site comes online: more diversity, more capacity, lower customer latency, and more revenue per megawatt across the footprint. Federated by design
+                <br className="hidden md:inline" /> every node is operationally independent and operationally consistent.
               </p>
             </div>
           </div>

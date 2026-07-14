@@ -26,15 +26,11 @@ export default function Arms200Advantages() {
               </span>
             </div>
 
-            {/* Main Title - ARMS 200 in Cyan */}
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-[#3daeff] mb-4 font-sans">
-              ARMS 200
+            {/* Main Title - ARMS 200 Advantages */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[0.95] mb-8 font-sans">
+              <span className="text-[#3daeff] uppercase">ARMS 200</span> <br />
+              <span className="text-white text-3xl sm:text-4xl md:text-5xl uppercase">Advantages</span>
             </h2>
-
-            {/* Subtitle - Advantages in White */}
-            <h3 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] text-white mb-8 font-sans">
-              Advantages
-            </h3>
 
             {/* Description */}
             <p className="text-[14px] md:text-[15px] text-white/70 font-normal leading-[1.75] max-w-[500px] font-sans">
