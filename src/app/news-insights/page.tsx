@@ -279,7 +279,7 @@ export default function NewsInsightsPage() {
 
       {/* ── FEATURED STORY SECTION ── */}
       {!searchQuery && selectedCategory === "All" && (
-        <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-12 pb-10 md:pt-0 md:pb-24">
+        <section className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-12 pb-10 md:pt-10 md:pb-24">
           {/* Section telemetry title */}
           <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4 mb-8">
             <span className="text-[11px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
