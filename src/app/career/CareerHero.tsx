@@ -112,9 +112,9 @@ export default function CareerHero() {
         {/* Animated role ticker */}
         <div className="flex items-center gap-3 mb-10 min-h-10 flex-wrap justify-center" style={fade(160)}>
           <span className="text-[15px] md:text-[17px] text-white/45 font-medium">Hiring</span>
-          <div className="inline-flex items-center px-3.5 py-1.5 rounded-lg border border-[#3daeff]/40 bg-[#3daeff]/[0.08] backdrop-blur-md shadow-[0_0_18px_rgba(61,174,255,0.18),inset_0_1px_1px_rgba(255,255,255,0.08)] overflow-hidden h-9">
+          <div className="inline-flex items-center justify-center px-3.5 py-1.5 rounded-lg border border-[#3daeff]/40 bg-[#3daeff]/[0.08] backdrop-blur-md shadow-[0_0_18px_rgba(61,174,255,0.18),inset_0_1px_1px_rgba(255,255,255,0.08)] overflow-hidden h-9 w-[190px] md:w-[240px]">
             <span
-              className="text-[14px] md:text-[16px] font-bold text-[#3daeff] block"
+              className="text-[14px] md:text-[16px] font-bold text-[#3daeff] block w-full text-center"
               style={{
                 opacity: tickerVisible ? 1 : 0,
                 transform: tickerVisible ? "translateY(0)" : "translateY(-8px)",

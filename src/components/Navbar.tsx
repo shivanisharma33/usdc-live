@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MessageSquare,
   Menu,
@@ -115,6 +116,7 @@ function NavbarStockTicker({ stock, loading }: { stock: StockState; loading: boo
 /* ═══════════════════════════ Navbar Component ═══════════════════════════ */
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileAccordionOpen, setMobileAccordionOpen] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -212,13 +214,16 @@ export default function Navbar() {
     }, 150);
   }, []);
 
-  const handleLinkClick = useCallback(() => {
+  const handleLinkClick = useCallback((href: string) => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
     setOpenDropdown(null);
-  }, []);
+    if (pathname === href) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [pathname]);
 
   return (
     <header
@@ -229,7 +234,7 @@ export default function Navbar() {
     >
       {/* Left Section - USDC Logo (Visible on all screens) */}
       <div className="flex-shrink-0 relative z-50">
-        <Link href="/" className="hover:opacity-80 transition-opacity duration-200 block">
+        <Link href="/" onClick={() => handleLinkClick("/")} className="hover:opacity-80 transition-opacity duration-200 block">
           <Image
             src="/USDC_3 1.avif"
             alt="USDC Logo"
@@ -302,7 +307,7 @@ export default function Navbar() {
                               <Link
                                 key={subLink.label}
                                 href={subLink.href}
-                                onClick={handleLinkClick}
+                                onClick={() => handleLinkClick(subLink.href)}
                                 className="group relative flex items-center gap-3.5 px-3.5 py-3 rounded-[10px] transition-all duration-300 hover:bg-white/[0.04] overflow-hidden"
                                 style={{
                                   transitionDelay: isOpen ? `${idx * 60}ms` : "0ms",
@@ -357,6 +362,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
+                onClick={() => handleLinkClick(link.href)}
                 className="relative text-white/80 text-[13px] xl:text-[14px] 2xl:text-[15px] font-medium hover:text-[#3daeff] transition-colors duration-300 py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#3daeff] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left font-sans whitespace-nowrap"
               >
                 {link.label}
@@ -504,7 +510,10 @@ export default function Navbar() {
                         <Link
                           key={subLink.label}
                           href={subLink.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            handleLinkClick(subLink.href);
+                          }}
                           className="flex items-center gap-3 py-2 px-3 rounded-lg bg-white/[0.01] active:bg-white/[0.04] transition-colors"
                         >
                           <div className="flex items-center justify-center w-7 h-7 rounded-md bg-[#3daeff]/[0.05] border border-[#3daeff]/15 text-[#3daeff] flex-shrink-0">
@@ -535,7 +544,10 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      handleLinkClick(link.href);
+                    }}
                     className="text-white text-[15px] font-semibold tracking-wide active:text-[#3daeff] transition-colors duration-200"
                   >
                     {link.label}
@@ -567,7 +579,10 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleLinkClick(link.href);
+                }}
                 className="text-white text-[15px] font-semibold tracking-wide py-3.5 border-b border-white/[0.05] block active:text-[#3daeff] transition-colors duration-200"
                 style={transitionStyles}
               >

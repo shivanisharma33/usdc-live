@@ -508,10 +508,7 @@ export default function InvestorPage() {
                   </div>
 
                   <div className="pt-6 mt-6 border-t border-white/5 text-xs text-white/30">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        Market Cap: <span className="text-white font-semibold">$14.2B</span>
-                      </div>
+                    <div className="flex items-center justify-center">
                       <div>
                         Avg Vol: <span className="text-white font-semibold">980.5K</span>
                       </div>
