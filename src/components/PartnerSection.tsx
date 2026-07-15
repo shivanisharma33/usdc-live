@@ -33,9 +33,7 @@ export default function PartnerSection() {
 
             {/* Title */}
             <h2 className="text-[26px] sm:text-[40px] md:text-[52px] lg:text-[52px] xl:text-[52px] 2xl:text-[52px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
-              <span className="block sm:whitespace-nowrap">READY TO OWN THE</span>
-              <span className="text-[#3daeff] block sm:whitespace-nowrap">AI INFRASTRUCTURE</span>
-              <span className="block">LAYER?</span>
+              READY TO OWN THE <span className="text-[#3daeff]">AI INFRASTRUCTURE</span> LAYER?
             </h2>
 
             {/* Subtext */}

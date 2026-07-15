@@ -162,7 +162,7 @@ export default function DcimSection() {
                 {tabContent[activeTab].title}
               </h3>
 
-              <p className="text-xs sm:text-[13px] text-white/50 leading-relaxed font-sans font-normal mb-8">
+              <p className="text-xs sm:text-[13px] text-white/50 leading-relaxed font-sans font-normal mb-8 whitespace-pre-line">
                 {tabContent[activeTab].desc}
               </p>
 

@@ -278,3 +278,12 @@ body {
     transform: scale(1.15);
   }
 }
+
+/* Global typography improvements to automatically prevent widows and orphans */
+h1, h2, h3, h4, h5, h6, .text-balance {
+  text-wrap: balance;
+}
+
+p, .text-pretty {
+  text-wrap: pretty;
+}
