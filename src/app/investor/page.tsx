@@ -580,7 +580,7 @@ export default function InvestorPage() {
 
             {/* Section Title */}
             <div className="mb-12 lg:mb-16 flex flex-col items-center sm:items-start text-center sm:text-left">
-              <h2 className="text-3xl font-semibold uppercase tracking-tighter mb-4">
+              <h2 className="text-3xl md:text-[56px] font-semibold uppercase tracking-tighter mb-4">
                 Investor Resources
               </h2>
               <div className="h-[2px] w-12 bg-[#3daeff] rounded-full" />

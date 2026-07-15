@@ -120,7 +120,7 @@ export default function GlobalNetworkPage() {
                 Network Flow
               </span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight uppercase text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-[52px] font-extrabold leading-[1.1] tracking-tight uppercase text-white mb-6">
               From Region to <span className="text-[#3daeff]">Rack.</span>
             </h2>
             <p className="text-white/50 text-sm md:text-[16px] leading-[1.6] font-medium tracking-wide max-w-3xl">
@@ -356,7 +356,7 @@ export default function GlobalNetworkPage() {
                 Network Layers
               </span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[1.1] tracking-normal uppercase text-white mb-6 sm:whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl md:text-[52px] font-extrabold leading-[1.1] tracking-normal uppercase text-white mb-6 sm:whitespace-nowrap">
               One Platform. <span className="text-[#3daeff]">Many Regions.</span>
             </h2>
             <p className="text-white/40 text-sm md:text-lg leading-relaxed font-medium max-w-3xl">
@@ -445,7 +445,7 @@ export default function GlobalNetworkPage() {
               <div className="w-12 h-[1px] bg-[#3daeff] mr-4" />
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">Network Pipeline</span>
             </div>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-[52px] font-extrabold leading-[0.95] tracking-tighter uppercase text-white mb-6">
               Reach is Built <span className="text-[#3daeff]">Region by Region.</span>
             </h2>
             <div className="max-w-4xl mx-auto">

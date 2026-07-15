@@ -56,7 +56,7 @@ export default function FacilitySpecification() {
         </div>
 
         {/* Huge Heading - pixel perfect typography and leading */}
-        <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-black tracking-tight leading-[0.92] text-white uppercase font-sans mb-8 mx-auto">
+        <h2 className="text-[38px] sm:text-[46px] md:text-[56px] lg:text-[56px] font-black tracking-tight leading-[0.92] text-white uppercase font-sans mb-8 mx-auto">
           FULL-STACK FACILITY
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#0091ff] block">
             SPECIFICATION.

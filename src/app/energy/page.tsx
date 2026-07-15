@@ -143,7 +143,7 @@ export default function EnergyPage() {
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase">
+              <h2 className="text-3xl sm:text-4xl md:text-[56px] font-extrabold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase">
                 Core Grid <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">Capabilities</span>
               </h2>
 

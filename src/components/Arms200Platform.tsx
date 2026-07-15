@@ -68,7 +68,7 @@ export default function Arms200Platform() {
 
             {/* Heading */}
             <h2
-              className="text-[32px] sm:text-[38px] md:text-[44px] lg:text-[48px] font-extrabold tracking-[-0.025em] leading-[1.1] mb-6"
+              className="text-[32px] sm:text-[38px] md:text-[52px] lg:text-[52px] font-extrabold tracking-[-0.025em] leading-[1.1] mb-6"
               style={fadeUp(80)}
             >
               <span className="text-[#0080e6]">ARMS 200 - </span>

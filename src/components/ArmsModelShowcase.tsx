@@ -144,7 +144,7 @@ export default function ArmsModelShowcase() {
               Interactive 3D Model
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.08] mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-[52px] font-bold tracking-tight leading-[1.08] mb-4">
             <span className="text-white">Explore The </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-[#0077e6]">
               ARMS 200

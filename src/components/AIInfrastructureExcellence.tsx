@@ -1053,7 +1053,7 @@ export default function AIInfrastructureExcellence() {
       <div className="relative z-10 w-full max-w-[1240px] mx-auto px-6 md:px-12 lg:px-16">
         {/* ── Main Section Heading ── */}
         <div className="text-center mb-5" style={fadeUp(0)}>
-          <h2 className="text-[28px] sm:text-[34px] md:text-[42px] lg:text-[48px] font-extrabold tracking-[-0.02em] leading-[1.1]">
+          <h2 className="text-[28px] sm:text-[34px] md:text-[52px] lg:text-[52px] font-extrabold tracking-[-0.02em] leading-[1.1]">
             <span className="text-white">BUILT FOR </span>
             <br className="block md:hidden" />
             <span className="text-[#3daeff] block md:inline">AI INFRASTRUCTURE</span>

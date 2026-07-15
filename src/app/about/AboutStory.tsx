@@ -53,7 +53,7 @@ export default function AboutStory() {
           </div>
 
           {/* Heading Title */}
-          <h2 className="text-4xl sm:text-5xl md:text-[54px] font-bold tracking-tight text-white leading-[1.1] mb-6 font-sans">
+          <h2 className="text-4xl sm:text-5xl md:text-[52px] font-bold tracking-tight text-white leading-[1.1] mb-6 font-sans">
             From Energy Assets To <br />
             <span className="text-[#3daeff]">AI Infrastructure</span>
           </h2>

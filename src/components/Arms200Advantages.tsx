@@ -27,9 +27,9 @@ export default function Arms200Advantages() {
             </div>
 
             {/* Main Title - ARMS 200 Advantages */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[0.95] mb-8 font-sans">
+            <h2 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight leading-[0.95] mb-8 font-sans">
               <span className="text-[#3daeff] uppercase">ARMS 200</span> <br />
-              <span className="text-white text-3xl sm:text-4xl md:text-5xl uppercase">Advantages</span>
+              <span className="text-white uppercase">Advantages</span>
             </h2>
 
             {/* Description */}

@@ -17,7 +17,7 @@ export default function EnergyEconomicsAdvantage() {
         </div>
 
         {/* Center-Aligned Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px] mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-[52px] lg:text-[52px] font-extrabold tracking-wide text-white mb-6 font-sans leading-[1.1] uppercase max-w-[1050px] mx-auto">
           Built For Long-Term <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
             Economic Advantage.

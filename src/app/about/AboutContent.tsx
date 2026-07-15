@@ -63,7 +63,7 @@ export default function AboutContent() {
             <span className="text-[10px] font-extrabold text-[#3daeff] tracking-[0.25em] uppercase mb-4">
               OUR CORE PURPOSE
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-[52px] font-black tracking-tight text-white mb-6 leading-tight">
               Bridging Clean Power and Heavy Compute
             </h2>
             <p className="text-white/60 text-[14px] md:text-[15px] leading-relaxed mb-6 font-normal">
@@ -155,7 +155,7 @@ export default function AboutContent() {
             <span className="text-[10px] font-extrabold text-[#3daeff] tracking-[0.25em] uppercase mb-4 block">
               OUR PILLARS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-[52px] font-black tracking-tight text-white mb-6">
               Engineering the Backbone of Intelligence
             </h2>
             <p className="text-white/50 text-[14px] leading-relaxed">
@@ -236,7 +236,7 @@ export default function AboutContent() {
               COLLABORATION & SUPPORT
             </span>
 
-            <h2 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mb-6 max-w-2xl leading-tight">
+            <h2 className="relative z-10 text-2xl sm:text-3xl md:text-[52px] font-black tracking-tight text-white mb-6 max-w-2xl leading-tight">
               Ready to Accelerate Your Compute Deployment?
             </h2>
 

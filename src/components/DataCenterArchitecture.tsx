@@ -84,7 +84,7 @@ export default function DataCenterArchitecture() {
         </div>
 
         {/* Title */}
-        <h2 className="text-[38px] sm:text-[46px] md:text-[54px] lg:text-[60px] font-black tracking-tight leading-[1.08] text-white font-sans uppercase mb-6 mx-auto">
+        <h2 className="text-[38px] sm:text-[46px] md:text-[52px] lg:text-[52px] font-black tracking-tight leading-[1.08] text-white font-sans uppercase mb-6 mx-auto">
           HEAT OUT. <br />
           <span className="text-[#3daeff]">PERFORMANCE IN.</span>
         </h2>

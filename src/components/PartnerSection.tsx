@@ -32,7 +32,7 @@ export default function PartnerSection() {
             </div>
 
             {/* Title */}
-            <h2 className="text-[26px] sm:text-[40px] md:text-[48px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
+            <h2 className="text-[26px] sm:text-[40px] md:text-[52px] lg:text-[52px] xl:text-[52px] 2xl:text-[52px] font-black tracking-tight leading-[1.1] text-white font-sans uppercase">
               <span className="block sm:whitespace-nowrap">READY TO OWN THE</span>
               <span className="text-[#3daeff] block sm:whitespace-nowrap">AI INFRASTRUCTURE</span>
               <span className="block">LAYER?</span>

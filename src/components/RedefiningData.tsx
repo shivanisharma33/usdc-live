@@ -102,7 +102,7 @@ export default function RedefiningData() {
               </div>
 
               {/* Title */}
-              <h2 className="text-3xl sm:text-4xl md:text-[45px] font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-[56px] font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
                 Redefining <span className="text-[#0091ff]">Data</span>
               </h2>
 

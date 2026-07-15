@@ -84,7 +84,7 @@ export default function DcimSection() {
           </div>
 
           <h2
-            className="text-[32px] sm:text-[40px] md:text-[52px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase"
+            className="text-[32px] sm:text-[40px] md:text-[56px] font-bold tracking-tight text-white mb-6 font-sans leading-[1.1] uppercase"
             style={fadeUp(80)}
           >
             USDC <span className="text-[#3daeff]">DCIM</span> Telemetry

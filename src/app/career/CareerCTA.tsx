@@ -65,7 +65,7 @@ export default function CareerCTA() {
               <span className="w-3.5 h-[1.5px] bg-[#3daeff] rounded-full" />
               <span className="text-[9px] font-bold text-white/60 tracking-[0.28em] uppercase">Hiring Process</span>
             </div>
-            <h2 className="text-[34px] sm:text-[42px] font-black tracking-[-0.02em] text-white">
+            <h2 className="text-[34px] sm:text-[42px] md:text-[56px] font-black tracking-[-0.02em] text-white">
               Simple.{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(120deg, #74d1ff, #3daeff, #0068d6)" }}>
@@ -153,7 +153,7 @@ export default function CareerCTA() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-[42px] sm:text-[56px] md:text-[68px] font-black tracking-[-0.025em] leading-[0.95] text-white mb-6">
+            <h2 className="text-[42px] sm:text-[56px] md:text-[52px] font-black tracking-[-0.025em] leading-[0.95] text-white mb-6">
               Ready to shape
               <br />
               <span className="text-transparent bg-clip-text"

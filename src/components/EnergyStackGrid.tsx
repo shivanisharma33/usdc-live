@@ -1425,7 +1425,7 @@ export default function EnergyStackGrid() {
         </div>
 
         {/* Centered Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide text-white mb-6 font-sans text-center max-w-[1000px] leading-[1.1] uppercase">
+        <h2 className="text-3xl sm:text-4xl md:text-[52px] lg:text-[52px] font-extrabold tracking-wide text-white mb-6 font-sans text-center max-w-[1000px] leading-[1.1] uppercase">
           Powering Compute <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
             From The Ground Up.

@@ -259,7 +259,7 @@ export default function Arms200System() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl md:text-[56px] lg:text-[60px] font-bold tracking-tight leading-[1.05] mb-8 font-sans">
+            <h2 className="text-4xl sm:text-5xl md:text-[56px] lg:text-[56px] font-bold tracking-tight leading-[1.05] mb-8 font-sans">
               <span className="text-[#3daeff]">ARMS 200</span> <span className="text-white">System</span>
             </h2>
 

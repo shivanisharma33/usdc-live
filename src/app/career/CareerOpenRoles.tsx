@@ -66,7 +66,7 @@ export default function CareerOpenRoles() {
               <span className="w-3.5 h-[1.5px] bg-[#3daeff] rounded-full" />
               <span className="text-[9px] font-bold text-white/60 tracking-[0.28em] uppercase">Open Positions</span>
             </div>
-            <h2 className="text-[38px] sm:text-[48px] md:text-[58px] font-black tracking-[-0.02em] leading-[1.0] text-white" style={fadeUp(80)}>
+            <h2 className="text-[38px] sm:text-[48px] md:text-[52px] font-black tracking-[-0.02em] leading-[1.0] text-white" style={fadeUp(80)}>
               Find your{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(120deg, #74d1ff, #3daeff, #0068d6)" }}>

@@ -79,7 +79,7 @@ export default function LatestNews() {
               </span>
             </div>
             {/* Title */}
-            <h2 className="text-[34px] sm:text-[40px] md:text-[44px] font-extrabold tracking-tight leading-[1.1]">
+            <h2 className="text-[34px] sm:text-[40px] md:text-[56px] font-extrabold tracking-tight leading-[1.1]">
               NEWS <span className="text-[#3daeff]">& INSIGHT</span>
             </h2>
             {/* Description */}

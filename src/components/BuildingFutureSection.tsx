@@ -36,7 +36,7 @@ export default function BuildingFutureSection() {
           {/* ── Right Column: Clean Copy & Action Button ── */}
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             {/* Title Heading */}
-            <h2 className="text-[40px] md:text-[50px] font-bold tracking-tight text-white leading-[1.1] mb-6 font-sans">
+            <h2 className="text-[40px] md:text-[52px] font-bold tracking-tight text-white leading-[1.1] mb-6 font-sans">
               Building the <span className="text-[#3daeff]">future</span> <br />
               from day one
             </h2>

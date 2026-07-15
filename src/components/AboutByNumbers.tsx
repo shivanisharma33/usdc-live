@@ -66,7 +66,7 @@ export default function AboutByNumbers() {
             transform: inView ? "translateY(0)" : "translateY(30px)",
           }}
         >
-          <h2 className="text-3xl sm:text-[40px] font-bold tracking-tight text-white mb-4 uppercase font-sans">
+          <h2 className="text-3xl md:text-[56px] font-bold tracking-tight text-white mb-4 uppercase font-sans">
             BY THE <span className="text-[#3daeff]">NUMBERS</span>
           </h2>
           <p className="text-[12px] md:text-[13px] text-white/50 font-medium tracking-wider uppercase">

@@ -109,7 +109,7 @@ export default function AIDemand() {
 
             {/* Heading */}
             <h2
-              className="text-[36px] sm:text-[44px] md:text-[50px] lg:text-[56px] font-extrabold tracking-[-0.02em] leading-[1.08] mb-7"
+              className="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[52px] font-extrabold tracking-[-0.02em] leading-[1.08] mb-7"
               style={fadeUp(80)}
             >
               <span className="text-white block">AI Demand is</span>

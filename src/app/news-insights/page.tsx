@@ -468,7 +468,7 @@ export default function NewsInsightsPage() {
               <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase block mb-1">
                 03 TRENDING SYSTEMS
               </span>
-              <h2 className="text-3xl font-black uppercase text-white tracking-tight">
+              <h2 className="text-3xl md:text-[56px] font-black uppercase text-white tracking-tight">
                 Trending Insights
               </h2>
             </div>
@@ -564,7 +564,7 @@ export default function NewsInsightsPage() {
               <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
                 04 FEATURED NEWSLETTER SYNC
               </span>
-              <h2 className="text-3xl md:text-4xl font-black uppercase text-white tracking-tight leading-none">
+              <h2 className="text-3xl md:text-[52px] font-black uppercase text-white tracking-tight leading-none">
                 Subscribe to USDC insights
               </h2>
               <p className="text-sm text-white/50 max-w-3xl mx-auto leading-relaxed">

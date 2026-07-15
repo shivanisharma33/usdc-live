@@ -23,7 +23,7 @@ export default function PowerToComputeDiagram() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide leading-[1.1] text-white mb-6 font-sans uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-[52px] lg:text-[52px] font-extrabold tracking-wide leading-[1.1] text-white mb-6 font-sans uppercase">
             From Power To <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3daeff] to-blue-500">
               GPU Compute
