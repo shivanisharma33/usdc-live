@@ -17,6 +17,55 @@ export interface JobPosting {
 
 export const jobs: JobPosting[] = [
   {
+    slug: "site-operations-leader-alabama",
+    title: "Site Operations Leader / Alabama",
+    department: "Operations",
+    location: "Columbiana, Alabama",
+    type: "Full-time",
+    mode: "On-site",
+    datePosted: "2026-07-15",
+    validThrough: "2027-01-15",
+    overview:
+      "USDC operates AI infrastructure facilities serving GPU-as-a-Service and colocation customers. We are hiring a Site Operations Leader to own day-to-day operations at our Alabama facility and will be accountable for operational excellence as we bring additional facilities online. Your goals are to operate this site at Tier 3 (99.982% uptime), GPU infrastructure (99.9% availability), 100% SOP/MOP coverage & Change Management.\n\nThis is a hands-on, technical leadership role, based at our site. The right person has operated critical data center facilities, CPU/GPU infrastructures, built maintenance programs, managed onsite teams, and held vendors accountable. You will be the most senior operational authority onsite.",
+    responsibilities: [
+      "Own day-to-day operations of live, GPU-dense, liquid-cooled data center facilities.",
+      "Build and maintain a structured preventative maintenance program for all MEP systems: chiller plant, generators, ATS, fire suppression, and power distribution.",
+      "Develop and maintain SOPs, MOPs, and emergency operating procedures grounded in industry best practices.",
+      "Serve as onsite incident commander for MEP and infrastructure events.",
+      "Monitor facility health through BMS/DCIM systems and drive resolution of anomalies before they become incidents.",
+      "Monitor CPU/GPU rack health, and Network health through DCIM systems and drive resolution of anomalies before they become incidents. Drive resolutions and escalations with support vendors.",
+      "Manage RMA process with support vendors of GPU, MEP components while holding them accountable to their contracted SLA/SLO.",
+      "Manage a growing team of multicraft technicians and site support personnel.",
+      "Manage a team of smart hands operators with skills in networking, racks and compute infrastructure.",
+      "Own work assignment, scheduling, shift coverage, performance management, and training.",
+      "Build a metrics-driven culture of operational discipline, accountability, and continuous improvement.",
+      "Interface with MEP vendors, ensuring contractual obligations and SLAs are met.",
+      "Provide oversight of managed service providers supporting current and future facilities.",
+      "Hold vendors accountable through documented performance tracking and regular business reviews.",
+      "Support ISO 27001, ISO 22237, and SOC 2 certification efforts by owning facility-level evidence generation and operational documentation.",
+      "Provide operational oversight during commissioning of new facilities, working alongside commissioning engineers and compliance partners with decision authority."
+    ],
+    qualifications: [
+      "5+ years of experience operating mission-critical customer facing data center facilities (not IT infrastructure or enterprise server rooms).",
+      "Direct experience building or managing a preventative maintenance program for MEP systems (cooling, power, fire suppression).",
+      "Exposure to compliance programs such as SOC 2, ISO 27001, or ISO 22237.",
+      "Demonstrated understanding of chiller plant operations, generator/ATS testing, and fire suppression systems.",
+      "Experience managing onsite technical teams in a 24/7 critical environment.",
+      "Experience with vendor and/or MSP oversight and accountability.",
+      "Familiarity with BMS/DCIM monitoring systems.",
+      "Willingness to be based onsite in Columbiana, Alabama."
+    ],
+    preferred: [
+      "Experience with liquid-cooled, high-density GPU compute environments.",
+      "Experience with facility commissioning from the operator's perspective.",
+      "Background in hyperscale, colocation, or AI infrastructure environments."
+    ],
+    environment:
+      "On-site technical leadership role at our Columbiana, Alabama facility. Requires being the most senior operational authority onsite in a 24/7 critical environment.",
+    whyItMatters:
+      "This role is critical for driving operational excellence and high-availability (99.9% GPU availability, Tier 3 uptime) for our cutting-edge AI infrastructure as we scale."
+  },
+  {
     slug: "chiller-operator-columbiana",
     title: "Chiller Operator / Data Center Mechanical Technician",
     department: "Operations",
