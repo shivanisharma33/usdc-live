@@ -266,7 +266,8 @@ export default function Arms200System() {
             {/* Description */}
             <div className="space-y-6 text-white/45 text-[13.5px] md:text-[14.5px] leading-[1.75] max-w-[580px] font-normal mb-12">
               <p>
-                The ARMS 200 is DigiPowerX&apos;s proprietary modular data-center platform. Each module delivers up to 1.8 MW of critical IT load and is designed for Tier III redundancy (concurrent maintainability).
+                The ARMS 200 is DigiPowerX&apos;s proprietary modular data-center platform. <br />
+                Each module delivers up to 1.8 MW of critical IT load and is designed for Tier III redundancy (concurrent maintainability).
               </p>
               <p>
                 The system&apos;s prefabricated architecture allows rapid on-site assembly and integration with chilled-water or direct-to-chip cooling systems, making it the ideal solution for <span className="whitespace-nowrap">AI-ready</span> infrastructure.

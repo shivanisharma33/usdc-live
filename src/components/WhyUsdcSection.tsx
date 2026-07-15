@@ -10,7 +10,11 @@ export default function WhyUsdcSection() {
       title: "POWER + DATA CENTER",
       titleLine1: "POWER + DATA",
       titleLine2: "CENTER",
-      desc: "Infrastructure strategy starts with energy access and site capacity - not with a leased building.",
+      desc: (
+        <>
+          Infrastructure strategy starts with energy access and site <br className="hidden sm:inline" /> capacity not with a leased building.
+        </>
+      ),
       Icon: Zap,
     },
     {
@@ -31,7 +35,7 @@ export default function WhyUsdcSection() {
       title: "AI / HPC READY",
       titleLine1: "AI / HPC",
       titleLine2: "READY",
-      desc: "Designed for 200kW+ rack densities and liquid-cooled accelerator clusters - not legacy workloads.",
+      desc: "Designed for 200kW+ rack densities and liquid-cooled accelerator clusters not legacy workloads.",
       Icon: Server,
     },
   ];

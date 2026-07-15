@@ -52,7 +52,7 @@ export default function WhatDrivesUs() {
             </div>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Traditional builds take years. The USDC team converts existing energy assets into
-              Tier III HPC capacity in under twelve months — operators who move at the pace
+              Tier III HPC capacity in under 12 months operators who move at the pace
               AI demands.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function WhatDrivesUs() {
             </div>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Pioneering direct-to-chip liquid cooling and the proprietary ARMS 200 modular
-              platform — engineered for ultra-dense NVIDIA GPU clusters from day one.
+              platform engineered for ultra-dense NVIDIA GPU clusters from day one.
             </p>
           </div>
 

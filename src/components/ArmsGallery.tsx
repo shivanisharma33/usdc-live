@@ -80,7 +80,7 @@ export default function ArmsGallery() {
             className="text-sm text-white/45 max-w-[580px] leading-relaxed font-sans"
             style={fadeUp(180)}
           >
-            See the actual execution of our modular technology. From the containerized outdoor shell to the dense, liquid-cooled interior layout, every component is optimized for speed, reliability, and scaling.
+            See the actual execution of our modular technology. From the containerized outdoor shell to the dense, liquid-cooled interior layout, every component is optimized for speed, reliability and scaling.
           </p>
         </div>
 

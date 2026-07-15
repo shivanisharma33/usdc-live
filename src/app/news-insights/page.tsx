@@ -226,7 +226,7 @@ export default function NewsInsightsPage() {
 
           {/* Subtitle */}
           <p className="text-[14px] md:text-[16px] text-white/50 text-center max-w-[640px] leading-relaxed mb-12">
-            Discover high-performance computing blueprints, next-generation cooling architectures, clean power grids, and sustainable computing infrastructure innovations.
+            Discover high-performance computing blueprints, next-generation cooling architectures, clean power grids and sustainable computing infrastructure innovations.
           </p>
 
           {/* Glassmorphism Search & Filters Block */}

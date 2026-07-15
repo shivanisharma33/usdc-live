@@ -65,7 +65,7 @@ export default function FacilitySpecification() {
 
         {/* Description */}
         <p className="text-[14px] md:text-[15px] text-white/50 font-normal leading-[1.7] max-w-[620px] mb-14 font-sans mx-auto">
-          From incoming utility to GPU rack output - each layer of the facility is
+          From incoming utility to GPU rack output - each layer of the facility is <br className="hidden sm:inline" />
           designed with AI workload performance as the primary constraint.
         </p>
 

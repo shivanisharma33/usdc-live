@@ -77,7 +77,7 @@ export default function TeamHero() {
           style={enterStyle(340)}
           className="text-[14px] md:text-[16px] text-white/50 leading-[1.8] max-w-[620px]"
         >
-          Meet the experienced executives driving USDC's vision of revolutionizing AI infrastructure and sustainable data center operations.
+          Meet the experienced executives driving USDC's vision of revolutionizing <br className="hidden sm:inline" /> AI infrastructure and sustainable data center operations.
         </p>
       </div>
     </section>

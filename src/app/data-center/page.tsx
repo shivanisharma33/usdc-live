@@ -83,7 +83,7 @@ export default function DataCenterPage() {
             </h1>
 
             {/* Description */}
-            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[480px] mx-auto mt-2 mb-2 font-sans">
+            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-normal max-w-[480px] mx-auto mb-6 font-sans">
               Purpose-built AI-ready facilities engineered for high-density GPU infrastructure, advanced cooling, and rapid deployment.
             </p>
 

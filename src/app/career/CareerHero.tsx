@@ -160,35 +160,40 @@ export default function CareerHero() {
 
         {/* Stats row */}
         <div className="w-full max-w-[700px]" style={fade(400)}>
-          <div className="relative rounded-2xl overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, rgba(8,13,26,0.9) 0%, rgba(4,7,15,0.95) 100%)",
-              border: "1px solid rgba(255,255,255,0.06)",
-              boxShadow: "0 24px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)",
-            }}>
-            {/* Top accent line */}
-            <div className="absolute top-0 left-[15%] right-[15%] h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(61,174,255,0.5), transparent)" }} />
+          <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-[#3daeff]/35 via-white/[0.05] to-[#3daeff]/5 shadow-[0_24px_60px_rgba(0,0,0,0.6)] overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, rgba(8,13,26,0.9) 0%, rgba(4,7,15,0.95) 100%)",
+              }}>
+              {/* Top accent line */}
+              <div className="absolute top-0 left-[15%] right-[15%] h-px"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(61,174,255,0.5), transparent)" }} />
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.05]">
-              {[
-                { value: "50+", label: "Open Roles", sub: "Across all teams" },
-                { value: "4", label: "US Sites", sub: "& growing" },
-                { value: "100%", label: "AI-Native", sub: "Infrastructure" },
-              ].map((s, i) => (
-                <div key={i} className="flex flex-col items-center py-6 px-4 gap-1">
-                  <span className="text-[28px] md:text-[32px] font-black text-white leading-none tracking-tight"
-                    style={{ textShadow: "0 0 20px rgba(61,174,255,0.3)" }}>
-                    {s.value}
-                  </span>
-                  <span className="text-[10px] font-bold text-[#3daeff]/80 tracking-[0.15em] uppercase">{s.label}</span>
-                  <span className="text-[9px] text-white/25 tracking-wider">{s.sub}</span>
-                </div>
-              ))}
-            </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center w-full py-2">
+                {[
+                  { value: "50+", label: "Open Roles", sub: "Across all teams" },
+                  { value: "4", label: "US Sites", sub: "& growing" },
+                  { value: "100%", label: "AI-Native", sub: "Infrastructure" },
+                ].map((s, i, arr) => (
+                  <React.Fragment key={i}>
+                    <div className="flex-1 flex flex-col items-center py-6 px-4 gap-1 w-full">
+                      <span className="text-[28px] md:text-[32px] font-black text-white leading-none tracking-tight"
+                        style={{ textShadow: "0 0 20px rgba(61,174,255,0.3)" }}>
+                        {s.value}
+                      </span>
+                      <span className="text-[10px] font-bold text-[#3daeff]/80 tracking-[0.15em] uppercase">{s.label}</span>
+                      <span className="text-[9px] text-white/25 tracking-wider">{s.sub}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <div className="hidden sm:block w-[1px] h-10 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] flex-shrink-0" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
           </div>
         </div>
       </div>
+    </div>
 
       {/* Bottom gradient mask */}
       <div className="absolute bottom-0 left-0 w-full h-36 pointer-events-none"

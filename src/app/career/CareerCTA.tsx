@@ -6,7 +6,15 @@ import { ArrowRight, Mail } from "lucide-react";
 /* ═══════════════════════ Career CTA — Premium ═══════════════════════ */
 
 const STEPS = [
-  { num: "01", title: "Apply Online", body: "Submit your application in under 5 minutes. No cover letter required — just your resume." },
+  { 
+    num: "01", 
+    title: "Apply Online", 
+    body: (
+      <>
+        Submit your application in under 5 minutes. <br /> No cover letter required — just your resume.
+      </>
+    )
+  },
   { num: "02", title: "Intro Call", body: "A 30-min conversation with our team to understand your background and your ambitions." },
   { num: "03", title: "Technical Review", body: "A focused, respectful assessment aligned to the role — no trick questions, no puzzles." },
   { num: "04", title: "Offer & Onboard", body: "Fast decisions. If it's a fit, we move quickly. Onboarding designed for day-one impact." },
@@ -154,8 +162,7 @@ export default function CareerCTA() {
 
             {/* Headline */}
             <h2 className="text-[42px] sm:text-[56px] md:text-[52px] font-black tracking-[-0.025em] leading-[0.95] text-white mb-6">
-              Ready to shape
-              <br />
+              Ready to shape{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(125deg, #74d1ff 0%, #3daeff 35%, #0068d6 80%)" }}>
                 the AI era?

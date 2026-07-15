@@ -124,7 +124,7 @@ export default function GlobalNetworkPage() {
               From Region to <span className="text-[#3daeff]">Rack.</span>
             </h2>
             <p className="text-white/50 text-sm md:text-[16px] leading-[1.6] font-medium tracking-wide max-w-3xl">
-              Multi-region sites linked by a redundant backbone and operated as one platform. Power, fiber, and compute provisioned together — without the gaps that slow leased-only competitors.
+              Multi-region sites linked by a redundant backbone and operated as one platform. Power, fiber and compute provisioned together — without the gaps that slow leased-only competitors.
             </p>
           </div>
 
