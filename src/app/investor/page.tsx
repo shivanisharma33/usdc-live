@@ -547,9 +547,17 @@ export default function InvestorPage() {
                               href={item.pdf_file?.url || '#'}
                               target={item.pdf_file?.url ? "_blank" : "_self"}
                               rel="noopener noreferrer"
-                              className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug line-clamp-2"
+                              className="block text-sm font-semibold text-white/80 hover:text-[#3daeff] transition-colors leading-snug line-clamp-none"
                             >
-                              {item.title}
+                              {item.title === "Digi Power X Reports First Quarter 2026 Financial Results" ? (
+                                <>
+                                  Digi Power X Reports
+                                  <br />
+                                  First Quarter 2026 Financial Results
+                                </>
+                              ) : (
+                                item.title
+                              )}
                             </Link>
                           </div>
                         );

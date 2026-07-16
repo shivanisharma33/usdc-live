@@ -359,8 +359,10 @@ export default function GlobalNetworkPage() {
             <h2 className="text-3xl sm:text-4xl md:text-[52px] font-extrabold leading-[1.1] tracking-normal uppercase text-white mb-6 sm:whitespace-nowrap">
               One Platform. <span className="text-[#3daeff]">Many Regions.</span>
             </h2>
-            <p className="text-white/40 text-sm md:text-lg leading-relaxed font-medium max-w-3xl">
-              Each site is engineered as a self-sufficient power-and-compute node, then federated into a single operating fabric — so customers get geographic diversity without operational fragmentation.
+            <p className="text-white/40 text-sm md:text-lg leading-relaxed font-medium max-w-[850px]">
+              Each site is engineered as a self-sufficient power-and-compute node, then federated into a single{" "}
+              <br className="hidden md:inline" />
+              operating fabric — so customers get geographic diversity without operational fragmentation.
             </p>
           </div>
 
