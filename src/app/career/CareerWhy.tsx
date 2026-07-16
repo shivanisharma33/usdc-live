@@ -19,7 +19,12 @@ const perks = [
     accent: "#3daeff",
     tag: "COMPENSATION",
     title: "Equity & Upside",
-    body: "Meaningful ownership in a company at the intersection of AI and energy — one of the fastest-growing verticals of the decade.",
+    body: (
+      <>
+        Meaningful ownership in a company at the intersection of AI and energy — one of the <br />
+        fastest-growing verticals of the decade.
+      </>
+    ),
     highlight: "Early-stage equity · Competitive salary",
   },
   {
@@ -111,9 +116,8 @@ export default function CareerWhy() {
               who{" "}
               <span className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(120deg, #74d1ff, #3daeff, #0068d6)" }}>
-                build
-              </span>{" "}
-              at scale.
+                build at scale.
+              </span>
             </h2>
           </div>
           <div className="flex flex-col gap-4 lg:items-end" style={fadeUp(140)}>

@@ -35,7 +35,12 @@ export default function EnergyPage() {
     },
     {
       title: "AI Load Balancing",
-      desc: "Direct power routing optimization dynamically adjusting load factors according to real-time grid conditions and compute demands.",
+      desc: (
+        <>
+          Direct power routing optimization dynamically adjusting load factors according to <br />
+          real-time grid conditions and compute demands.
+        </>
+      ),
       Icon: Cpu,
     },
   ];

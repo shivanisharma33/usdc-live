@@ -276,16 +276,17 @@ export default function ArmsTechnicalSpecs() {
                 </div>
                 {/* Description */}
                 <p className="text-[12px] md:text-[13px] text-white/45 leading-[1.65] max-w-[340px]">
-                  The next evolution of our ARMS platform, delivering even greater capacity and efficiency for next-generation AI workloads.
+                  The next evolution of our ARMS platform, delivering even greater capacity and efficiency for
+                  next-generation AI workloads.
                 </p>
               </div>
               {/* Graphic */}
-              <div className="flex-shrink-0 relative overflow-hidden rounded-xl p-1 transition-all duration-300">
+              <div className="flex-shrink-0 relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] transition-all duration-300">
                 <img
                   src="/Arms 300.webp"
                   alt="ARMS 300 Model"
                   loading="lazy"
-                  className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] md:w-[200px] md:h-[200px] max-w-none object-contain transition-transform duration-500 group-hover:scale-[1.08]"
                 />
               </div>
             </div>

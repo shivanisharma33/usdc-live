@@ -84,9 +84,7 @@ export default function CareerCTA() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-            {/* Connector line */}
-            <div className="absolute top-8 left-[12.5%] right-[12.5%] h-px hidden lg:block pointer-events-none"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(61,174,255,0.2), rgba(61,174,255,0.2), transparent)" }} />
+
 
             {STEPS.map((s, i) => (
               <div key={i} className="group relative flex flex-col gap-4 p-6 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
@@ -204,32 +202,7 @@ export default function CareerCTA() {
               </a>
             </div>
 
-            {/* Social links */}
-            <div className="flex items-center gap-6 mb-10">
-              <a href="#" className="group flex items-center gap-2 text-[11px] font-bold text-white/25 hover:text-white transition-colors duration-200 cursor-pointer">
-                {/* LinkedIn SVG */}
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-              <div className="w-px h-4" style={{ background: "rgba(255,255,255,0.1)" }} />
-              <a href="#" className="group flex items-center gap-2 text-[11px] font-bold text-white/25 hover:text-white transition-colors duration-200 cursor-pointer">
-                {/* X / Twitter SVG */}
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-                <span>Twitter / X</span>
-              </a>
-            </div>
 
-            {/* EOE note */}
-            <p className="text-[10.5px] max-w-[500px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.18)" }}>
-              USDC is an equal-opportunity employer. We celebrate diversity and are committed
-              to creating an inclusive environment for all employees regardless of background,
-              identity, or experience.
-            </p>
           </div>
         </div>
 

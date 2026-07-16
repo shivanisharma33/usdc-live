@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { Zap, Target, Telescope, Wrench } from "lucide-react";
 
 /* ═══════════════════════ Culture & Values — Premium ═══════════════════════ */
 
@@ -8,26 +9,41 @@ const values = [
   {
     num: "01",
     title: "Ownership Mindset",
-    body: "Every engineer, analyst and operator owns their domain fully. We don't have passengers — we have pilots.",
-    icon: "⚡",
+    body: (
+      <>
+        Every engineer, analyst and operator owns their domain fully. <br />
+        We don&apos;t have passengers — we have pilots.
+      </>
+    ),
+    icon: <Zap className="w-6 h-6 text-[#3daeff]" />,
   },
   {
     num: "02",
     title: "Speed with Precision",
     body: "We move fast because the opportunity demands it. But speed without integrity is chaos — we hold both.",
-    icon: "🎯",
+    icon: <Target className="w-6 h-6 text-[#3daeff]" />,
   },
   {
     num: "03",
     title: "Radical Transparency",
-    body: "Our metrics, challenges and progress are shared openly across all levels. No black boxes, no hidden agendas.",
-    icon: "🔭",
+    body: (
+      <>
+        Our metrics, challenges and progress are shared openly across all levels. <br />
+        No black boxes, no hidden agendas.
+      </>
+    ),
+    icon: <Telescope className="w-6 h-6 text-[#3daeff]" />,
   },
   {
     num: "04",
     title: "Builders Welcome",
-    body: "We hire people who see a gap and fill it without waiting for permission. Initiative is our highest-valued trait.",
-    icon: "🔧",
+    body: (
+      <>
+        We hire people who see a gap and fill it without waiting for permission. <br />
+        Initiative is our highest-valued trait.
+      </>
+    ),
+    icon: <Wrench className="w-6 h-6 text-[#3daeff]" />,
   },
 ];
 
@@ -152,7 +168,9 @@ export default function CareerCulture() {
               <div>
                 {/* Icon + number */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="text-3xl">{values[activeValue].icon}</div>
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/[0.06] border border-blue-400/[0.1] flex items-center justify-center flex-shrink-0">
+                    {values[activeValue].icon}
+                  </div>
                   <div className="h-px flex-1" style={{ background: "linear-gradient(90deg, rgba(61,174,255,0.3), transparent)" }} />
                   <span className="text-[11px] font-black tracking-widest text-[#3daeff]/50">
                     {values[activeValue].num} / 04

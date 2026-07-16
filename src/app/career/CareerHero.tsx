@@ -130,8 +130,8 @@ export default function CareerHero() {
 
         {/* Sub-copy */}
         <p className="text-[15px] md:text-[16px] text-white/40 max-w-[560px] leading-[1.85] mb-12" style={fade(220)}>
-          USDC is transforming underutilized energy assets into enterprise-scale AI compute
-          infrastructure. Join us at the frontier — where megawatts meet machine intelligence.
+          USDC is transforming underutilized energy assets into enterprise-scale <br />
+          AI compute infrastructure. Join us at the frontier — where megawatts meet machine intelligence.
         </p>
 
         {/* CTAs */}

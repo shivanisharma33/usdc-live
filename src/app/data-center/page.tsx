@@ -31,12 +31,22 @@ export default function DataCenterPage() {
     },
     {
       title: "Modular Deployment Speed",
-      desc: "Standardized pod units manufactured off-site and commissioned on-site within 4 to 8 weeks, ensuring rapid scale and capacity growth.",
+      desc: (
+        <>
+          Standardized pod units manufactured off-site and commissioned on-site within <br />
+          4 to 8 weeks, ensuring rapid scale and capacity growth.
+        </>
+      ),
       Icon: Server,
     },
     {
       title: "Physical Security Standards",
-      desc: "Featuring biometric multi-factor authentication, constant surveillance and secure enclosures conforming to corporate security baselines.",
+      desc: (
+        <>
+          Featuring biometric multi-factor authentication, constant surveillance and <br />
+          secure enclosures conforming to corporate security baselines.
+        </>
+      ),
       Icon: Shield,
     },
   ];

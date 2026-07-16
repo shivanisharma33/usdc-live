@@ -206,8 +206,8 @@ export default function ContactPortal() {
           </h2>
  
           <p className="cx-reveal text-[14px] text-white/55 leading-[1.8] mb-8 max-w-[420px]">
-            Tell us about your workload, capacity targets and timeline. Every
-            submission is routed directly to a solutions architect — no
+            Tell us about your workload, capacity targets and timeline. <br />
+            Every submission is routed directly to a solutions architect — no
             gatekeepers, no bots.
           </p>
  

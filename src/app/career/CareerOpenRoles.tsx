@@ -11,9 +11,9 @@ const departments = ["All", ...Array.from(new Set(jobs.map((j) => j.department))
 
 const deptConfig: Record<string, { color: string; bg: string }> = {
   Engineering: { color: "#3daeff", bg: "rgba(61,174,255,0.1)" },
-  Operations:  { color: "#a78bfa", bg: "rgba(167,139,250,0.1)" },
-  Business:    { color: "#34d399", bg: "rgba(52,211,153,0.1)" },
-  Product:     { color: "#fb923c", bg: "rgba(251,146,60,0.1)" },
+  Operations:  { color: "#3daeff", bg: "rgba(61,174,255,0.1)" },
+  Business:    { color: "#3daeff", bg: "rgba(61,174,255,0.1)" },
+  Product:     { color: "#3daeff", bg: "rgba(61,174,255,0.1)" },
 };
 
 export default function CareerOpenRoles() {
