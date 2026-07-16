@@ -75,7 +75,7 @@ export default function SpeedScaleSovereignty() {
         </>
       ),
       description:
-        "Keep your data, workloads, and operations under your control. USDC infrastructure is built for data sovereignty and compliance at every layer.",
+        "Keep your data, workloads and operations under your control. USDC infrastructure is built for data sovereignty and compliance at every layer.",
     },
   };
 

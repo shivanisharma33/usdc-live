@@ -10,7 +10,7 @@ import PartnerSection from "@/components/PartnerSection";
 export const metadata: Metadata = {
   title: "Press Releases — USDC | Latest News & Announcements",
   description:
-    "Stay informed with the latest press releases, partnerships, expansions, and technology breakthroughs from USDC — your trusted partner in AI infrastructure and data center innovation.",
+    "Stay informed with the latest press releases, partnerships, expansions and technology breakthroughs from USDC — your trusted partner in AI infrastructure and data center innovation.",
 };
 
 export default function PressReleasePage() {

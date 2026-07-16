@@ -34,7 +34,8 @@ export default function Arms200Advantages() {
 
             {/* Description */}
             <p className="text-[14px] md:text-[15px] text-white/70 font-normal leading-[1.75] max-w-[500px] font-sans">
-              DigiPowerX is built around a simple but powerful thesis: the company that controls power controls the compute. By owning the full infrastructure stack from energy generation through GPU compute, DigiPowerX can serve AI and HPC customers faster, cheaper, and at greater scale than any pure-play competitor.
+              DigiPowerX is built around a simple but powerful thesis: <br />
+              the company that controls power controls the compute. <br /> By owning the full infrastructure stack from energy generation through GPU compute, DigiPowerX can serve AI and HPC customers faster, cheaper and at greater scale than any  <br />pure-play competitor.
             </p>
 
           </div>

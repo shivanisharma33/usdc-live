@@ -7,7 +7,7 @@ import { useReveal } from "@/components/contact/useReveal";
 /* ═══════════════════════ Global Presence ═══════════════════════
    Interactive world-map visualization on a 1000×500 viewBox. Data
    center nodes pulse, great-circle-style connection lines animate a
-   flowing dash, and floating glass statistic cards frame the map.
+   flowing dash and floating glass statistic cards frame the map.
    The map continents are drawn as a dotted point-field so it reads
    as a holographic network rather than a literal atlas.
    ═══════════════════════════════════════════════════════════════ */

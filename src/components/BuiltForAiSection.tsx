@@ -231,7 +231,7 @@ export default function BuiltForAiSection() {
                   <div className="w-12 h-[2px] bg-[#3daeff] mt-4" />
                   
                   <p className="text-[11.5px] sm:text-[13px] text-white/70 leading-relaxed font-sans font-normal mt-4 sm:mt-6">
-                    Rack layouts are planned around accelerator power draw, heat removal path, cable routing, and structured service access — not legacy 1U server assumptions.
+                    Rack layouts are planned around accelerator power draw, heat removal path, cable routing and structured service access — not legacy 1U server assumptions.
                   </p>
                 </div>
 

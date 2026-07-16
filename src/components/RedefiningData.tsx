@@ -114,7 +114,7 @@ export default function RedefiningData() {
                 </span>
                 , we're redefining data center infrastructure to deliver{" "}
                 <span className="text-slate-900 font-bold">
-                  unmatched performance, efficiency, and sustainability
+                  unmatched performance, efficiency and sustainability
                 </span>{" "}
                 for data-intensive organizations.
               </p>

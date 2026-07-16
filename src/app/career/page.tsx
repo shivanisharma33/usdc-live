@@ -12,7 +12,7 @@ import PartnerSection from "@/components/PartnerSection";
 export const metadata: Metadata = {
   title: "Careers — USDC | Shape the Future of AI Infrastructure",
   description:
-    "Join the USDC team and help build next-generation AI data center infrastructure. Explore open roles across engineering, operations, and business development.",
+    "Join the USDC team and help build next-generation AI data center infrastructure. Explore open roles across engineering, operations and business development.",
 };
 
 export default function CareerPage() {

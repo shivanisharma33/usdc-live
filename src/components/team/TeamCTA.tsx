@@ -41,7 +41,7 @@ export default function TeamCTA() {
     {
       icon: HeartHandshake,
       title: "Career Portals",
-      desc: "Join our remote-first team of electrical engineers, site managers, and network designers.",
+      desc: "Join our remote-first team of electrical engineers, site managers and network designers.",
     },
   ];
 

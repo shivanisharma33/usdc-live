@@ -11,7 +11,7 @@ const perks = [
     accent: "#3daeff",
     tag: "TECHNOLOGY",
     title: "Frontier Tech Stack",
-    body: "Work hands-on with NVIDIA GB200 clusters, liquid-cooled hyperscale racks, and custom AI inference stacks months before market availability.",
+    body: "Work hands-on with NVIDIA GB200 clusters, liquid-cooled hyperscale racks and custom AI inference stacks months before market availability.",
     highlight: "NVIDIA GB200 · Liquid Cooling · AI Inference",
   },
   {
@@ -27,7 +27,7 @@ const perks = [
     accent: "#3daeff",
     tag: "BENEFITS",
     title: "Tier-1 Coverage",
-    body: "Comprehensive health, dental, and vision. Generous PTO, 401(k) matching, and remote-first flexibility that respects your life.",
+    body: "Comprehensive health, dental and vision. Generous PTO, 401(k) matching and remote-first flexibility that respects your life.",
     highlight: "Health · Dental · Vision · 401(k)",
   },
   {
@@ -35,7 +35,7 @@ const perks = [
     accent: "#3daeff",
     tag: "TEAM",
     title: "World-Class Colleagues",
-    body: "Work alongside engineers from Google DeepMind, NVIDIA, AWS, and top energy operators who have deployed at unprecedented scale.",
+    body: "Work alongside engineers from Google DeepMind, NVIDIA, AWS and top energy operators who have deployed at unprecedented scale.",
     highlight: "Ex-Google · NVIDIA · AWS · Top Energy Cos.",
   },
   {
@@ -43,7 +43,7 @@ const perks = [
     accent: "#3daeff",
     tag: "IMPACT",
     title: "Decisions That Ship",
-    body: "No bureaucracy. At USDC, your work moves megawatts, reaches Fortune 500 AI teams, and ships to production within weeks — not years.",
+    body: "No bureaucracy. At USDC, your work moves megawatts, reaches Fortune 500 AI teams and ships to production within weeks — not years.",
     highlight: "Direct production impact · Fast cycles",
   },
   {
@@ -51,7 +51,7 @@ const perks = [
     accent: "#3daeff",
     tag: "GROWTH",
     title: "$5K Learning Budget",
-    body: "Annual stipend for courses, conferences, and certifications. Plus on-site labs where you prototype on real enterprise hardware.",
+    body: "Annual stipend for courses, conferences and certifications. Plus on-site labs where you prototype on real enterprise hardware.",
     highlight: "Conferences · Certs · On-site Labs",
   },
 ];

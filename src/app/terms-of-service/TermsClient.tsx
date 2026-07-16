@@ -49,13 +49,13 @@ export default function TermsClient() {
         <div className="space-y-4">
           <p>USDC provides data center infrastructure services including, but not limited to:</p>
           <ul className="space-y-2 ml-4">
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Design, construction, and operation of hyperscale and AI-ready data center facilities.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Design, construction and operation of hyperscale and AI-ready data center facilities.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> GPU compute platforms and high-performance computing (HPC) infrastructure.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Colocation, power provisioning, and cooling infrastructure services.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Colocation, power provisioning and cooling infrastructure services.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Data Center Infrastructure Management (DCIM) software and monitoring solutions.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Sustainable energy infrastructure including renewable energy integration.</li>
           </ul>
-          <p>Specific service terms, SLAs, and pricing are governed by separate service agreements executed between USDC and its clients.</p>
+          <p>Specific service terms, SLAs and pricing are governed by separate service agreements executed between USDC and its clients.</p>
         </div>
       ),
     },
@@ -80,7 +80,7 @@ export default function TermsClient() {
       title: "4. Intellectual Property",
       content: (
         <div className="space-y-4">
-          <p>All content on the Site, including but not limited to text, graphics, logos, images, data compilations, software, designs, ARMS platform branding, and the USDC brand identity, is the property of USDC or its licensors and is protected by United States and international intellectual property laws.</p>
+          <p>All content on the Site, including but not limited to text, graphics, logos, images, data compilations, software, designs, ARMS platform branding and the USDC brand identity, is the property of USDC or its licensors and is protected by United States and international intellectual property laws.</p>
           <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any content on our Site without our prior written consent, except for:</p>
           <ul className="space-y-2 ml-4">
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Temporary storage in your web browser cache for personal, non-commercial viewing.</li>
@@ -94,11 +94,11 @@ export default function TermsClient() {
       title: "5. Service Agreements & Commercial Terms",
       content: (
         <div className="space-y-4">
-          <p>The purchase or use of USDC data center services, including colocation, power, cooling, GPU compute, and managed infrastructure, is subject to separate commercial agreements. These Terms of Service govern only your use of the USDC website.</p>
+          <p>The purchase or use of USDC data center services, including colocation, power, cooling, GPU compute and managed infrastructure, is subject to separate commercial agreements. These Terms of Service govern only your use of the USDC website.</p>
           <p>Commercial service agreements will contain specific terms regarding:</p>
           <ul className="space-y-2 ml-4">
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Service Level Agreements (SLAs) and uptime guarantees.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Pricing, payment terms, and billing procedures.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Pricing, payment terms and billing procedures.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Acceptable use policies for hosted infrastructure.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Liability limitations and indemnification provisions.</li>
           </ul>
@@ -121,7 +121,7 @@ export default function TermsClient() {
       title: "7. Indemnification",
       content: (
         <div className="space-y-4">
-          <p>You agree to defend, indemnify, and hold harmless USDC and its officers, directors, employees, agents, and affiliates from and against any claims, damages, obligations, losses, liabilities, costs, or debt arising from:</p>
+          <p>You agree to defend, indemnify and hold harmless USDC and its officers, directors, employees, agents and affiliates from and against any claims, damages, obligations, losses, liabilities, costs, or debt arising from:</p>
           <ul className="space-y-2 ml-4">
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Your use of and access to the Site.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> Your violation of any term of these Terms.</li>
@@ -135,7 +135,7 @@ export default function TermsClient() {
       title: "8. Third-Party Links",
       content: (
         <div className="space-y-4">
-          <p>The Site may contain links to third-party websites or services that are not owned or controlled by USDC, including partner websites, technology vendors, and industry resources. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites.</p>
+          <p>The Site may contain links to third-party websites or services that are not owned or controlled by USDC, including partner websites, technology vendors and industry resources. We have no control over and assume no responsibility for, the content, privacy policies, or practices of any third-party websites.</p>
           <p>The inclusion of any link does not imply endorsement by USDC. You access third-party sites at your own risk and should review their terms and privacy policies.</p>
         </div>
       ),

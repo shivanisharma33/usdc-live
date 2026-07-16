@@ -170,7 +170,7 @@ export default function AboutJourneySection() {
 
           {/* Description */}
           <p className="text-[14.5px] md:text-[15.5px] text-white/60 leading-[1.75] max-w-[480px] font-sans font-normal">
-            USDC identifies and transforms underutilized energy assets into enterprise-grade AI infrastructure. By combining power, cooling, networking, and compute, we accelerate deployment timelines from years to months.
+            USDC identifies and transforms underutilized energy assets into enterprise-grade AI infrastructure. By combining power, cooling, networking and compute, we accelerate deployment timelines from years to months.
           </p>
         </div>
 

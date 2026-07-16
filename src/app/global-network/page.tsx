@@ -63,7 +63,7 @@ export default function GlobalNetworkPage() {
           </h1>
 
           <p className="text-white/60 text-sm md:text-[16px] max-w-xl mb-10 leading-relaxed font-normal text-center font-sans">
-            USDC connects owned generation, substation access, and compute capacity across a multi-site footprint — one resilient mesh from grid to GPU.
+            USDC connects owned generation, substation access and compute capacity across a multi-site footprint — one resilient mesh from grid to GPU.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center mx-auto relative z-10">
@@ -153,7 +153,7 @@ export default function GlobalNetworkPage() {
 
               <ul className="space-y-3 mb-7 relative z-10 w-full">
                 {[
-                  "Sites across NY, AL, and NC anchor the active footprint",
+                  "Sites across NY, AL and NC anchor the active footprint",
                   "Independent generation mix at each node — gas, grid, hybrid",
                   "Customer proximity to East Coast and Southeast hubs",
                   "Diverse fiber entries and water/utility paths per site",
@@ -202,7 +202,7 @@ export default function GlobalNetworkPage() {
 
 
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
-                A managed backbone stitches every node into one operating fabric — replication, failover, and consistent posture across regions without leased-line gaps.
+                A managed backbone stitches every node into one operating fabric — replication, failover and consistent posture across regions without leased-line gaps.
               </p>
 
               <ul className="space-y-3 mb-7 relative z-10 w-full">
@@ -255,7 +255,7 @@ export default function GlobalNetworkPage() {
               </h3>
 
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
-                Routes, optics, and switching are tuned to a strict latency budget — training clusters stay tightly coupled, inference stays close to the user.
+                Routes, optics and switching are tuned to a strict latency budget — training clusters stay tightly coupled, inference stays close to the user.
               </p>
 
               <ul className="space-y-3 mb-7 relative z-10 w-full">
@@ -370,7 +370,7 @@ export default function GlobalNetworkPage() {
               <div className="text-[#3daeff] text-[10px] font-semibold uppercase tracking-[0.2em] mb-4">Sites</div>
               <h3 className="text-white text-xl md:text-2xl font-bold uppercase mb-6 tracking-tight">Footprint Nodes</h3>
               <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">
-                Owned and operated sites in NY, AL, and NC anchor the footprint — each selected for power availability and customer proximity.
+                Owned and operated sites in NY, AL and NC anchor the footprint — each selected for power availability and customer proximity.
               </p>
               <ul className="space-y-4">
                 {[
@@ -392,7 +392,7 @@ export default function GlobalNetworkPage() {
               <div className="text-[#3daeff] text-[10px] font-semibold uppercase tracking-[0.2em] mb-4">Backbone</div>
               <h3 className="text-white text-xl md:text-2xl font-bold uppercase mb-6 tracking-tight">Inter-site Fabric</h3>
               <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">
-                A managed backbone links every node — enabling replication, failover, and consistent operating posture across regions.
+                A managed backbone links every node — enabling replication, failover and consistent operating posture across regions.
               </p>
               <ul className="space-y-4">
                 {[
@@ -450,7 +450,7 @@ export default function GlobalNetworkPage() {
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-white/50 text-sm md:text-lg leading-relaxed font-medium">
-                The USDC network compounds as each new site comes online: more diversity, more capacity, lower customer latency, and more revenue per megawatt across the footprint. Federated by design
+                The USDC network compounds as each new site comes online: more diversity, more capacity, lower customer latency and more revenue per megawatt across the footprint. Federated by design
                 <br className="hidden md:inline" /> every node is operationally independent and operationally consistent.
               </p>
             </div>
@@ -459,7 +459,7 @@ export default function GlobalNetworkPage() {
           {/* Steps */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {[
-              { step: "STEP 01", title: "Discover", desc: "Site selection driven by power, fiber, and customer-proximity — not just real estate availability." },
+              { step: "STEP 01", title: "Discover", desc: "Site selection driven by power, fiber and customer-proximity — not just real estate availability." },
               { step: "STEP 02", title: "Build", desc: "Owned generation and substation control let each node come online without third-party blockers." },
               { step: "STEP 03", title: "Connect", desc: "New sites join the backbone with diverse-path fiber and unified operational tooling." },
               { step: "STEP 04", title: "Operate", desc: "One NOC, one telemetry pane, one accountable team across every region in the footprint." },

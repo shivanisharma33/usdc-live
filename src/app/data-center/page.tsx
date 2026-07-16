@@ -14,7 +14,7 @@ import PartnerSection from "@/components/PartnerSection";
 export const metadata: Metadata = {
   title: "Data Center — USDC | High-Density GPU Computing Environment",
   description:
-    "Discover USDC's high-density modular datacenter platform, liquid cooling configurations, and robust structural designs built for AI compute cluster operations.",
+    "Discover USDC's high-density modular datacenter platform, liquid cooling configurations and robust structural designs built for AI compute cluster operations.",
 };
 
 export default function DataCenterPage() {
@@ -36,7 +36,7 @@ export default function DataCenterPage() {
     },
     {
       title: "Physical Security Standards",
-      desc: "Featuring biometric multi-factor authentication, constant surveillance, and secure enclosures conforming to corporate security baselines.",
+      desc: "Featuring biometric multi-factor authentication, constant surveillance and secure enclosures conforming to corporate security baselines.",
       Icon: Shield,
     },
   ];

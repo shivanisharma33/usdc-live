@@ -34,14 +34,14 @@ export default function ArmsGallery() {
       alt: "ARMS 200 Modular Data Center Exterior Enclosure",
       badge: "EXTERIOR ENCLOSURE",
       title: "All-Weather Deployment Pod",
-      desc: "Our structural all-weather containerized pod featuring integrated high-voltage substations, direct utility connections, and industrial heat rejection equipment commissioned in weeks instead of years.",
+      desc: "Our structural all-weather containerized pod featuring integrated high-voltage substations, direct utility connections and industrial heat rejection equipment commissioned in weeks instead of years.",
     },
     {
       src: "/arms200_interior.jpg",
       alt: "ARMS 200 Modular Data Center Interior Server Racks",
       badge: "INTERIOR ARCHITECTURE",
       title: "High-Density GPU Clusters",
-      desc: "Direct liquid-to-chip manifold distribution, optimized cable management, and high-throughput networking fabric engineered specifically to sustain Blackwell cluster workloads.",
+      desc: "Direct liquid-to-chip manifold distribution, optimized cable management and high-throughput networking fabric engineered specifically to sustain Blackwell cluster workloads.",
     },
   ];
 

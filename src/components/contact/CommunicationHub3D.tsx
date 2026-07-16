@@ -353,7 +353,7 @@ export default function CommunicationHub3D() {
         (n.group.children[0] as THREE.Mesh).rotation.y += 0.02;
       });
 
-      // Rebuild connection lines: each node → core, and node → next node
+      // Rebuild connection lines: each node → core and node → next node
       let li = 0;
       const writeSeg = (a: THREE.Vector3, b: THREE.Vector3) => {
         linePositions[li++] = a.x;

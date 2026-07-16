@@ -14,7 +14,7 @@ export default function DataCenterArchitecture() {
     },
     {
       title: "MONITORING LAYER",
-      desc: "Real-time monitoring, processing, and intelligent control checkpoints.",
+      desc: "Real-time monitoring, processing and intelligent control checkpoints.",
       icon: <Activity className="w-5 h-5" strokeWidth={1.5} />,
     },
     {

@@ -28,7 +28,7 @@ export default function WhatDrivesUs() {
         {/* Subtitle */}
         <p className="text-[14px] md:text-[16px] text-white/50 leading-relaxed max-w-3xl font-sans font-normal pt-2">
           Every member of the USDC team shares a single mandate: move infrastructure from
-          conception to deployment with uncommon speed, discipline, and reliability.
+          conception to deployment with uncommon speed, discipline and reliability.
         </p>
       </div>
 
@@ -69,7 +69,7 @@ export default function WhatDrivesUs() {
             </div>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Tier III standards and 99.99% reliability maintained by a team with decades in
-              mission-critical facility engineering, power systems, and concurrent maintainability.
+              mission-critical facility engineering, power systems and concurrent maintainability.
             </p>
           </div>
 

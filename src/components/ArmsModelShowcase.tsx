@@ -247,12 +247,12 @@ export default function ArmsModelShowcase() {
             {
               icon: <ShieldCheck className="w-5 h-5 text-[#3daeff]" />,
               title: "Enterprise Compliance",
-              desc: "SOC 2 Type II, ISO 27001, and HIPAA compliant infrastructure.",
+              desc: "SOC 2 Type II, ISO 27001 and HIPAA compliant infrastructure.",
             },
             {
               icon: <Zap className="w-5 h-5 text-[#3daeff]" />,
               title: "Integrated Power",
-              desc: "Built-in UPS, PDUs, and switchgear for self-contained power delivery.",
+              desc: "Built-in UPS, PDUs and switchgear for self-contained power delivery.",
             },
           ].map((item, idx) => (
             <div

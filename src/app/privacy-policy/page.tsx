@@ -7,7 +7,7 @@ import PrivacyPolicyClient from "./PrivacyPolicyClient";
 export const metadata: Metadata = {
   title: "Privacy Policy — USDC | US Data Center",
   description:
-    "Learn how USDC collects, uses, and protects your personal information. Read our full privacy policy.",
+    "Learn how USDC collects, uses and protects your personal information. Read our full privacy policy.",
 };
 
 export default function PrivacyPolicyPage() {

@@ -83,7 +83,7 @@ export default function Arms200Platform() {
               style={fadeUp(160)}
             >
               The ARMS 200 is a modular, containerized data center platform engineered for AI and
-              HPC. Each ARMS 200 pod delivers dense GPU compute, fast site commissioning, and
+              HPC. Each ARMS 200 pod delivers dense GPU compute, fast site commissioning and
               native renewable-energy integration for lower carbon intensity.
             </p>
 

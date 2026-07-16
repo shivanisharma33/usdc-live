@@ -37,10 +37,10 @@ export default function PrivacyPolicyClient() {
       title: "1. Information We Collect",
       content: (
         <div className="space-y-4">
-          <p><strong className="text-white">Personal Information:</strong> When you contact us, apply for a position, subscribe to our newsletter, or request information about our services, we may collect your name, email address, phone number, company name, job title, and mailing address.</p>
-          <p><strong className="text-white">Technical Information:</strong> We automatically collect certain technical data when you visit our website, including IP address, browser type, device information, operating system, referring URLs, and pages visited.</p>
-          <p><strong className="text-white">Cookies &amp; Tracking:</strong> We use cookies, web beacons, and similar technologies to enhance your experience, analyze site traffic, and understand usage patterns. See our Cookie Policy section below for more details.</p>
-          <p><strong className="text-white">Business Information:</strong> For enterprise clients and partners, we may collect company-related data necessary for service provisioning, including facility requirements, power capacity needs, and infrastructure specifications.</p>
+          <p><strong className="text-white">Personal Information:</strong> When you contact us, apply for a position, subscribe to our newsletter, or request information about our services, we may collect your name, email address, phone number, company name, job title and mailing address.</p>
+          <p><strong className="text-white">Technical Information:</strong> We automatically collect certain technical data when you visit our website, including IP address, browser type, device information, operating system, referring URLs and pages visited.</p>
+          <p><strong className="text-white">Cookies &amp; Tracking:</strong> We use cookies, web beacons and similar technologies to enhance your experience, analyze site traffic and understand usage patterns. See our Cookie Policy section below for more details.</p>
+          <p><strong className="text-white">Business Information:</strong> For enterprise clients and partners, we may collect company-related data necessary for service provisioning, including facility requirements, power capacity needs and infrastructure specifications.</p>
         </div>
       ),
     },
@@ -51,12 +51,12 @@ export default function PrivacyPolicyClient() {
         <div className="space-y-3">
           <p>We use the information we collect for the following purposes:</p>
           <ul className="space-y-2 ml-4">
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To provide, operate, and maintain our data center services and infrastructure solutions.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To process and respond to your inquiries, service requests, and partnership opportunities.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To send you relevant updates about our services, new facilities, investor relations, and industry news (with your consent).</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To provide, operate and maintain our data center services and infrastructure solutions.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To process and respond to your inquiries, service requests and partnership opportunities.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To send you relevant updates about our services, new facilities, investor relations and industry news (with your consent).</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To process job applications and communicate with candidates about career opportunities.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To improve our website, services, and user experience through analytics and research.</li>
-            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To comply with legal obligations, enforce our agreements, and protect our rights.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To improve our website, services and user experience through analytics and research.</li>
+            <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> To comply with legal obligations, enforce our agreements and protect our rights.</li>
           </ul>
         </div>
       ),
@@ -97,7 +97,7 @@ export default function PrivacyPolicyClient() {
       title: "5. Cookies & Tracking Technologies",
       content: (
         <div className="space-y-4">
-          <p>Our website uses cookies and similar tracking technologies to personalize content, analyze traffic, and improve functionality. Types of cookies we use:</p>
+          <p>Our website uses cookies and similar tracking technologies to personalize content, analyze traffic and improve functionality. Types of cookies we use:</p>
           <ul className="space-y-2 ml-4">
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> <strong className="text-white">Essential Cookies:</strong> Required for the website to function properly, including session management and security features.</li>
             <li className="flex gap-2"><span style={{ color: "#3daeff" }}>•</span> <strong className="text-white">Analytics Cookies:</strong> Help us understand how visitors interact with our website by collecting information anonymously.</li>
@@ -188,7 +188,7 @@ export default function PrivacyPolicyClient() {
 
           <p className="text-[16px] md:text-[18px] leading-relaxed font-medium max-w-3xl mt-6"
             style={{ color: "rgba(255,255,255,0.5)", ...fadeUp(160) }}>
-            US Data Center (&quot;USDC,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+            US Data Center (&quot;USDC,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose and safeguard your information when you visit our website or use our services.
           </p>
         </div>
       </section>

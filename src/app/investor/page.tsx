@@ -300,7 +300,7 @@ export default function InvestorPage() {
 
               {/* Description */}
               <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] mb-10 max-w-xl font-sans">
-                Powering the future of enterprise-scale AI infrastructure. Access financial performance reports, corporate governance files, and the latest business developments from USDC Corporation.
+                Powering the future of enterprise-scale AI infrastructure. Access financial performance reports, corporate governance files and the latest business developments from USDC Corporation.
               </p>
 
               {/* Action buttons */}
@@ -604,7 +604,7 @@ export default function InvestorPage() {
                     </h3>
                   </div>
                   <p className="text-white/40 text-sm leading-relaxed mb-8">
-                    Access financial statements, quarterly reports, and compliance files.
+                    Access financial statements, quarterly reports and compliance files.
                   </p>
                   <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#3daeff] hover:text-white transition-colors">
                     <span>Learn More</span>

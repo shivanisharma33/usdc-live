@@ -17,7 +17,7 @@ import { useReveal } from "@/components/contact/useReveal";
 /* ═══════════════════════ Contact Portal ═══════════════════════
    An immersive "communication portal" instead of a plain form.
    Floating glass panel with a rotating holographic border glow,
-   embedded glass input containers, and real-time focus highlights.
+   embedded glass input containers and real-time focus highlights.
    ═══════════════════════════════════════════════════════════════ */
  
 type FieldKey = "name" | "email" | "company" | "phone" | "service" | "message";

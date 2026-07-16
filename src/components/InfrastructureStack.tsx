@@ -55,7 +55,7 @@ export default function InfrastructureStack() {
       title: "AI Applications",
       desc: (
         <>
-          Enterprise AI, Cloud Services, Inference Platforms, <br />  And Advanced Research.
+          Enterprise AI, Cloud Services, Inference Platforms <br />  And Advanced Research.
         </>
       ),
     },

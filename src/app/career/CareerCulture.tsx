@@ -8,7 +8,7 @@ const values = [
   {
     num: "01",
     title: "Ownership Mindset",
-    body: "Every engineer, analyst, and operator owns their domain fully. We don't have passengers — we have pilots.",
+    body: "Every engineer, analyst and operator owns their domain fully. We don't have passengers — we have pilots.",
     icon: "⚡",
   },
   {
@@ -20,7 +20,7 @@ const values = [
   {
     num: "03",
     title: "Radical Transparency",
-    body: "Our metrics, challenges, and progress are shared openly across all levels. No black boxes, no hidden agendas.",
+    body: "Our metrics, challenges and progress are shared openly across all levels. No black boxes, no hidden agendas.",
     icon: "🔭",
   },
   {
@@ -90,7 +90,7 @@ export default function CareerCulture() {
           </h2>
           <p className="text-[14px] md:text-[15px] max-w-[520px] mx-auto leading-[1.85] mt-5" style={{ color: "rgba(255,255,255,0.38)", ...fadeUp(140) }}>
             Culture at USDC isn&apos;t a slide deck — it&apos;s a daily practice. Four principles
-            guide every decision, design, and deployment we ship.
+            guide every decision, design and deployment we ship.
           </p>
         </div>
 

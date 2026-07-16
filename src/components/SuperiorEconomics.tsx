@@ -45,7 +45,7 @@ export default function SuperiorEconomics() {
 
         {/* Center-Aligned Description */}
         <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[600px] mb-16 font-sans mx-auto">
-          Our integrated energy model delivers structural cost advantages, operational efficiency, and scalable capacity for AI infrastructure.
+          Our integrated energy model delivers structural cost advantages, operational efficiency and scalable capacity for AI infrastructure.
         </p>
 
         {/* Horizontal Divided Panel */}

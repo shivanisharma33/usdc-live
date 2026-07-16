@@ -1435,7 +1435,7 @@ export default function EnergyStackGrid() {
         {/* Muted Subdescription */}
         <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[780px] text-center mb-16 font-sans">
           In the high-density computing era, energy is the ultimate currency. We don&apos;t just secure power,<br />
-          we generate it, transform it, and deliver it to the rack with unmatched efficiency and scale.
+          we generate it, transform it and deliver it to the rack with unmatched efficiency and scale.
         </p>
 
         {/* Cards Grid */}

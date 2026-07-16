@@ -23,7 +23,7 @@ import {
 
 /* ═══════════════════════════ Press Release Grid ═══════════════════════════
    Bento-grid editorial layout with varied card sizes, gradient mesh
-   backgrounds, clean modern typography, and cinematic hover effects.
+   backgrounds, clean modern typography and cinematic hover effects.
    Featured items get hero-sized treatment; archives flow in a clean grid.
    ═══════════════════════════════════════════════════════════════════════ */
 
@@ -59,7 +59,7 @@ const pressReleases: PressRelease[] = [
     category: "EXPANSION",
     date: "May 28, 2025",
     title: "USDC Announces $2.5 Billion Investment in Sovereign AI Data Centers Across Southeast Asia",
-    excerpt: "Massive expansion initiative targets key markets in Singapore, Indonesia, and Malaysia to meet surging demand for localized AI compute infrastructure.",
+    excerpt: "Massive expansion initiative targets key markets in Singapore, Indonesia and Malaysia to meet surging demand for localized AI compute infrastructure.",
     tag: "Global Expansion",
     icon: Globe2,
     featured: true,

@@ -33,7 +33,7 @@ export default function TeamGrid() {
       name: "Alec Amar",
       role: "President",
       image: "/images/95.jpg",
-      bio: "Mr. Amar is an entrepreneur and infrastructure executive with deep experience in energy, high-density data-center development, and advanced digital infrastructure. Under Mr. Amar's leadership, DigiPowerX has expanded into multiple U.S. markets with a growing portfolio of high-power data-center properties."
+      bio: "Mr. Amar is an entrepreneur and infrastructure executive with deep experience in energy, high-density data-center development and advanced digital infrastructure. Under Mr. Amar's leadership, DigiPowerX has expanded into multiple U.S. markets with a growing portfolio of high-power data-center properties."
     },
     {
       id: "jagan-jeyapal",
@@ -82,14 +82,14 @@ export default function TeamGrid() {
       name: "Venkat Rangasamy",
       role: "VP of AI Infrastructure",
       image: "/images/ChatGPT%20Image%20May%2018%2C%202026%2C%2004_04_45%20PM.avif",
-      bio: "Energy sector expert specializing in grid-scale renewable integration, microgrids, and high-voltage substation designs."
+      bio: "Energy sector expert specializing in grid-scale renewable integration, microgrids and high-voltage substation designs."
     },
     {
       id: "hans-vestberg",
       name: "Hans Vestberg",
       role: "Co-Founder",
       image: "/images/97.jpg",
-      bio: "Cybersecurity strategist safeguarding DigiPowerX's high-performance compute networks, physical assets, and data sovereignty."
+      bio: "Cybersecurity strategist safeguarding DigiPowerX's high-performance compute networks, physical assets and data sovereignty."
     }
   ];
 

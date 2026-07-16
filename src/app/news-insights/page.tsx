@@ -74,7 +74,7 @@ const articlesData: Article[] = [
     date: "June 05, 2026",
     trending: true,
     url: "https://www.usdatacenters.ai/news/revolutionizing-data-center-efficiency-the-rise-of-liquid-cooling-systems-ntr54-wfnkl",
-    content: "Grid bottlenecks are currently the largest constraint for high-performance computing deployment. To combat this, USDC's engineering team is rolling out localized microgrid designs. These microgrids dynamically switch and blend power sources between traditional grid interconnections, utility-scale onsite solar PV systems, and battery energy storage systems (BESS). An AI-driven energy orchestration engine forecasts real-time grid prices and solar output, charging batteries during off-peak hours and discharging them during peak stress times. This ensures 99.999% uptime while maximizing the utilization of clean, renewable energy."
+    content: "Grid bottlenecks are currently the largest constraint for high-performance computing deployment. To combat this, USDC's engineering team is rolling out localized microgrid designs. These microgrids dynamically switch and blend power sources between traditional grid interconnections, utility-scale onsite solar PV systems and battery energy storage systems (BESS). An AI-driven energy orchestration engine forecasts real-time grid prices and solar output, charging batteries during off-peak hours and discharging them during peak stress times. This ensures 99.999% uptime while maximizing the utilization of clean, renewable energy."
   }
 ];
 

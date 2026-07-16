@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 /* ═══════════════════════════ Press Release Hero ═══════════════════════════
    Ultra-premium hero with multi-layered aurora orb, animated star particles,
-   scan-line texture, gradient typography, and floating stat counters.
+   scan-line texture, gradient typography and floating stat counters.
    ═══════════════════════════════════════════════════════════════════════ */
 
 export default function PressReleaseHero() {
@@ -100,7 +100,7 @@ export default function PressReleaseHero() {
           style={enter(360)}
           className="text-[14px] md:text-[16px] text-white/70 leading-[1.85] max-w-[520px] font-light"
         >
-          Stay informed with the latest announcements, partnerships, and milestones shaping the future of AI infrastructure.
+          Stay informed with the latest announcements, partnerships and milestones shaping the future of AI infrastructure.
         </p>
       </div>
     </section>

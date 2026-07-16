@@ -86,7 +86,7 @@ export default function CookieBanner() {
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
             We use cookies and platform hosting technologies to enhance security,
-            support site delivery, and personalize your experience. Read our{" "}
+            support site delivery and personalize your experience. Read our{" "}
             <Link
               href="/privacy-policy#cookies"
               className="font-bold underline-offset-2 underline"

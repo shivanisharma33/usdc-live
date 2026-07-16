@@ -86,7 +86,7 @@ export default function EnergyPage() {
 
           {/* Description */}
           <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[620px] mb-12 font-sans">
-            Securing utility substation access, optimizing grid connection pipelines, and integrating clean generation sources to power enterprise GPU compute.
+            Securing utility substation access, optimizing grid connection pipelines and integrating clean generation sources to power enterprise GPU compute.
           </p>
 
           {/* Action Buttons */}

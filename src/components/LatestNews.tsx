@@ -47,7 +47,7 @@ export default function LatestNews() {
       image: "/news_ai_network.avif",
       date: "DECEMBER 28, 2024",
       title: "AI Power: Expanding data center capacity to meet growing demand",
-      excerpt: "Comprehensive overview of data center modernization strategies, capacity planning, and..",
+      excerpt: "Comprehensive overview of data center modernization strategies, capacity planning and..",
       category: "Industry News",
       hasCornerCut: true,
     },

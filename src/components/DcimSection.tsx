@@ -38,7 +38,7 @@ export default function DcimSection() {
       alt: "USDC DCIM Cooling Loop Telemetry Dashboard",
       title: "Closed-Loop Cooling Telemetry",
       badge: "LIQUID COOLING MANIFOLD",
-      desc: "Live schematic tracking of chiller piping, water tank levels, heat exchanger performance, and pressure/temperature sensor array telemetry. System logs monitor chiller modes and pump flow rates in real-time.",
+      desc: "Live schematic tracking of chiller piping, water tank levels, heat exchanger performance and pressure/temperature sensor array telemetry. \nSystem logs monitor chiller modes and pump flow rates in real-time.",
       features: [
         { label: "Water Tank Level", val: "0.6m" },
         { label: "Chilled Water Flow", val: "15.52 m³" },
@@ -50,7 +50,7 @@ export default function DcimSection() {
       alt: "USDC DCIM Cabinet and Power Telemetry Dashboard",
       title: "Grid & Cabinet Load Telemetry",
       badge: "ELECTRICAL LOAD BALANCING",
-      desc: "Live floor plan mapping and real-time kW telemetry monitoring for server cabinets, power factor efficiency, energy trends (kWh), and system alarm logs.",
+      desc: "Live floor plan mapping and real-time kW telemetry monitoring for server cabinets, power factor efficiency, energy trends (kWh) and system alarm logs.",
       features: [
         { label: "Cabinet Load", val: "22 kW (Typical)" },
         { label: "Telemetry Frequency", val: "59.97 Hz" },
@@ -94,7 +94,7 @@ export default function DcimSection() {
             className="text-sm text-white/45 max-w-[780px] leading-relaxed font-sans"
             style={fadeUp(160)}
           >
-            Datacenters operate at sub-millisecond precision. Our proprietary Data Center Infrastructure Management (DCIM) dashboard coordinates thermal loads, chiller configurations, and server rack power levels dynamically to prevent anomalies and maximize compute density.
+            Datacenters operate at sub-millisecond precision. Our proprietary Data Center Infrastructure Management (DCIM) dashboard coordinates thermal loads, chiller configurations and server rack power levels dynamically to prevent anomalies and maximize compute density.
           </p>
 
           {/* Interactive Navigation Tabs */}

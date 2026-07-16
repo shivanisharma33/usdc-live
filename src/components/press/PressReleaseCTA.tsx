@@ -78,7 +78,7 @@ export default function PressReleaseCTA() {
     {
       icon: FileText,
       title: "Media Kit",
-      desc: "Download brand assets, logos, and executive bios.",
+      desc: "Download brand assets, logos and executive bios.",
     },
     {
       icon: Rss,
@@ -145,7 +145,7 @@ export default function PressReleaseCTA() {
                 className="text-[13px] text-white/45 leading-[1.8] max-w-[440px] mb-8"
               >
                 Subscribe to USDC&apos;s press release distribution list and be
-                the first to know about partnerships, expansions, and technology
+                the first to know about partnerships, expansions and technology
                 breakthroughs.
               </p>
 

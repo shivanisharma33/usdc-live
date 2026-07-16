@@ -42,7 +42,8 @@ export default function MissionVisionSection() {
 
               {/* Description */}
               <p className="text-[13px] md:text-[12.5px] text-white/60 leading-relaxed font-normal font-sans">
-                Build AI-ready infrastructure faster than traditional operators through energy-first development.
+                Build AI-ready infrastructure faster <br />
+                than traditional operators through <br />energy-first development.
               </p>
 
             </div>

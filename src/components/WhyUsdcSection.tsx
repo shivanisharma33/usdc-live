@@ -68,7 +68,7 @@ export default function WhyUsdcSection() {
 
         {/* Description */}
         <p className="text-[14px] md:text-[15px] text-white/50 font-normal leading-[1.7] max-w-[660px] mb-14 font-sans mx-auto">
-          The strongest data center story is not only the room. It is the integration of power generation, site control, direct liquid cooling, network access, and deployment speed - owned at every layer.
+          The strongest data center story is not only the room. It is the integration of power generation, site control, direct liquid cooling, network access and deployment speed - owned at every layer.
         </p>
 
         {/* Card and Schematic Layout Wrapper */}

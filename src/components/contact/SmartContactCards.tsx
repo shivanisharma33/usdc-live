@@ -14,7 +14,7 @@ import { useReveal } from "@/components/contact/useReveal";
 /* ═══════════════════════ Smart Contact Cards ═══════════════════════
    Five large futuristic glass cards: Email, Phone, Headquarters,
    Support, Sales. Each card has a floating 3D-style icon, neon glow,
-   animated hover elevation, a moving light-sweep, and 3D pointer tilt.
+   animated hover elevation, a moving light-sweep and 3D pointer tilt.
    ═══════════════════════════════════════════════════════════════════ */
 
 interface CardDef {

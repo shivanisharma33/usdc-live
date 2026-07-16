@@ -667,21 +667,33 @@ export default function ArmsInfrastructureGrid() {
       title: "ENERGY INFRASTRUCTURE",
       image: "/1216311d-2201-43f6-86b2-d733b61991d8.webp",
 
-      desc: "Owned power generation assets and substation access create a structural cost and speed advantage that competitors building on leased utility power cannot replicate. The North Tonawanda plant produces at approximately $0.04/kWh. The facility is backed by a 200MW grid-connected substation with redundant feeders, securing hydro-power for long-term pricing stability.",
+      desc: (
+        <>
+          Owned power generation assets and substation access create a structural cost and speed advantage that competitors building on leased utility power cannot replicate. The North Tonawanda plant produces at approximately $0.04/kWh. <br />
+          The facility is backed by a 200MW <br />
+          grid-connected substation with redundant feeders, securing hydro-power for <br />
+          long-term pricing stability.
+        </>
+      ),
       specs: ["200MW Capacity", "Grid Feeder", "$0.04/kWh"],
     },
     {
       badge: "DATA CENTERS",
       title: "AI-READY FACILITIES",
       image: "/973b34f2-3a74-4c31-b056-5cefa758fb6a.webp",
-      desc: "The company converts owned power assets into high-density, AI-ready data center capacity — targeting Tier III classification, direct liquid cooling and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.",
+      desc: (
+        <>
+          The company converts owned power assets into high-density, AI-ready data center capacity —
+          targeting Tier III classification, direct liquid cooling and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.
+        </>
+      ),
       specs: ["Tier III Design", "Direct Liquid", "80kW+ Density"],
     },
     {
       badge: "COMPUTE",
       title: "GPU COMPUTE PLATFORM",
       image: "/ac665e79-d1c6-40c8-994b-f62eea6394a7.webp",
-      desc: "NeoCloudz is the compute layer on top of the DigiPowerX infrastructure stack — providing bare-metal GPU access, 400G InfiniBand fabric, and enterprise-grade telemetry for AI training, inference, and HPC workloads. Interconnects are optimized with RDMA support to allow seamless scaling of multi-node model execution.",
+      desc: "NeoCloudz is the compute layer on top of the DigiPowerX infrastructure stack providing bare-metal GPU access, 400G InfiniBand fabric, and enterprise-grade telemetry for AI training, inference, and HPC workloads. Interconnects are optimized with RDMA support to allow seamless scaling of multi-node model execution.",
       specs: ["NVIDIA H100/H200", "400G Fabric", "Bare-Metal RDMA"],
     },
   ];
