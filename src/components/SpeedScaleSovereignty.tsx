@@ -64,7 +64,7 @@ export default function SpeedScaleSovereignty() {
         </>
       ),
       description:
-        "Right-size your deployment to match your current workloads—with the ability to scale seamlessly as your AI demands grow.",
+        "Right-size your deployment to match your current workloads, with the ability to scale seamlessly as your AI demands grow.",
     },
     sovereignty: {
       heading: (
@@ -351,7 +351,7 @@ export default function SpeedScaleSovereignty() {
                         Faster Deployment
                       </span>
                       <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
-                        Modular ARMS 200 pods enable delivery in weeks, not years—getting you to compute faster.
+                        Modular ARMS 200 pods enable delivery in weeks, not years, getting you to compute faster.
                       </p>
                     </div>
 
@@ -367,7 +367,7 @@ export default function SpeedScaleSovereignty() {
                         Enterprise Reliability
                       </span>
                       <p className="text-[12px] text-white/50 leading-[1.6] h-[77px] line-clamp-4">
-                        Redundant power, cooling, and network architecture delivers Tier III uptime and resilience.
+                        Redundant power, cooling and network architecture delivers Tier III uptime and resilience.
                       </p>
                     </div>
 

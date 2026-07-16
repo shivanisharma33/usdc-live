@@ -674,7 +674,7 @@ export default function ArmsInfrastructureGrid() {
       badge: "DATA CENTERS",
       title: "AI-READY FACILITIES",
       image: "/973b34f2-3a74-4c31-b056-5cefa758fb6a.webp",
-      desc: "The company converts owned power assets into high-density, AI-ready data center capacity — targeting Tier III classification, direct liquid cooling, and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.",
+      desc: "The company converts owned power assets into high-density, AI-ready data center capacity — targeting Tier III classification, direct liquid cooling and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.",
       specs: ["Tier III Design", "Direct Liquid", "80kW+ Density"],
     },
     {

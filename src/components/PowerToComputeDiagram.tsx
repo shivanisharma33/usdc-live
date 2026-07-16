@@ -32,7 +32,7 @@ export default function PowerToComputeDiagram() {
 
           {/* Description */}
           <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[660px] mx-auto font-sans">
-            USDC transforms powered assets into AI-ready infrastructure by integrating energy, facilities, cooling, and compute into a scalable deployment platform.
+            USDC transforms powered assets into AI-ready infrastructure by integrating energy, facilities, cooling and compute into a scalable deployment platform.
           </p>
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function PowerToComputeDiagram() {
 
           {/* Column 2 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Substation Access
             </span>
@@ -76,7 +76,7 @@ export default function PowerToComputeDiagram() {
 
           {/* Column 3 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Rapid Deployment
             </span>
@@ -84,7 +84,7 @@ export default function PowerToComputeDiagram() {
 
           {/* Column 4 */}
           <div className="flex flex-col items-center relative">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-[1px] h-8 bg-gradient-to-b from-[#3daeff]/30 via-[#3daeff]/55 to-[#3daeff]/30 shadow-[0_0_12px_rgba(61,174,255,0.18)] hidden md:block" />
             <span className="text-[12px] md:text-[13px] font-bold text-white tracking-[0.18em] uppercase font-sans">
               Integrated Infrastructure
             </span>

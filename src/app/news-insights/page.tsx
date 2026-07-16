@@ -553,27 +553,31 @@ export default function NewsInsightsPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-blue-500/[0.02] blur-[100px] pointer-events-none" />
 
           {/* Form Content */}
-          <div className="relative z-10 max-w-[580px] mx-auto space-y-8">
-            <div className="flex justify-center mb-2">
-              <div className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center bg-white/[0.02]">
-                <Mail className="w-6 h-6 text-[#3daeff] animate-[pulse_2s_infinite]" />
-              </div>
+          <div className="relative z-10 max-w-[580px] mx-auto flex flex-col items-center gap-6 text-center">
+            
+            {/* Icon */}
+            <div className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center bg-white/[0.02] flex-shrink-0">
+              <Mail className="w-6 h-6 text-[#3daeff] animate-[pulse_2s_infinite]" />
             </div>
 
-            <div className="space-y-3">
-              <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
-                04 FEATURED NEWSLETTER SYNC
-              </span>
-              <h2 className="text-3xl md:text-[52px] font-black uppercase text-white tracking-tight leading-none">
-                Subscribe to USDC insights
-              </h2>
-              <p className="text-sm text-white/50 max-w-3xl mx-auto leading-relaxed">
-                Receive modular server updates, clean energy grid analytics, and computing infrastructure breakthroughs directly to your terminal.
-              </p>
-            </div>
+            {/* Category Subheading */}
+            <span className="text-[10px] font-sans font-extrabold tracking-[0.22em] text-[#3daeff] uppercase">
+              04 FEATURED NEWSLETTER SYNC
+            </span>
 
+            {/* Big Heading */}
+            <h2 className="text-3xl md:text-[52px] font-black uppercase text-white tracking-tight leading-none">
+              Subscribe to USDC insights
+            </h2>
+
+            {/* Description Paragraph */}
+            <p className="text-sm text-white/50 max-w-3xl mx-auto leading-relaxed">
+              Receive modular server updates, clean energy grid analytics and computing infrastructure breakthroughs directly to your terminal.
+            </p>
+
+            {/* Form or Success State */}
             {success ? (
-              <div className="p-6 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 text-emerald-400 flex flex-col items-center gap-3 max-w-md mx-auto animate-[fadeIn_0.5s_ease-out]">
+              <div className="p-6 rounded-2xl border border-emerald-500/20 bg-emerald-950/20 text-emerald-400 flex flex-col items-center gap-3 w-full max-w-md mx-auto animate-[fadeIn_0.5s_ease-out]">
                 <CheckCircle2 className="w-8 h-8 text-emerald-400 animate-[bounce_1.5s_infinite]" />
                 <div className="text-center">
                   <h4 className="font-bold text-sm uppercase tracking-wider">Sync Successful</h4>
@@ -581,7 +585,7 @@ export default function NewsInsightsPage() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="space-y-4 max-w-md mx-auto">
+              <form onSubmit={handleSubscribe} className="space-y-4 w-full max-w-md mx-auto">
                 <div className="grid grid-cols-1 gap-3">
 
                   {/* Name field */}

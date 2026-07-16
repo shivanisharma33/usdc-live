@@ -88,7 +88,7 @@ export const jobs: JobPosting[] = [
     qualifications: [
       "5+ years of experience operating and maintaining industrial or data center cooling systems.",
       "Hands-on experience with major chiller manufacturers (e.g., Trane, Carrier, York, Daikin).",
-      "Strong understanding of hydronic systems, closed-loop cooling, and redundant mechanical design.",
+      "Strong understanding of hydronic systems, closed-loop cooling and redundant mechanical design.",
       "Ability to read P&IDs, mechanical drawings, and electrical schematics.",
       "Experience in mission-critical or Tier III / Tier IV environments preferred.",
     ],
@@ -162,7 +162,7 @@ export const jobs: JobPosting[] = [
     qualifications: [
       "5+ years of experience operating and maintaining industrial or data center cooling systems.",
       "Hands-on experience with major chiller manufacturers (e.g., Trane, Carrier, York, Daikin).",
-      "Strong understanding of hydronic systems, closed-loop cooling, and redundant mechanical design.",
+      "Strong understanding of hydronic systems, closed-loop cooling and redundant mechanical design.",
       "Ability to read P&IDs, mechanical drawings, and electrical schematics.",
       "Experience in mission-critical or Tier III / Tier IV environments preferred.",
     ],

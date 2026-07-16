@@ -308,7 +308,7 @@ export default function GlobalNetworkPage() {
               </h3>
 
               <p className="text-white/55 text-[13px] md:text-sm leading-relaxed font-medium mb-6 relative z-10">
-                Network, power, and compute are observed and controlled as one — customers get a single contract, single NOC, single point of accountability.
+                Network, power and compute are observed and controlled as one — customers get a single contract, single NOC, single point of accountability.
               </p>
 
               <ul className="space-y-3 mb-7 relative z-10 w-full">
@@ -414,7 +414,7 @@ export default function GlobalNetworkPage() {
               <div className="text-[#3daeff] text-[10px] font-semibold uppercase tracking-[0.2em] mb-4">Operations</div>
               <h3 className="text-white text-xl md:text-2xl font-bold uppercase mb-6 tracking-tight">Single Control Plane</h3>
               <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">
-                Network, power, and compute are observed and controlled as one — customers get a single contract and a single point of accountability.
+                Network, power and compute are observed and controlled as one — customers get a single contract and a single point of accountability.
               </p>
               <ul className="space-y-4">
                 {[

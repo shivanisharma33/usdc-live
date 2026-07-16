@@ -8,7 +8,7 @@ export default function CoreValuesSection() {
     {
       id: 1,
       title: "POWER FIRST",
-      description: "We own and operate the energy stack—including generation, substations, and high-density facilities—to ensure customers do not have to wait on the grid.",
+      description: "We own and operate the energy stack, including generation, substations and high-density facilities, to ensure customers do not have to wait on the grid.",
       icon: Zap,
     },
     {
@@ -26,7 +26,7 @@ export default function CoreValuesSection() {
     {
       id: 4,
       title: "ENGINEERED FOR SUPERINTELLIGENCE",
-      description: "We utilize liquid-cooled racks, 400 Gb/s fabric, and modular factory builds designed specifically for the next generation of frontier AI models.",
+      description: "We utilize liquid-cooled racks, 400 Gb/s fabric and modular factory builds designed specifically for the next generation of frontier AI models.",
       icon: Cpu,
     },
     {

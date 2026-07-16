@@ -16,7 +16,7 @@ export default function AboutContent() {
     {
       icon: <Cpu className="w-5 h-5 text-[#3daeff]" />,
       title: "Enterprise AI Compute",
-      description: "Purpose-built data environments optimized for dense GPU deployment, high-throughput fabrics, liquid-to-air heat rejection systems, and ultra-low PUE operations.",
+      description: "Purpose-built data environments optimized for dense GPU deployment, high-throughput fabrics, liquid-to-air heat rejection systems and ultra-low PUE operations.",
       stat: "NVIDIA Blackwell Ready",
       glowColor: "rgba(16, 185, 129, 0.15)"
     },
@@ -33,7 +33,7 @@ export default function AboutContent() {
     {
       icon: <Shield className="w-6 h-6 text-white" />,
       title: "Uncompromising Reliability",
-      desc: "Designed to meet Tier III standards, our architectures ensure high availability, redundancy, and operational security for critical enterprise operations."
+      desc: "Designed to meet Tier III standards, our architectures ensure high availability, redundancy and operational security for critical enterprise operations."
     },
     {
       icon: <Globe className="w-6 h-6 text-white" />,
@@ -43,7 +43,7 @@ export default function AboutContent() {
     {
       icon: <Users className="w-6 h-6 text-white" />,
       title: "Expert Leadership",
-      desc: "Backed by leaders with deep-domain background in hardware engineering, electrical utility design, grid architecture, and server management."
+      desc: "Backed by leaders with deep-domain background in hardware engineering, electrical utility design, grid architecture and server management."
     }
   ];
 
@@ -70,7 +70,7 @@ export default function AboutContent() {
               USDC was founded with a singular conviction: the explosive expansion of artificial intelligence should not come at the expense of global energy stability. We solve this bottleneck by engineering hyper-efficient infrastructure that couples directly with primary energy sources.
             </p>
             <p className="text-white/60 text-[14px] md:text-[15px] leading-relaxed mb-8 font-normal">
-              By co-locating compute facilities with green power plants and stranded energy, we bypass grid transmission bottlenecks, dramatically reduce overhead, and deliver scalable AI clusters in fraction of the standard development timelines.
+              By co-locating compute facilities with green power plants and stranded energy, we bypass grid transmission bottlenecks, dramatically reduce overhead and deliver scalable AI clusters in fraction of the standard development timelines.
             </p>
 
             {/* Quick Metrics Badge */}
@@ -158,8 +158,8 @@ export default function AboutContent() {
             <h2 className="text-3xl sm:text-4xl md:text-[52px] font-black tracking-tight text-white mb-6">
               Engineering the Backbone of Intelligence
             </h2>
-            <p className="text-white/50 text-[14px] leading-relaxed">
-              We leverage vertical integration to solve the hard engineering challenges of data center cooling, power generation, and compute density.
+            <p className="text-white/55 text-[14px] leading-relaxed">
+              We leverage vertical integration to solve the hard engineering challenges of data center cooling, power generation and compute density.
             </p>
           </div>
 

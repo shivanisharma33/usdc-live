@@ -85,7 +85,7 @@ export default function PartnerSection() {
                       PERFORMANCE WITHOUT COMPROMISE
                     </span>
                     <span className="text-[12px] text-white/50 leading-relaxed font-normal">
-                      High-density power, advanced cooling, and elite connectivity <br /> for AI at scale.
+                      High-density power, advanced cooling and elite connectivity <br /> for AI at scale.
                     </span>
                   </div>
                 </div>

@@ -91,9 +91,9 @@ export default function DataCenterArchitecture() {
 
         {/* Subtext */}
         <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-[1.8] max-w-[720px] mb-12 font-sans mx-auto">
-          A multi-layer infrastructure architecture routes power, cooling, and compute
+          A multi-layer infrastructure architecture routes power, cooling and compute
           resources through dedicated processing layers, ensuring maximum efficiency,
-          thermal stability, and AI performance.
+          thermal stability and AI performance.
         </p>
 
         {/* Columns Grid */}

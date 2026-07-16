@@ -61,7 +61,7 @@ export default function AboutStory() {
           {/* Subtitle Description */}
           <p className="text-sm md:text-base text-white/50 max-w-[700px] leading-relaxed font-normal font-sans">
             USDC identifies and transforms underutilized energy assets into enterprise-grade AI infrastructure.
-            By combining power, cooling, networking, and compute, we accelerate deployment timelines from years to months.
+            By combining power, cooling, networking and compute, we accelerate deployment timelines from years to months.
           </p>
         </div>
 

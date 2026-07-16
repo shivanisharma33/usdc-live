@@ -68,7 +68,7 @@ export default function BuiltForAiSection() {
 
           {/* Excerpt */}
           <p className="text-[14px] md:text-[15px] text-white/50 font-normal leading-[1.8] font-sans">
-            Every USDC facility is designed around AI workloads from day one—integrating
+            Every USDC facility is designed around AI workloads from day one, integrating
             power, cooling, networking and compute into one purpose-built infrastructure platform.
           </p>
         </div>

@@ -26,7 +26,7 @@ export default function EnergyEconomicsAdvantage() {
 
         {/* Center-Aligned Description */}
         <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] max-w-[560px] mb-16 font-sans mx-auto">
-          USDC transforms powered assets into AI-ready infrastructure by integrating energy, facilities, cooling, and compute into a scalable deployment platform.
+          USDC transforms powered assets into AI-ready infrastructure by integrating energy, facilities, cooling and compute into a scalable deployment platform.
         </p>
 
         {/* Two-Column Grid */}

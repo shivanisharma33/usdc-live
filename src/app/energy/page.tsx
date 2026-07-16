@@ -149,7 +149,7 @@ export default function EnergyPage() {
 
               {/* Description */}
               <p className="text-[14px] md:text-[15px] text-white/50 leading-[1.8] font-sans mb-10 max-w-[620px]">
-                Our energy infrastructure provides robust and concurrently maintainable capabilities, engineered specifically for high-capacity GPU nodes and long-term scaling.
+                Our energy infrastructure provides robust and concurrently maintainable capabilities, engineered specifically for high-capacity GPU nodes and <span className="whitespace-nowrap">long-term</span> scaling.
               </p>
 
               {/* Feature Grid */}
