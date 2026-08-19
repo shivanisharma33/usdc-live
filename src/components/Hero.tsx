@@ -18,9 +18,7 @@ export default function Hero() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
-          <source src="/usdc%20%7B%7D%7B%7D.mov" type="video/quicktime" />
-          <source src="/usdc%20%7B%7D%7B%7D.mov" type="video/mp4" />
-          <source src="/0703(1).mp4" type="video/mp4" />
+          <source src="/USDC%20changes.mp4" type="video/mp4" />
         </video>
         {/* Black gradient fade — top & bottom (increased contrast in the middle for maximum text & button readability) */}
         <div className="absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-[#04070f]/85 via-[#04070f]/50 to-transparent" />
