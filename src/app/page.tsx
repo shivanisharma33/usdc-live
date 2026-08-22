@@ -7,6 +7,7 @@ import CookieBanner from "@/components/CookieBanner";
 
 // Lazy load below-the-fold components
 const SpeedScaleSovereignty = dynamic(() => import("@/components/SpeedScaleSovereignty"));
+const VideoShowcase = dynamic(() => import("@/components/VideoShowcase"));
 const InfrastructureStack = dynamic(() => import("@/components/InfrastructureStack"));
 const AIDemand = dynamic(() => import("@/components/AIDemand"));
 const AIInfrastructureExcellence = dynamic(() => import("@/components/AIInfrastructureExcellence"));
@@ -37,6 +38,9 @@ export default function Home() {
 
       {/* Render the Speed, Scale, Sovereignty section */}
       <SpeedScaleSovereignty />
+
+      {/* Render the Video Showcase section */}
+      <VideoShowcase />
 
       {/* Render the Infrastructure Stack section */}
       <InfrastructureStack />

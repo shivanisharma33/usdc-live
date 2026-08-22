@@ -266,7 +266,7 @@ export default function NvidiaRoadmap() {
     },
     {
       num: "02",
-      title: "ORACLE BLACKWELL",
+      title: "GRACE BLACKWELL",
       desc: "Purpose-built infrastructure supporting enterprise-scale AI deployment.",
       img: "/Oracle Blackwell.avif",
       features: [
@@ -291,7 +291,7 @@ export default function NvidiaRoadmap() {
   ];
 
   const stats = [
-    { value: "120KW", label: "PER RACK" },
+    { value: "200KW+", label: "PER RACK" },
     { value: "DLC", label: "LIQUID COOLING" },
     { value: "100%", label: "AI READY" },
     { value: "4 Weeks", label: "DEPLOYMENT" },

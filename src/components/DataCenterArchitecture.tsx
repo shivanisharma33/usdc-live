@@ -98,7 +98,7 @@ export default function DataCenterArchitecture() {
 
         {/* Columns Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full mt-4 text-left">
-          
+
           {/* ══════ LEFT COLUMN: Info Stack ══════ */}
           <div className="lg:col-span-6 flex flex-col w-full max-w-[500px] mx-auto lg:mx-0">
             {items.map((item, idx) => {
@@ -108,17 +108,15 @@ export default function DataCenterArchitecture() {
                   key={idx}
                   onMouseEnter={() => setActiveNode(idx)}
                   onMouseLeave={() => setActiveNode(null)}
-                  className={`flex items-start gap-5 py-5 border-b border-white/[0.05] transition-all duration-300 cursor-pointer ${
-                    isHovered ? "border-t-transparent border-b-[#3daeff]/40" : ""
-                  }`}
+                  className={`flex items-start gap-5 py-5 border-b border-white/[0.05] transition-all duration-300 cursor-pointer ${isHovered ? "border-t-transparent border-b-[#3daeff]/40" : ""
+                    }`}
                 >
                   {/* Icon bubble */}
                   <div
-                    className={`flex items-center justify-center w-11 h-11 rounded-full border flex-shrink-0 transition-all duration-300 ${
-                      isHovered
+                    className={`flex items-center justify-center w-11 h-11 rounded-full border flex-shrink-0 transition-all duration-300 ${isHovered
                         ? "border-[#3daeff] bg-[#3daeff]/10 text-white shadow-[0_0_15px_rgba(61,174,255,0.25)]"
                         : "border-white/10 bg-white/[0.02] text-white/60"
-                    }`}
+                      }`}
                   >
                     {item.icon}
                   </div>
@@ -126,16 +124,14 @@ export default function DataCenterArchitecture() {
                   <div className="flex-1 flex flex-col">
                     <div className="flex items-center justify-between">
                       <span
-                        className={`text-xs font-black tracking-wider uppercase transition-colors duration-300 ${
-                          isHovered ? "text-[#3daeff]" : "text-white"
-                        }`}
+                        className={`text-xs font-black tracking-wider uppercase transition-colors duration-300 ${isHovered ? "text-[#3daeff]" : "text-white"
+                          }`}
                       >
                         {item.title}
                       </span>
                       <ArrowUpRight
-                        className={`w-3.5 h-3.5 transition-all duration-300 ${
-                          isHovered ? "text-[#3daeff] translate-x-0.5 -translate-y-0.5" : "text-white/40"
-                        }`}
+                        className={`w-3.5 h-3.5 transition-all duration-300 ${isHovered ? "text-[#3daeff] translate-x-0.5 -translate-y-0.5" : "text-white/40"
+                          }`}
                       />
                     </div>
                     <span className="text-[12px] text-white/50 leading-relaxed font-normal mt-1.5">
@@ -150,7 +146,7 @@ export default function DataCenterArchitecture() {
           {/* ══════ RIGHT COLUMN: Animated 3D concentric model ══════ */}
           <div className="lg:col-span-6 w-full flex justify-center lg:justify-end pt-10 lg:pt-0">
             <div className="relative w-full aspect-[760/600] max-w-[620px] bg-transparent">
-              
+
               {/* SVG concentric orbits & lines */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
@@ -159,7 +155,7 @@ export default function DataCenterArchitecture() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {/* ── Orbits & concentric rings (centered at 380, 300) ── */}
-                
+
                 {/* Dotted Inner Ring */}
                 <circle
                   cx="380"
@@ -204,7 +200,7 @@ export default function DataCenterArchitecture() {
                 />
 
                 {/* ── Connection Lines (radial paths with traveling pulses) ── */}
-                
+
                 {/* Top Line */}
                 <line
                   x1="380"
@@ -295,13 +291,13 @@ export default function DataCenterArchitecture() {
               </svg>
 
               {/* ── CENTRAL HUB (Positioned absolutely over SVG center) ── */}
-              <div 
+              <div
                 className="absolute w-[140px] h-[140px] rounded-full border border-white/20 bg-[#03060d] flex flex-col items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.08)] z-20"
                 style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
               >
                 {/* 3D Wireframe Rotating Cube */}
                 <div className="w-11 h-11 relative flex items-center justify-center mb-1.5" style={{ perspective: "400px" }}>
-                  <div 
+                  <div
                     className="w-7 h-7 relative transform-style-3d animate-rotate-cube"
                     style={{ transformStyle: "preserve-3d" }}
                   >
@@ -330,12 +326,11 @@ export default function DataCenterArchitecture() {
               {/* ── FOUR OUTERSATELLITE NODES (Positioned absolutely over SVG nodes) ── */}
 
               {/* Top Node (Power Path) */}
-              <div 
-                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
-                  activeNode === 0 
-                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
+              <div
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${activeNode === 0
+                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110"
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
-                }`}
+                  }`}
                 style={{ left: "50%", top: "20%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(0)}
                 onMouseLeave={() => setActiveNode(null)}
@@ -344,12 +339,11 @@ export default function DataCenterArchitecture() {
               </div>
 
               {/* Right Node (Monitoring) */}
-              <div 
-                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
-                  activeNode === 1 
-                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
+              <div
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${activeNode === 1
+                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110"
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
-                }`}
+                  }`}
                 style={{ left: "73.68%", top: "50%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(1)}
                 onMouseLeave={() => setActiveNode(null)}
@@ -358,12 +352,11 @@ export default function DataCenterArchitecture() {
               </div>
 
               {/* Bottom Node (Compute Layer) */}
-              <div 
-                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
-                  activeNode === 2 
-                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
+              <div
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${activeNode === 2
+                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110"
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
-                }`}
+                  }`}
                 style={{ left: "50%", top: "80%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(2)}
                 onMouseLeave={() => setActiveNode(null)}
@@ -372,12 +365,11 @@ export default function DataCenterArchitecture() {
               </div>
 
               {/* Left Node (High Density) */}
-              <div 
-                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${
-                  activeNode === 3 
-                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110" 
+              <div
+                className={`absolute w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 z-20 ${activeNode === 3
+                    ? "border-white bg-white/10 text-white shadow-[0_0_15px_rgba(255,255,255,0.2)] scale-110"
                     : "border-white/10 bg-[#03060d] text-white/70 hover:border-white/20 hover:scale-105"
-                }`}
+                  }`}
                 style={{ left: "26.32%", top: "50%", transform: "translate(-50%, -50%)" }}
                 onMouseEnter={() => setActiveNode(3)}
                 onMouseLeave={() => setActiveNode(null)}
