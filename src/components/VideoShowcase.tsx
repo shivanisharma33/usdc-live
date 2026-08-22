@@ -39,21 +39,23 @@ export default function VideoShowcase() {
           <div className="flex flex-col items-start text-left">
             {/* Category / Sub-badge */}
             <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.25em] text-[#3daeff] uppercase mb-3">
-              MODULAR COMPUTE PLATFORM
+              COLUMBIANA, ALABAMA CAMPUS
             </span>
 
-            {/* Unique Custom Heading */}
-            <h2 className="text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-extrabold text-white leading-[1.12] tracking-tight uppercase mb-4">
-              Architected for <br />
-              <span className="text-[#3daeff]">Grid-to-GPU Performance</span>
+            {/* Title from Michael Clark Sir */}
+            <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[30px] font-extrabold text-white leading-[1.25] tracking-tight uppercase mb-4">
+              Inside the Company’s AI Infrastructure Campus in <span className="text-[#3daeff]">Columbiana, Alabama</span>
             </h2>
 
             {/* Blue Accent Underline Line */}
             <div className="w-16 h-[3px] bg-[#3daeff] rounded-full mb-6 shadow-[0_0_10px_rgba(61,174,255,0.6)]" />
 
-            {/* Accurate Description Copy matching the 3D video */}
-            <p className="text-[#a0aec0] text-[13px] sm:text-[14px] md:text-[15px] leading-[1.75] font-normal mb-8 max-w-xl">
-              Watch USDC&apos;s proprietary ARMS200 modular unit in motion. Purpose-built for high-density NVIDIA Blackwell GPU clusters, our self-contained data center modules integrate on-site power substations, direct-to-chip liquid cooling manifolds, and Tier III fault tolerance for rapid 4-week deployment.
+            {/* Subheading + Body Copy from Michael Clark Sir */}
+            <p className="text-white/90 text-[14px] sm:text-[15px] font-semibold leading-relaxed mb-3">
+              Purpose-built for the next generation of high-performance computing and artificial intelligence.
+            </p>
+            <p className="text-[#a0aec0] text-[13px] sm:text-[14px] leading-[1.75] font-normal mb-8 max-w-xl">
+              The deployment features DigiPower X’s modular ARMS 200 infrastructure, engineered to support NVIDIA B300 GPUs with advanced direct-to-chip liquid cooling, high-density power delivery, resilient infrastructure and modular scalability.
             </p>
 
             {/* Button Group */}
@@ -62,7 +64,7 @@ export default function VideoShowcase() {
                 href="/data-center"
                 className="px-6 sm:px-7 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.12em] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
-                Explore ARMS200
+                Explore ARMS 200
               </Link>
               <Link
                 href="/contact"
@@ -113,7 +115,7 @@ export default function VideoShowcase() {
               {/* Play Badge (Top Right) */}
               <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-1.5 pointer-events-none">
                 <span className="w-2 h-2 rounded-full bg-[#3daeff] animate-ping" />
-                <span className="text-[10px] font-bold tracking-widest text-white/80 uppercase">ARMS200 3D Walkthrough</span>
+                <span className="text-[10px] font-bold tracking-widest text-white/80 uppercase">Columbiana 3D Deployment</span>
               </div>
             </div>
           </div>
