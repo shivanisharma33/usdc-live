@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Play, Pause, Volume2, VolumeX, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 export default function VideoShowcase() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -54,26 +53,9 @@ export default function VideoShowcase() {
             <p className="text-white/90 text-[13.5px] sm:text-[14.5px] font-semibold leading-relaxed mb-3">
               Purpose-built for the next generation of high-performance computing and artificial intelligence.
             </p>
-            <p className="text-[#a0aec0] text-[13px] sm:text-[13.5px] leading-[1.75] font-normal mb-7 max-w-xl">
+            <p className="text-[#a0aec0] text-[13px] sm:text-[13.5px] leading-[1.75] font-normal max-w-xl">
               The deployment features DigiPower X’s modular ARMS 200 infrastructure, engineered to support NVIDIA B300 GPUs with advanced direct-to-chip liquid cooling, high-density power delivery, resilient infrastructure and modular scalability.
             </p>
-
-            {/* Button Group */}
-            <div className="inline-flex flex-col sm:flex-row items-stretch sm:items-center rounded-xl sm:rounded-2xl overflow-hidden border border-[#3daeff]/30 bg-[#040814]/80 shadow-[0_8px_25px_rgba(0,0,0,0.4)]">
-              <Link
-                href="/data-center"
-                className="px-6 sm:px-7 py-3.5 bg-gradient-to-r from-[#3daeff] to-[#0082f3] hover:from-[#58c4ff] hover:to-[#0091ff] text-white font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.12em] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                Explore ARMS 200
-              </Link>
-              <Link
-                href="/contact"
-                className="px-6 sm:px-7 py-3.5 bg-white/[0.04] hover:bg-white/[0.08] text-white/90 hover:text-white font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.12em] transition-all duration-300 flex items-center justify-center gap-2 border-t sm:border-t-0 sm:border-l border-white/10 cursor-pointer"
-              >
-                View Specifications
-                <ArrowUpRight className="w-4 h-4 text-[#3daeff]" />
-              </Link>
-            </div>
           </div>
 
           {/* ── Right Column: Video Container ── */}

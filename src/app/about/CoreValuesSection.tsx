@@ -38,7 +38,7 @@ export default function CoreValuesSection() {
     {
       id: 6,
       title: "ACCELERATED DEPLOYMENT",
-      description: "We compress development timelines from years to less than 12 months, converting underutilized energy assets into Tier III GPU capacity.",
+      description: "We compress development timelines from years to less than 4 months, converting underutilized energy assets into Tier III GPU capacity.",
       icon: Rocket,
     },
   ];

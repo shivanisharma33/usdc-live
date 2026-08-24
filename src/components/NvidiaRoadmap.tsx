@@ -329,20 +329,19 @@ export default function NvidiaRoadmap() {
 
           {/* Heading */}
           <h2
-            className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[52px] font-extrabold tracking-[-0.02em] leading-[1.02] mb-6"
+            className="text-[36px] sm:text-[48px] md:text-[52px] lg:text-[52px] font-extrabold tracking-[-0.02em] leading-[1.05] mb-6"
             style={fadeUp(80)}
           >
-            <span className="text-white block">BUILT FOR</span>
-            <span className="text-white block">NVIDIA&apos;S AI ROADMAP</span>
+            <span className="text-white block">CHIP-AGNOSTIC.</span>
+            <span className="text-white block">ARCHITECTURE-READY.</span>
           </h2>
 
           {/* Description */}
           <p
-            className="text-[13px] md:text-[14px] text-white/40 leading-[1.8] max-w-[420px] font-normal"
+            className="text-[13px] md:text-[14.5px] text-white/50 leading-[1.8] max-w-[580px] font-normal"
             style={fadeUp(160)}
           >
-            The ARMS200 is engineered to support NVIDIA&apos;s highest-density
-            AI compute platforms – today and into the next generation.
+            ARMS 200 provides a high-density infrastructure foundation designed to adapt to evolving accelerator architectures, enabling flexible deployment as compute platforms evolve.
           </p>
         </div>
 

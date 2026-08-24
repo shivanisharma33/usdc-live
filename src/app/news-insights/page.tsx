@@ -50,7 +50,7 @@ const articlesData: Article[] = [
     date: "June 18, 2026",
     featured: true,
     url: "https://blogs.microsoft.com/on-the-issues/2025/01/03/the-golden-opportunity-for-american-ai/",
-    content: "USDC has officially finalized the grid-interconnection agreements for its newest AI-dedicated datacenter campus. This facility is engineered specifically to house ultra-high-density Blackwell compute clusters. By integrating dedicated 115kV high-voltage substations directly on-site, the deployment accelerates the infrastructure timeline from the industry-average 3 years down to just 12 months. Powering these systems requires extreme heat rejection. Our proprietary liquid-to-air cooling loops run directly to the rack level, maintaining thermal equilibrium even during massive parallel training runs. As demand for compute grows exponentially, scaling with modular containment structures will remain the cornerstone of USDC's deployment strategies."
+    content: "USDC has officially finalized the grid-interconnection agreements for its newest AI-dedicated datacenter campus. This facility is engineered specifically to house ultra-high-density Blackwell compute clusters. By integrating dedicated 115kV high-voltage substations directly on-site, the deployment accelerates the infrastructure timeline from the industry-average 3 years down to just 4 months. Powering these systems requires extreme heat rejection. Our proprietary liquid-to-air cooling loops run directly to the rack level, maintaining thermal equilibrium even during massive parallel training runs. As demand for compute grows exponentially, scaling with modular containment structures will remain the cornerstone of USDC's deployment strategies."
   },
   {
     id: "liquid-cooling-air-death",

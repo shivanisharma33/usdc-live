@@ -52,7 +52,7 @@ export default function WhatDrivesUs() {
             </div>
             <p className="text-[13px] text-white/70 leading-relaxed font-normal">
               Traditional builds take years. The USDC team converts existing energy assets into
-              Tier III HPC capacity in under 12 months operators who move at the pace
+              Tier III HPC capacity in under 4 months for operators who move at the pace
               AI demands.
             </p>
           </div>

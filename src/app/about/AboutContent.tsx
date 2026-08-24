@@ -24,7 +24,7 @@ export default function AboutContent() {
       icon: <Server className="w-5 h-5 text-[#3daeff]" />,
       title: "Accelerated Deployment",
       description: "Proprietary modular construction workflows cut facility setup timelines from years to less than 4 months, bringing critical compute power to market ahead of scale demands.",
-      stat: "≤4 Mo. Construction",
+      stat: "4 Mo. Construction",
       glowColor: "rgba(245, 158, 11, 0.15)"
     }
   ];
