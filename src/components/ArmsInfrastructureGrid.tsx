@@ -694,7 +694,7 @@ export default function ArmsInfrastructureGrid() {
       title: "GPU COMPUTE PLATFORM",
       image: "/ac665e79-d1c6-40c8-994b-f62eea6394a7.webp",
       desc: "NeoCloudz is the compute layer on top of the DigiPowerX infrastructure stack providing bare-metal GPU access, 400G InfiniBand fabric, and enterprise-grade telemetry for AI training, inference, and HPC workloads. Interconnects are optimized with RDMA support to allow seamless scaling of multi-node model execution.",
-      specs: ["NVIDIA B300 / B200 / H200", "400G Fabric", "Bare-Metal RDMA"],
+      specs: ["NVIDIA H100 / H200", "400G Fabric", "Bare-Metal RDMA"],
     },
   ];
 

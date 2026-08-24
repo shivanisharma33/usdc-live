@@ -11,6 +11,8 @@ import {
   Gauge,
   RotateCcw,
   Layers,
+  DollarSign,
+  TrendingUp,
 } from "lucide-react";
 
 /* Load the Three.js canvas only on the client — no SSR */
@@ -61,6 +63,12 @@ const specs = [
     desc: "Per module critical IT power",
   },
   {
+    icon: <DollarSign className="w-5 h-5" />,
+    label: "Power Cost",
+    value: "$0.04 / kWh",
+    desc: "Low-cost energy economics",
+  },
+  {
     icon: <Wind className="w-5 h-5" />,
     label: "Cooling System",
     value: "Rear-Door",
@@ -69,7 +77,7 @@ const specs = [
   {
     icon: <Server className="w-5 h-5" />,
     label: "Rack Density",
-    value: "200 kW+",
+    value: "60 to 100 kW",
     desc: "Per rack power support",
   },
   {
@@ -81,8 +89,14 @@ const specs = [
   {
     icon: <Gauge className="w-5 h-5" />,
     label: "PUE Rating",
-    value: "< 1.25",
+    value: ">1.25",
     desc: "Industry-leading efficiency",
+  },
+  {
+    icon: <TrendingUp className="w-5 h-5" />,
+    label: "Scalability",
+    value: "1-50 MW+",
+    desc: "Modular expansion path",
   },
   {
     icon: <RotateCcw className="w-5 h-5" />,
@@ -174,7 +188,7 @@ export default function ArmsModelShowcase() {
             className="lg:col-span-3 flex flex-col gap-4"
             style={enter(200)}
           >
-            {specs.slice(0, 3).map((sp, i) => (
+            {specs.slice(0, 4).map((sp, i) => (
               <SpecCard key={i} {...sp} />
             ))}
           </div>
@@ -222,7 +236,7 @@ export default function ArmsModelShowcase() {
             className="lg:col-span-3 flex flex-col gap-4"
             style={enter(400)}
           >
-            {specs.slice(3, 6).map((sp, i) => (
+            {specs.slice(4, 8).map((sp, i) => (
               <SpecCard key={i} {...sp} />
             ))}
           </div>

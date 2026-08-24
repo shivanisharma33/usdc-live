@@ -28,7 +28,7 @@ export default function WhyUsdcSection() {
       title: "LOWER OPEX",
       titleLine1: "LOWER",
       titleLine2: "OPEX",
-      desc: "~$0.04/kWh low-cost power visibility supports better long-term AI infrastructure economics.",
+      desc: "~$0.05/kWh low-cost power visibility supports better long-term AI infrastructure economics.",
       Icon: TrendingDown,
     },
     {
