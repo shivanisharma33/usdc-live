@@ -122,7 +122,7 @@ export default function DataCenterPage() {
 
               {/* Metric 1 */}
               <div className="flex-1 flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">200KW+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">120KW+</div>
                 <div className="text-[8px] sm:text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RACK DENSITY</div>
               </div>
 
