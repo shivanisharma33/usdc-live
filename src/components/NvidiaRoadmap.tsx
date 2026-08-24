@@ -294,7 +294,7 @@ export default function NvidiaRoadmap() {
     { value: "200KW+", label: "PER RACK" },
     { value: "DLC", label: "LIQUID COOLING" },
     { value: "100%", label: "AI READY" },
-    { value: "4 Weeks", label: "DEPLOYMENT" },
+    { value: "4 Months", label: "DEPLOYMENT" },
   ];
 
   return (

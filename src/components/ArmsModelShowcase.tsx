@@ -69,7 +69,7 @@ const specs = [
   {
     icon: <Server className="w-5 h-5" />,
     label: "Rack Density",
-    value: "60–100 kW",
+    value: "200 kW+",
     desc: "Per rack power support",
   },
   {
@@ -87,14 +87,14 @@ const specs = [
   {
     icon: <RotateCcw className="w-5 h-5" />,
     label: "Deployment",
-    value: "90 Days",
+    value: "4 Months",
     desc: "From order to operational",
   },
 ];
 
 const stats = [
   { end: 1.8, suffix: " MW", label: "Per Module Power", decimals: 1 },
-  { end: 90, suffix: " Days", label: "Rapid Deployment" },
+  { end: 4, suffix: " Months", label: "Rapid Deployment" },
   { end: 100, suffix: "%", label: "GPU Compatible" },
 ];
 

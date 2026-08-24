@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import {
   Mail,
-  Phone,
   MapPin,
   LifeBuoy,
   Briefcase,
@@ -12,7 +11,7 @@ import {
 import { useReveal } from "@/components/contact/useReveal";
 
 /* ═══════════════════════ Smart Contact Cards ═══════════════════════
-   Five large futuristic glass cards: Email, Phone, Headquarters,
+   Four large futuristic glass cards: Email, Headquarters,
    Support, Sales. Each card has a floating 3D-style icon, neon glow,
    animated hover elevation, a moving light-sweep and 3D pointer tilt.
    ═══════════════════════════════════════════════════════════════════ */
@@ -38,16 +37,6 @@ const CARDS: CardDef[] = [
     href: "mailto:hello@usdc.com",
     icon: <Mail className="w-7 h-7" strokeWidth={1.6} />,
     accent: "61,174,255",
-  },
-  {
-    key: "phone",
-    label: "Phone",
-    title: "Direct line",
-    value: "+1 (555) 123-4567",
-    sub: "Mon–Fri · 24/5 NOC",
-    href: "tel:+15551234567",
-    icon: <Phone className="w-7 h-7" strokeWidth={1.6} />,
-    accent: "88,196,255",
   },
   {
     key: "hq",
@@ -111,7 +100,7 @@ export default function SmartContactCards() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {CARDS.map((c, i) => (
             <SmartCard key={c.key} def={c} delay={i * 80} />
           ))}

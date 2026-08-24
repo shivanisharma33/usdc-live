@@ -21,7 +21,7 @@ export default function DataCenterPage() {
   const dcFeatures = [
     {
       title: "Direct-to-Chip Liquid Cooling",
-      desc: "Native liquid-cooling manifolds supporting blind-mate configurations and high coolant flow rates to maintain optimal temperatures for heavy GPU clusters.",
+      desc: "Native liquid-cooling manifolds supporting blind-mate configurations and high coolant flow rates to maintain optimal temperatures for NVIDIA Blackwell (B200/B300) and high-density GPU clusters.",
       Icon: Thermometer,
     },
     {
@@ -34,7 +34,7 @@ export default function DataCenterPage() {
       desc: (
         <>
           Standardized pod units manufactured off-site and commissioned on-site within <br />
-          4 to 8 weeks, ensuring rapid scale and capacity growth.
+          4 months, ensuring rapid scale and capacity growth.
         </>
       ),
       Icon: Server,
@@ -122,7 +122,7 @@ export default function DataCenterPage() {
 
               {/* Metric 1 */}
               <div className="flex-1 flex flex-col items-center">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">120KW+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1.5 font-sans tracking-tight">200KW+</div>
                 <div className="text-[8px] sm:text-[9px] font-black text-white/50 tracking-[0.18em] uppercase font-sans">RACK DENSITY</div>
               </div>
 

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 /* ═══════════════════════ Footer Component ═══════════════════════ */
 
@@ -93,11 +93,6 @@ export default function Footer() {
       label: "EMAIL US",
       value: "HELLO@USDC.COM",
       icon: <Mail className="w-3.5 h-3.5 text-[#3daeff]" strokeWidth={2.5} />,
-    },
-    {
-      label: "CALL US",
-      value: "(555) 123-4567",
-      icon: <Phone className="w-3.5 h-3.5 text-[#3daeff]" strokeWidth={2.5} />,
     },
     {
       label: "USDC HEADQUARTERS",

@@ -11,8 +11,8 @@ export default function FacilitySpecification() {
     },
     {
       layer: "COOLING",
-      direction: "Low-latency fabric with carrier-neutral interconnect access",
-      spec: "PUE TARGET <1.3",
+      direction: "Direct liquid-to-chip heat rejection and closed-loop cooling architecture",
+      spec: "PUE TARGET <1.25",
     },
     {
       layer: "NETWORK",

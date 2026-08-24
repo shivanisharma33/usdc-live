@@ -684,17 +684,17 @@ export default function ArmsInfrastructureGrid() {
       desc: (
         <>
           The company converts owned power assets into high-density, AI-ready data center capacity —
-          targeting Tier III classification, direct liquid cooling and 80kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.
+          targeting Tier III classification, direct liquid cooling and 200kW+ per-rack GPU density at the Alabama facility. Features custom closed-loop liquid-to-chip heat rejection configurations designed to sustain heavy Blackwell workloads.
         </>
       ),
-      specs: ["Tier III Design", "Direct Liquid", "80kW+ Density"],
+      specs: ["Tier III Design", "Direct Liquid", "200kW+ Density"],
     },
     {
       badge: "COMPUTE",
       title: "GPU COMPUTE PLATFORM",
       image: "/ac665e79-d1c6-40c8-994b-f62eea6394a7.webp",
       desc: "NeoCloudz is the compute layer on top of the DigiPowerX infrastructure stack providing bare-metal GPU access, 400G InfiniBand fabric, and enterprise-grade telemetry for AI training, inference, and HPC workloads. Interconnects are optimized with RDMA support to allow seamless scaling of multi-node model execution.",
-      specs: ["NVIDIA H100/H200", "400G Fabric", "Bare-Metal RDMA"],
+      specs: ["NVIDIA B300 / B200 / H200", "400G Fabric", "Bare-Metal RDMA"],
     },
   ];
 

@@ -32,7 +32,7 @@ export default function Arms200Platform() {
 
   const stats = [
     { value: "ARMS 200 PODS", label: "MODULE DENSITY" },
-    { value: "4–8 weeks", label: "TYPICAL DEPLOYMENT" },
+    { value: "4 Months", label: "TYPICAL DEPLOYMENT" },
     { value: ">30% Less Energy", label: "EFFICIENCY GAIN" },
   ];
 

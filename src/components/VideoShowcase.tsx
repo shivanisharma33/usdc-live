@@ -31,9 +31,9 @@ export default function VideoShowcase() {
       {/* ── Ambient Background Glows ── */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-blue-600/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
         {/* ── Main Outer Card Container (Reference Layout Structure) ── */}
-        <div className="w-full rounded-[24px] sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-12 lg:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.05)] grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="w-full rounded-[24px] sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.05)] grid grid-cols-1 lg:grid-cols-[0.85fr_1.35fr] gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-center">
           
           {/* ── Left Column: Text + Badges + Buttons ── */}
           <div className="flex flex-col items-start text-left">
@@ -43,18 +43,18 @@ export default function VideoShowcase() {
             </span>
 
             {/* Title from Michael Clark Sir */}
-            <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[30px] font-extrabold text-white leading-[1.25] tracking-tight uppercase mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-[25px] lg:text-[28px] font-extrabold text-white leading-[1.25] tracking-tight uppercase mb-4">
               Inside the Company’s AI Infrastructure Campus in <span className="text-[#3daeff]">Columbiana, Alabama</span>
             </h2>
 
             {/* Blue Accent Underline Line */}
-            <div className="w-16 h-[3px] bg-[#3daeff] rounded-full mb-6 shadow-[0_0_10px_rgba(61,174,255,0.6)]" />
+            <div className="w-16 h-[3px] bg-[#3daeff] rounded-full mb-5 shadow-[0_0_10px_rgba(61,174,255,0.6)]" />
 
             {/* Subheading + Body Copy from Michael Clark Sir */}
-            <p className="text-white/90 text-[14px] sm:text-[15px] font-semibold leading-relaxed mb-3">
+            <p className="text-white/90 text-[13.5px] sm:text-[14.5px] font-semibold leading-relaxed mb-3">
               Purpose-built for the next generation of high-performance computing and artificial intelligence.
             </p>
-            <p className="text-[#a0aec0] text-[13px] sm:text-[14px] leading-[1.75] font-normal mb-8 max-w-xl">
+            <p className="text-[#a0aec0] text-[13px] sm:text-[13.5px] leading-[1.75] font-normal mb-7 max-w-xl">
               The deployment features DigiPower X’s modular ARMS 200 infrastructure, engineered to support NVIDIA B300 GPUs with advanced direct-to-chip liquid cooling, high-density power delivery, resilient infrastructure and modular scalability.
             </p>
 
@@ -78,7 +78,7 @@ export default function VideoShowcase() {
 
           {/* ── Right Column: Video Container ── */}
           <div className="relative w-full">
-            <div className="relative w-full aspect-[16/10] sm:aspect-video rounded-[20px] sm:rounded-[24px] overflow-hidden border-2 border-[#3daeff] shadow-[0_0_40px_rgba(61,174,255,0.25),0_15px_40px_rgba(0,0,0,0.8)] group bg-black">
+            <div className="relative w-full aspect-[16/10] sm:aspect-video rounded-[20px] sm:rounded-[24px] overflow-hidden border-2 border-[#3daeff] shadow-[0_0_45px_rgba(61,174,255,0.28),0_15px_40px_rgba(0,0,0,0.85)] group bg-black">
               
               {/* Main Video Element */}
               <video
