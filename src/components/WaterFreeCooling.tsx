@@ -33,154 +33,134 @@ export default function WaterFreeCooling() {
 
             {/* Main Heading */}
             <h2 className="text-[34px] sm:text-[44px] md:text-[48px] lg:text-[52px] leading-[1.06] font-extrabold tracking-[-0.02em] text-white mb-6">
-              High-Density Compute.{" "}
+              Water-Free Cooling for{" "}
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#3daeff]">
-                Zero Ongoing Water Consumption.
+                High-Density Compute.
               </span>
             </h2>
 
             {/* Paragraphs */}
             <p className="text-[#a0aec0] text-[14px] sm:text-[15px] leading-[1.75] mb-4 max-w-[520px] font-normal">
-              Traditional data centers can rely on evaporative cooling, creating continuous demand for local water resources.{" "}
-              <strong className="text-white font-semibold">USDC&apos;s modular data center architecture takes a different approach.</strong>
+              Our modular data center solution is designed to operate without evaporative cooling, eliminating the continuous water consumption associated with traditional data center cooling systems.
             </p>
-            <p className="text-[#a0aec0] text-[14px] sm:text-[15px] leading-[1.75] mb-6 max-w-[520px] font-normal">
-              Our closed-loop liquid cooling system continuously recirculates coolant to remove heat from high-density AI and HPC infrastructure—without the ongoing water consumption associated with evaporative cooling.
+            <p className="text-[#a0aec0] text-[14px] sm:text-[15px] leading-[1.75] max-w-[520px] font-normal">
+              Using a closed-loop liquid cooling architecture, coolant is continuously recirculated through the system rather than consumed. This enables highly efficient heat removal while requiring no ongoing water consumption for cooling.
             </p>
 
-            {/* Divider Line */}
-            <div className="h-[1px] w-[220px] bg-gradient-to-r from-white/20 to-transparent my-6" />
-
-            {/* Checklist */}
-            <ul className="flex flex-col gap-3.5 list-none p-0 m-0">
-              <li className="flex items-center gap-3.5 text-white/90 text-[14px] font-medium">
-                <span className="relative flex-shrink-0 w-[22px] h-[22px] rounded-[6px] border border-[#3daeff]/40 bg-[#3daeff]/10 flex items-center justify-center">
-                  <span className="w-[5px] h-[9px] border-r-[1.7px] border-b-[1.7px] border-[#3daeff] rotate-[42deg] -translate-y-0.5" />
-                </span>
-                No evaporative cooling
-              </li>
-              <li className="flex items-center gap-3.5 text-white/90 text-[14px] font-medium">
-                <span className="relative flex-shrink-0 w-[22px] h-[22px] rounded-[6px] border border-[#3daeff]/40 bg-[#3daeff]/10 flex items-center justify-center">
-                  <span className="w-[5px] h-[9px] border-r-[1.7px] border-b-[1.7px] border-[#3daeff] rotate-[42deg] -translate-y-0.5" />
-                </span>
-                No ongoing water consumption for cooling
-              </li>
-              <li className="flex items-center gap-3.5 text-white/90 text-[14px] font-medium">
-                <span className="relative flex-shrink-0 w-[22px] h-[22px] rounded-[6px] border border-[#3daeff]/40 bg-[#3daeff]/10 flex items-center justify-center">
-                  <span className="w-[5px] h-[9px] border-r-[1.7px] border-b-[1.7px] border-[#3daeff] rotate-[42deg] -translate-y-0.5" />
-                </span>
-                High-density AI &amp; HPC cooling
-              </li>
-            </ul>
           </div>
 
           {/* RIGHT: Cooling System Image */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-[0_30px_90px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.05)]">
+          <div className="relative rounded-2xl overflow-hidden group">
             <Image
-              src="/cooling-system.jpg"
-              alt="USDC Closed-Loop Cooling System — server racks with recirculating coolant pipes, heat exchanger, and zero-evaporation design"
-              width={1024}
-              height={700}
-              className="w-full h-auto object-cover"
+              src="/water-free-cooling.png"
+              alt="USDC Closed-Loop Liquid Cooling System — High-density compute racks with closed loop recirculating coolant and zero water consumption"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
               priority={false}
             />
           </div>
 
         </div>
 
-        {/* ═════════ NUMBERED POINTS (01–04) ═════════ */}
-        <div className="mt-16 md:mt-20 mb-8 text-center">
-          <h3 className="m-0 text-[14px] sm:text-[15px] font-semibold text-white/60 tracking-[0.06em]">
-            Designed for efficient, water-conscious infrastructure
+        {/* ═════════ KEY BENEFITS RESULT BANNER (EXACT MATCH) ═════════ */}
+        <div className="mt-16 md:mt-20 border border-white/[0.08] rounded-2xl bg-gradient-to-b from-[#070d1d]/90 via-[#050914]/95 to-[#02050c]/90 p-8 sm:p-10 md:p-12 relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.04)]">
+          {/* Ambient inner glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[450px] h-[150px] bg-blue-500/[0.05] rounded-full blur-[70px] pointer-events-none" />
+
+          {/* Top accent bar */}
+          <div className="w-12 h-[2.5px] bg-[#3daeff] rounded-full mx-auto mb-6 shadow-[0_0_10px_rgba(61,174,255,0.8)] relative z-10" />
+
+          {/* Headline */}
+          <h3 className="text-[20px] sm:text-[25px] md:text-[28px] font-bold text-center text-white mb-10 md:mb-12 max-w-[850px] mx-auto leading-[1.3] tracking-[-0.01em] relative z-10">
+            The result is a more{" "}
+            <span className="text-[#3daeff]">
+              environmentally responsible infrastructure platform
+            </span>{" "}
+            with:
           </h3>
+
+          {/* 5 Columns Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-0 lg:divide-x lg:divide-white/[0.08] relative z-10">
+            {/* Item 1: No evaporative cooling */}
+            <div className="flex flex-col items-center text-center px-4 py-1 group">
+              <div className="w-[66px] h-[66px] rounded-full border border-[#3daeff]/35 bg-[#3daeff]/[0.06] flex items-center justify-center text-[#3daeff] shadow-[0_0_20px_rgba(61,174,255,0.1)] group-hover:scale-105 group-hover:border-[#3daeff]/60 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.25)] transition-all duration-300">
+                <svg className="w-7 h-7 text-[#3daeff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  <line x1="4" y1="4" x2="20" y2="20" strokeWidth="1.8" />
+                </svg>
+              </div>
+              <span className="w-5 h-[1.5px] bg-[#3daeff]/70 rounded-full my-3.5 block" />
+              <p className="text-[13px] sm:text-[14px] leading-[1.4] text-white/90 font-medium max-w-[170px] m-0">
+                No evaporative cooling
+              </p>
+            </div>
+
+            {/* Item 2: No ongoing water consumption for cooling */}
+            <div className="flex flex-col items-center text-center px-4 py-1 group">
+              <div className="w-[66px] h-[66px] rounded-full border border-[#3daeff]/35 bg-[#3daeff]/[0.06] flex items-center justify-center text-[#3daeff] shadow-[0_0_20px_rgba(61,174,255,0.1)] group-hover:scale-105 group-hover:border-[#3daeff]/60 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.25)] transition-all duration-300">
+                <svg className="w-7 h-7 text-[#3daeff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                </svg>
+              </div>
+              <span className="w-5 h-[1.5px] bg-[#3daeff]/70 rounded-full my-3.5 block" />
+              <p className="text-[13px] sm:text-[14px] leading-[1.4] text-white/90 font-medium max-w-[170px] m-0">
+                No ongoing water consumption for cooling
+              </p>
+            </div>
+
+            {/* Item 3: Closed-loop liquid cooling */}
+            <div className="flex flex-col items-center text-center px-4 py-1 group">
+              <div className="w-[66px] h-[66px] rounded-full border border-[#3daeff]/35 bg-[#3daeff]/[0.06] flex items-center justify-center text-[#3daeff] shadow-[0_0_20px_rgba(61,174,255,0.1)] group-hover:scale-105 group-hover:border-[#3daeff]/60 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.25)] transition-all duration-300">
+                <svg className="w-7 h-7 text-[#3daeff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                  <path d="M3 3v5h5" />
+                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
+                  <path d="M21 21v-5h-5" />
+                </svg>
+              </div>
+              <span className="w-5 h-[1.5px] bg-[#3daeff]/70 rounded-full my-3.5 block" />
+              <p className="text-[13px] sm:text-[14px] leading-[1.4] text-white/90 font-medium max-w-[170px] m-0">
+                Closed-loop liquid cooling
+              </p>
+            </div>
+
+            {/* Item 4: Reduced environmental impact */}
+            <div className="flex flex-col items-center text-center px-4 py-1 group">
+              <div className="w-[66px] h-[66px] rounded-full border border-[#3daeff]/35 bg-[#3daeff]/[0.06] flex items-center justify-center text-[#3daeff] shadow-[0_0_20px_rgba(61,174,255,0.1)] group-hover:scale-105 group-hover:border-[#3daeff]/60 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.25)] transition-all duration-300">
+                <svg className="w-7 h-7 text-[#3daeff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.2-1.3 7.3-6.5 8.8-9 8.8z" />
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6" />
+                </svg>
+              </div>
+              <span className="w-5 h-[1.5px] bg-[#3daeff]/70 rounded-full my-3.5 block" />
+              <p className="text-[13px] sm:text-[14px] leading-[1.4] text-white/90 font-medium max-w-[170px] m-0">
+                Reduced environmental impact
+              </p>
+            </div>
+
+            {/* Item 5: Greater deployment flexibility */}
+            <div className="flex flex-col items-center text-center px-4 py-1 group">
+              <div className="w-[66px] h-[66px] rounded-full border border-[#3daeff]/35 bg-[#3daeff]/[0.06] flex items-center justify-center text-[#3daeff] shadow-[0_0_20px_rgba(61,174,255,0.1)] group-hover:scale-105 group-hover:border-[#3daeff]/60 group-hover:shadow-[0_0_25px_rgba(61,174,255,0.25)] transition-all duration-300">
+                <svg className="w-7 h-7 text-[#3daeff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <span className="w-5 h-[1.5px] bg-[#3daeff]/70 rounded-full my-3.5 block" />
+              <p className="text-[13px] sm:text-[14px] leading-[1.4] text-white/90 font-medium max-w-[170px] m-0">
+                Greater deployment flexibility in water-constrained regions
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {/* Point 01 */}
-          <div className="group relative bg-gradient-to-b from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 border border-white/[0.08] hover:border-[#3daeff]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <span className="font-mono text-[12px] font-semibold tracking-[0.16em] text-[#3daeff] block mb-3.5">
-              01
-              <span className="block w-[26px] h-[1.5px] bg-[#3daeff] mt-2.5 rounded-full shadow-[0_0_8px_rgba(61,174,255,0.5)]" />
-            </span>
-            <h4 className="text-[15px] font-bold text-white tracking-[0.01em] mb-2.5">
-              No Evaporative Cooling
-            </h4>
-            <p className="text-[13px] leading-[1.65] text-[#a0aec0] m-0 font-normal">
-              Eliminates cooling systems that continuously consume water through evaporation.
-            </p>
-          </div>
-
-          {/* Point 02 */}
-          <div className="group relative bg-gradient-to-b from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 border border-white/[0.08] hover:border-[#3daeff]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <span className="font-mono text-[12px] font-semibold tracking-[0.16em] text-[#3daeff] block mb-3.5">
-              02
-              <span className="block w-[26px] h-[1.5px] bg-[#3daeff] mt-2.5 rounded-full shadow-[0_0_8px_rgba(61,174,255,0.5)]" />
-            </span>
-            <h4 className="text-[15px] font-bold text-white tracking-[0.01em] mb-2.5">
-              Closed-Loop Cooling
-            </h4>
-            <p className="text-[13px] leading-[1.65] text-[#a0aec0] m-0 font-normal">
-              Coolant is continuously recirculated through the system for efficient, controlled heat removal.
-            </p>
-          </div>
-
-          {/* Point 03 */}
-          <div className="group relative bg-gradient-to-b from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 border border-white/[0.08] hover:border-[#3daeff]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <span className="font-mono text-[12px] font-semibold tracking-[0.16em] text-[#3daeff] block mb-3.5">
-              03
-              <span className="block w-[26px] h-[1.5px] bg-[#3daeff] mt-2.5 rounded-full shadow-[0_0_8px_rgba(61,174,255,0.5)]" />
-            </span>
-            <h4 className="text-[15px] font-bold text-white tracking-[0.01em] mb-2.5">
-              AI-Ready Density
-            </h4>
-            <p className="text-[13px] leading-[1.65] text-[#a0aec0] m-0 font-normal">
-              Supports high-density GPU and HPC environments while maintaining efficient thermal performance.
-            </p>
-          </div>
-
-          {/* Point 04 */}
-          <div className="group relative bg-gradient-to-b from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 border border-white/[0.08] hover:border-[#3daeff]/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-            <span className="font-mono text-[12px] font-semibold tracking-[0.16em] text-[#3daeff] block mb-3.5">
-              04
-              <span className="block w-[26px] h-[1.5px] bg-[#3daeff] mt-2.5 rounded-full shadow-[0_0_8px_rgba(61,174,255,0.5)]" />
-            </span>
-            <h4 className="text-[15px] font-bold text-white tracking-[0.01em] mb-2.5">
-              Greater Deployment Flexibility
-            </h4>
-            <p className="text-[13px] leading-[1.65] text-[#a0aec0] m-0 font-normal">
-              Reduces dependence on local water resources, enabling deployment in water-constrained regions.
-            </p>
-          </div>
-        </div>
-
-        {/* ═════════ RESULT BANNER ═════════ */}
-        <div className="mt-16 md:mt-20 border border-white/[0.08] rounded-2xl bg-gradient-to-b from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 p-10 md:p-14 text-center relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-          {/* Subtle Grid overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-30"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(61,174,255,0.04) 0.5px, transparent 0.5px),
-                linear-gradient(to bottom, rgba(61,174,255,0.04) 0.5px, transparent 0.5px)
-              `,
-              backgroundSize: "42px 42px",
-            }}
-          />
-
-          {/* Tag */}
-          <div className="font-mono text-[11px] font-semibold tracking-[0.26em] text-[#3daeff] uppercase inline-flex items-center gap-3.5 mb-6 relative z-10">
-            <span className="w-7 h-[1px] bg-gradient-to-r from-transparent to-[#3daeff]" />
-            The Result
-            <span className="w-7 h-[1px] bg-gradient-to-r from-[#3daeff] to-transparent" />
-          </div>
-
-          {/* Title */}
-          <h3 className="m-0 text-[24px] sm:text-[32px] md:text-[38px] lg:text-[42px] leading-[1.22] font-extrabold tracking-[-0.015em] text-white relative z-10">
-            Less water dependence. Efficient heat removal.<br className="hidden sm:inline" />
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-[#3daeff] mt-1">
-              Infrastructure built for the AI era.
-            </span>
-          </h3>
+        {/* ═════════ BOTTOM CALLOUT LINE UNDER CARD ═════════ */}
+        <div className="mt-8 md:mt-10 text-center max-w-[860px] mx-auto px-4">
+          <p className="text-[#a0aec0] text-[14px] sm:text-[15px] md:text-[16px] leading-[1.7] font-normal m-0">
+            By eliminating reliance on evaporative cooling, our modular platform delivers high-density AI and HPC cooling without placing additional demand on local water resources.
+          </p>
         </div>
 
       </div>
