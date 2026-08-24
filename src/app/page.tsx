@@ -12,6 +12,7 @@ const InfrastructureStack = dynamic(() => import("@/components/InfrastructureSta
 const AIDemand = dynamic(() => import("@/components/AIDemand"));
 const AIInfrastructureExcellence = dynamic(() => import("@/components/AIInfrastructureExcellence"));
 const NvidiaRoadmap = dynamic(() => import("@/components/NvidiaRoadmap"));
+const WaterFreeCooling = dynamic(() => import("@/components/WaterFreeCooling"));
 const DcimSection = dynamic(() => import("@/components/DcimSection"));
 const LatestNews = dynamic(() => import("@/components/LatestNews"));
 const PartnerSection = dynamic(() => import("@/components/PartnerSection"));
@@ -53,6 +54,9 @@ export default function Home() {
 
       {/* Render the NVIDIA Roadmap section */}
       <NvidiaRoadmap />
+
+      {/* Water-Free Closed-Loop Cooling section */}
+      <WaterFreeCooling />
 
       {/* USDC DCIM software telemetry dashboard section */}
       <DcimSection />
