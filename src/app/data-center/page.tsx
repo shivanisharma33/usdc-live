@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Server, Thermometer, Shield, Columns } from "lucide-react";
@@ -94,23 +93,9 @@ export default function DataCenterPage() {
             </h1>
 
             {/* Description */}
-            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-normal max-w-[480px] mx-auto mb-6 font-sans">
+            <p className="text-[13.5px] md:text-[14.5px] text-white/50 font-normal leading-normal max-w-[480px] mx-auto font-sans">
               Purpose-built AI-ready facilities engineered for high-density GPU infrastructure, advanced cooling and rapid deployment.
             </p>
-
-            {/* Action Buttons */}
-            <div className="flex justify-center w-full relative z-10">
-              <Link
-                href="/global-network"
-                className="group inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap"
-              >
-                <span>EXPLORE FACILITIES</span>
-                <svg className="w-5 h-5 text-white/90 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M6.5 10H13.5M13.5 10L10.5 7M13.5 10L10.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>

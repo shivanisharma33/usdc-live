@@ -14,7 +14,6 @@ import {
   Zap,
   Database,
   ChevronRight,
-  TrendingUp,
   Globe,
 } from "lucide-react";
 
@@ -87,33 +86,6 @@ const navLinks: NavLink[] = [
   { label: "Career", href: "/career" },
 ];
 
-/* ═══════════════════════════ Stock Ticker Component ═══════════════════════════ */
-
-interface StockState {
-  price: number;
-  changePercent: number;
-}
-
-function NavbarStockTicker({ stock, loading }: { stock: StockState; loading: boolean }) {
-  if (loading) return <div className="h-9 w-[110px] bg-white/5 animate-pulse rounded-[10px]" />;
-
-  const isPositive = stock.changePercent >= 0;
-
-  return (
-    <div className="hidden xl:flex items-center rounded-[10px] border border-white/10 bg-[#070c1a]/50 overflow-hidden backdrop-blur-md cursor-default hover:border-white/20 transition-colors">
-      <div className="flex flex-col justify-center px-3 py-1.5 h-[38px]">
-        <span className="text-[12px] font-bold text-white font-sans leading-none mb-1">${stock.price.toFixed(2)}</span>
-        <span className={`text-[9px] font-bold font-sans leading-none flex items-center gap-0.5 ${isPositive ? 'text-[#00e878]' : 'text-[#ff4a4a]'}`}>
-          {isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%
-          <TrendingUp className="w-2.5 h-2.5" style={{ transform: isPositive ? 'none' : 'scaleY(-1)' }} />
-        </span>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════ Navbar Component ═══════════════════════════ */
-
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -130,10 +102,6 @@ export default function Navbar() {
       return !prev;
     });
   }, []);
-
-  /* Stock Ticker state lifted up */
-  const [stock, setStock] = useState<StockState>({ price: 0, changePercent: 0 });
-  const [isStockLoading, setIsStockLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,50 +121,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    const fetchStock = async () => {
-      try {
-        const apiKey = process.env.NEXT_PUBLIC_MASSIVE_API_KEY;
-        if (!apiKey) return;
-
-        const symbol = 'DGXX';
-        const today = new Date().toISOString().split('T')[0];
-        const [snapshotRes, quoteRes, tradeRes, dailyRes] = await Promise.all([
-          fetch(`https://api.massive.com/v2/snapshot/locale/us/markets/stocks/tickers/${symbol}?apiKey=${apiKey}`).catch(() => null),
-          fetch(`https://api.massive.com/v3/quotes/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
-          fetch(`https://api.massive.com/v3/trades/${symbol}?limit=1&order=desc&apiKey=${apiKey}`).catch(() => null),
-          fetch(`https://api.massive.com/v1/open-close/${symbol}/${today}?adjusted=true&apiKey=${apiKey}`).catch(() => null),
-        ]);
-
-        const snapshotData = snapshotRes?.ok ? await snapshotRes.json() : null;
-        const quoteData = quoteRes?.ok ? await quoteRes.json() : null;
-        const tradeData = tradeRes?.ok ? await tradeRes.json() : null;
-        const dailyData = dailyRes?.ok ? await dailyRes.json() : null;
-
-        const snapshot = snapshotData?.ticker;
-        const quote = quoteData?.results?.[0];
-        const trade = tradeData?.results?.[0];
-        const daily = dailyData;
-
-        const livePrice = Number(quote?.ask_price) || Number(trade?.price) || Number(snapshot?.day?.c) || Number(daily?.close) || 0;
-        const openPrice = Number(snapshot?.day?.o) || Number(daily?.open) || livePrice;
-
-        if (!livePrice) return;
-        const change = livePrice - openPrice;
-        const changePercent = openPrice ? (change / openPrice) * 100 : 0;
-
-        setStock({ price: livePrice, changePercent });
-      } catch (e) {
-        console.error("Navbar ticker error:", e);
-      } finally {
-        setIsStockLoading(false);
-      }
-    };
-    fetchStock();
-    const int = setInterval(fetchStock, 60000);
-    return () => clearInterval(int);
-  }, []);
 
   /* Delayed close so the dropdown doesn't vanish when moving cursor to it */
   const handleMouseEnter = useCallback((label: string) => {
@@ -393,8 +317,6 @@ export default function Navbar() {
         <div className="w-[1px] h-5 bg-white/[0.12] hidden lg:block" />
 
         <div className="flex items-center gap-3 lg:gap-4 xl:gap-6 flex-shrink-0">
-          <NavbarStockTicker stock={stock} loading={isStockLoading} />
-
           {/* Contact Us Button */}
           <Link
             href="/contact"
@@ -454,17 +376,6 @@ export default function Navbar() {
               SYS STATUS: ACTIVE
             </span>
           </div>
-
-          {/* DGXX Ticker Info */}
-          {!isStockLoading && stock.price > 0 && (
-            <div className="flex items-center gap-1.5 text-right font-mono">
-              <span className="text-[10px] font-bold text-white/40">DGXX:</span>
-              <span className="text-[10px] font-bold text-white">${stock.price.toFixed(2)}</span>
-              <span className={`text-[9px] font-bold ${stock.changePercent >= 0 ? "text-[#00e878]" : "text-[#ff4a4a]"}`}>
-                ({stock.changePercent >= 0 ? "+" : ""}{stock.changePercent.toFixed(2)}%)
-              </span>
-            </div>
-          )}
         </div>
 
         {/* Main List */}
