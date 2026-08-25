@@ -121,10 +121,10 @@ export default function TeamCTA() {
                 </Link>
 
                 <Link
-                  href="/about"
+                  href="/management-team"
                   className="px-6 py-3 rounded-xl border border-white/10 hover:border-white/20 hover:bg-white/[0.02] text-white/80 hover:text-white text-[11px] font-bold tracking-[0.08em] uppercase transition-all duration-300"
                 >
-                  ABOUT COMPANY
+                  MEET TEAM
                 </Link>
               </div>
             </div>

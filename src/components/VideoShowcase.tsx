@@ -1,18 +1,44 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { ExternalLink, Volume2, VolumeX } from "lucide-react";
 
 export default function VideoShowcase() {
   const [isMuted, setIsMuted] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
+  const disableCaptions = useCallback(() => {
+    if (!iframeRef.current || !iframeRef.current.contentWindow) return;
+    try {
+      const cw = iframeRef.current.contentWindow;
+      // Disable & unload any YouTube caption/subtitle modules
+      cw.postMessage(JSON.stringify({ event: "command", func: "unloadModule", args: ["captions"] }), "*");
+      cw.postMessage(JSON.stringify({ event: "command", func: "unloadModule", args: ["cc"] }), "*");
+      cw.postMessage(JSON.stringify({ event: "command", func: "setOption", args: ["captions", "track", {}] }), "*");
+      cw.postMessage(JSON.stringify({ event: "command", func: "setOption", args: ["cc", "track", {}] }), "*");
+    } catch {
+      // Ignore cross-origin issues
+    }
+  }, []);
+
+  useEffect(() => {
+    // Run multiple attempts to ensure captions are unloaded once the player boots up
+    const timers = [
+      setTimeout(disableCaptions, 300),
+      setTimeout(disableCaptions, 800),
+      setTimeout(disableCaptions, 1500),
+      setTimeout(disableCaptions, 3000),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, [disableCaptions]);
+
   const toggleSound = () => {
     if (!iframeRef.current || !iframeRef.current.contentWindow) return;
     const nextMuted = !isMuted;
-    
+    const cw = iframeRef.current.contentWindow;
+
     // Send postMessage command to YouTube iframe player API
-    iframeRef.current.contentWindow.postMessage(
+    cw.postMessage(
       JSON.stringify({
         event: "command",
         func: nextMuted ? "mute" : "unMute",
@@ -23,7 +49,7 @@ export default function VideoShowcase() {
 
     // Ensure volume is set to 100 when unmuting
     if (!nextMuted) {
-      iframeRef.current.contentWindow.postMessage(
+      cw.postMessage(
         JSON.stringify({
           event: "command",
           func: "setVolume",
@@ -33,6 +59,8 @@ export default function VideoShowcase() {
       );
     }
 
+    // Re-enforce subtitle suppression
+    disableCaptions();
     setIsMuted(nextMuted);
   };
 
@@ -44,7 +72,7 @@ export default function VideoShowcase() {
       <div className="relative z-10 w-full max-w-[1360px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
         {/* ── Main Outer Card Container ── */}
         <div className="w-full rounded-[24px] sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-[#070c1a]/90 via-[#050914]/95 to-[#02050c]/90 backdrop-blur-2xl p-6 sm:p-8 md:p-10 lg:p-12 xl:p-14 shadow-[0_30px_90px_rgba(0,0,0,0.7),inset_0_1px_1px_rgba(255,255,255,0.05)] grid grid-cols-1 lg:grid-cols-[0.85fr_1.35fr] gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-center">
-          
+
           {/* ── Left Column: Text + Badges + Info ── */}
           <div className="flex flex-col items-start text-left">
             {/* Category / Sub-badge */}
@@ -88,14 +116,15 @@ export default function VideoShowcase() {
           {/* ── Right Column: Clean YouTube Video Embed Container with Sound Control ── */}
           <div className="relative w-full">
             <div className="relative w-full aspect-[16/10] sm:aspect-video rounded-[20px] sm:rounded-[24px] overflow-hidden border-2 border-[#3daeff] shadow-[0_0_45px_rgba(61,174,255,0.28),0_15px_40px_rgba(0,0,0,0.85)] group bg-black">
-              {/* Scaled YouTube Iframe with enablejsapi=1 for Sound Toggle */}
+              {/* Scaled & Cropped YouTube Iframe with full CC suppression and origin lock */}
               <iframe
                 ref={iframeRef}
-                src="https://www.youtube.com/embed/HmpA-Fc94BU?autoplay=1&mute=1&loop=1&playlist=HmpA-Fc94BU&playsinline=1&rel=0&controls=0&modestbranding=1&enablejsapi=1"
+                onLoad={disableCaptions}
+                src="https://www.youtube-nocookie.com/embed/HmpA-Fc94BU?autoplay=1&mute=1&loop=1&playlist=HmpA-Fc94BU&playsinline=1&rel=0&controls=0&modestbranding=1&enablejsapi=1&cc_load_policy=0&cc_lang_pref=none&iv_load_policy=3"
                 title="Inside DigiPower X’s Alabama AI Infrastructure Campus"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border-0 pointer-events-none"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[138%] h-[138%] border-0 pointer-events-none"
               />
 
               {/* Sound ON/OFF Toggle Button */}

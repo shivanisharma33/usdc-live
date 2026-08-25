@@ -33,7 +33,6 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: "About us", href: "/about" },
   { label: "News & insight", href: "/news-insights" },
   {
     label: "Company",
