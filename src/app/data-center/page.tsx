@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Server, Thermometer, Shield, Columns } from "lucide-react";
@@ -99,8 +100,8 @@ export default function DataCenterPage() {
 
             {/* Action Buttons */}
             <div className="flex justify-center w-full relative z-10">
-              <a
-                href="#facilities"
+              <Link
+                href="/global-network"
                 className="group inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3daeff] hover:bg-[#52b9ff] text-white text-[11px] font-black tracking-[0.12em] uppercase rounded-lg transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap"
               >
                 <span>EXPLORE FACILITIES</span>
@@ -108,7 +109,7 @@ export default function DataCenterPage() {
                   <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.2" />
                   <path d="M6.5 10H13.5M13.5 10L10.5 7M13.5 10L10.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

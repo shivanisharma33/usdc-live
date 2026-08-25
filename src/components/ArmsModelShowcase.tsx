@@ -71,13 +71,13 @@ const specs = [
   {
     icon: <Wind className="w-5 h-5" />,
     label: "Cooling System",
-    value: "Rear-Door",
-    desc: "Liquid cooling with CDUs",
+    value: "DTC",
+    desc: "Direct-to-chip liquid cooling",
   },
   {
     icon: <Server className="w-5 h-5" />,
     label: "Rack Density",
-    value: "60 to 100 kW",
+    value: "200 kW+",
     desc: "Per rack power support",
   },
   {
@@ -89,7 +89,7 @@ const specs = [
   {
     icon: <Gauge className="w-5 h-5" />,
     label: "PUE Rating",
-    value: ">1.25",
+    value: "<1.25",
     desc: "Industry-leading efficiency",
   },
   {

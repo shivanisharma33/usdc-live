@@ -15,6 +15,7 @@ interface TeamMember {
   role: string;
   image: string;
   bio: string;
+  linkedin?: string;
 }
 
 export default function TeamGrid() {
@@ -90,6 +91,14 @@ export default function TeamGrid() {
       role: "Co-Founder",
       image: "/images/97.jpg",
       bio: "Cybersecurity strategist safeguarding DigiPowerX's high-performance compute networks, physical assets and data sovereignty."
+    },
+    {
+      id: "naresh-kumar",
+      name: "Naresh Kumar",
+      role: "Executive Leadership",
+      image: "/images/naresh.jpg",
+      bio: "Executive leader driving high-density data center infrastructure, advanced compute architectures, and strategic technological deployments.",
+      linkedin: "https://www.linkedin.com/in/inareshkr/"
     }
   ];
 
@@ -210,7 +219,7 @@ export default function TeamGrid() {
                   {/* LinkedIn & Contact Buttons */}
                   <div className="flex gap-4 pt-2">
                     <a
-                      href="https://www.linkedin.com/company/digi-power-x/"
+                      href={selectedMember.linkedin || "https://www.linkedin.com/company/digi-power-x/"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-xl font-semibold text-[10px] uppercase tracking-widest hover:bg-[#3daeff] hover:text-white transition-all duration-300"

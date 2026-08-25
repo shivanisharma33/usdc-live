@@ -12,7 +12,7 @@ export default function FacilitySpecification() {
     {
       layer: "COOLING",
       direction: "Direct liquid-to-chip heat rejection and closed-loop cooling architecture",
-      spec: "PUE TARGET >1.3",
+      spec: "PUE TARGET <1.3",
     },
     {
       layer: "NETWORK",
