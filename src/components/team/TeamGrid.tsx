@@ -95,9 +95,9 @@ export default function TeamGrid() {
     {
       id: "naresh-kumar",
       name: "Naresh Kumar",
-      role: "Executive Leadership",
+      role: "Head of AI Factory Platform & Deployment Engineering",
       image: "/images/naresh.jpg",
-      bio: "Executive leader driving high-density data center infrastructure, advanced compute architectures, and strategic technological deployments.",
+      bio: "Head of AI Factory Platform & Deployment Engineering at DigiPower X | GPU Clouds | GPUaaS | AI Factories | HPC Platforms | Data Centers",
       linkedin: "https://www.linkedin.com/in/inareshkr/"
     }
   ];
