@@ -1,9 +1,41 @@
 "use client";
 
-import React from "react";
-import { ExternalLink } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { ExternalLink, Volume2, VolumeX } from "lucide-react";
 
 export default function VideoShowcase() {
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+  const toggleSound = () => {
+    if (!iframeRef.current || !iframeRef.current.contentWindow) return;
+    const nextMuted = !isMuted;
+    
+    // Send postMessage command to YouTube iframe player API
+    iframeRef.current.contentWindow.postMessage(
+      JSON.stringify({
+        event: "command",
+        func: nextMuted ? "mute" : "unMute",
+        args: [],
+      }),
+      "*"
+    );
+
+    // Ensure volume is set to 100 when unmuting
+    if (!nextMuted) {
+      iframeRef.current.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "setVolume",
+          args: [100],
+        }),
+        "*"
+      );
+    }
+
+    setIsMuted(nextMuted);
+  };
+
   return (
     <section className="relative w-full pt-0 md:pt-0 pb-10 md:pb-16 bg-[#04070f] overflow-hidden select-none">
       {/* ── Ambient Background Glows ── */}
@@ -37,7 +69,7 @@ export default function VideoShowcase() {
             </p>
 
             {/* Video Meta Info / Attribution */}
-            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-white/[0.06] w-full">
+            <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-white/[0.06] w-full">
               <span className="text-[11px] font-mono text-white/40 tracking-wider">
                 A video from DigiPower X on YouTube
               </span>
@@ -45,7 +77,7 @@ export default function VideoShowcase() {
                 href="https://youtu.be/HmpA-Fc94BU"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#3daeff] hover:text-[#74c4ff] transition-colors uppercase tracking-wider"
+                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#3daeff] hover:text-[#74c4ff] transition-colors uppercase tracking-wider font-mono"
               >
                 <span>Watch on YouTube</span>
                 <ExternalLink className="w-3 h-3" />
@@ -53,17 +85,38 @@ export default function VideoShowcase() {
             </div>
           </div>
 
-          {/* ── Right Column: YouTube Video Embed Container ── */}
+          {/* ── Right Column: Clean YouTube Video Embed Container with Sound Control ── */}
           <div className="relative w-full">
             <div className="relative w-full aspect-[16/10] sm:aspect-video rounded-[20px] sm:rounded-[24px] overflow-hidden border-2 border-[#3daeff] shadow-[0_0_45px_rgba(61,174,255,0.28),0_15px_40px_rgba(0,0,0,0.85)] group bg-black">
-              {/* YouTube Iframe Embed */}
+              {/* Scaled YouTube Iframe with enablejsapi=1 for Sound Toggle */}
               <iframe
-                src="https://www.youtube-nocookie.com/embed/HmpA-Fc94BU?rel=0&modestbranding=1"
-                title="Inside DigiPower X’s Alabama AI Infrastructure Campus #DigiPowerX #DGXX"
+                ref={iframeRef}
+                src="https://www.youtube.com/embed/HmpA-Fc94BU?autoplay=1&mute=1&loop=1&playlist=HmpA-Fc94BU&playsinline=1&rel=0&controls=0&modestbranding=1&enablejsapi=1"
+                title="Inside DigiPower X’s Alabama AI Infrastructure Campus"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="w-full h-full border-0"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border-0 pointer-events-none"
               />
+
+              {/* Sound ON/OFF Toggle Button */}
+              <button
+                onClick={toggleSound}
+                className="absolute bottom-4 right-4 z-30 px-3 py-2 rounded-full bg-black/75 hover:bg-[#3daeff] backdrop-blur-md border border-white/20 hover:border-[#3daeff] text-white transition-all duration-300 cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex items-center gap-2 group/btn"
+                aria-label={isMuted ? "Turn Sound ON" : "Turn Sound OFF"}
+                title={isMuted ? "Turn Sound ON" : "Turn Sound OFF"}
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX className="w-4 h-4 text-white/80 group-hover/btn:text-white" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider font-mono pr-0.5 text-white/90 group-hover/btn:text-white">Sound Off</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-4 h-4 text-[#3daeff] group-hover/btn:text-white animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider font-mono pr-0.5 text-[#3daeff] group-hover/btn:text-white">Sound On</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
 

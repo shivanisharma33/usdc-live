@@ -89,7 +89,7 @@ const specs = [
   {
     icon: <Gauge className="w-5 h-5" />,
     label: "PUE Rating",
-    value: "<1.25",
+    value: "<1.3",
     desc: "Industry-leading efficiency",
   },
   {
